@@ -12,6 +12,6 @@ class ArtPackagingTests(unittest.TestCase):
     def test_generated_page_is_current_isolated_and_noncommercial_data_free(self):
         self.assertEqual((ROOT/'art-preview.html').read_text(),art.create());self.assertIn('noindex',art.create());self.assertNotIn('rel="canonical"',art.create());self.assertIn('web/art-pair/config.js',art.create())
         self.assertIn("dataPolicy:'user-only'",(ROOT/'web/art-pair/config.js').read_text())
-        source=(ROOT/'scripts/build_pages.py').read_text();self.assertNotIn('art-preview.html',source);self.assertNotIn('assets/art-pair',source)
+        source=(ROOT/'scripts/build_pages.py').read_text();self.assertIn("ROOT/'beta.html'",source);self.assertIn('assets/art-pair',source)
     def test_offline_embeds_only_ui_and_art(self):
         html=art.create(True);self.assertNotIn('<script defer src=',html);self.assertNotIn('<link rel="stylesheet"',html);self.assertNotIn('Ingredient_Stick',html);self.assertNotIn('hysphere-2026-08-12.json',html);self.assertIn('data:image/webp;base64,',html);self.assertLess(len(html.encode()),600000)

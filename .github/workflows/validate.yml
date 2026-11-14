@@ -17,6 +17,11 @@ jobs:
       - run: python -m unittest discover -s tests -v
       - run: node tests/planner.test.js
       - run: node tests/preview.test.js
+      - run: node tests/beta.test.js
+      - name: Build and audit public beta boundary
+        run: |
+          python scripts/build_pages.py --data-policy user-only
+          python scripts/audit_pages.py
       - name: Install mobile integration test dependencies
         run: |
           python -m pip install playwright==1.56.0
@@ -28,3 +33,4 @@ jobs:
           python tests/preview_browser.py
           python tests/pages_browser.py
           python tests/art_browser.py
+          python tests/beta_browser.py

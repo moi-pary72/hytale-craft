@@ -1,57 +1,63 @@
-# Cloudflare Pages: review build, not deployed — 2026-11-14
+# Stage6: Cloudflare Pages beta — prepared, not deployed
 
-Stage 4 is stacked on draft PR3, itself stacked on PR2. No merge, production change, Cloudflare account connection or public deployment was performed. Existing GitHub Pages stays untouched. This preparation needs no paid feature; domain registration is outside scope.
+**The current entry point is `beta.html` → `dist/index.html`.** Never publish repository root, source `index.html`, `preview.html` or `art-preview.html`. They remain historical/source review interfaces. `scripts/build_pages.py` now includes PR5’s two posters/atlases and the beta shell. The old Stage4 build description is superseded by this document; history remains in development records.
 
-## Exact settings for a future owner-approved connection
+## Exact settings after separate owner approval
 
 | Setting | Value |
 |---|---|
-| Git repository | `moi-pary72/hytale-craft` only |
+| Account plan | Cloudflare Pages Free; no paid function required |
+| Repository | `moi-pary72/hytale-craft` only |
+| Project name requested | `hytale-craft` |
+| Intended address | `https://hytale-craft.pages.dev` — not created, ownership/availability not verified |
 | Framework preset | None |
-| Root directory | repository root (leave blank) |
+| Root directory | Repository root (leave blank) |
 | Build command | `python3 scripts/build_pages.py --data-policy user-only` |
-| Build output directory | `dist` |
-| Python | Python 3, standard library only; tested 3.12 |
-| Environment/secrets | none required |
-| Functions / Workers / database | none |
-| Initially reviewed branch | `codex/cloudflare-testing-ready`, only after owner approval |
-| Automatic production/preview deployments | disable until an explicit publishing decision |
+| Output directory | `dist` |
+| Python | Python3, tested3.12, standard library only |
+| Secrets/functions/database | None |
+| First review branch | `codex/mobile-beta` only after an explicit deployment decision |
+| Production/preview auto-builds | Keep disabled until the owner approves publication policy |
 
-**Saving a Git integration with “Save and Deploy” can publish immediately. Do not click it merely to configure this task.** Even a preview deployment is publicly reachable unless access protection is configured. No real Pages URL exists for this stage; no guessed URL is provided.
+Connecting Git and clicking **Save and Deploy can publish immediately**. A Pages preview URL is still publicly reachable by default. No public deployment, tunnel, new Site, Cloudflare integration, paid service, account or analytics was created here. No live address is claimed. This task stops before merge/Deploy. Standalone HTML and ZIP provide private owner review without making a public site.
 
-The source `index.html` is the legacy interface. Never use repository root as the output directory or a blank build command. The builder reads `preview.html`, adds the testing configuration, and writes the NEW interface to `dist/index.html`. Explicit allowlisting copies only four complete dictionaries, runtime JS/CSS and ten original SVGs. No docs, tests, scripts, old index, licensed archives, backups or `.git` are copied. It makes a real `404.html`, so missing routes do not silently fall back to a SPA; `/preview.html` redirects to `/`. There is no service worker. Only generated `dist` may be uploaded. `dist` is ignored by Git, regenerated every build.
+## Build, audit and local review
 
-## Data modes and rights
+```
+python3 scripts/build_pages.py --data-policy user-only
+python3 scripts/audit_pages.py
+python3 -m http.server 8000 --directory dist
+```
 
-Default `user-only` ships NO community catalogs or recipes and makes NO data requests. The editor, inventory, export/import and manual plans work. It is suitable for reviewing mechanics without bundled database redistribution; this is not a blanket legal clearance for commercial launch.
+Open `http://localhost:8000/` on the developer machine. For another device, local networking/firewall setup is the owner's choice; do not expose a repository-root server publicly. `python3 scripts/export_beta.py` makes a standalone HTML, containing UI/art/original educational examples only. Downloaded-file behavior on physical Android is untested; do not disable browser security if scripts/storage are restricted.
 
-`python3 scripts/build_pages.py --data-policy noncommercial-review` includes exactly the pinned HySphere snapshot + separate ID catalog, validates SHA-256 and rejects empty data. It preserves 623 source-backed recipes for owner review. This is **not** permission to publish those datasets. Confirm the scope of public noncommercial mirroring with HySphere before choosing this mode for a public test; commercial use remains blocked. See `COMMERCIAL_DATA_READINESS.md`.
+The whitelist contains the beta entry, planner/i18n, beta CSS/JS, eight dictionaries, four optimized PR5 WebPs, static404, noindex robots, headers/redirects and checksum manifest. Source snapshots, ID catalog, old SPA, licensed archives, masters, reports, tests, docs, backups and credentials are excluded. Builder now **rejects `noncommercial-review`**. Restricted owner review remains separate (`export_preview.py`), never use that HTML as the public beta entry.
 
-## Security, SEO and paths
+Builds fetch no remote data and require no npm install. Art checksums are verified against the checked-in manifest before copying. All public bytes except the self-referential manifest have SHA-256 entries. Two consecutive builds are compared by tests; audit rejects unlisted files. Files/HTML have deterministic content, no build clock or random ID. Updated art/source changes should be reviewed in PR and rebuild the pinned Git revision.
 
-All paths are relative and work at the Pages domain root. HTTPS is provided by Pages for its assigned `*.pages.dev` hostname; validate actual TLS, MIME types, `_headers`, redirects and 404 after any future approved deployment. Local tests simulate the CSP but do not prove Cloudflare applied it. CSP allows only same-origin scripts/styles/fetch and local/data images; no external trackers/fonts, ads or analytics. `_headers` adds noindex, nosniff, no-referrer, limited permissions and revalidation. File checksums are recorded in `build-manifest.json`; every build starts from the reviewed repository snapshot.
+## HTTPS, CSP, SEO and domains
 
-All Stage4 builds are intentionally noindex with host-root `robots.txt` disallowing crawling. For testing, no `SITE_URL` is needed. An optional `--site-url https://APPROVED-HOST` supplies canonical/OG URL and single-URL sitemap; it must be a valid HTTPS origin. Do not enter a placeholder in an actual deployment. Four UI languages use one URL and browser/manual preference, with no fake language pages or hreflang. Game English names remain separate from UI localization. Open Graph has a title/description; final share artwork and indexable SEO release need a later review. Remove testing/noindex only in a separately approved launch change; sitemap presence alone does not enable indexing.
+Relative same-origin paths work at the Pages root. Intended `pages.dev` HTTPS/TLS and actual `_headers`, redirects, MIME types and404 must be smoke-tested after an approved deploy; local CSP simulation is not proof of Cloudflare configuration. CSP permits same-origin scripts/styles/fetch plus self/data images, blocks inline script/eval, frames, objects and form posts. No third-party trackers, ads, external font/CDN or cookies are introduced. Native dialogs and CSSOM pose styles are tested under this policy.
 
-## Updates and rollback
+Temporary noindex is present in HTML, headers and root robots. No fake item or language SEO URLs. A canonical/single-URL sitemap can optionally be generated with `--site-url https://hytale-craft.pages.dev` only once that origin is confirmed; the exact requested default command works without it. Keep noindex for this limited educational beta. A later domain requires owner-controlled DNS/Pages custom-domain verification and an approved canonical/redirect change. Domain purchase/DNS changes are outside this task.
 
-Existing source-update Actions check permitted endpoints, validate and propose versioned data via PR. They do not deploy or merge. Pages builds do not download game data. To update a hosted test later: review data/rights/hash/diff in Git, approve the dependency stack, merge only with permission, then build the selected approved branch. Enable branch build controls only as part of that publishing decision. Do not connect Pages to main assuming PR2/3/4 already landed.
+## Updates, storage and rollback
 
-Keep previous successful Pages deployments and reviewed Git commit/ZIP manifests. Cloudflare production rollback can restore a prior successful production deployment; a Git revert/rebuild also requires approval. Browser inventory and recipes are **not** rolled back with code. A hostname change creates a different localStorage origin: export recipes and record/copy inventory/plans before migration. Current export is recipe-only, not a full backup of all browser state.
+Current beta has4 **original educational recipes, not Hytale data** and user-entered/imported recipes. Source-monitor/update workflows remain PR-only; no downloaded community database is included by the beta whitelist. Updating those snapshots does not enable them in beta. Do not enable a source without provenance and public-use rights review. No auto-merge/deployment job was added.
 
-## Later custom international domain
+Keep successful Git/ZIP/build-manifest versions and Cloudflare production deployments. Cloudflare rollback targets prior successful production deployments; preview deployments themselves are not production rollback targets. Any rollback/rebuild is an owner action requiring deployment approval. Site rollback does not revert localStorage. Export beta recipes/inventory/both plans before changing hostnames; browser origins are isolated. Derived result/quantity session caches are not portable backups.
 
-Owner chooses and controls the domain separately. Add it through Pages Custom domains, follow Cloudflare DNS/HTTPS verification, set the actual origin in the build, test links/canonical/sitemap and single-host redirects, then request indexing after legal/content approval. Do not add DNS or buy a domain now. Keep the old origin available long enough for manual browser-data export/import; cross-origin localStorage cannot be read automatically.
+## Safe dependency integration: PR2 → PR3 → PR4 → PR5 → PR6
 
-## References checked for configuration
+1. Before any merge, inspect GitHub Pages settings and Actions: **a main merge may automatically publish the existing GitHub Pages site**, even if no deploy workflow is checked in. Coordinate/disable production auto-publication only with owner permission. Do not use merging as a harmless test.
+2. Obtain explicit approval for merge and separately for deployment; confirm current branch heads and PR diffs. Prefer ordinary merge commits preserving stack ancestry. Do not delete a base branch while a dependent PR still targets it.
+3. Merge PR2 into main only after approval/checks. Retarget PR3 to main; resolve any conflicts and run CI, then obtain/perform approved merge3.
+4. Retarget PR4 to main, inspect final diff/CI, then approved merge4. Repeat for PR5, then PR6. Each retarget is after its dependency is incorporated. Never merge PR6 alone against an unprepared main.
+5. If using squash/rebase merges instead, explicitly rebase each dependent branch onto the new main and review the rewritten diff; do not assume old stack SHAs remain ancestors. Recheck parallel changes before every action.
+6. Build/audit final approved revision. Owner verifies Android, intended slug and rights-limited catalog. Only then connect the approved Git branch and click Deploy. Do not accidentally enable Cloudflare main auto-builds before the complete stack is ready.
 
-- https://developers.cloudflare.com/pages/framework-guides/deploy-anything/
-- https://developers.cloudflare.com/pages/configuration/branch-build-controls/
-- https://developers.cloudflare.com/pages/configuration/preview-deployments/
-- https://developers.cloudflare.com/pages/configuration/headers/
-- https://developers.cloudflare.com/pages/configuration/serving-pages/
-- https://developers.cloudflare.com/pages/configuration/rollbacks/
-- https://developers.cloudflare.com/pages/configuration/custom-domains/
-- https://developers.cloudflare.com/pages/platform/limits/
+## Readiness
 
-Cloudflare Free limits and current dashboard defaults should be rechecked at the actual owner-approved connection. This is a static Python build, no npm/framework subscription, Workers billing or bank-card feature is required by the implementation.
+Prepared for **free UX/calculator testing with explicitly educational examples**, subject to owner acceptance and deployment authorization. It is not a verified Hytale recipe database or commercial launch. Two art scenes remain four-pose samples with short cross-fades; eight final scenes and physical Android/native-language QA remain pending.
+
+Official references: https://developers.cloudflare.com/pages/framework-guides/deploy-anything/ ; https://developers.cloudflare.com/pages/configuration/headers/ ; https://developers.cloudflare.com/pages/configuration/branch-build-controls/ ; https://developers.cloudflare.com/pages/configuration/serving-pages/ ; https://developers.cloudflare.com/pages/configuration/rollbacks/ ; https://developers.cloudflare.com/pages/configuration/custom-domains/ ; https://developers.cloudflare.com/pages/platform/limits/ . No paid product is needed by this implementation; check actual dashboard defaults at the approved connection.

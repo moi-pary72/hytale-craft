@@ -29,3 +29,8 @@
 ## Этап 3 — коммерческая готовность проверена повторно
 
 14.11.2026 перечитаны https://hysphere.app/about#data-license и https://hysphere.app/contact . Разрешение на commercial use/mirroring/redistribution отсутствует; wording о citation/linking не следует расширять до blanket license. Partnership request можно направить через contact form, draft подготовлен в COMMERCIAL_DATA_READINESS.md, не отправлен. Покупка игрового архива сама по себе не лицензирует коммерческий derived-data сайт. Creator-policy URL сейчас ведёт в affiliate program, а не общую лицензию базы. Источники и snapshot не менялись в stage3. Commercial launch blocked, ads/analytics отсутствуют; подробный план разрешения прав в отдельном документе.
+
+
+## Stage6 public beta scope
+
+Public `dist` contains zero HySphere/OpenHytale recipe/catalog snapshots. Existing datasets above are retained in source history/private backups only, unchanged. `web/beta/examples.js` adds4original educational arithmetic fixtures (lesson: prefix, explicit NOT Hytale label, no game version/station claim), authored independently for this project. They are not a new game-data source; see EDUCATIONAL_EXAMPLES.md. Public builder accepts user-only exclusively and rejects noncommercial-review. Real data rights/version/completeness remain unresolved.

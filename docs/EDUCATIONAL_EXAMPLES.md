@@ -1,0 +1,9 @@
+# Beta learning dataset — original, not Hytale
+
+`web/beta/examples.js` was authored for this project in Stage6. It contains four original arithmetic exercises: binding strip, blade, pickaxe and wall panel, using invented practice fibre/stone/wood quantities. All IDs have a `lesson:` prefix. They were not copied, inferred or normalized from HySphere, OpenHytale, a game archive, wiki or any game version. The tiny source dataset carries an explicit CC0-1.0 dedication; it has no third-party database provenance to claim. This is not evidence of actual Hytale recipes or studio permission.
+
+The interface says **Learning examples — NOT Hytale recipes**, including localized item names. No game stations, statistics, progression or official translation are asserted. Output counts and nested dependencies exist solely to exercise the planner. Lesson grouping under a goal demonstrates the UI, not the corresponding in-game category contents.
+
+Examples are immutable and separate from user recipes. Separate plan keys prevent mixing sources; inventory IDs remain explicit and common storage uses distinct `lesson:` IDs. Examples never populate/overwrite the user's recipe store. Import/export supports the existing `hytale-craft-v1` user format. Full beta backup preserves raw recipe JSON, inventory and two beta plan strings; derived result/quantity session state is not a portable backup. Old user-plan text is read as a fallback where no beta user plan exists.
+
+No confirmed Hytale recipe was added in this stage. Existing623 HySphere source-backed recipes and separate ID snapshots remain unchanged in source history/private backups but are excluded from public dist. Builder rejects the restricted mode. To enable real data later, verify public-use rights, game version, exact provenance and completeness independently, then review an explicit integration PR.

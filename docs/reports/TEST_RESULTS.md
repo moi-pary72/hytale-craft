@@ -37,3 +37,8 @@ See [STAGE4_TEST_RESULTS.md](STAGE4_TEST_RESULTS.md) for actual current counts a
 ## Stage5 art pair
 
 Current art review/regression results: [STAGE5_TEST_RESULTS.md](STAGE5_TEST_RESULTS.md), [STAGE5_PERFORMANCE.json](STAGE5_PERFORMANCE.json). Two generated scene/action candidates only; no approval/deployment implied.
+
+
+## Stage6 beta
+
+Current output/UX results: STAGE6_TEST_RESULTS.md, STAGE6_PERFORMANCE.json, STAGE6_DIST_AUDIT.json. Beta entry supersedes old deployment selectors, retains legacy/art regression suites. No physical Android/Cloudflare deployment claimed.
