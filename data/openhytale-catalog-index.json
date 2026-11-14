@@ -1,0 +1,23 @@
+{
+  "ambience": 206,
+  "audio_categories": 99,
+  "biome_assignments": 118,
+  "biomes": 70,
+  "blocks": 431,
+  "camera_effects": 49,
+  "camera_shakes": 49,
+  "drops": 676,
+  "effects": 140,
+  "item_animations": 146,
+  "item_groups": 43,
+  "items": 3641,
+  "models": 436,
+  "npc_groups": 71,
+  "npcs": 974,
+  "prefabs": 7491,
+  "projectiles": 111,
+  "recipes": 403,
+  "resource_types": 181,
+  "sounds": 1177,
+  "trails": 59
+}

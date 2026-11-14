@@ -1,0 +1,35 @@
+name: Review game ID catalog updates
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '34 6 * * *'
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -v
+      - run: python scripts/sync_catalog.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: catalog-import-report
+          path: docs/reports/catalog-sync.json
+          retention-days: 90
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/catalog-update
+          title: 'Update community game ID catalog (no recipe bodies)'
+          commit-message: 'Update validated OpenHytale identifier snapshot'
+          body: 'Automated schema and shrink checks passed. Review source date and diff before merging. No confirmed recipes are imported. Previous snapshot is preserved for rollback.'
+          add-paths: |
+            data/catalog.json
+            data/catalog.previous.json
+            docs/reports/catalog-sync.json
