@@ -94,7 +94,17 @@
       "bytes": 175516,
       "local_sha256": "27327717c86f2251f803020b9534196bbb0613eee4c0c3196a875586ff2d5ef1",
       "verification": "upload success + metadata name/size/parent readback; remote checksum unavailable"
+    },
+    {
+      "name": "hytale-craft-handoff-bd844ba.zip",
+      "id": "1Tjxhga6_RDQwqdis_8_YyMJzQofcd_U2",
+      "url": "https://drive.google.com/file/d/1Tjxhga6_RDQwqdis_8_YyMJzQofcd_U2/view?usp=drivesdk",
+      "parent_id": "1rcxc2tEV8_sn0n7YuyxzWvISWJSjUa_c",
+      "bytes": 33526,
+      "local_sha256": "b15c9be6c5b6c3a72558594c575792c5abcff4b577b4cb5ec89622e8a551e7c6",
+      "verification": "upload success + metadata name/size/parent readback; remote checksum unavailable",
+      "snapshot_commit": "bd844ba"
     }
   ],
-  "note": "Two code snapshots retained. Latest code backup includes supported Ubuntu runner pin. Later documentation-only changes are in Git. Public source export is not Assets.zip. Remote checksum not returned by connector."
+  "note": "Two code snapshots retained. Latest code backup includes supported Ubuntu runner pin. Later documentation-only changes are in Git. Public source export is not Assets.zip. Remote checksum not returned by connector. Final handoff ZIP contains documentation at bd844ba; its own receipt is recorded afterwards to avoid a circular archive hash."
 }
