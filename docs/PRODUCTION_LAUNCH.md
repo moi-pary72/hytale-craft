@@ -1,3 +1,11 @@
+# Result: GitHub Pages beta is live — 2026-11-14
+
+https://moi-pary72.github.io/hytale-craft/ is the new educational beta, not the old source-root site. Sequential authorized merges2–8 completed, release main691fe87db1b7d79f374fd8628ff7ad4a3f20c105; Pages build/deploy43605804630success. Public hashes, forbidden paths and live mobile browser checks passed. Exact evidence: reports/PRODUCTION_RELEASE_VERIFICATION.json. Owner resolved the403 by selecting GitHub Actions; earlier blocker text below is historical.
+
+Cloudflare is **not yet verified**: no account tools available, no live URL claimed. Use the existing/new single hytale-craft project from main with automatic production updates, exact fields below. No separate preview project. Authorization already exists, owner needs account connection steps only. Main is now ready to build.
+
+---
+
 # Owner-authorized production launch — 2026-11-14
 
 The owner explicitly authorized publishing the free educational beta and sequential normal merges of PR2–7. This supersedes earlier no-merge/no-deploy instructions, but not the ban on restricted datasets, third-party game assets, ads or paid services. Use one main branch and one Cloudflare project **hytale-craft**, not a separate preview project.

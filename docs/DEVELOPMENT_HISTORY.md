@@ -100,3 +100,8 @@ Stage7 result: draftPR7 onPR6, CI43597302206 succeeded, actual CI artifact141148
 ## 2026-11-14 — owner-authorized launch preflight, stopped before merge
 
 Owner approved main merges2–7 and free educational production beta, one Cloudflare hytale-craft/main with automatic updates. Archived main1c9c1e0, remote annotated backup tag and CRC/SHA-verified Drive ZIP. Investigated red PR6 push check, fixed language-save/abort-on-reload rollback race and added delayed-network reload regression; final c4accf4 push/PR CI green. Prepared release PR8 with audited-dist Pages workflow, project-path404 and metaCSP, production-only Cloudflare instructions; push/PR CI green. Attempt to switch Pages Source to Actions failed403 integration permission; legacy main:/ readback unchanged. As required, no main merges/force/deploy. Owner asked to switch Source manually; prior merge/publication authorization persists. Existing GitHub HTTP200 is old interface, Cloudflare URL not confirmed.
+
+
+## 2026-11-14 — authorized beta launched on GitHub Pages
+
+Owner switched Source toActions, resolving403. Normal sequential merges2(55f55cfc)→3(ff9d7d79)→4(4cfaca7e)→5(d345cfec)→6(37d19e5d)→7(e6ba5dd0)→8(691fe87d), each after fresh successful CI, SHA/main concurrency checks, no force/conflicts. Workflow43605804630 built/audited/deployed onlydist. Actual HTTPS200 beta verified, public hashes match and forbidden paths404/403. Live mobile Chromium4widths/4locales/action/sheet/calculation/inventory/plan/Back/reload passed without JS errors/overflow/data requests. Source/root never published during integration. Old main tag/DriveZIP retained. Cloudflare remains unverified/unconnected; main-project Android steps prepared, no preview project or paid feature created.

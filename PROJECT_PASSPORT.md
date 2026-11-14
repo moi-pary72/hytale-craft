@@ -1,3 +1,15 @@
+# Учебная beta опубликована и проверена — 14.11.2026
+
+Рабочий сайт: https://moi-pary72.github.io/hytale-craft/ . Разрешённые PR2–8 объединены последовательно с зелёным CI, без force/конфликтов. Release main691fe87db1b7d79f374fd8628ff7ad4a3f20c105, workflow43605804630success. SourceGitHubActions, публикуется только auditeddist. Старый403 снят владельцем, инструкции «остановиться доSource» ниже — история.
+
+На живом HTTPS проверены320/360/393/430,4языка,10целей,панель,действиеперсонажа,расчёт/инвентарь/план/Back/Escape/reload; JSошибок/скролла/запросовигровойбазы нет. Manifest/hashes совпали, data/docs/архивы закрыты404/403.4учебных примера явно НЕ рецептыHytale; реальные базы не публикуются.8финальных иллюстраций/полная плавная анимация и физическийAndroid остаются ограничениями.
+
+Cloudflare должен быть один: hytale-craft/main, None, python3 scripts/build_pages.py --data-policy user-only, outputdist, Rootпусто, auto productionON. Доступа к аккаунту у исполнителя нет, liveCloudflareURLне подтверждён. Пошаговая Androidинструкция docs/CLOUDFLARE_PAGES.md. Разрешение на публикацию уже получено, повторно его не спрашивать.
+
+Oldmain1c9c1e0 сохранён remote tagbackup/main-before-beta-20261114 и провереннымDriveZIP. Полные текущие данные/ссылки: docs/PROJECT_STATE.md и reports/PRODUCTION_RELEASE_VERIFICATION.json. История ниже сохранена.
+
+---
+
 # Разрешённый запуск основной beta — подготовка, публикация ещё не выполнена
 
 Владелец разрешил merge2–7 и бесплатную учебную beta. Использовать только основной Cloudflare hytale-craft/main, без preview-проекта; auto production updates включены. Актуальная инструкция docs/PRODUCTION_LAUNCH.md.

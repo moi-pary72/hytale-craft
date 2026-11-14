@@ -15,7 +15,7 @@ Current instruction: [PRODUCTION_LAUNCH.md](PRODUCTION_LAUNCH.md). The owner aut
 | Preview branches | None |
 | Secrets / paid services | Not required |
 
-No direct Cloudflare account access is available; actual project/HTTPS deployment must be confirmed by owner/dashboard and then tested. Do not claim hytale-craft.pages.dev is working until verified. Publish only after completed main contains builder/beta. No HySphere/OpenHytale datasets, source docs/tests/archives/secrets are in dist; noncommercial-review is rejected. Four original learning examples are explicitly not Hytale recipes. No ads/analytics or new third-party assets.
+GitHub beta is live at https://moi-pary72.github.io/hytale-craft/ and main contains the complete audited builder. No direct Cloudflare account access is available; actual project/HTTPS deployment must be confirmed by owner/dashboard and then tested. Do not claim hytale-craft.pages.dev is working until verified. Publish only after completed main contains builder/beta. No HySphere/OpenHytale datasets, source docs/tests/archives/secrets are in dist; noncommercial-review is rejected. Four original learning examples are explicitly not Hytale recipes. No ads/analytics or new third-party assets.
 
 GitHub Pages needs a separate audited-dist workflow because existing main:/ root publishing is unsafe for the intermediate stack. The owner has switched Source to GitHub Actions, confirmed by REST GET, resolving the connected integration's earlier403. Authorized sequential integration and audited-dist publication can now proceed; no further publication permission is required.
 
