@@ -32,3 +32,8 @@
 ## Stage 4 continuation
 
 See [STAGE4_TEST_RESULTS.md](STAGE4_TEST_RESULTS.md) for actual current counts and [STAGE4_PERFORMANCE.json](STAGE4_PERFORMANCE.json) for emulated mobile measurements. Cloudflare remains unconnected; no production validation is claimed.
+
+
+## Stage5 art pair
+
+Current art review/regression results: [STAGE5_TEST_RESULTS.md](STAGE5_TEST_RESULTS.md), [STAGE5_PERFORMANCE.json](STAGE5_PERFORMANCE.json). Two generated scene/action candidates only; no approval/deployment implied.

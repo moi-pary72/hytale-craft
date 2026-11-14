@@ -42,3 +42,8 @@ Owner must review the visual concept and approve any replacement/merge/deploymen
 ## Stage4 continuation
 
 The reviewed style and SVG prototypes remain unchanged. `FINAL_ILLUSTRATIONS_BRIEF.md` is the production art brief; no final art is implied. `scripts/build_pages.py` stages this interface as `dist/index.html`; source `index.html` remains legacy and must not be deployed as the new design. Default build excludes community data pending rights; full owner-review HTML still preserves the pinned snapshot. See `CLOUDFLARE_PAGES.md` and Stage4 reports.
+
+
+## Stage5 superseding art decision
+
+The owner rejected the Stage3/4 SVG look. Those files are historical functional prototypes, NOT the approved art direction. Always consult `APPROVED_DESIGN_REFERENCES.md` and the saved primary design image first. `art-preview.html` now provides an isolated rendered Fight/Gather pair for approval; other eight remain pending. See `STAGE5_ART_PAIR.md`. Do not replace Pages entry or mass-integrate new art before owner acceptance.

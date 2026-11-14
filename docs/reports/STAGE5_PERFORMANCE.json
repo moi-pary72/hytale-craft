@@ -1,0 +1,70 @@
+{
+  "date": "2026-11-14",
+  "scope": "local Chromium emulation, not physical Android or production measurements",
+  "startup": [
+    {
+      "locale": "en",
+      "startup_decoded_bytes": 115315,
+      "requests": 12,
+      "data_requests": 0,
+      "atlas_before_interaction": 0
+    },
+    {
+      "locale": "ru",
+      "startup_decoded_bytes": 119006,
+      "requests": 12,
+      "data_requests": 0,
+      "atlas_before_interaction": 0
+    },
+    {
+      "locale": "es",
+      "startup_decoded_bytes": 115915,
+      "requests": 12,
+      "data_requests": 0,
+      "atlas_before_interaction": 0
+    },
+    {
+      "locale": "pt-BR",
+      "startup_decoded_bytes": 115958,
+      "requests": 12,
+      "data_requests": 0,
+      "atlas_before_interaction": 0
+    }
+  ],
+  "slow_phone": {
+    "cpu_slowdown": 4,
+    "latency_ms": 150,
+    "download_bytes_per_second": 150000,
+    "two_posters_decoded_seconds": 1.653
+  },
+  "assets": {
+    "fight-atlas.webp": {
+      "bytes": 99430,
+      "sha256": "97e70cfe4fd6737ac1a84e384ba64c87aa0ce8c1d0d74a8da00bafea16d86ced"
+    },
+    "fight-poster.webp": {
+      "bytes": 29154,
+      "sha256": "7b8bc8bda905cd48d5fbae83bad3541821fc73a472b3e8cefaf19adc4a06a4b1"
+    },
+    "gather-atlas.webp": {
+      "bytes": 110968,
+      "sha256": "2c0a7c2a155f3c0e1d6d0730cf5d1867112ac3fde9ed2689469a7dcd88de3563"
+    },
+    "gather-poster.webp": {
+      "bytes": 32464,
+      "sha256": "bf31968690c166f30d3103a86b32181deb948fe83d8d4af3d9570002dd94f586"
+    }
+  },
+  "animation": {
+    "duration_ms": 900,
+    "maximum_active": 1,
+    "unique_poses": 4,
+    "autoplay": false,
+    "loop": false,
+    "reduced_motion_respected": true,
+    "save_data_respected_in_code": true,
+    "continuous_runtime_animations": 0,
+    "save_data_browser_test": true
+  },
+  "offline_html_bytes": 461117
+}
