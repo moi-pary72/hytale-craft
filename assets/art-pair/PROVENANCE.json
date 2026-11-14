@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-14",
+  "tool": "image_gen.imagegen",
+  "origin": "Original AI-generated two 2x2 character key-pose atlases; owner-supplied primary design board used as reference. Gather also used generated fight atlas for rendering consistency. No licensed game archives, extracted models, textures or third-party image libraries used. AI output non-exclusive; no rights guarantee or official-asset claim. Both samples await owner approval.",
+  "masters": [
+    {
+      "file": "fight-master.png",
+      "bytes": 2412466,
+      "sha256": "211c128e5c0d9e8ed31dc09fb7ef769e96fc2d393547d1b7e4e704d24a4767c0"
+    },
+    {
+      "file": "gather-master.png",
+      "bytes": 2514160,
+      "sha256": "1467378513f4aff514e8d3d7ba395708bf2031f16949350164601177f9bb42d8"
+    }
+  ],
+  "reference_checksums": [
+    {
+      "name": "04_REFERENCE_early_3_cards.png",
+      "sha256": "ebe50faf21ebc123f59d07579d6b302771f03ffa0896297569014d0949e4c72f"
+    },
+    {
+      "name": "03_REFERENCE_desktop_10_cards.png",
+      "sha256": "b14571d4d1cede92ebff2a13fe4ca8ddd01636140fdaa075037acf77298be027"
+    },
+    {
+      "name": "01_APPROVED_PRIMARY_dark_mobile_10_cards.png",
+      "sha256": "c0b86b18e10cadff62bd5610a1a7426a392a22559922e4dd057e9f878d9860bc"
+    },
+    {
+      "name": "02_APPROVED_ALTERNATE_bright_mobile_10_cards.png",
+      "sha256": "f6b87eeed19ec8dfdd41a25f99be25e598c1f0b02ecbaa8b694923b63d396717"
+    }
+  ],
+  "brief": "Four equal landscape tiles, no text/UI/borders/logo. Locked camera/character/environment. Fight: ready, anticipation, sword swing, recovery in torchlit ruins with burgundy scarf and slate/copper armour. Gather: ready, lifted pickaxe, ore impact/sparks, recovery with brass goggles in cyan-lit cave. Chunky volumetric anatomy, cinematic light, rich depth; not flat vectors. Generated 1536x1024 masters; original PNGs preserved privately on Drive.",
+  "encoding": "ImageMagick: exact top-left 768x512 tile extraction for still poster, resize480x320 quality82 WebP; full atlas resize960x640 quality78. No painted restyling/copying of the references."
+}

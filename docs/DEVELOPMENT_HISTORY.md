@@ -74,3 +74,8 @@ Independently inspected main/PR2/PR3 heads and code; continued in `codex/cloudfl
 Stage4 result: draft PR4 targets PR3, code checkpoint d94523240252b87563cd12d7456ef7b86d371d66; remote CI43585948449 success. Eleven files saved in existing Drive sections and verified by name/size/parent; local hashes in STAGE4_DRIVE_BACKUPS.json. Passport appended with guarded revision/readback preserving history. No merge/deploy.
 
 Final documentation checkpoint c7b0fc4e was backed up separately and read back successfully (12 total Stage4 files); receipt added without altering runtime.
+
+
+## 2026-11-14 — Stage5: restore approved art direction, two-card review
+
+Owner rejected Stage3/4 SVG look. Authenticated Drive folder/README and all four design PNGs inspected first; permanent references recorded in APPROVED_DESIGN_REFERENCES.md and passport. Separate branch on PR4, no main/merge/deploy. Generated original rendered warrior/miner four-pose atlases, optimized WebP posters and900ms single-action runtime, with reduced-motion/Save-Data/failure handling and no full-card scaling substitute. Isolated art-preview.html/standalone UI-only HTML; other eight remain pending scaffolds. No game dataset bundled or published, old mechanics preserved. Added performance/tests, video and private reference comparison for owner's concrete approval before producing eight further scenes. Four poses are motion samples, final smooth animation still needs more frames/rig.

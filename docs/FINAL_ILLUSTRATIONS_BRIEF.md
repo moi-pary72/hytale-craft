@@ -30,3 +30,8 @@ Boss/skills/explore art indicates a user intention only. Their game guidance rem
 Artist contract must grant international web/commercial display, modification, compression, source/master backup, duration and attribution terms; record author, creation date, tool/model licences and provenance. AI-assisted work must disclose generation provenance and be checked for copied elements; do not call generated or commissioned illustrations official assets. No final illustrations commissioned or generated in this stage.
 
 Approve a greybox contact sheet first, then one fully rendered fight+farm pair, then all ten. Acceptance: readable action at 130px; consistent perspective/light/character; no clipping with long ES/PT labels; keyboard outline and touch target unchanged; text contrast intact; no flashing/video; no perpetual animation. Keep existing lightweight press/hover transforms, disable with prefers-reduced-motion. Test slow network and image failure before accepting final files.
+
+
+## Stage5 correction / mandatory reference precedence
+
+The owner explicitly rejected the prior SVG look. Use `APPROVED_DESIGN_REFERENCES.md` and its primary dark mobile PNG as the permanent visual source. Stage5 rendered pair is a candidate for approval, not authority to create all eight remaining scenes. Its four-pose actions are limited motion samples; 8–12 consistent frames or a rig are needed for smooth final animation. Revised per-action delivery contract is in `STAGE5_ART_PAIR.md`.

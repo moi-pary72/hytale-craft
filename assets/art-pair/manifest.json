@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "status": "two-card-owner-review-not-approved",
+  "reference_folder": "https://drive.google.com/drive/folders/1_IZebF8sttpwqA1B-rP4oH9HuX7xG1Ve",
+  "primary_reference": "https://drive.google.com/file/d/1r8teXmtwr_Ml9prg1z9Skb39P4jFaVEE/view",
+  "duration_ms": 900,
+  "format": "2x2-key-pose-atlas",
+  "frame_size": [
+    480,
+    320
+  ],
+  "timeline": [
+    [
+      0,
+      0
+    ],
+    [
+      80,
+      1
+    ],
+    [
+      280,
+      2
+    ],
+    [
+      460,
+      3
+    ],
+    [
+      690,
+      0
+    ],
+    [
+      900,
+      null
+    ]
+  ],
+  "entries": {
+    "fight": {
+      "action": "sword swing",
+      "status": "sample",
+      "poster": "fight-poster.webp",
+      "atlas": "fight-atlas.webp"
+    },
+    "gather": {
+      "action": "pickaxe impact and sparks",
+      "status": "sample",
+      "poster": "gather-poster.webp",
+      "atlas": "gather-atlas.webp"
+    },
+    "defend": {
+      "action": "raise shield",
+      "status": "awaiting pair approval",
+      "poster": null,
+      "atlas": null
+    },
+    "build": {
+      "action": "place block",
+      "status": "awaiting pair approval",
+      "poster": null,
+      "atlas": null
+    },
+    "survive": {
+      "action": "stir cauldron and fire flare",
+      "status": "awaiting pair approval",
+      "poster": null,
+      "atlas": null
+    },
+    "farm": {
+      "action": "harvest crop",
+      "status": "awaiting pair approval",
+      "poster": null,
+      "atlas": null
+    },
+    "explore": {
+      "action": "raise lantern",
+      "status": "awaiting pair approval",
+      "poster": null,
+      "atlas": null
+    },
+    "boss": {
+      "action": "lunge before large enemy",
+      "status": "awaiting pair approval",
+      "poster": null,
+      "atlas": null
+    },
+    "skills": {
+      "action": "conjure glowing cube",
+      "status": "awaiting pair approval",
+      "poster": null,
+      "atlas": null
+    },
+    "workshop": {
+      "action": "hammer hot metal",
+      "status": "awaiting pair approval",
+      "poster": null,
+      "atlas": null
+    }
+  },
+  "files": {
+    "fight-atlas.webp": {
+      "bytes": 99430,
+      "sha256": "97e70cfe4fd6737ac1a84e384ba64c87aa0ce8c1d0d74a8da00bafea16d86ced"
+    },
+    "fight-poster.webp": {
+      "bytes": 29154,
+      "sha256": "7b8bc8bda905cd48d5fbae83bad3541821fc73a472b3e8cefaf19adc4a06a4b1"
+    },
+    "gather-atlas.webp": {
+      "bytes": 110968,
+      "sha256": "2c0a7c2a155f3c0e1d6d0730cf5d1867112ac3fde9ed2689469a7dcd88de3563"
+    },
+    "gather-poster.webp": {
+      "bytes": 32464,
+      "sha256": "bf31968690c166f30d3103a86b32181deb948fe83d8d4af3d9570002dd94f586"
+    }
+  }
+}

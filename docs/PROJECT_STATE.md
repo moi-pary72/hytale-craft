@@ -1,3 +1,19 @@
+# Stage5 — reference-led rendered pair, awaiting owner approval (2026-11-14)
+
+**Permanent art reference folder:** https://drive.google.com/drive/folders/1_IZebF8sttpwqA1B-rP4oH9HuX7xG1Ve . **Primary:** https://drive.google.com/file/d/1r8teXmtwr_Ml9prg1z9Skb39P4jFaVEE/view . See `APPROVED_DESIGN_REFERENCES.md` for all four images and README. They were visually inspected before coding. Owner rejected Stage3/4 SVG look; do not use those as approved final art. Historical descriptions below are retained, not current art approval.
+
+Current branch `codex/approved-art-pair`, based on PR4 head7744a5af2971a9eb2e3f515def15ea7da396c4f7. Stack PR2→3→4→Stage5; no prior branch/main/deployment changed. Stage5 isolates only Fight + Gather resources for approval, not all ten new illustrations.
+
+- `art-preview.html` generated from existing preview by `scripts/build_art_preview.py`, with `web/art-pair/` and original `assets/art-pair/` WebP scenes. Two adjacent rendered character cards with angular coloured frames; remaining eight are accessible text scaffolds marked pending art. Labels remain HTML and all four launch UI languages work. Default Pages output remains unchanged; art preview/assets are excluded from its allowlist pending approval.
+- Original AI-generated atlas PNG masters: four real key poses per character (sword swing and pickaxe strike/sparks). WebP posters/atlases plus provenance/hashes and all-ten action contracts in `assets/art-pair`. No copied game assets, logo or raw references in Git. Masters and private comparison saved to existing Drive structure with receipts when verified.
+- Runtime:900ms one-shot, single active action, pointer/focus/hover, replay controls; no loop/video/audio/3D runtime or card-scale substitute. Four key poses are a flipbook sample, not smooth final animation. Reduced motion/Save-Data/disabled toggle use full still cards. Lazy atlas decode, cancellation, hidden-page stop and failure fallback. Review uses user-only data: no HySphere/ID JSON bundled/fetched. Existing calc/tools and stored user recipes remain available.
+- Standalone owner HTML via `python3 scripts/build_art_preview.py --offline` contains only UI/art, no game dataset. It is downloadable, not a public deployment; file:// on physical Android remains untested. Existing source/code/data retained. Optional hook in `web/preview/app.js` is inactive outside the art review.
+- Current results:20Python+15JS,9preview+2Pages+1legacy+4art browser cases passed locally; widths320/360/393/430 and4locales. Performance/provenance/source limitations: `reports/STAGE5_TEST_RESULTS.md`, `STAGE5_PERFORMANCE.json`, `STAGE5_ART_PAIR.md`. Local CPU4×/150ms/150KB/s poster-ready1.653s; ~115–119KB startup, zero dataset/atlas requests initially.
+
+Next step is owner approval of the **concrete pair**, available in review HTML, action video and reference comparison. User explicitly requires this before generating/integrating the remaining eight final illustrations. Their shot/frame specifications and integration steps are in `STAGE5_ART_PAIR.md`; do not automatically spread the candidate look. No merge/deploy permitted. Data rights, commercial readiness, physical Android and native-language QA remain unresolved as before.
+
+---
+
 # Stage 4 — Cloudflare/public test preparation (2026-11-14)
 
 Current work: `codex/cloudflare-testing-ready`, based on PR3 head `7267f2891b0edd9d91d3616ea4c21e5353a420c3`. Dependency is **PR2 → PR3 → [draft PR4](https://github.com/moi-pary72/hytale-craft/pull/4)**; main and prior branches stay unchanged. No deployment or merge authorized/performed.
