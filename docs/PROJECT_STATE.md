@@ -1,5 +1,7 @@
 # Stage7 — isolated HTTPS preview preparation (2026-11-14)
 
+Final documentation backup ad245718f3879fe5e8dfff7ccca1857047d8470b verified by Drive name/size/parent: https://drive.google.com/file/d/1xR-e_sGKnNLayijpk1aQsPOyA4y57MPm/view?usp=drivesdk . Total7 Stage7 files; native passport appended with guarded revision preserving history. No public deploy/merge/settings change; later commits are receipts only.
+
 Branch `codex/https-preview` based on PR6 head79941caba61bf5fd73812e32e6f7f4b579771f67, stack2→3→4→5→6→[draftPR7](https://github.com/moi-pary72/hytale-craft/pull/7). No merge, main change or deployment. Runtime/art/data identical to Stage6; all24public file hashes match. Four educational examples remain explicitly NOT Hytale.
 
 **GitHub Pages settings actually verified through REST**: legacy publishing from main:/, public+HTTPS, built commit1c9c1e035207b954894fdba225ceca2dc4742f38, build2026-11-14T08:19:28Z. Therefore main merges can really publish the existing site; do not merge for preview. All current PR2–6 heads are draft/unmerged and CI-success, exact snapshots in reports/STAGE7_GITHUB_STATE.json. No deployment workflow is checked in; source updates create automation PRs, not merges.
