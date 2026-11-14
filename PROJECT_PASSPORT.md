@@ -1,3 +1,9 @@
+# Этап 3 — международный UX preview, 2026-11-14
+
+Отдельный draft PR №3: https://github.com/moi-pary72/hytale-craft/pull/3 (зависит от PR №2, target — его ветка). Preview: `preview.html`; архив/скриншоты на Drive перечислены в docs/reports/STAGE3_DRIVE_BACKUPS.json. 10 оригинальных векторных scenes, EN/RU/ES/PT-BR покрывают все 114 UI keys нового preview; legacy остаётся partial EN/RU. Данные/engines PR2 сохранены. Production/main/ветка PR2 не менялись. Commercial launch BLOCKED; ничего не deployed/merged. Начни с docs/PROJECT_STATE.md, UX_PREVIEW.md, COMMERCIAL_DATA_READINESS.md, GROWTH_PLAN.md.
+
+---
+
 # Текущее обновление — второй этап PR №2, 2026-11-14
 
 Подробный актуальный паспорт: [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md). Получены и подключены 623 source-backed полных рецепта / 3219 предметов HySphere (2026-08-12, Early Access, exact build неизвестна), 1486 записей отделены. Это реальные данные независимого источника с non-commercial attribution, не официальная сверка. Старый каталог OpenHytale 3641/403 ID сохранён отдельно. Main/public Pages не изменяются. Инструкция для лицензированного Assets.zip — docs/ASSETS_IMPORT.md. История ниже отражает предыдущие этапы.

@@ -24,3 +24,8 @@
 ## Итог повторного исследования
 
 Расширенный GitHub search `hytale recipes` дал репозитории, включая parsers/mods. Они не объявлены vanilla source по названию. Найден открытый реальный экспорт HySphere; проверен обычным HTTP-клиентом (urllib default UA получает HTTP 403, обычный curl — HTTP 200; никакой OAuth/cookie/auth bypass не использовался). Повторный импорт по сети дал identical snapshot. 623 полных рецепта остаются source-backed; ни одна запись не обозначена officially verified. Рецепт Crude Shortbow и copper smelting проверены непосредственно по полученным JSON. Независимая сверка **всех** этих данных с той же exact game build не выполнена, поскольку источник exact build не сообщает. Источники других дат не смешивались и не повышают автоматически статус доверия.
+
+
+## Этап 3 — коммерческая готовность проверена повторно
+
+14.11.2026 перечитаны https://hysphere.app/about#data-license и https://hysphere.app/contact . Разрешение на commercial use/mirroring/redistribution отсутствует; wording о citation/linking не следует расширять до blanket license. Partnership request можно направить через contact form, draft подготовлен в COMMERCIAL_DATA_READINESS.md, не отправлен. Покупка игрового архива сама по себе не лицензирует коммерческий derived-data сайт. Creator-policy URL сейчас ведёт в affiliate program, а не общую лицензию базы. Источники и snapshot не менялись в stage3. Commercial launch blocked, ads/analytics отсутствуют; подробный план разрешения прав в отдельном документе.
