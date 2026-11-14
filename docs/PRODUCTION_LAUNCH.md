@@ -6,7 +6,7 @@ The owner explicitly authorized publishing the free educational beta and sequent
 
 Main backup: commit `1c9c1e035207b954894fdba225ceca2dc4742f38`, annotated remote tag `backup/main-before-beta-20261114`. ZIP CRC and SHA-256 verified: `1ee2283a3edbef3fd823076034f1ec12a809a5f1478b935f7c13ab8e482b1845`;43208bytes. Drive upload name/size/parent read back: https://drive.google.com/file/d/1bac-DFOkhG_y0PxAxSknrk6JDUb49jkB/view . Keep this source backup and all previous versions; no force/reset needed.
 
-All PRs2–7 were mergeable. A red push check on PR6 was investigated before merging: language was saved after async dictionary fetch, and fast reload could reset selection. Fix commit `69e600081609c6a58c3822ef2bd20ac376f288f4` saves preference before fetch with guarded error rollback. Its push and PR CI runs43602525849/43602530600 both succeeded. No stale red check is bypassed.
+All PRs2–7 were mergeable. A red push check on PR6 was investigated before merging: language was saved after async dictionary fetch, and fast reload could reset selection. Fix commit `69e600081609c6a58c3822ef2bd20ac376f288f4` saves preference before fetch before starting asynchronous loading. Those initial CI runs passed, but launch push CI reproduced a second part of the race: cancelled dictionary fetches during reload could roll the preference back. The final fix preserves explicit preference even on cancelled/failed fetch, with a new delayed-network reload regression. No stale red check is bypassed; current heads must pass again.
 
 GitHub Pages remains **legacy source main:/**. Attempt to change it to workflow through the connected integration returned **HTTP403 Resource not accessible by integration**. Readback confirmed no change. No main merge was performed because intermediate PRs would then publish their repository-root snapshots. This is an integration permission limitation, not a request for new merge/deployment permission and not an automatic-approval-review rejection.
 
@@ -34,7 +34,7 @@ Settings reference: `.cloudflare/production-settings.json` (documentation only; 
 
 ## Verification and rollback
 
-Before publish:22Python+17JS plus beta mobile7 and project-path1 checks locally; full CI must pass. Audit whitelist excludes data/docs/tests/source archives/credentials; art SHA validated. Four examples are educational, NOT Hytale recipes; real HySphere/OpenHytale snapshots remain excluded.
+Before publish:22Python+17JS plus beta mobile8 and project-path1 checks locally; full CI must pass. Audit whitelist excludes data/docs/tests/source archives/credentials; art SHA validated. Four examples are educational, NOT Hytale recipes; real HySphere/OpenHytale snapshots remain excluded.
 
 After actual publish verify both hosts separately: index has new beta/nav/sheet,24public files/manifest hashes (Github404 base differs),4locales,320/360/393/430, Back/Escape/swipe, actions, quantity/inventory/plan/reload, missing paths404 and no forbidden source files. Real Android/IME/screen reader remains a hardware limitation. GitHub Pages ignores Cloudflare headers/redirect files; rely on HTML CSP/noindex there and validate actual HTTPS behavior.
 

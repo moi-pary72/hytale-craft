@@ -4,7 +4,7 @@ Owner explicitly approved sequential PR2–7 merges and free educational beta de
 
 Current blocker: connected GitHub integration returned403 changing Pages build_type to workflow; legacy main:/ remains. Merges are stopped until owner selects Settings→Pages→Source→GitHub Actions. This is missing integration administration permission, not missing user authorization. Do not merge intermediate snapshots into a root-published site. No main merge/deploy performed yet.
 
-Main backup remote tag backup/main-before-beta-20261114 →1c9c1e035207b954894fdba225ceca2dc4742f38; CRC/SHA-verified ZIP saved/read back on Drive. PR6 language-persistence race fixed by69e6000; both CI runs passed. Prepared codex/production-launch adds an audited-dist Pages workflow, Github project-path404 and meta CSP, one main Cloudflare configuration. PRODUCTION_LAUNCH.md records exact blocker, authorized continuation/merge sequence, Android setup and rollback.
+Main backup remote tag backup/main-before-beta-20261114 →1c9c1e035207b954894fdba225ceca2dc4742f38; CRC/SHA-verified ZIP saved/read back on Drive. PR6 language-persistence race fixed by69e6000; initial CI passed, then an abort-on-reload rollback was removed and a delayed-network regression added; new heads must pass. Prepared codex/production-launch adds an audited-dist Pages workflow, Github project-path404 and meta CSP, one main Cloudflare configuration. PRODUCTION_LAUNCH.md records exact blocker, authorized continuation/merge sequence, Android setup and rollback.
 
 Runtime changes only fix language-save race; art, examples, calculators and user storage retained. No verified game catalog is published. Cloudflare account access absent; expected domain is not a confirmed live site. Previous history below is preserved.
 
