@@ -2,7 +2,7 @@
 
 Owner explicitly approved sequential PR2–7 merges and free educational beta deployment. Earlier no-merge/no-deploy and separate-preview instructions are superseded. Target one Cloudflare project hytale-craft, productionmain, user-only dist, automatic main updates; no restricted datasets/ads/paid services.
 
-Current blocker: connected GitHub integration returned403 changing Pages build_type to workflow; legacy main:/ remains. Merges are stopped until owner selects Settings→Pages→Source→GitHub Actions. This is missing integration administration permission, not missing user authorization. Do not merge intermediate snapshots into a root-published site. No main merge/deploy performed yet.
+Resolved blocker: owner switched Pages Source to GitHub Actions; REST now confirms workflow mode. The earlier integration403 is historical. Authorized sequential merges have resumed. This is missing integration administration permission, not missing user authorization. Do not merge intermediate snapshots into a root-published site. No main merge/deploy performed yet.
 
 Main backup remote tag backup/main-before-beta-20261114 →1c9c1e035207b954894fdba225ceca2dc4742f38; CRC/SHA-verified ZIP saved/read back on Drive. PR6 language-persistence race fixed by69e6000; initial CI passed, then an abort-on-reload rollback was removed and a delayed-network regression added; new heads must pass. Prepared codex/production-launch adds an audited-dist Pages workflow, Github project-path404 and meta CSP, one main Cloudflare configuration. PRODUCTION_LAUNCH.md records exact blocker, authorized continuation/merge sequence, Android setup and rollback.
 

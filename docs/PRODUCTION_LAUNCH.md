@@ -2,7 +2,7 @@
 
 The owner explicitly authorized publishing the free educational beta and sequential normal merges of PR2–7. This supersedes earlier no-merge/no-deploy instructions, but not the ban on restricted datasets, third-party game assets, ads or paid services. Use one main branch and one Cloudflare project **hytale-craft**, not a separate preview project.
 
-## Actual preflight / current blocker
+## Actual preflight / resolved administration blocker
 
 Main backup: commit `1c9c1e035207b954894fdba225ceca2dc4742f38`, annotated remote tag `backup/main-before-beta-20261114`. ZIP CRC and SHA-256 verified: `1ee2283a3edbef3fd823076034f1ec12a809a5f1478b935f7c13ab8e482b1845`;43208bytes. Drive upload name/size/parent read back: https://drive.google.com/file/d/1bac-DFOkhG_y0PxAxSknrk6JDUb49jkB/view . Keep this source backup and all previous versions; no force/reset needed.
 
@@ -10,7 +10,7 @@ All PRs2–7 were mergeable. A red push check on PR6 was investigated before mer
 
 GitHub Pages remains **legacy source main:/**. Attempt to change it to workflow through the connected integration returned **HTTP403 Resource not accessible by integration**. Readback confirmed no change. No main merge was performed because intermediate PRs would then publish their repository-root snapshots. This is an integration permission limitation, not a request for new merge/deployment permission and not an automatic-approval-review rejection.
 
-Required owner action on Android: GitHub repo **Settings → Pages → Build and deployment → Source → GitHub Actions**. If needed use Chrome **⋮ → Desktop site**. No password/token needs to be shared. Tell the executor when switched; it must verify via GET before continuing. Until then merges/deployment remain stopped. No conflicts/admin checks are forced.
+The owner has now completed this step, and REST GET confirms `build_type=workflow`. The previous instruction was: GitHub repo **Settings → Pages → Build and deployment → Source → GitHub Actions**. If needed use Chrome **⋮ → Desktop site**. No password/token needs to be shared. The executor verified the switch and resumed authorized sequential merges. No conflicts/admin checks are forced.
 
 ## Prepared GitHub Pages release configuration
 
@@ -42,4 +42,4 @@ Failed workflow checks must not deploy; prior served version stays in place. Kee
 
 ## Final observed preparation checks
 
-PR6 headc4accf4 passed runs43603568865/43603564361. Release PR8 head8ea6720 passed43603570551/43603566411 (22Python,17JS,24browser across the full suite). Local beta8 and GitHub project-path1 also pass. Permission403 remains, main and all existing PR merges unchanged. Existing GitHub URL responds200 but is still old interface, not new beta. No Cloudflare working address claimed. Machine receipt: reports/PRODUCTION_LAUNCH_STATUS.json.
+PR6 headc4accf4 passed runs43603568865/43603564361. Release PR8 head8ea6720 passed43603570551/43603566411 (22Python,17JS,24browser across the full suite). Local beta8 and GitHub project-path1 also pass. The403 was later resolved by the owner switching Pages Source to Actions. Sequential main integration resumed; actual deployment status is recorded after the workflow finishes. No Cloudflare working address claimed. Machine receipt: reports/PRODUCTION_LAUNCH_STATUS.json.
