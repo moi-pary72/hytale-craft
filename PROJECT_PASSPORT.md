@@ -1,3 +1,13 @@
+# Разрешённый запуск основной beta — подготовка, публикация ещё не выполнена
+
+Владелец разрешил merge2–7 и бесплатную учебную beta. Использовать только основной Cloudflare hytale-craft/main, без preview-проекта; auto production updates включены. Актуальная инструкция docs/PRODUCTION_LAUNCH.md.
+
+Сохранён main1c9c1e0: remote tag backup/main-before-beta-20261114 и проверенный ZIP Drive. До merge найден/исправлен PR6 race сохранения языка, commit69e6000, CI зелёный. GitHub API запретил смену PagesSource на workflow (403integrationpermissions). Пока legacy main:/ включён, merges остановлены во избежание публикации исходных баз. Владелец должен выбрать Settings→Pages→Source→GitHub Actions. Разрешение на merge/Deploy уже есть, повторно его запрашивать не нужно.
+
+Готовится ветка codex/production-launch с workflow публикации только dist и правильным /hytale-craft/ путём. Main и сайты пока не менялись. Cloudflare аккаунт недоступен, живой URL не подтверждён. История ниже сохранена, старые инструкции preview устарели.
+
+---
+
 # Этап7 — изолированный HTTPS-preview, без публикации (2026-11-14)
 
 Новая ветка codex/https-preview поверх PR6. Main/стек2–6 не объединять. GitHub Pages фактически публикуется из main:/ (legacy), build1c9c1e035207b954894fdba225ceca2dc4742f38; настройки прочитаны REST и не изменены. CI всех текущих PR2–6 успешен. Для онлайн-проверки merge не требуется.

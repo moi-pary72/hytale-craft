@@ -12,7 +12,9 @@ from urllib.parse import urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 LANGUAGES = ('en', 'ru', 'es', 'pt-BR')
 
-def build(policy='user-only', site_url=None):
+def build(policy='user-only', site_url=None, base_path='/'):
+    if base_path != '/' and not re.fullmatch(r'/[a-zA-Z0-9_-]+/',base_path):
+        raise ValueError('Invalid publication base path')
     if policy != 'user-only':
         raise ValueError('Public beta supports user-only; use export_preview.py for restricted owner review')
     if site_url:
@@ -57,8 +59,10 @@ def build(policy='user-only', site_url=None):
             origin = escape(site_url, quote=True)
             html = html.replace('</head>', '<link rel="canonical" href="'+origin+'/"><meta property="og:url" content="'+origin+'/"></head>')
         html = html.replace('</head>', '<meta property="og:title" content="Hytale Craft — Beta"><meta property="og:description" content="Pick a goal and plan your crafting resources. Unofficial Hytale player tool."><meta property="og:type" content="website"></head>')
+        # GitHub Pages cannot serve custom _headers; enforce the compatible policy in HTML too.
+        html=html.replace('</head>',"<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'\"></head>")
         (out/'index.html').write_text(html)
-        (out/'404.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="robots" content="noindex"><title>404 — Hytale Craft</title><h1>404</h1><a href="/">Hytale Craft</a></html>')
+        (out/'404.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="robots" content="noindex"><title>404 — Hytale Craft</title><h1>404</h1><a href="'+base_path+'">Hytale Craft</a></html>')
         (out/'robots.txt').write_text('User-agent: *\nDisallow: /\n')
         if site_url:
             from xml.sax.saxutils import escape
@@ -76,6 +80,7 @@ if __name__ == '__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--data-policy', choices=('user-only',), default='user-only')
     parser.add_argument('--site-url', help='Future approved HTTPS origin; optional for review')
+    parser.add_argument('--base-path', default='/', help='GitHub project path for 404 home link; Cloudflare uses /')
     args=parser.parse_args()
     (ROOT/'.private').mkdir(exist_ok=True)
-    print(build(args.data_policy,args.site_url))
+    print(build(args.data_policy,args.site_url,args.base_path))

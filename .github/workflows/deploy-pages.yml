@@ -1,0 +1,62 @@
+name: Publish user-only beta to GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: github-pages-production
+  cancel-in-progress: false
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Unit and calculator checks
+        run: |
+          python -m unittest discover -s tests -v
+          node tests/planner.test.js
+          node tests/preview.test.js
+          node tests/beta.test.js
+      - name: Mobile beta checks
+        run: |
+          python -m pip install playwright==1.56.0
+          python -m playwright install --with-deps chromium
+          export CHROMIUM_PATH="$(python -c 'from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print(p.chromium.executable_path); p.stop()')"
+          python tests/beta_browser.py
+          python tests/github_pages_browser.py
+      - uses: actions/configure-pages@v5
+      - name: Build only allowed public files
+        run: |
+          python3 scripts/build_pages.py --data-policy user-only --base-path /hytale-craft/
+          python3 scripts/audit_pages.py
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish audited dist
+        id: deployment
+        uses: actions/deploy-pages@v4

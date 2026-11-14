@@ -1,0 +1,16 @@
+{
+  "kind": "owner-dashboard-reference-not-automatically-applied",
+  "repository": "moi-pary72/hytale-craft",
+  "project_name": "hytale-craft",
+  "production_branch": "main",
+  "framework_preset": "None",
+  "build_command": "python3 scripts/build_pages.py --data-policy user-only",
+  "build_output_directory": "dist",
+  "root_directory": "",
+  "automatic_production_branch_deployments": true,
+  "preview_branch_control": "None",
+  "secrets_required": false,
+  "paid_features_required": false,
+  "owner_authorized_free_educational_beta_publication": true,
+  "note": "Use only the main production project. No separate preview project. Cloudflare account is not connected to this assistant; actual deployment must be verified separately."
+}

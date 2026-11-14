@@ -1,3 +1,15 @@
+# Owner-authorized production launch — in preparation, not yet published
+
+Owner explicitly approved sequential PR2–7 merges and free educational beta deployment. Earlier no-merge/no-deploy and separate-preview instructions are superseded. Target one Cloudflare project hytale-craft, productionmain, user-only dist, automatic main updates; no restricted datasets/ads/paid services.
+
+Current blocker: connected GitHub integration returned403 changing Pages build_type to workflow; legacy main:/ remains. Merges are stopped until owner selects Settings→Pages→Source→GitHub Actions. This is missing integration administration permission, not missing user authorization. Do not merge intermediate snapshots into a root-published site. No main merge/deploy performed yet.
+
+Main backup remote tag backup/main-before-beta-20261114 →1c9c1e035207b954894fdba225ceca2dc4742f38; CRC/SHA-verified ZIP saved/read back on Drive. PR6 language-persistence race fixed by69e6000; both CI runs passed. Prepared codex/production-launch adds an audited-dist Pages workflow, Github project-path404 and meta CSP, one main Cloudflare configuration. PRODUCTION_LAUNCH.md records exact blocker, authorized continuation/merge sequence, Android setup and rollback.
+
+Runtime changes only fix language-save race; art, examples, calculators and user storage retained. No verified game catalog is published. Cloudflare account access absent; expected domain is not a confirmed live site. Previous history below is preserved.
+
+---
+
 # Stage7 — isolated HTTPS preview preparation (2026-11-14)
 
 Final documentation backup ad245718f3879fe5e8dfff7ccca1857047d8470b verified by Drive name/size/parent: https://drive.google.com/file/d/1xR-e_sGKnNLayijpk1aQsPOyA4y57MPm/view?usp=drivesdk . Total7 Stage7 files; native passport appended with guarded revision preserving history. No public deploy/merge/settings change; later commits are receipts only.
