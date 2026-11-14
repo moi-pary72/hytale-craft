@@ -70,7 +70,7 @@ python scripts/sync_catalog.py
 
 Python: 5/5; JS: 5 сценариев (node в данной среде выводит один file suite), все прошли. Мобильный Chromium 393×851: новая база без seeds, цель→оружие→Weapon_Shortbow_Crude→карточка без рецепта; локальная тестовая карточка, количество 3 при выходе 2, расход 6 минус 1 в инвентаре = 5; инвентарь после reload; RU/EN; отсутствие pageerror и горизонтальной прокрутки. Это локальный браузерный тест, не проверка на физическом Android и не тест новой версии на production Pages.
 
-Browser smoke требует Python playwright и Chromium `/usr/bin/chromium`; CI выполняет unit tests, а не браузерный тест. Тестовые предметы TestTarget/TestRaw и другие fixture ID не являются данными Hytale и в каталог не входят.
+Browser smoke требует Python playwright и Chromium `/usr/bin/chromium`; CI выполняет unit tests, а не браузерный тест. Проверка на GitHub подтверждена: https://github.com/moi-pary72/hytale-craft/actions/runs/43576518362 (success). Тестовые предметы TestTarget/TestRaw и другие fixture ID не являются данными Hytale и в каталог не входят.
 
 ## Безопасный следующий этап
 
@@ -85,3 +85,8 @@ Browser smoke требует Python playwright и Chromium `/usr/bin/chromium`; 
 Существующий паспорт Google Docs: https://docs.google.com/document/d/1-rruSanhYEEGBP9awFejT6CCiz9TIjE_kiypXfqsDSY/edit . Он найден в корне Drive и прочитан до разработки. Поиск папок Hytale и точного имени Hytale Craft пустой; корень и «Проекты с ChatGPT» просмотрены. Авто-проверка дважды отклонила создание папки из-за риска дубликата. Запрошено явное уточнение; до ответа структура из шести папок не создана. Не утверждать, что архив или структура сохранены, пока upload и readback не подтвердятся. Фактические результаты сохранения будут записаны в журнале.
 
 На GitHub резервирование — история commits и `catalog.previous.json` после первого изменения каталога (сейчас предыдущего импортированного каталога ещё нет). Откат — PR с восстановлением прежнего файла из Git или previous snapshot. Диагностические artifacts не заменяют резервную копию проекта.
+
+
+## Результат сохранения этого этапа
+
+Draft PR: https://github.com/moi-pary72/hytale-craft/pull/2 . Существующий паспорт Google Docs обновлён с сохранением всей предшествующей истории; результат проверен чтением. Архивы и JSON на Drive не загружались из-за отсутствия подтверждённой целевой структуры и отклонения создания папок auto-review; вопрос пользователю остаётся открытым. Main не изменялся.

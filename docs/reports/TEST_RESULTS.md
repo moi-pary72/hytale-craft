@@ -8,4 +8,4 @@
 - `python scripts/sync_catalog.py`: 3641 ID items, 403 recipe IDs, 0 full recipes; повторная запись не нужна.
 - `git diff --check`: passed.
 
-Тесты не подтверждают полноту игровой базы. Физический Android, workflow run на GitHub и новая версия на опубликованном Pages не проверены. Синтетические тестовые рецепты не публикуются как игровые данные.
+Тесты не подтверждают полноту игровой базы. Физический Android, новая версия на опубликованном Pages не проверена. GitHub CI validation прошёл: https://github.com/moi-pary72/hytale-craft/actions/runs/43576518362 . Синтетические тестовые рецепты не публикуются как игровые данные.
