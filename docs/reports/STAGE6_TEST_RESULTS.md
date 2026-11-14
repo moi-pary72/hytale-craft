@@ -22,3 +22,7 @@ The previous Pages interface-specific tests were updated to the new actual beta 
 See `STAGE6_PERFORMANCE.json` for actual local measurements and `STAGE6_DIST_AUDIT.json` for every public file checksum. First-screen decoded resource bytes (not compressed transfer) approx100–105KB depending on locale; zero game-data requests or initial atlases. CPU4×/150ms/150000B/s home readiness approx1.56s; exact measured value is recorded. Four-pose crossfade is not a claim of eight authored frames. Offline HTML is larger because it embeds both atlases up front.
 
 Limits: emulated touch Chromium only, no physical Android/IME/screen reader/native-speaker QA. Strict-CSP local HTTP tests do not prove real Cloudflare applied headers/HTTPS/redirect rules; no deployment was performed. No public online preview or verified pages.dev hostname. All4game-data/rights questions remain separate; only the original educational fixture set is included.
+
+## Remote CI and owner artifacts
+
+[CI43593544711](https://github.com/moi-pary72/hytale-craft/actions/runs/43593544711) test job/all steps succeeded for code7176b06ac767539f62c0eca7e9cfe688af53a39a, including public boundary build/audit and Chromium suites. [Draft PR6](https://github.com/moi-pary72/hytale-craft/pull/6) targets PR5 branch.12initial Drive uploads metadata-verified, CRC/localSHA receipts in STAGE6_DRIVE_BACKUPS.json. No public deployment or real HTTPS/Cloudflare validation claimed; later commits are docs/receipts only.

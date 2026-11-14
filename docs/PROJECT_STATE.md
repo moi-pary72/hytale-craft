@@ -1,6 +1,6 @@
 # Stage6 — mobile beta candidate, awaiting merge/deployment approval (2026-11-14)
 
-Branch `codex/mobile-beta`, based on PR5 head `6e1e5da61be9398a7f20efeb8ed6af9a5dfdff70`. Stack PR2→3→4→5→Stage6; prior branches/main/production unchanged. This is a prepared **free educational UX beta**, not a verified Hytale recipe catalog. No public deployment or hostname created.
+Branch `codex/mobile-beta`, based on PR5 head `6e1e5da61be9398a7f20efeb8ed6af9a5dfdff70`. Stack PR2→3→4→5→[draft PR6](https://github.com/moi-pary72/hytale-craft/pull/6); prior branches/main/production unchanged. This is a prepared **free educational UX beta**, not a verified Hytale recipe catalog. No public deployment or hostname created.
 
 ## Current entry/architecture
 
@@ -186,3 +186,5 @@ python scripts/sync_recipes.py
 Final documentation ZIP (including Android guide and initial receipts), commit c7b0fc4e20f9c7945c6c652508fcd6f28c4808b9, was additionally uploaded/read back: https://drive.google.com/file/d/19xhUU9_zueOWRFOVyylw5MpOERxM3SkT/view . Runtime remains d945232 checkpoint.
 
 Stage5 code checkpoint `1a978c9929d330052780ea1839945869c43b7509` passed remote CI [43588499509](https://github.com/moi-pary72/hytale-craft/actions/runs/43588499509). Eleven initial Drive uploads verified by name/size/parent, local hashes recorded; existing folders and sharing unchanged. Passport appended with guarded revision preserving history and permanent references. Owner HTML: https://drive.google.com/file/d/14-jkIFkTcEyVZ0TvMNDsvqpMvoAFDteX/view ; action demo: https://drive.google.com/file/d/1m2qMDRdEUMv1oyRM54oHeNbEF7OExTui/view ; reference comparison: https://drive.google.com/file/d/1XTQv7R3iD_0m9JZ66fKPoYYMQcZiiP6t/view . ZIPs represent that tested checkpoint; later commits are documentation/receipts only.
+
+Stage6 checkpoint7176b06ac767539f62c0eca7e9cfe688af53a39a passed [CI43593544711](https://github.com/moi-pary72/hytale-craft/actions/runs/43593544711), including build/audit and all mobile tests.12initial uploads in existing Drive folders read back by name/size/parent; ZIP CRC and local SHA receipts in reports/STAGE6_DRIVE_BACKUPS.json. No new folders/sharing changes. Standalone HTML: https://drive.google.com/file/d/17HvVehf6Q6gMGCTWb4o1mA-F4dpdlK_L/view ; home393: https://drive.google.com/file/d/15Ve9XYq-1PBKlZrrKysLYIveCLgSIqzm/view ; sheet393: https://drive.google.com/file/d/1HF40OhfagVlesfZuRDzF5mRtoRJKw-DD/view ; result393: https://drive.google.com/file/d/1kQg4HUltmF0bus1w14KqHOlmaRleFRLE/view . Later receipt commits change documentation only.
