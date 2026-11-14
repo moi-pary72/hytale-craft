@@ -1,3 +1,15 @@
+# Stage7: isolated HTTPS preview without merge
+
+Current owner setup: [CLOUDFLARE_ANDROID_PREVIEW.md](CLOUDFLARE_ANDROID_PREVIEW.md), branch `codex/https-preview` based on PR6. Recommended new test project `hytale-craft-preview`, its Production branch set to that test branch (not main). No project or URL created; Save and Deploy still requires owner approval. Dashboard settings have not been changed by the reference JSON.
+
+**GitHub Pages settings are now verified**, not hypothetical: legacy branch publishing from main:/, public/HTTPS, last build commit1c9c1e035207b954894fdba225ceca2dc4742f38. Do not merge to get a preview. All existing draft PR2–6 remain unmerged with successful CI.
+
+The first deployment of a new isolated project is called Production in Cloudflare even though it is only the owner's beta test. A true non-production Cloudflare Preview is possible within an existing configured project, but existing Cloudflare account state is not accessible here. Avoid changing a current production project blindly. Preview URLs are public by default; noindex is not access protection. No publishing or paid feature was performed.
+
+The Stage6 build/boundary remains unchanged. GitHub CI now saves an audited `dist` artifact only for the isolated preview branch; no deployment token/job exists. Source/root, datasets, docs/backups remain excluded. Artifact download is not a running HTTPS site.
+
+---
+
 # Stage6: Cloudflare Pages beta — prepared, not deployed
 
 **The current entry point is `beta.html` → `dist/index.html`.** Never publish repository root, source `index.html`, `preview.html` or `art-preview.html`. They remain historical/source review interfaces. `scripts/build_pages.py` now includes PR5’s two posters/atlases and the beta shell. The old Stage4 build description is superseded by this document; history remains in development records.

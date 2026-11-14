@@ -1,0 +1,73 @@
+{
+  "stage": 7,
+  "date": "2026-11-14",
+  "code_commit": "0ae0edd6e2a4ebd51d49dbe3c0f43245f23507d9",
+  "pull_request": "https://github.com/moi-pary72/hytale-craft/pull/7",
+  "verification": "Local ZIP CRC and SHA-256; Drive uploads read back by name/size/parent. Drive connector exposes no remote checksum. No folders or sharing changed. Actual GitHub artifact additionally downloaded and SHA-256 verified against GitHub digest.",
+  "files": [
+    {
+      "name": "CLOUDFLARE_ANDROID_PREVIEW.md",
+      "bytes": 10023,
+      "local_sha256": "cee118e16998b3ea33f6b45e565d5cbe63ac390a74a2382833220bb20e3e7d0e",
+      "folder_id": "1oe_oNGZw7YSy9bYJit52InSx2HUFbZPV",
+      "drive_id": "1HxW6cB_wJUrBSZw3SLEBR7pxXa16MxLB",
+      "url": "https://drive.google.com/file/d/1HxW6cB_wJUrBSZw3SLEBR7pxXa16MxLB/view?usp=drivesdk",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "STAGE7_DIST_AUDIT.json",
+      "bytes": 2680,
+      "local_sha256": "b10796c9f34a0cfbf67fa3025779042130a28bb40ca722fb9c066d80ced26b02",
+      "folder_id": "1SuAf81nVsfjMW40zafae1vc0iL5gheS8",
+      "drive_id": "1KZKoH-CMBXKvgTQMfyVdz0OfXn2tGy-h",
+      "url": "https://drive.google.com/file/d/1KZKoH-CMBXKvgTQMfyVdz0OfXn2tGy-h/view?usp=drivesdk",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "STAGE7_GITHUB_STATE.json",
+      "bytes": 1614,
+      "local_sha256": "396e9d6fe8e95386cb051620763ba4ea0e766892db688ff801adc1eff313b9a2",
+      "folder_id": "1SuAf81nVsfjMW40zafae1vc0iL5gheS8",
+      "drive_id": "1khbuQmFXZesi-1IGtLgOLcwL1S36L7SP",
+      "url": "https://drive.google.com/file/d/1khbuQmFXZesi-1IGtLgOLcwL1S36L7SP/view?usp=drivesdk",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "STAGE7_TEST_RESULTS.md",
+      "bytes": 1392,
+      "local_sha256": "74610e53dec0a9455c22eab5a90fa0587b5f1d496111f3a8a65e981d6f444256",
+      "folder_id": "1SuAf81nVsfjMW40zafae1vc0iL5gheS8",
+      "drive_id": "1xUtdQtbSorahcx3KY7Z8qTugnJOLv2x-",
+      "url": "https://drive.google.com/file/d/1xUtdQtbSorahcx3KY7Z8qTugnJOLv2x-/view?usp=drivesdk",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "hytale-stage7-0ae0edd6-code-data-docs.zip",
+      "bytes": 635153,
+      "local_sha256": "7adae864508c52c3a77a4c55c2202040f8fcbaf6e4a318fe2bf4818e7b55c089",
+      "folder_id": "1immtOZOtF0oJqbCj5ak5QFsVZsga1QXh",
+      "drive_id": "1j3nVPu7ojlEZWgM4o5gNcpEXZjTQrzK0",
+      "url": "https://drive.google.com/file/d/1j3nVPu7ojlEZWgM4o5gNcpEXZjTQrzK0/view?usp=drivesdk",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "hytale-stage7-0ae0edd6-dist-user-only.zip",
+      "bytes": 303250,
+      "local_sha256": "60365884b917e202c20389ca5f9573c415d0f7006b81985a991e74ff2674a2bb",
+      "folder_id": "1immtOZOtF0oJqbCj5ak5QFsVZsga1QXh",
+      "drive_id": "1wnCJIDE8YF0Gac3FKiRqwYwRQP4l1ilH",
+      "url": "https://drive.google.com/file/d/1wnCJIDE8YF0Gac3FKiRqwYwRQP4l1ilH/view?usp=drivesdk",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "hytale-stage7-ad245718-final-docs.zip",
+      "bytes": 107813,
+      "local_sha256": "56597ca223a995982359a361f8d7097e2e906ddd30eaf1db6b0b3d1ff22f79d8",
+      "source_commit": "ad245718f3879fe5e8dfff7ccca1857047d8470b",
+      "folder_id": "1immtOZOtF0oJqbCj5ak5QFsVZsga1QXh",
+      "drive_id": "1xR-e_sGKnNLayijpk1aQsPOyA4y57MPm",
+      "url": "https://drive.google.com/file/d/1xR-e_sGKnNLayijpk1aQsPOyA4y57MPm/view?usp=drivesdk",
+      "verified_name_size_parent": true
+    }
+  ]
+}

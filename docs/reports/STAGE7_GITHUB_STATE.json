@@ -1,0 +1,67 @@
+{
+  "date": "2026-11-14",
+  "repository": "moi-pary72/hytale-craft",
+  "main": "1c9c1e035207b954894fdba225ceca2dc4742f38",
+  "github_pages": {
+    "build_type": "legacy",
+    "source": {
+      "branch": "main",
+      "path": "/"
+    },
+    "status": "built",
+    "public": true,
+    "https_enforced": true,
+    "last_build_commit": "1c9c1e035207b954894fdba225ceca2dc4742f38",
+    "last_build_created_at": "2026-11-14T08:19:28Z",
+    "settings_changed": false
+  },
+  "cloudflare": {
+    "tools_connected": false,
+    "account_settings_verified": false,
+    "project_created": false,
+    "public_deploy_authorized": false,
+    "public_deploy_performed": false
+  },
+  "pull_requests": [
+    {
+      "number": 2,
+      "draft": true,
+      "merged": false,
+      "head": "d90e0105ec9c9a4283e0f142fdc4092df471c77b",
+      "ci_run": 43578962536,
+      "ci": "success"
+    },
+    {
+      "number": 3,
+      "draft": true,
+      "merged": false,
+      "head": "7267f2891b0edd9d91d3616ea4c21e5353a420c3",
+      "ci_run": 43582220742,
+      "ci": "success"
+    },
+    {
+      "number": 4,
+      "draft": true,
+      "merged": false,
+      "head": "7744a5af2971a9eb2e3f515def15ea7da396c4f7",
+      "ci_run": 43586310127,
+      "ci": "success"
+    },
+    {
+      "number": 5,
+      "draft": true,
+      "merged": false,
+      "head": "6e1e5da61be9398a7f20efeb8ed6af9a5dfdff70",
+      "ci_run": 43589023500,
+      "ci": "success"
+    },
+    {
+      "number": 6,
+      "draft": true,
+      "merged": false,
+      "head": "79941caba61bf5fd73812e32e6f7f4b579771f67",
+      "ci_run": 43594040245,
+      "ci": "success"
+    }
+  ]
+}
