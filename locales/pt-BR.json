@@ -112,5 +112,10 @@
   "clearPlan": "Limpar plano",
   "confirmClear": "Limpar este plano de fabricação?",
   "quantityShort": "Quantidade",
-  "changeSource": "Os planos de cada fonte são salvos separadamente."
+  "changeSource": "Os planos de cada fonte são salvos separadamente.",
+  "userChanged": "As receitas salvas mudaram em outra aba. Elas foram recarregadas; revise sua edição antes de salvar novamente.",
+  "networkTimeout": "O carregamento demorou demais. Confira sua conexão e tente novamente.",
+  "publicTest": "Teste público • sem anúncios ou recursos pagos",
+  "dataDisabled": "Este teste usa suas receitas. Esta versão não inclui dados da comunidade.",
+  "home": "Início"
 }

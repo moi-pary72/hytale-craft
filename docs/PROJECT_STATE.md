@@ -1,3 +1,19 @@
+# Stage 4 — Cloudflare/public test preparation (2026-11-14)
+
+Current work: `codex/cloudflare-testing-ready`, based on PR3 head `7267f2891b0edd9d91d3616ea4c21e5353a420c3`. Dependency is **PR2 → PR3 → Stage4**; main and prior branches stay unchanged. No deployment or merge authorized/performed.
+
+- Audit/fixes: `reports/STAGE4_AUDIT.md`. Goal changes clear stale cards; malformed metadata fails safely; preview detects legacy/other-tab recipe changes before save; add-plan preserves storage warnings; bounded data requests and safe retry. Shared recipe engine validates additional schema fields. Existing snapshots/IDs/calculation semantics retained.
+- Packaging: `scripts/build_pages.py` is a standard-library staging build, **not** deploy code. It writes NEW interface from `preview.html` to `dist/index.html` and copies only allowlisted runtime files. Never publish source root/legacy index. `dist` is ignored. Default `user-only` excludes third-party catalogs; explicit `noncommercial-review` includes pinned snapshots for owner review with unchanged legal restrictions. Test/noindex remains enabled in every build.
+- Exact future Pages settings, HTTPS/domain/rollback/data-update path: `CLOUDFLARE_PAGES.md`. No account connected, Pages project or URL created. Saving a Git integration can itself publish; requires owner's separate decision.
+- Four complete preview dictionaries EN/RU/ES/PT-BR now include concurrency/timeout/testing messages. FR/DE/Chinese remain hidden drafts. Native-speaker QA still needed; original EN game data remain separate. Legacy source is retained but excluded from new deployment output.
+- Art stays original SVG prototype. `FINAL_ILLUSTRATIONS_BRIEF.md` specifies all ten final shots, sizes/budgets, rights and acceptance. No final art created/commissioned, no copied game assets.
+- Tests and Drive receipts: `reports/STAGE4_TEST_RESULTS.md`, `STAGE4_PERFORMANCE.json`, `STAGE4_DRIVE_BACKUPS.json` (when uploaded/verified). Existing history below is preserved. Backups go into the same six existing Drive folders, no duplicate folder creation.
+- Publication readiness: code is locally reviewable, full bundled data public/commercial clearance remains blocked. Public testing can instead use a user-only build after owner approves hosting; this alone does not approve commercial launch. No analytics/ads/paid service added.
+
+Next: owner checks Android review artifact/screenshots, obtains native-language QA and decides whether a user-only public test should be published; separately request written HySphere scope for public mirroring/commercial use or independently derive permitted data. Merge/rebase the stack only with explicit permission and after checking concurrent changes. Physical Android, real Pages headers/HTTPS and final art remain unverified.
+
+---
+
 # Stage 3 — International UX preview (2026-11-14)
 
 Актуальное продолжение: ветка `codex/international-ux-preview`, основана на PR №2 head `d90e0105ec9c9a4283e0f142fdc4092df471c77b`. Main/production и ветка PR №2 не меняются. Отдельный draft [PR №3](https://github.com/moi-pary72/hytale-craft/pull/3) нацелен на ветку PR №2: сначала согласовать визуальный концепт, не выполнять merge автоматически.

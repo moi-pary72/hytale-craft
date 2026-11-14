@@ -27,3 +27,8 @@
 - https://github.com/moi-pary72/hytale-craft/actions/runs/43578613365 (push).
 
 Первоначальный запуск на `461b99b`: Python/JS success, установка browser dependency failure из-за ubuntu-latest=26.04, не поддерживаемой Playwright 1.56. Validation теперь закреплён на Ubuntu 24.04. Локально дополнительно проверена ширина **320 px**; горизонтальной прокрутки нет.
+
+
+## Stage 4 continuation
+
+See [STAGE4_TEST_RESULTS.md](STAGE4_TEST_RESULTS.md) for actual current counts and [STAGE4_PERFORMANCE.json](STAGE4_PERFORMANCE.json) for emulated mobile measurements. Cloudflare remains unconnected; no production validation is claimed.

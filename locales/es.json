@@ -112,5 +112,10 @@
   "clearPlan": "Vaciar plan",
   "confirmClear": "¿Vaciar este plan de fabricación?",
   "quantityShort": "Cantidad",
-  "changeSource": "Los planes de cada fuente se guardan por separado."
+  "changeSource": "Los planes de cada fuente se guardan por separado.",
+  "userChanged": "Las recetas guardadas cambiaron en otra pestaña. Se han recargado; revisa tu edición antes de guardar de nuevo.",
+  "networkTimeout": "La carga tardó demasiado. Revisa tu conexión e inténtalo de nuevo.",
+  "publicTest": "Prueba pública • sin anuncios ni funciones de pago",
+  "dataDisabled": "Esta prueba utiliza tus recetas. Esta versión no incluye datos de la comunidad.",
+  "home": "Inicio"
 }

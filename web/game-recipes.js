@@ -1,12 +1,14 @@
 /* Version-isolated adapter. Never joins third-party snapshots or local user recipes. */
 (function(root){'use strict';
 function validate(data){
- if(data?.schema_version!==3||!data.source?.extracted_at||!Array.isArray(data.items)||!Array.isArray(data.recipes)||!data.recipes.length)throw Error('Invalid recipe snapshot');
- const known=new Set();for(const i of data.items){if(typeof i.id!=='string'||known.has(i.id))throw Error('Duplicate item ID');known.add(i.id)}
+ if(data?.schema_version!==3||typeof data.source?.extracted_at!=='string'||!data.source.extracted_at||!Array.isArray(data.items)||!Array.isArray(data.recipes)||!data.recipes.length)throw Error('Invalid recipe snapshot');
+ const known=new Set();for(const i of data.items){if(!i||typeof i.id!=='string'||!i.id||known.has(i.id)||i.names&&Object.values(i.names).some(n=>n!==null&&typeof n!=='string'))throw Error('Duplicate item ID');known.add(i.id)}
  const seen=new Set();for(const r of data.recipes){
   if(typeof r.id!=='string'||seen.has(r.id)||r.status!=='source-backed'||!Array.isArray(r.inputs)||!r.inputs.length||!Array.isArray(r.outputs)||r.outputs.length!==1||!Array.isArray(r.bench_requirements))throw Error('Unsupported recipe');seen.add(r.id);
-  for(const m of [...r.inputs,...r.outputs])if(m.kind!=='ItemId'||!known.has(m.id)||!Number.isSafeInteger(m.quantity)||m.quantity<1||m.quantity>999999)throw Error('Unresolved recipe material');
+  for(const b of r.bench_requirements)if(!b||typeof b.id!=='string'||!b.id||(b.tier!=null&&(!Number.isSafeInteger(b.tier)||b.tier<0)))throw Error('Invalid station');
+  for(const m of [...r.inputs,...r.outputs])if(!m||m.kind!=='ItemId'||!known.has(m.id)||!Number.isSafeInteger(m.quantity)||m.quantity<1||m.quantity>999999)throw Error('Unresolved recipe material');
  }
+ if(data.incomplete_recipes!==undefined&&(!Array.isArray(data.incomplete_recipes)||data.incomplete_recipes.some(r=>!r||!Array.isArray(r.outputs)||r.outputs.some(id=>typeof id!=='string')||!Array.isArray(r.reasons)||r.reasons.some(x=>typeof x!=='string'))))throw Error('Invalid incomplete records');
  return data;
 }
 function index(data){validate(data);const byOutput=Object.create(null);for(const r of data.recipes){const id=r.outputs[0].id;(byOutput[id]??=[]).push(r)}return byOutput}

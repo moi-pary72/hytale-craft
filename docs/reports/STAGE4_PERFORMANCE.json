@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-14",
+  "method": "Local Chromium mobile emulation; not physical Android or field measurements",
+  "startup": [
+    {
+      "language": "en",
+      "startup_decoded_bytes": 60631,
+      "requests": 17,
+      "data_requests_before_goal": 0,
+      "widths": [
+        320,
+        360,
+        393,
+        430
+      ]
+    },
+    {
+      "language": "ru",
+      "startup_decoded_bytes": 64322,
+      "requests": 17,
+      "data_requests_before_goal": 0,
+      "widths": [
+        320,
+        360,
+        393,
+        430
+      ]
+    },
+    {
+      "language": "es",
+      "startup_decoded_bytes": 61231,
+      "requests": 17,
+      "data_requests_before_goal": 0,
+      "widths": [
+        320,
+        360,
+        393,
+        430
+      ]
+    },
+    {
+      "language": "pt-BR",
+      "startup_decoded_bytes": 61274,
+      "requests": 17,
+      "data_requests_before_goal": 0,
+      "widths": [
+        320,
+        360,
+        393,
+        430
+      ]
+    }
+  ],
+  "slow_phone": {
+    "cpu_slowdown": 4,
+    "latency_ms": 150,
+    "download_bytes_per_second": 150000,
+    "home_ready_seconds": 1.221,
+    "continuous_animations": 0
+  },
+  "slow_json": {
+    "latency_ms": 200,
+    "download_bytes_per_second": 400000,
+    "result": "real shortbow card loaded; abort and retry verified separately with deterministic timeout fixture"
+  }
+}

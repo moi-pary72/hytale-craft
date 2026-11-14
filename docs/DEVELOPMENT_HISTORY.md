@@ -65,3 +65,8 @@ Preview metrics: home≈57–61KB decoded, no snapshots before action, no loops;
 Draft PR №3: https://github.com/moi-pary72/hytale-craft/pull/3 . Preview checkpoint 02b0fe4d5cb74c0f005f824718aa5092a28932d4. Оба CI success, включая existing mobile +6 preview tests: https://github.com/moi-pary72/hytale-craft/actions/runs/43581924264 и https://github.com/moi-pary72/hytale-craft/actions/runs/43581914846 .
 
 Реально сохранены/metadata-readback проверены 6 stage3 файлов в существующих Drive folders: кодZIP, data+locales ZIP, docs ZIP, автономный HTML, EN PNG и RU PNG. Точные ссылки/размеры/local SHA в reports/STAGE3_DRIVE_BACKUPS.json. Архивы checkpoint02b0fe4 не включают собственный последующий receipt; новые изменения только документы. HySphere license остаётся ограничением, коммерческого approval нет. Никаких новых папок/secret/game archive/production deploy.
+
+
+## 2026-11-14 — Stage4: isolated Pages test build, no publication
+
+Independently inspected main/PR2/PR3 heads and code; continued in `codex/cloudflare-testing-ready` on PR3. Fixed stale goal cards, malformed source metadata, preview/legacy storage overwrite risk, false plan-save success and unbounded data waits. Added allowlisted `dist` builder defaulting to user-only data, new entry point, noindex, CSP/404/hash receipts; no Cloudflare connection or deploy. Expanded mobile widths320/360/393/430, all-goal/concurrency/JSON tests and actual output/CSP integration. Added final-art technical brief, exact Pages/rollback/domain instructions, public noncommercial-vs-commercial distinction. Preserved all data snapshots, prior source branches and history. See Stage4 audit/test/Drive reports for final receipts and limits.
