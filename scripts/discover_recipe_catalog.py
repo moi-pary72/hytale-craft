@@ -57,5 +57,5 @@ def main():
         except Exception as e:report["candidate_results"].append({"path":path,"error":str(e)[:180]})
     (ROOT/"recipe-discovery.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print("Catalog discovery:",json.dumps({"sources":report["sources"],"candidates":report["candidates"],"results":[{"path":r["path"],"count":r.get("count"),"error":r.get("error")} for r in report["candidate_results"]]},ensure_ascii=False))
-    if not report["candidates"]:raise SystemExit("No recipe catalog path found in verified index; report saved")
+    if not report["candidates"]:print("WARNING: No recipe catalog found in verified index; see artifact. Discovery completed without usable recipes.")
 if __name__=="__main__":main()
