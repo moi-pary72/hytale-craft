@@ -1,3 +1,27 @@
+# Published educational beta — verified 2026-11-14
+
+**Working HTTPS site:** https://moi-pary72.github.io/hytale-craft/ . Owner-authorized sequential PR2→3→4→5→6→7→8 merges completed normally with fresh CI, expected-head guards, no conflicts/force. Release main691fe87db1b7d79f374fd8628ff7ad4a3f20c105. [Pages workflow43605804630](https://github.com/moi-pary72/hytale-craft/actions/runs/43605804630) build/deploy succeeded. Owner changed Source to Actions; previous403 blocker is resolved. GitHub now publishes **only audited dist**, never repository root. Earlier blocked/not-published sections below are historical.
+
+## Verified on the actual public site
+
+HTTPS200, new beta entry, public manifest matches audited release,21served content files hashed (Cloudflare service config files are excluded from HTTP hash checks), forbidden data/catalog/recipe/docs/passport/Assets.zip/.git paths all403/404. Live Chromium320/360/393/430,4locales,10goals/two columns, sheet, pose action after warm cache, recursive recipe calculations, inventory deficits, plans, Back/Escape and reload/local language persistence passed. Zero console errors, zero game data requests, no horizontal overflow. These were fresh test contexts; owner's actual browser storage was not touched. Physical Android/IME/screen-reader testing still pending.
+
+Public data is4original educational examples, explicitly NOT Hytale recipes. HySphere/OpenHytale snapshots remain outside dist; no ads/analytics/paid features or new third-party assets. Two original PR5 art scenes retained;8final scenes and genuinely smooth authored motion remain unfinished. Existing user recipe/inventory keys, editor/import/export and full beta backup remain supported; other hostname needs explicit data export/import.
+
+## Cloudflare remains an account setup task
+
+Use only project **hytale-craft**, Production branch **main**, FrameworkNone, command `python3 scripts/build_pages.py --data-policy user-only`, outputdist, Rootblank, automatic production branch deploymentsON, preview branchesNone. Do not create a separate preview project. Publication authorization is already granted; no new approval request needed. No Cloudflare account connector is available, and hytale-craft.pages.dev could not be verified from this environment. Do not claim a working Cloudflare URL until actual account deployment and HTTPS checks succeed. Android steps in CLOUDFLARE_PAGES.md / PRODUCTION_LAUNCH.md. Main now contains the complete builder/beta.
+
+## Recovery and evidence
+
+Old main1c9c1e035207b954894fdba225ceca2dc4742f38 is retained by remote annotated tagbackup/main-before-beta-20261114 and CRC/SHA-verified Drive ZIP https://drive.google.com/file/d/1bac-DFOkhG_y0PxAxSknrk6JDUb49jkB/view . Keep last audited beta dist too. Roll back through an ordinary reviewed commit and verified workflow artifact; no force-push or unsafe root publication. Browser storage is separate from code rollback.
+
+Exact merge SHAs/check runs/HTTP statuses/headers/live metrics: reports/PRODUCTION_RELEASE_VERIFICATION.json. Release language race fixed in PR6 c4accf4; no rollback of saved explicit language on cancelled dictionary fetch. GitHub project404 and client metaCSP support /hytale-craft/; GitHub cannot apply Cloudflare _headers, header-only policies are not claimed. Noindex remains intentional for limited beta.
+
+Next owner action: open the working GitHub URL on real Android, then connect the same main to the one Cloudflare project with the fields above. Share the actual Cloudflare URL for validation. Complete real catalog rights/provenance work and final art separately; do not silently enable restricted game data or monetization. Previous history is preserved below.
+
+---
+
 # Owner-authorized production launch — in preparation, not yet published
 
 Owner explicitly approved sequential PR2–7 merges and free educational beta deployment. Earlier no-merge/no-deploy and separate-preview instructions are superseded. Target one Cloudflare project hytale-craft, productionmain, user-only dist, automatic main updates; no restricted datasets/ads/paid services.

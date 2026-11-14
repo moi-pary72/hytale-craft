@@ -1,0 +1,307 @@
+{
+  "date": "2026-11-14",
+  "owner_authorized": true,
+  "github_pages_published": true,
+  "release_main": "691fe87db1b7d79f374fd8628ff7ad4a3f20c105",
+  "release_workflow_run": 43605804630,
+  "release_workflow_url": "https://github.com/moi-pary72/hytale-craft/actions/runs/43605804630",
+  "release_workflow_conclusion": "success",
+  "source": "workflow, audited dist only",
+  "merges": [
+    {
+      "pr": 2,
+      "head": "d90e0105ec9c9a4283e0f142fdc4092df471c77b",
+      "merge_sha": "55f55cfc2de89b67c9d5195fd5df36ff2bfe652b",
+      "merged_at": "2026-11-14T14:24:24Z"
+    },
+    {
+      "pr": 3,
+      "head": "57ee4f65b5d4080289e5ac918f7153938dbf4998",
+      "merge_sha": "ff9d7d79b0883441581ea693f7b319df5b331b5b",
+      "merged_at": "2026-11-14T14:27:02Z",
+      "checks": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-11-14T14:25:34Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/moi-pary72/hytale-craft/actions/runs/43604740854/job/132476842982",
+          "name": "test",
+          "startedAt": "2026-11-14T14:24:59Z",
+          "status": "COMPLETED",
+          "workflowName": "Validate planner and importers"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-11-14T14:25:38Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/moi-pary72/hytale-craft/actions/runs/43604738862/job/132476837225",
+          "name": "test",
+          "startedAt": "2026-11-14T14:24:58Z",
+          "status": "COMPLETED",
+          "workflowName": "Validate planner and importers"
+        }
+      ]
+    },
+    {
+      "pr": 4,
+      "head": "1d670994a5f82d3b1baab09d31cb42e7fba7cc97",
+      "merge_sha": "4cfaca7ecaf6d2aeeede618215cdcc4fe87bbdeb",
+      "merged_at": "2026-11-14T14:29:19Z",
+      "checks": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-11-14T14:28:59Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/moi-pary72/hytale-craft/actions/runs/43604934166/job/132477437850",
+          "name": "test",
+          "startedAt": "2026-11-14T14:27:16Z",
+          "status": "COMPLETED",
+          "workflowName": "Validate planner and importers"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-11-14T14:29:06Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/moi-pary72/hytale-craft/actions/runs/43604929507/job/132477422475",
+          "name": "test",
+          "startedAt": "2026-11-14T14:27:13Z",
+          "status": "COMPLETED",
+          "workflowName": "Validate planner and importers"
+        }
+      ]
+    },
+    {
+      "pr": 5,
+      "head": "89d2db99d827219ac522a74945691e3f9993ddb8",
+      "merge_sha": "d345cfec88b66b2e61d41044432edb17abcdaa27",
+      "merged_at": "2026-11-14T14:31:46Z",
+      "checks": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-11-14T14:31:05Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/moi-pary72/hytale-craft/actions/runs/43605118761/job/132478018973",
+          "name": "test",
+          "startedAt": "2026-11-14T14:29:33Z",
+          "status": "COMPLETED",
+          "workflowName": "Validate planner and importers"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-11-14T14:31:32Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/moi-pary72/hytale-craft/actions/runs/43605115325/job/132478007814",
+          "name": "test",
+          "startedAt": "2026-11-14T14:29:30Z",
+          "status": "COMPLETED",
+          "workflowName": "Validate planner and importers"
+        }
+      ]
+    },
+    {
+      "pr": 6,
+      "head": "31e3c7569e228812e01fb749c081ed5e6439c4ea",
+      "merge_sha": "37d19e5dfd670b3f829696b7e324c979de0e00f1",
+      "merged_at": "2026-11-14T14:33:41Z",
+      "checks": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-11-14T14:33:26Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/moi-pary72/hytale-craft/actions/runs/43605346074/job/132478686073",
+          "name": "test",
+          "startedAt": "2026-11-14T14:32:01Z",
+          "status": "COMPLETED",
+          "workflowName": "Validate planner and importers"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-11-14T14:33:16Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/moi-pary72/hytale-craft/actions/runs/43605340461/job/132478669335",
+          "name": "test",
+          "startedAt": "2026-11-14T14:31:57Z",
+          "status": "COMPLETED",
+          "workflowName": "Validate planner and importers"
+        }
+      ]
+    },
+    {
+      "pr": 7,
+      "head": "ca6e7bcd4afc8133f60504ebbb3eb5a22618d0c8",
+      "merge_sha": "e6ba5dd0bb66b47c0fa9b83bf744b8d54025b004",
+      "merged_at": "2026-11-14T14:35:22Z",
+      "checks": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-11-14T14:35:09Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/moi-pary72/hytale-craft/actions/runs/43605513269/job/132479182009",
+          "name": "test",
+          "startedAt": "2026-11-14T14:33:53Z",
+          "status": "COMPLETED",
+          "workflowName": "Validate planner and importers"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-11-14T14:35:13Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/moi-pary72/hytale-craft/actions/runs/43605509385/job/132479170617",
+          "name": "test",
+          "startedAt": "2026-11-14T14:33:51Z",
+          "status": "COMPLETED",
+          "workflowName": "Validate planner and importers"
+        }
+      ]
+    },
+    {
+      "pr": 8,
+      "head": "b4e619cbaa631559241d47d5289668ff7599c751",
+      "merge_sha": "691fe87db1b7d79f374fd8628ff7ad4a3f20c105",
+      "merged_at": "2026-11-14T14:37:04Z",
+      "checks": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-11-14T14:36:53Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/moi-pary72/hytale-craft/actions/runs/43605667241/job/132479645384",
+          "name": "test",
+          "startedAt": "2026-11-14T14:35:35Z",
+          "status": "COMPLETED",
+          "workflowName": "Validate planner and importers"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-11-14T14:36:40Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/moi-pary72/hytale-craft/actions/runs/43605663368/job/132479632387",
+          "name": "test",
+          "startedAt": "2026-11-14T14:35:32Z",
+          "status": "COMPLETED",
+          "workflowName": "Validate planner and importers"
+        }
+      ]
+    }
+  ],
+  "public_checks": {
+    "url": "https://moi-pary72.github.io/hytale-craft/",
+    "actual_url": "https://moi-pary72.github.io/hytale-craft/",
+    "entry_http": 200,
+    "beta": true,
+    "data_policy": "user-only",
+    "verified_content_files": [
+      "404.html",
+      "assets/art-pair/fight-atlas.webp",
+      "assets/art-pair/fight-poster.webp",
+      "assets/art-pair/gather-atlas.webp",
+      "assets/art-pair/gather-poster.webp",
+      "index.html",
+      "locales/beta/en.json",
+      "locales/beta/es.json",
+      "locales/beta/pt-BR.json",
+      "locales/beta/ru.json",
+      "locales/en.json",
+      "locales/es.json",
+      "locales/pt-BR.json",
+      "locales/ru.json",
+      "robots.txt",
+      "web/beta/app.js",
+      "web/beta/examples.js",
+      "web/beta/style.css",
+      "web/build-config.js",
+      "web/planner.js",
+      "web/preview/i18n.js"
+    ],
+    "blocked_source_paths": {
+      "data/catalog.json": 404,
+      "data/recipes/manifest.json": 404,
+      "docs/PROJECT_STATE.md": 404,
+      "PROJECT_PASSPORT.md": 404,
+      "Assets.zip": 404,
+      ".git/config": 404
+    },
+    "response_headers": {
+      "server": "envoy",
+      "content-type": "text/html; charset=utf-8",
+      "last-modified": "Sat, 14 Nov 2026 14:38:00 GMT",
+      "access-control-allow-origin": "*",
+      "strict-transport-security": "max-age=31556952",
+      "etag": "\"6af87248-963\"",
+      "expires": "Sat, 14 Nov 2026 14:48:24 GMT",
+      "cache-control": "max-age=600",
+      "x-proxy-cache": "MISS",
+      "x-github-request-id": "58D0:217D9E:124DA12:15D724A:6AF87260",
+      "x-github-edge-region": "iad",
+      "accept-ranges": "bytes",
+      "age": "0",
+      "date": "Sat, 14 Nov 2026 14:38:25 GMT",
+      "via": "1.1 varnish",
+      "x-served-by": "cache-chi-klot8100095-CHI",
+      "x-cache": "MISS",
+      "x-cache-hits": "0",
+      "x-timer": "S1794667105.960488,VS0,VE41",
+      "vary": "Accept-Encoding",
+      "x-fastly-request-id": "c95f0bbe8932bd31ff109bd0e50a2b203671dfa9",
+      "content-length": "2403",
+      "x-envoy-upstream-service-time": "98",
+      "connection": "close"
+    }
+  },
+  "live_browser_checks": {
+    "url": "https://moi-pary72.github.io/hytale-craft/",
+    "http_status": 200,
+    "goals": 10,
+    "widths": [
+      320,
+      360,
+      393,
+      430
+    ],
+    "locales": [
+      "en",
+      "ru",
+      "es",
+      "pt-BR"
+    ],
+    "horizontal_overflow": false,
+    "console_errors": [],
+    "game_data_requests": 0,
+    "pose_action_after_warm_cache": true,
+    "sheet_recipe_inventory_plan_back_escape_reload": "passed",
+    "physical_android": false,
+    "owner_browser_storage_touched": false
+  },
+  "cloudflare": {
+    "account_tools_available": false,
+    "actual_deployment_verified": false,
+    "observation": {
+      "requested_url": "https://hytale-craft.pages.dev/",
+      "available": false,
+      "error_type": "URLError",
+      "http_status": null,
+      "account_control_verified": false
+    },
+    "project": "hytale-craft",
+    "production_branch": "main",
+    "framework": "None",
+    "build": "python3 scripts/build_pages.py --data-policy user-only",
+    "output": "dist",
+    "root": "",
+    "automatic_main_deployments": true,
+    "separate_preview_project": false
+  },
+  "rollback": {
+    "tag": "backup/main-before-beta-20261114",
+    "old_main": "1c9c1e035207b954894fdba225ceca2dc4742f38",
+    "old_main_zip_sha256": "1ee2283a3edbef3fd823076034f1ec12a809a5f1478b935f7c13ab8e482b1845",
+    "drive_backup": "https://drive.google.com/file/d/1bac-DFOkhG_y0PxAxSknrk6JDUb49jkB/view",
+    "force_push_used": false
+  },
+  "limitations": [
+    "4original learning examples, no verified game recipe catalog",
+    "8final illustrations pending",
+    "4pose crossfade is not full rigged animation",
+    "physical Android/IME/screenreader not available",
+    "Cloudflare requires owner account connection and actual HTTPS validation"
+  ]
+}

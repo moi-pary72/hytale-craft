@@ -1,15 +1,23 @@
 {
   "date": "2026-11-14",
   "owner_authorized_merges_and_free_beta": true,
-  "publication_completed": false,
-  "main": "1c9c1e035207b954894fdba225ceca2dc4742f38",
-  "merged_prs": [],
+  "publication_completed": true,
+  "main": "691fe87db1b7d79f374fd8628ff7ad4a3f20c105",
+  "merged_prs": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
   "blocker": {
     "action": "PUT GitHub Pages build_type workflow",
     "status": 403,
     "message": "Resource not accessible by integration",
-    "readback": "legacy main:/",
-    "required_owner_action": "Settings > Pages > Build and deployment > Source > GitHub Actions",
+    "readback": "workflow",
+    "required_owner_action": "none for GitHub Pages; owner completed Source switch",
     "resolved_by_owner": true,
     "current_readback": "workflow"
   },
@@ -50,8 +58,8 @@
   "github_pages": {
     "url": "https://moi-pary72.github.io/hytale-craft/",
     "http_status": 200,
-    "new_beta_detected": false,
-    "status": "old version remains served"
+    "new_beta_detected": true,
+    "status": "new beta published and live-verified"
   },
   "cloudflare": {
     "account_access": false,
@@ -66,5 +74,8 @@
     "actual_url_verified": false
   },
   "force_used": false,
-  "integration_in_progress": true
+  "integration_in_progress": false,
+  "github_pages_published": true,
+  "cloudflare_published": false,
+  "publication_run": 43605804630
 }
