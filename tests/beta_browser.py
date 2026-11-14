@@ -84,4 +84,9 @@ class BetaTests(unittest.TestCase):
         p=self.page();p.add_init_script("Storage.prototype.setItem=function(){throw new DOMException('Full','QuotaExceededError')}");p.goto(self.url);self.ready(p);p.locator('#nav button').nth(1).click();p.fill('#inventory','lesson:fibre: 2');p.get_by_role('button',name='Save inventory',exact=True).click();self.assertIn('not saved',p.locator('#notice').inner_text());self.assertIsNone(p.evaluate('localStorage.getItem("hytale-craft-inventory-v1")'))
         p2=self.page();p2.route('**/locales/beta/*.json',lambda r:r.fulfill(status=200,content_type='application/json',body='BROKEN'));p2.goto(self.url);p2.wait_for_selector('#boot-error:not([hidden])');self.assertEqual(p2.locator('#goals button').count(),0);self.assertIn('Reload',p2.locator('#boot-error').inner_text())
 
+
+    def test_language_preference_survives_reload_during_pending_fetch(self):
+        p=self.page();session=p.context.new_cdp_session(p);session.send('Network.enable');session.send('Network.setCacheDisabled',{'cacheDisabled':True});session.send('Network.emulateNetworkConditions',{'offline':False,'latency':250,'downloadThroughput':1000000,'uploadThroughput':1000000})
+        p.goto(self.url);self.ready(p);p.select_option('#language','ru');self.assertEqual(p.evaluate('localStorage.getItem("hytale-craft-language")'),'ru');p.reload();self.ready(p);self.assertEqual(p.locator('html').get_attribute('lang'),'ru');self.assertEqual(p.evaluate('localStorage.getItem("hytale-craft-language")'),'ru')
+
 if __name__=='__main__':unittest.main()
