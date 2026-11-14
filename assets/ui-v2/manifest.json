@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "files": {
+    "boss.webp": {
+      "sha256": "10dc1a51f0ed229006eb4c89490916c599a860784556b6c202414ac9eae4f80c",
+      "bytes": 34366
+    },
+    "build.webp": {
+      "sha256": "364e289cdefc33b32f1cfcf5a5198d06041875f3844c8943ee2dd96e7526629e",
+      "bytes": 36444
+    },
+    "defend.webp": {
+      "sha256": "52cdf41007ad05dd49ad1c82dd64e03c0c8bb055617d9bdffe45ef3acd358f08",
+      "bytes": 31334
+    },
+    "explore.webp": {
+      "sha256": "8852d6763c1cea03ba1afb8c9ad43c63b347cef7da02dcd5eb3be564848f251d",
+      "bytes": 40916
+    },
+    "farm.webp": {
+      "sha256": "b480bfa2c4df1a5ecd0a8dff90f2c9ddeca8b1a5c6650f475373ba4da8fd5092",
+      "bytes": 33516
+    },
+    "frame.webp": {
+      "sha256": "f63ed82ee95f6fc1782b786e20711e2e0e45ba69fd259e4c43cf789b07faafe6",
+      "bytes": 20956
+    },
+    "logo.webp": {
+      "sha256": "ab34e48e028b619c20503341652a08c31ab5e65c7bae9d9c673a78d11dbc448e",
+      "bytes": 61586
+    },
+    "nav-home.webp": {
+      "sha256": "8148c06906b7c22e3cebf2d2dad0d95be2d6636388a2119acc6d0f104c78e3aa",
+      "bytes": 3866
+    },
+    "nav-inventory.webp": {
+      "sha256": "1500dc45a0fcd9c576be970d5b6b8d86c27cf06ce4b8a5e8341bafbca839640f",
+      "bytes": 3774
+    },
+    "nav-more.webp": {
+      "sha256": "59607e219bba52d5715aa6084f9b25b916204aa45244d2384074f12e4df3d7e8",
+      "bytes": 2732
+    },
+    "nav-plan.webp": {
+      "sha256": "d02d98bcf339080ac4d8ee422dbf1205b1ac2ad3ede91eaf5655750c055250c8",
+      "bytes": 4066
+    },
+    "skills.webp": {
+      "sha256": "9cfd95f3b9315972d9aaf80407f4a2b91de094d60da69b7a997f0163963d962c",
+      "bytes": 36152
+    },
+    "survive.webp": {
+      "sha256": "d2a44cee6be5885e6a051879b0c3f0302284664c071f7082e9784d5a049add9a",
+      "bytes": 30006
+    },
+    "workshop.webp": {
+      "sha256": "b0dbfec72199d237c77bde046dfa4fd9dfa67dba4440c3cfc6040c30b25cfb36",
+      "bytes": 32192
+    },
+    "world-mobile.webp": {
+      "sha256": "38d1a5cc7067ff5b372936385d9e38842bfc5439b1bc378297c9f7aaa595d44e",
+      "bytes": 46976
+    },
+    "world.webp": {
+      "sha256": "f217a96a7d67f819e1f26bb485db026211e3a6a21c8f346dc90ea08722526223",
+      "bytes": 139418
+    }
+  }
+}

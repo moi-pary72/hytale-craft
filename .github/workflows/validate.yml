@@ -35,6 +35,18 @@ jobs:
           python tests/art_browser.py
           python tests/beta_browser.py
           python tests/github_pages_browser.py
+      - name: Save mobile beta screenshots and performance evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobile-beta-${{ github.sha }}
+          path: |
+            .private/stage6/home-*.png
+            .private/stage6/recipe-*.png
+            .private/stage6/sheet-*.png
+            .private/stage6/startup.json
+            .private/stage6/slow.json
+          if-no-files-found: error
+          retention-days: 14
       - name: Rebuild and audit isolated preview artifact
         if: github.ref == 'refs/heads/codex/https-preview' || github.head_ref == 'codex/https-preview'
         run: |

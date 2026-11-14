@@ -1,3 +1,13 @@
+# Hytale Craft 2.0 — current release work (2026-11-14)
+
+Current implementation: [UI_V2.md](UI_V2.md). One branch `codex/ui-v2` based on main232b9c4; owner authorized one PR, merge after visual/CI checks and publication to the existing sites. All ten goals now have original illustrated scenes; original wordmark/background/frame/navigation artwork is separate from localized HTML. Existing two pose animations and all planner/storage mechanisms remain. Four languages EN/RU/ES/PT-BR; four explicitly educational recipes, **zero real Hytale recipes in dist**. Legal data plan: [LEGAL_RECIPE_PLAN.md](LEGAL_RECIPE_PLAN.md).
+
+Cloudflare https://hytale-craft.pages.dev/ now actually answers HTTPS200 (checked before changes); the earlier account-setup blocker below is historical. Existing project only, automatic main deployments; no new project. Public build remains user-only/noindex and exact allowlist. See [reports/UI_V2_TEST_RESULTS.md](reports/UI_V2_TEST_RESULTS.md) for local QA and the PR for final CI/deployment evidence. A UI release is not a license to publish source datasets.
+
+Rollback tag `backup/pre-ui-v2-20261114` points at232b9c4f1da592e415245d0144c1d7acb1e7b845. Existing Google Drive root: https://drive.google.com/drive/folders/1CyqdLmek-cig0dVSSH0y6hcfEPVRChkj ; source PNGs/changed-code ZIP/screenshots/checksum reports go to existing04/05/06 folders. Passport is updated in place, preserving history. Latest primary art reference: owner's attached Hytale Craft2.0 image; older reference archive https://drive.google.com/drive/folders/1_IZebF8sttpwqA1B-rP4oH9HuX7xG1Ve remains historical. Exact latest attachment bytes were not exposed for archival; no older file is falsely substituted.
+
+---
+
 # Published educational beta — verified 2026-11-14
 
 **Working HTTPS site:** https://moi-pary72.github.io/hytale-craft/ . Owner-authorized sequential PR2→3→4→5→6→7→8 merges completed normally with fresh CI, expected-head guards, no conflicts/force. Release main691fe87db1b7d79f374fd8628ff7ad4a3f20c105. [Pages workflow43605804630](https://github.com/moi-pary72/hytale-craft/actions/runs/43605804630) build/deploy succeeded. Owner changed Source to Actions; previous403 blocker is resolved. GitHub now publishes **only audited dist**, never repository root. Earlier blocked/not-published sections below are historical.
