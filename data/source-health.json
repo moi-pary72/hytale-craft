@@ -1,0 +1,70 @@
+{
+  "checked_at": "2026-11-14T08:30:01.552039+00:00",
+  "sources": {
+    "openhytale": [
+      {
+        "url": "https://openhytale.org/api/meta.json",
+        "status": 200,
+        "bytes": 2705,
+        "content_type": "application/json",
+        "json_type": "dict",
+        "keys": [
+          "generated_at",
+          "command_count",
+          "catalog_count",
+          "catalog_entries_total",
+          "categories"
+        ],
+        "metadata": {}
+      },
+      {
+        "url": "https://openhytale.org/api/catalogs.json",
+        "status": 200,
+        "bytes": 423,
+        "content_type": "application/json",
+        "json_type": "dict",
+        "keys": [
+          "ambience",
+          "audio_categories",
+          "biome_assignments",
+          "biomes",
+          "blocks",
+          "camera_effects",
+          "camera_shakes",
+          "drops",
+          "effects",
+          "item_animations",
+          "item_groups",
+          "items",
+          "models",
+          "npc_groups",
+          "npcs",
+          "prefabs",
+          "projectiles",
+          "recipes",
+          "resource_types",
+          "sounds",
+          "trails"
+        ],
+        "metadata": {}
+      }
+    ],
+    "hytale_source": [
+      {
+        "url": "https://hytale.source.gs/",
+        "status": 200,
+        "bytes": 166912,
+        "content_type": "text/html; charset=utf-8"
+      }
+    ],
+    "hytaledb": [
+      {
+        "url": "https://hytaledb.net/",
+        "status": 200,
+        "bytes": 11944,
+        "content_type": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "publication": "diagnostics-only; no unvalidated recipes deployed"
+}

@@ -1,0 +1,14 @@
+{
+  "checked_at": "2026-11-14T08:30:01.137931+00:00",
+  "source": "https://downloader.hytale.com/hytale-downloader.zip",
+  "downloadable": true,
+  "contains_linux_binary": true,
+  "authentication_required_for_game_assets": true,
+  "game_assets_downloaded": false,
+  "archive_entries": [
+    "hytale-downloader-linux-amd64",
+    "hytale-downloader-windows-amd64.exe",
+    "QUICKSTART.md"
+  ],
+  "note": "Official downloader archive verified. Game assets require separate OAuth authorization."
+}

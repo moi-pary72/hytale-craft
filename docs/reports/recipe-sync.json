@@ -1,0 +1,28 @@
+{
+  "incomplete_recipes": 1486,
+  "items": 3219,
+  "reasons": {
+    "multiple_or_missing_outputs": 423,
+    "salvage_not_auto_crafted": 403,
+    "unresolved_inputs": 1074,
+    "unresolved_station": 47
+  },
+  "source": {
+    "exact_build": null,
+    "extracted_at": "2026-08-12T11:09:57.625Z",
+    "game_version": "Early Access",
+    "license_url": "https://hysphere.app/about#data-license",
+    "name": "HySphere",
+    "raw_sha256": {
+      "items": "2ca40b7ec9ea78869cabdac579c3787c40a9728b0f492e88d3629f42dea7ad59",
+      "manifest": "12709143ba45909056aa7fc7ce782d15c5a78a41165b5dd0d42234e4b918bc6c",
+      "recipes": "d007c9f482198d6353acba43af9142736bcc0f446235b60f418a01e9f208d09e"
+    },
+    "revision": "2026-08-12T11:09:57.625Z",
+    "url": "https://hysphere.app/data",
+    "usage": "non-commercial-attribution",
+    "verification": "community-extracted; structurally validated; not official verification"
+  },
+  "source_backed_recipes": 623,
+  "status": "validated"
+}
