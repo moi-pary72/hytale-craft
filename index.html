@@ -183,4 +183,22 @@ function close(){layer.hidden=true;document.body.style.overflow='';refreshLaunch
 launch.onclick=open;layer.querySelector('.catalog-close').onclick=close;layer.onclick=e=>{if(e.target===layer)close()};search.oninput=()=>{limit=12;refresh()};document.addEventListener('keydown',e=>{if(layer.hidden)return;if(e.key==='Escape')close();if(e.key==='Tab'){const focusable=[...layer.querySelectorAll('button:not([disabled]),input:not([disabled])')].filter(x=>x.offsetParent!==null);if(!focusable.length)return;const first=focusable[0],last=focusable.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
 new MutationObserver(refreshLaunch).observe(select,{childList:true,attributes:true,subtree:true});document.getElementById('language')?.addEventListener('change',()=>{refreshLaunch();if(!layer.hidden)refresh()});refreshLaunch();
 })();
+</script><script>
+/* Curated legacy recipe samples. Source explicitly dated; not asserted current after later game patches. */
+(()=>{'use strict';
+const KEY='hytale-craft-recipes-v1',FLAG='hytale-craft-seed-2026-11-v1';
+const source='https://hytale.game/en/the-ultimate-guide-to-crafting-recipes-in-hytale/ (historical guide; verify in current game build)';
+const samples={
+'Rudimentary Daggers':{yield:1,source,ingredients:{Rubble:3,'Plant Fibers':2,Sticks:2}},
+'Copper Daggers':{yield:1,source,ingredients:{'Copper Ingots':4,Logs:3,'Plant Fibers':3}},
+'Iron Daggers':{yield:1,source,ingredients:{'Iron Ingots':4,'Light Leather':2,'Linen Scraps':3}},
+'Rudimentary Shortbow':{yield:1,source,ingredients:{Sticks:4,'Plant Fibers':6}},
+'Copper Shortbow':{yield:1,source,ingredients:{'Copper Ingots':4,Logs:4,'Plant Fibers':6}},
+'Iron Shortbow':{yield:1,source,ingredients:{'Iron Ingots':6,'Light Leather':3,'Linen Scraps':3}},
+'Copper Shield':{yield:1,source,ingredients:{'Copper Ingots':2,Log:1,'Plant Fibers':3}},
+'Iron Shield':{yield:1,source,ingredients:{'Iron Ingots':4,'Light Leather':3,'Linen Scraps':3}},
+'Crossbow':{yield:1,source,ingredients:{'Linen Scraps':3,'Light Leather':3,'Iron Ingots':6}}
+};
+try{if(localStorage.getItem(FLAG))return;const current=JSON.parse(localStorage.getItem(KEY)||'{}');if(!current||typeof current!=='object'||Array.isArray(current))return;let added=0;for(const [name,recipe] of Object.entries(samples)){if(Object.keys(current).length>=500)break;if(!Object.prototype.hasOwnProperty.call(current,name)){current[name]=recipe;added++}}if(added){localStorage.setItem(KEY,JSON.stringify(current));location.reload()}localStorage.setItem(FLAG,'1')}catch(e){console.warn('Sample recipes could not be loaded',e)}
+})();
 </script></body></html>
