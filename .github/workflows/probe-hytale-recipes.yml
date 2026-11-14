@@ -1,0 +1,22 @@
+name: Hytale recipe endpoint discovery
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe-recipes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Discover recipe JSON endpoint
+        run: python scripts/probe_recipe_endpoints.py
+      - name: Upload JSON diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hytale-recipe-endpoint-report
+          path: data/recipe-probe.json
+          if-no-files-found: warn
