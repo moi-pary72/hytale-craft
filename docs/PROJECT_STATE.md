@@ -1,5 +1,7 @@
 # Stage5 — reference-led rendered pair, awaiting owner approval (2026-11-14)
 
+Final documentation checkpoint `8335fc5b99a68554abc5703053f7adbfa0c5f0c9` additionally backed up and metadata-readback verified: https://drive.google.com/file/d/1A24aqZUdV9BSdlQfAkTPkJDlZai91dXD/view?usp=drivesdk . Total12 Stage5 uploads. Runtime remains checkpoint1a978c99; later changes are receipts only.
+
 **Permanent art reference folder:** https://drive.google.com/drive/folders/1_IZebF8sttpwqA1B-rP4oH9HuX7xG1Ve . **Primary:** https://drive.google.com/file/d/1r8teXmtwr_Ml9prg1z9Skb39P4jFaVEE/view . See `APPROVED_DESIGN_REFERENCES.md` for all four images and README. They were visually inspected before coding. Owner rejected Stage3/4 SVG look; do not use those as approved final art. Historical descriptions below are retained, not current art approval.
 
 Current branch `codex/approved-art-pair`, based on PR4 head7744a5af2971a9eb2e3f515def15ea7da396c4f7. Stack PR2→3→4→[draft PR5](https://github.com/moi-pary72/hytale-craft/pull/5); no prior branch/main/deployment changed. Stage5 isolates only Fight + Gather resources for approval, not all ten new illustrations.
