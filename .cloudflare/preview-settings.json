@@ -12,5 +12,7 @@
   "secrets_required": false,
   "paid_features_required": false,
   "public_deployment_authorized": false,
-  "note": "No project created. Initial Save and Deploy publishes publicly and requires separate owner approval. Never choose main. File is an instruction reference; dashboard settings are not changed by committing it."
+  "note": "Historical Stage7 reference only. Owner now requests one main production project hytale-craft. Do not create a preview project.",
+  "deprecated": true,
+  "superseded_by": ".cloudflare/production-settings.json"
 }

@@ -1,3 +1,15 @@
+# Owner-authorized production launch — in preparation, not yet published
+
+Owner explicitly approved sequential PR2–7 merges and free educational beta deployment. Earlier no-merge/no-deploy and separate-preview instructions are superseded. Target one Cloudflare project hytale-craft, productionmain, user-only dist, automatic main updates; no restricted datasets/ads/paid services.
+
+Resolved blocker: owner switched Pages Source to GitHub Actions; REST now confirms workflow mode. The earlier integration403 is historical. Authorized sequential merges have resumed. This is missing integration administration permission, not missing user authorization. Do not merge intermediate snapshots into a root-published site. No main merge/deploy performed yet.
+
+Main backup remote tag backup/main-before-beta-20261114 →1c9c1e035207b954894fdba225ceca2dc4742f38; CRC/SHA-verified ZIP saved/read back on Drive. PR6 language-persistence race fixed by69e6000; initial CI passed, then an abort-on-reload rollback was removed and a delayed-network regression added; new heads must pass. Prepared codex/production-launch adds an audited-dist Pages workflow, Github project-path404 and meta CSP, one main Cloudflare configuration. PRODUCTION_LAUNCH.md records exact blocker, authorized continuation/merge sequence, Android setup and rollback.
+
+Runtime changes only fix language-save race; art, examples, calculators and user storage retained. No verified game catalog is published. Cloudflare account access absent; expected domain is not a confirmed live site. Previous history below is preserved.
+
+---
+
 # Stage7 — isolated HTTPS preview preparation (2026-11-14)
 
 Final documentation backup ad245718f3879fe5e8dfff7ccca1857047d8470b verified by Drive name/size/parent: https://drive.google.com/file/d/1xR-e_sGKnNLayijpk1aQsPOyA4y57MPm/view?usp=drivesdk . Total7 Stage7 files; native passport appended with guarded revision preserving history. No public deploy/merge/settings change; later commits are receipts only.
@@ -210,3 +222,5 @@ Stage5 code checkpoint `1a978c9929d330052780ea1839945869c43b7509` passed remote 
 Stage6 checkpoint7176b06ac767539f62c0eca7e9cfe688af53a39a passed [CI43593544711](https://github.com/moi-pary72/hytale-craft/actions/runs/43593544711), including build/audit and all mobile tests.12initial uploads in existing Drive folders read back by name/size/parent; ZIP CRC and local SHA receipts in reports/STAGE6_DRIVE_BACKUPS.json. No new folders/sharing changes. Standalone HTML: https://drive.google.com/file/d/17HvVehf6Q6gMGCTWb4o1mA-F4dpdlK_L/view ; home393: https://drive.google.com/file/d/15Ve9XYq-1PBKlZrrKysLYIveCLgSIqzm/view ; sheet393: https://drive.google.com/file/d/1HF40OhfagVlesfZuRDzF5mRtoRJKw-DD/view ; result393: https://drive.google.com/file/d/1kQg4HUltmF0bus1w14KqHOlmaRleFRLE/view . Later receipt commits change documentation only.
 
 Stage7 preparation0ae0edd6e2a4ebd51d49dbe3c0f43245f23507d9 passed CI43597302206, including full21Python/17JS/22browser suite and artifact upload. Artifact14114808254 was downloaded through GitHub connector, CRC/ZIP SHA256 matched GitHub digest,24runtime files/23hashes matched local/Stage6. Receipt: reports/STAGE7_CI_ARTIFACT_AUDIT.json. Six initial Drive files readback-verified; links/hashes in STAGE7_DRIVE_BACKUPS.json. Android guide: https://drive.google.com/file/d/1HxW6cB_wJUrBSZw3SLEBR7pxXa16MxLB/view . Artifact is a downloadable ZIP, not an HTTPS site; expiry2026-11-21. Later commits change docs/receipts only.
+
+Authorized launch preflight: final PR6 c4accf4 and release PR8 8ea6720 both have green push+PR CI. Main remains unchanged because Pages administration403 is unresolved. Existing URL200 serves old version. Exact observed status/backup SHA in reports/PRODUCTION_LAUNCH_STATUS.json; no new publication claimed.

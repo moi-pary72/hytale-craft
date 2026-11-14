@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-14",
+  "launch_completed": false,
+  "main_unchanged": "1c9c1e035207b954894fdba225ceca2dc4742f38",
+  "blocker": "GitHub Pages administration403; owner must choose Source GitHub Actions",
+  "main_backup": {
+    "name": "main-before-beta-1c9c1e0.zip",
+    "bytes": 43208,
+    "local_sha256": "1ee2283a3edbef3fd823076034f1ec12a809a5f1478b935f7c13ab8e482b1845",
+    "drive_id": "1bac-DFOkhG_y0PxAxSknrk6JDUb49jkB",
+    "url": "https://drive.google.com/file/d/1bac-DFOkhG_y0PxAxSknrk6JDUb49jkB/view?usp=drivesdk",
+    "verified_name_size_parent": true,
+    "tag": "backup/main-before-beta-20261114"
+  },
+  "files": [
+    {
+      "name": "authorized-launch-source-08e60c10.zip",
+      "bytes": 646201,
+      "local_sha256": "ac36c848622c189a03d4bc34621e267ee525e1e1c1ae7ad88f3a5f0f49a1d773",
+      "source_commit": "08e60c1016920725acc93ab939e3a16ce1058d77",
+      "drive_id": "1fN7avDCeAYqJpqAzUo2XXQvx2nL_Hzlp",
+      "url": "https://drive.google.com/file/d/1fN7avDCeAYqJpqAzUo2XXQvx2nL_Hzlp/view?usp=drivesdk",
+      "folder_id": "1immtOZOtF0oJqbCj5ak5QFsVZsga1QXh",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "authorized-beta-github-user-only.zip",
+      "bytes": 303362,
+      "local_sha256": "a71f9322c72ea5ef7c6c3114e0a4a39f55fb9974ab98500b58db234664a79469",
+      "source_commit": "08e60c1016920725acc93ab939e3a16ce1058d77",
+      "drive_id": "1CJPg7O8ZVpngogLBegnsgAhrl4V2uQTq",
+      "url": "https://drive.google.com/file/d/1CJPg7O8ZVpngogLBegnsgAhrl4V2uQTq/view?usp=drivesdk",
+      "folder_id": "1immtOZOtF0oJqbCj5ak5QFsVZsga1QXh",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "authorized-beta-cloudflare-user-only.zip",
+      "bytes": 303355,
+      "local_sha256": "db7f8afc95c92eda237b12dec6a12b9c229c985c94dd69cd1cadb4acde140768",
+      "source_commit": "08e60c1016920725acc93ab939e3a16ce1058d77",
+      "drive_id": "1O2Cnq47XXyC_B50N6fVoX_oSBdYhruIT",
+      "url": "https://drive.google.com/file/d/1O2Cnq47XXyC_B50N6fVoX_oSBdYhruIT/view?usp=drivesdk",
+      "folder_id": "1immtOZOtF0oJqbCj5ak5QFsVZsga1QXh",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "PRODUCTION_LAUNCH.md",
+      "bytes": 7047,
+      "local_sha256": "b8e9e468e48a2753f2aba8ae059472645a354a82d0002b091419ad51e538d59c",
+      "source_commit": "08e60c1016920725acc93ab939e3a16ce1058d77",
+      "drive_id": "1EBPzU4I1ymzsPakhPeAHIcEyPBwjlATX",
+      "url": "https://drive.google.com/file/d/1EBPzU4I1ymzsPakhPeAHIcEyPBwjlATX/view?usp=drivesdk",
+      "folder_id": "1oe_oNGZw7YSy9bYJit52InSx2HUFbZPV",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "PRODUCTION_LAUNCH_STATUS.json",
+      "bytes": 2040,
+      "local_sha256": "4376ace9dc51992798c078dedc3dd5bd9bf18a90b433c58c7ebedf8e2a672d50",
+      "source_commit": "08e60c1016920725acc93ab939e3a16ce1058d77",
+      "drive_id": "1WJkQQY9wEzSFrlvpf8egHJqSnNuqEKbi",
+      "url": "https://drive.google.com/file/d/1WJkQQY9wEzSFrlvpf8egHJqSnNuqEKbi/view?usp=drivesdk",
+      "folder_id": "1SuAf81nVsfjMW40zafae1vc0iL5gheS8",
+      "verified_name_size_parent": true
+    }
+  ],
+  "verification": "Local ZIP CRC/SHA verified; Drive name/size/parent readback, no remote Drive checksum exposed. Six uploaded files including old-main backup. Existing folders/sharing preserved."
+}

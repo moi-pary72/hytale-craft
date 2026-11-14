@@ -1,3 +1,5 @@
+> **Superseded by the owner-authorized main production launch. Do not create a preview project. Follow [PRODUCTION_LAUNCH.md](PRODUCTION_LAUNCH.md): project hytale-craft, branch main, automatic production updates.**
+
 # Этап7: HTTPS-preview с Android, без merge
 
 Готова ветка `codex/https-preview` поверх PR6. Это инструкция для будущего разрешённого размещения; Cloudflare не подключён и Deploy не выполнялся. Нет доступного Cloudflare-коннектора, поэтому состояние проектов/прав в аккаунте владельца не проверено. Пароли/токены не нужны в чате или репозитории.

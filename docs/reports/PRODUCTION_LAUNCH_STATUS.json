@@ -1,0 +1,70 @@
+{
+  "date": "2026-11-14",
+  "owner_authorized_merges_and_free_beta": true,
+  "publication_completed": false,
+  "main": "1c9c1e035207b954894fdba225ceca2dc4742f38",
+  "merged_prs": [],
+  "blocker": {
+    "action": "PUT GitHub Pages build_type workflow",
+    "status": 403,
+    "message": "Resource not accessible by integration",
+    "readback": "legacy main:/",
+    "required_owner_action": "Settings > Pages > Build and deployment > Source > GitHub Actions",
+    "resolved_by_owner": true,
+    "current_readback": "workflow"
+  },
+  "backup": {
+    "tag": "backup/main-before-beta-20261114",
+    "target": "1c9c1e035207b954894fdba225ceca2dc4742f38",
+    "zip_sha256": "1ee2283a3edbef3fd823076034f1ec12a809a5f1478b935f7c13ab8e482b1845",
+    "zip_bytes": 43208,
+    "drive_id": "1bac-DFOkhG_y0PxAxSknrk6JDUb49jkB",
+    "drive_url": "https://drive.google.com/file/d/1bac-DFOkhG_y0PxAxSknrk6JDUb49jkB/view",
+    "verified_name_size_parent": true,
+    "zip_crc_checked": true
+  },
+  "pr6_fix": {
+    "head": "c4accf4567f31268d866e151a573a913e935d6f6",
+    "ci_runs": [
+      43603568865,
+      43603564361
+    ],
+    "conclusion": "success",
+    "regression": "selected language persisted before fetch and not rolled back by reload cancellation"
+  },
+  "launch_pr": {
+    "number": 8,
+    "tested_head": "8ea6720b81e9818d85de10d89c7ba87d242b5dac",
+    "ci_runs": [
+      43603570551,
+      43603566411
+    ],
+    "conclusion": "success"
+  },
+  "local_tests": {
+    "python": 22,
+    "javascript": 17,
+    "beta_browser": 8,
+    "github_project_path_browser": 1
+  },
+  "github_pages": {
+    "url": "https://moi-pary72.github.io/hytale-craft/",
+    "http_status": 200,
+    "new_beta_detected": false,
+    "status": "old version remains served"
+  },
+  "cloudflare": {
+    "account_access": false,
+    "project": "hytale-craft",
+    "production_branch": "main",
+    "auto_main_deployments": true,
+    "build": "python3 scripts/build_pages.py --data-policy user-only",
+    "output": "dist",
+    "root": "",
+    "framework": "None",
+    "published": false,
+    "actual_url_verified": false
+  },
+  "force_used": false,
+  "integration_in_progress": true
+}

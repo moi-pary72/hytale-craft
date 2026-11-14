@@ -42,3 +42,11 @@ class PagesBuildTests(unittest.TestCase):
         for name in ('fight-poster','gather-poster','fight-atlas','gather-atlas'):self.assertTrue((out/'assets/art-pair'/f'{name}.webp').exists())
         for forbidden in ('assets/preview','web/preview/app.js','web/game-recipes.js','art-preview.html','preview.html','scripts','data','docs','tests','.private','.git'):
             self.assertFalse((out/forbidden).exists(),forbidden)
+
+    def test_github_project_path_and_client_csp(self):
+        out=pages.build(base_path='/hytale-craft/')
+        self.assertIn('href="/hytale-craft/"',(out/'404.html').read_text())
+        self.assertIn('http-equiv="Content-Security-Policy"',(out/'index.html').read_text())
+        for path in ('//external.test/','/../','/x/?a=1'):
+            with self.assertRaises(ValueError):pages.build(base_path=path)
+        pages.build()
