@@ -112,5 +112,10 @@
   "clearPlan": "Clear plan",
   "confirmClear": "Clear this crafting plan?",
   "quantityShort": "Quantity",
-  "changeSource": "Changing the source keeps its plans separate."
+  "changeSource": "Changing the source keeps its plans separate.",
+  "userChanged": "Saved recipes changed in another tab. They have been reloaded; review your edit before saving again.",
+  "networkTimeout": "Loading took too long. Check your connection and try again.",
+  "publicTest": "Public test • no ads or paid features",
+  "dataDisabled": "This test uses your own recipes. Community snapshots are not included in this build.",
+  "home": "Home"
 }

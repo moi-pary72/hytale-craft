@@ -37,3 +37,8 @@ Interface translations are project-authored drafts, not official game localizati
 ## Publication decision
 
 Owner must review the visual concept and approve any replacement/merge/deployment. Commercial launch is blocked by data rights and exact-build uncertainty. No ads/analytics/messages/accounts/domain changes performed. Read COMMERCIAL_DATA_READINESS.md and GROWTH_PLAN.md before planning launch.
+
+
+## Stage4 continuation
+
+The reviewed style and SVG prototypes remain unchanged. `FINAL_ILLUSTRATIONS_BRIEF.md` is the production art brief; no final art is implied. `scripts/build_pages.py` stages this interface as `dist/index.html`; source `index.html` remains legacy and must not be deployed as the new design. Default build excludes community data pending rights; full owner-review HTML still preserves the pinned snapshot. See `CLOUDFLARE_PAGES.md` and Stage4 reports.

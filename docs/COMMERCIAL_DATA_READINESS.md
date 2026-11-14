@@ -35,3 +35,7 @@ Owner must supply their real contact details and approve/send through the offici
 ## Launch gates
 
 Design approval → language/native-speaker review → explicit data rights for intended use → licensed build verification → physical Android check → owner-approved merge/deployment. Domain purchase, ads/affiliate/analytics SDKs, outreach and account creation require separate explicit actions; none were done here.
+
+## Stage 4 public-test distinction — 2026-11-14
+
+A free test with no ads may fit noncommercial purposes, but the verified HySphere wording about citation/linking does not conclusively authorize full snapshot republication. No permission response was obtained. The new Pages builder defaults to **user-only** (no bundled HySphere or OpenHytale data), while an explicit `noncommercial-review` mode keeps the existing restricted snapshot for owner review. That switch is a packaging choice, not a licence. Public hosting of the full dataset and all commercial/advertising/affiliate use remain separate permission gates. Source terms were reviewed again; no scraping, account creation or contact submission was performed. Alternatives remain an independently normalized licensed archive with derived-data permission, or user-entered recipes without bundled third-party compilation. An Assets.zip purchase/access alone does not resolve publication rights.
