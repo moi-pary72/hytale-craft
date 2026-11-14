@@ -39,3 +39,8 @@ Design approval → language/native-speaker review → explicit data rights for 
 ## Stage 4 public-test distinction — 2026-11-14
 
 A free test with no ads may fit noncommercial purposes, but the verified HySphere wording about citation/linking does not conclusively authorize full snapshot republication. No permission response was obtained. The new Pages builder defaults to **user-only** (no bundled HySphere or OpenHytale data), while an explicit `noncommercial-review` mode keeps the existing restricted snapshot for owner review. That switch is a packaging choice, not a licence. Public hosting of the full dataset and all commercial/advertising/affiliate use remain separate permission gates. Source terms were reviewed again; no scraping, account creation or contact submission was performed. Alternatives remain an independently normalized licensed archive with derived-data permission, or user-entered recipes without bundled third-party compilation. An Assets.zip purchase/access alone does not resolve publication rights.
+
+
+## Stage6 educational beta
+
+The new public candidate bundles no community dataset, only4original explicitly educational fixtures and user-import support. This removes HySphere snapshot redistribution from this particular build; it does not grant a commercial game-data licence or approve monetization. Two original AI-generated scenes are marked unofficial in project provenance;8final illustrations and smoother frame production remain pending. No ads, analytics, paid access or deployment was enabled. Free UX testing can be considered separately by the owner, with honest limited-catalog notices and no representation as a verified Hytale recipe tool.

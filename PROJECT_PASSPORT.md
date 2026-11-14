@@ -1,3 +1,17 @@
+# Этап 6 — мобильная beta, подготовлена без публикации (2026-11-14)
+
+Актуальный draft [PR №6](https://github.com/moi-pary72/hytale-craft/pull/6) поверх PR5, стек2→3→4→5→6. Runtime checkpoint7176b06ac767539f62c0eca7e9cfe688af53a39a, ветка codex/mobile-beta. Main/production/Cloudflare не изменены, merge/deploy не выполнялись. GitHub CI43593544711 прошёл полностью.
+
+Новый вход: beta.html → dist/index.html. Десять целей/две колонки, нижняя панель без скролла сетки, Back/Escape/жест/фокус, компактная навигация. Сохранены движок, инвентарь, планы и редактор. Сборка только user-only:4оригинальных учебных примера, явно НЕ рецепты Hytale. HySphere/ID snapshots исключены,623реальных source-backed рецепта остаются только в прежнем исходном каталоге/резервных копиях. Noncommercial-review в публичном builder запрещён.
+
+Постоянный художественный ориентир: https://drive.google.com/drive/folders/1_IZebF8sttpwqA1B-rP4oH9HuX7xG1Ve ; основной https://drive.google.com/file/d/1r8teXmtwr_Ml9prg1z9Skb39P4jFaVEE/view . Старые SVG отвергнуты владельцем. Две сцены PR5 сохранены,4позы смешиваются короткими crossfade;8финальных сцен и дополнительные художественные кадры ожидаются. Не объявлять их готовыми.
+
+Начинай с docs/PROJECT_STATE.md, STAGE6_BETA.md, CLOUDFLARE_PAGES.md, EDUCATIONAL_EXAMPLES.md и reports/STAGE6_*. Точные Free настройки и безопасная последовательность merge2–6 описаны; перед merge проверить автопубликацию существующих GitHub Pages. Intended hytale-craft.pages.dev не создан/не проверен. Бесплатная учебная UX-beta готова к решению владельца, не к самостоятельному Deploy или коммерческому запуску.
+
+PreviewHTML: https://drive.google.com/file/d/17HvVehf6Q6gMGCTWb4o1mA-F4dpdlK_L/view ; панель https://drive.google.com/file/d/1HF40OhfagVlesfZuRDzF5mRtoRJKw-DD/view . История ниже сохранена; её старые entry/data/art утверждения не являются текущим статусом.
+
+---
+
 # Этап 3 — международный UX preview, 2026-11-14
 
 Отдельный draft PR №3: https://github.com/moi-pary72/hytale-craft/pull/3 (зависит от PR №2, target — его ветка). Preview: `preview.html`; архив/скриншоты на Drive перечислены в docs/reports/STAGE3_DRIVE_BACKUPS.json. 10 оригинальных векторных scenes, EN/RU/ES/PT-BR покрывают все 114 UI keys нового preview; legacy остаётся partial EN/RU. Данные/engines PR2 сохранены. Production/main/ветка PR2 не менялись. Commercial launch BLOCKED; ничего не deployed/merged. Начни с docs/PROJECT_STATE.md, UX_PREVIEW.md, COMMERCIAL_DATA_READINESS.md, GROWTH_PLAN.md.

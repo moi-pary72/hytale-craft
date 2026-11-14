@@ -26,11 +26,19 @@ class PagesBuildTests(unittest.TestCase):
         self.assertIn('noindex',(out/'_headers').read_text())
         self.assertTrue((out/'404.html').exists())
     def test_explicit_noncommercial_data_and_origin(self):
-        out=pages.build('noncommercial-review','https://example.test')
-        self.assertTrue((out/'data/recipes/manifest.json').exists())
+        with self.assertRaises(ValueError):pages.build('noncommercial-review')
+        out=pages.build('user-only','https://example.test')
+        self.assertFalse((out/'data').exists())
         self.assertIn('https://example.test/',(out/'sitemap.xml').read_text())
         self.assertNotIn('previous',str(list(out.rglob('*'))))
         pages.build()
     def test_reject_unapproved_origin_shape(self):
         for origin in ('http://example.test','https://user:secret@example.test','https://example.test/path','https://example.test/?x=1'):
             with self.assertRaises(ValueError):pages.build(site_url=origin)
+
+    def test_beta_assets_and_reproducible_output(self):
+        out=pages.build();before=(out/'build-manifest.json').read_bytes();pages.build();self.assertEqual(before,(out/'build-manifest.json').read_bytes())
+        self.assertIn('id="sheet"',(out/'index.html').read_text())
+        for name in ('fight-poster','gather-poster','fight-atlas','gather-atlas'):self.assertTrue((out/'assets/art-pair'/f'{name}.webp').exists())
+        for forbidden in ('assets/preview','web/preview/app.js','web/game-recipes.js','art-preview.html','preview.html','scripts','data','docs','tests','.private','.git'):
+            self.assertFalse((out/forbidden).exists(),forbidden)

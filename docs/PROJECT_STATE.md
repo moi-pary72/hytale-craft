@@ -1,3 +1,31 @@
+# Stage6 — mobile beta candidate, awaiting merge/deployment approval (2026-11-14)
+
+Final documentation checkpoint `6c009cffb091ff61382b91ec4d6556c09307bae3` additionally archived and metadata-readback verified: https://drive.google.com/file/d/1MKoM9EOlwnFNRNc2vr-bGbYCQiDAB0Qk/view?usp=drivesdk . Total13 Stage6 uploads, existing folders/sharing unchanged. Runtime checkpoint7176b06a remains unchanged; later commits contain documentation receipts only.
+
+Branch `codex/mobile-beta`, based on PR5 head `6e1e5da61be9398a7f20efeb8ed6af9a5dfdff70`. Stack PR2→3→4→5→[draft PR6](https://github.com/moi-pary72/hytale-craft/pull/6); prior branches/main/production unchanged. This is a prepared **free educational UX beta**, not a verified Hytale recipe catalog. No public deployment or hostname created.
+
+## Current entry/architecture
+
+- `beta.html`, `web/beta/app.js`, `style.css`, `examples.js`:10goals,2mobile columns, two PR5 rendered scenes plus eight functional symbols (final art pending), compact Home/Inventory/Plan/More nav. Optional short actions then native modal bottom sheet, no goal scrollIntoView. Sheet68dvh/expand94dvh, internal item/recipe/calc routes, body lock, focus trap/return, Escape/swipe/browser Back; repeat goals do not wait. Native Android device/IME/reader QA remains pending.
+- Existing `web/planner.js` is reused; old `index.html`, `preview.html`, `art-preview.html` and tests are preserved as source/history. No legacy/interface files are included accidentally in beta publication. User recipe/inventory keys retained; source-separated beta plans; user import/export/full beta backup, guarded saves, cycle/quantity/overflow checks and damaged-data preservation. Quantity/results cache survives panel navigation and same-tab reload when sessionStorage works, validated against current recipe/inventory signature.
+- Two original four-pose PR5 atlases preserved, with90ms pose crossfades and820ms one-shot; max120ms network wait, poster fallback, one action, reduced motion/Save-Data and hidden-page cancellation. No full-card scaling substitute, no new8–12authored frames or rig. Additional art frames and eight remaining scenes still need owner approval/provision. Reference folder remains https://drive.google.com/drive/folders/1_IZebF8sttpwqA1B-rP4oH9HuX7xG1Ve ; primary https://drive.google.com/file/d/1r8teXmtwr_Ml9prg1z9Skb39P4jFaVEE/view . Never use the rejected Stage3/4 SVG look as final art.
+- Four **original educational recipes**, prefixed lesson:, displayed as NOT Hytale. No source-backed game recipe published in beta. Existing623HySphere recipes/3219items and separate3641/403ID snapshot remain unchanged/excluded. No fake game stations, official localization or provenance asserted. See EDUCATIONAL_EXAMPLES.md.
+- EN/RU/ES/PT-BR share existing base UI plus `locales/beta/` dictionaries, browser detection/manual preference. Native-speaker QA remains pending; FR/DE/Chinese not offered. No ads/trackers/external fonts.
+
+## Publish boundary and review
+
+`python3 scripts/build_pages.py --data-policy user-only` now emits beta into `dist`, including both PR5 posters/atlases and beta JS/CSS. Restricted modes **rejected**. `scripts/audit_pages.py` checks24-file whitelist/checksums, new entry, indexing gates, absent source snapshots/internal files and external script/CSS network references. Consecutive builds are byte-reproducible. Exact counts/bytes/hashes in `reports/STAGE6_DIST_AUDIT.json`.
+
+`python3 scripts/export_beta.py` makes a standalone UI/art/lesson HTML; served locally in tests with one document/no subresources, actual Android file handling untested. No public online URL was created, because Deploy requires separate owner approval. Intended future host hytale-craft.pages.dev is unclaimed/unverified in this task. Exact Free settings/HTTPS/domain/rollback and **safe PR2–6 merge order**: `CLOUDFLARE_PAGES.md`. Main merges may trigger existing GitHub Pages publication; check settings before approval/action. Never publish source root/old index.
+
+## Verification and next step
+
+21Python+17JS tests;9existing preview+4art+1legacy+1publish boundary+7beta Chromium cases passed locally. Widths320/360/393/430,4locales, modal/history/focus/swipe, persistence/import/backup, damaged/missing data, strict CSP, slow network and offline preview covered. Exact scope/limits/performance: reports/STAGE6_TEST_RESULTS.md and STAGE6_PERFORMANCE.json. CI is updated; its actual final status is recorded separately when observed.
+
+Next owner action: review home/panel/result screenshots and standalone beta; confirm whether to approve a **free educational public test**. Eight final illustrations, smooth authored motion, native-language/physical Android QA and verified game-data rights remain pending. Merge and Deploy are separate explicit approvals. No public Hytale recipe dataset can be enabled silently. Drive receipts/backups for this stage are recorded after upload verification; prior history below remains intact.
+
+---
+
 # Stage5 — reference-led rendered pair, awaiting owner approval (2026-11-14)
 
 Final documentation checkpoint `8335fc5b99a68554abc5703053f7adbfa0c5f0c9` additionally backed up and metadata-readback verified: https://drive.google.com/file/d/1A24aqZUdV9BSdlQfAkTPkJDlZai91dXD/view?usp=drivesdk . Total12 Stage5 uploads. Runtime remains checkpoint1a978c99; later changes are receipts only.
@@ -160,3 +188,5 @@ python scripts/sync_recipes.py
 Final documentation ZIP (including Android guide and initial receipts), commit c7b0fc4e20f9c7945c6c652508fcd6f28c4808b9, was additionally uploaded/read back: https://drive.google.com/file/d/19xhUU9_zueOWRFOVyylw5MpOERxM3SkT/view . Runtime remains d945232 checkpoint.
 
 Stage5 code checkpoint `1a978c9929d330052780ea1839945869c43b7509` passed remote CI [43588499509](https://github.com/moi-pary72/hytale-craft/actions/runs/43588499509). Eleven initial Drive uploads verified by name/size/parent, local hashes recorded; existing folders and sharing unchanged. Passport appended with guarded revision preserving history and permanent references. Owner HTML: https://drive.google.com/file/d/14-jkIFkTcEyVZ0TvMNDsvqpMvoAFDteX/view ; action demo: https://drive.google.com/file/d/1m2qMDRdEUMv1oyRM54oHeNbEF7OExTui/view ; reference comparison: https://drive.google.com/file/d/1XTQv7R3iD_0m9JZ66fKPoYYMQcZiiP6t/view . ZIPs represent that tested checkpoint; later commits are documentation/receipts only.
+
+Stage6 checkpoint7176b06ac767539f62c0eca7e9cfe688af53a39a passed [CI43593544711](https://github.com/moi-pary72/hytale-craft/actions/runs/43593544711), including build/audit and all mobile tests.12initial uploads in existing Drive folders read back by name/size/parent; ZIP CRC and local SHA receipts in reports/STAGE6_DRIVE_BACKUPS.json. No new folders/sharing changes. Standalone HTML: https://drive.google.com/file/d/17HvVehf6Q6gMGCTWb4o1mA-F4dpdlK_L/view ; home393: https://drive.google.com/file/d/15Ve9XYq-1PBKlZrrKysLYIveCLgSIqzm/view ; sheet393: https://drive.google.com/file/d/1HF40OhfagVlesfZuRDzF5mRtoRJKw-DD/view ; result393: https://drive.google.com/file/d/1kQg4HUltmF0bus1w14KqHOlmaRleFRLE/view . Later receipt commits change documentation only.

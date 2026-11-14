@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-14",
+  "method": "Local touch Chromium, not physical Android",
+  "startup": [
+    {
+      "language": "en",
+      "startup_decoded_bytes": 100175,
+      "dataset_requests": 0
+    },
+    {
+      "language": "ru",
+      "startup_decoded_bytes": 104869,
+      "dataset_requests": 0
+    },
+    {
+      "language": "es",
+      "startup_decoded_bytes": 100957,
+      "dataset_requests": 0
+    },
+    {
+      "language": "pt-BR",
+      "startup_decoded_bytes": 100972,
+      "dataset_requests": 0
+    }
+  ],
+  "slow_phone": {
+    "cpu_slowdown": 4,
+    "latency_ms": 150,
+    "download_bytes_per_second": 150000,
+    "home_ready_seconds": 1.557
+  },
+  "motion": {
+    "unique_art_poses": 4,
+    "pose_crossfade_ms": 90,
+    "one_shot_ms": 820,
+    "first_fetch_wait_cap_ms": 120,
+    "repeat_selection_wait": false,
+    "new_rig_or_intermediate_art_frames": false
+  },
+  "dist_bytes": 344606
+}
