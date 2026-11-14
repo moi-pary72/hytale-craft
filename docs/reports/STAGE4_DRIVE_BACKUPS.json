@@ -103,6 +103,16 @@
       "drive_id": "1vEDq1wyzr3UFYFTDJGLZAPhleQvO2miz",
       "url": "https://drive.google.com/file/d/1vEDq1wyzr3UFYFTDJGLZAPhleQvO2miz/view?usp=drivesdk",
       "verified_name_size_parent": true
+    },
+    {
+      "name": "hytale-stage4-c7b0fc4e-final-docs.zip",
+      "bytes": 65872,
+      "local_sha256": "60c745be00bc4f44dad23816c7a44405aa2a972fc5672a9b0a72a0e078486c6d",
+      "source_commit": "c7b0fc4e20f9c7945c6c652508fcd6f28c4808b9",
+      "folder_id": "1immtOZOtF0oJqbCj5ak5QFsVZsga1QXh",
+      "drive_id": "19xhUU9_zueOWRFOVyylw5MpOERxM3SkT",
+      "url": "https://drive.google.com/file/d/19xhUU9_zueOWRFOVyylw5MpOERxM3SkT/view",
+      "verified_name_size_parent": true
     }
   ]
 }
