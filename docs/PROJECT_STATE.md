@@ -1,6 +1,6 @@
 # Stage 3 — International UX preview (2026-11-14)
 
-Актуальное продолжение: ветка `codex/international-ux-preview`, основана на PR №2 head `d90e0105ec9c9a4283e0f142fdc4092df471c77b`. Main/production и ветка PR №2 не меняются. Отдельный draft PR нацелен на ветку PR №2: сначала согласовать визуальный концепт, не выполнять merge автоматически.
+Актуальное продолжение: ветка `codex/international-ux-preview`, основана на PR №2 head `d90e0105ec9c9a4283e0f142fdc4092df471c77b`. Main/production и ветка PR №2 не меняются. Отдельный draft [PR №3](https://github.com/moi-pary72/hytale-craft/pull/3) нацелен на ветку PR №2: сначала согласовать визуальный концепт, не выполнять merge автоматически.
 
 ## Что добавлено
 
@@ -113,3 +113,10 @@ python scripts/sync_recipes.py
 Код/данные — `7802e0b57646708122b6b075d43cfae1c3449d7f` (включает source-backed snapshot и pin Ubuntu 24.04). Обе GitHub CI проверки этого кода успешны, включая мобильную integration: https://github.com/moi-pary72/hytale-craft/actions/runs/43578617436 . После этого менялись документы, не публичный сайт.
 
 Десять backup-файлов действительно сохранены и metadata-readback подтверждены; манифест с URL, размерами и локальными SHA-256: `docs/reports/DRIVE_BACKUPS.json`. Remote checksum connector не возвращает. Два ZIP кода сохранены отдельно, последняя кодовая копия 7802e0b. Документы в этих ZIP относятся к моменту соответствующего commit; итоговая история и CI дополняются в Git и существующем Google Docs паспорте. Паспорт теперь в папке 01, прежняя ссылка остаётся действующей. Никаких авторизационных токенов/игровых binaries/Assets.zip в резервных копиях нет.
+
+
+## Этап 3 — подтверждённый checkpoint
+
+Код/preview: 02b0fe4d5cb74c0f005f824718aa5092a28932d4. Draft PR №3: https://github.com/moi-pary72/hytale-craft/pull/3 ; base codex/verified-catalog-planner (PR №2). Обе GitHub CI проверки success: https://github.com/moi-pary72/hytale-craft/actions/runs/43581924264 и https://github.com/moi-pary72/hytale-craft/actions/runs/43581914846 .
+
+Шесть файлов этапа3 действительно сохранены в прежних разделах Drive, name/size/parent подтверждены metadata readback. Манифест с URL/local SHA: reports/STAGE3_DRIVE_BACKUPS.json. Автономный HTML: https://drive.google.com/file/d/1pS9eQle8hpIRp8iM5pI6S355ECFOhj2Z/view . EN screenshot: https://drive.google.com/file/d/1C3vhqJaXCj7iBTVDxhA0AFZmiTbrG8tb/view ; RU screenshot: https://drive.google.com/file/d/1ihmDO8-5wnvK_2jVLcmrf2p6PJVf-MwT/view . Remote checksum коннектор не вернул. Секретов/лицензионного Assets.zip нет. Production/main/PR2 branch не изменялись.

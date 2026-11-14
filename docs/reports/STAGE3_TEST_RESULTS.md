@@ -9,3 +9,12 @@
 - Layout/keyboard tested in Chromium; native screen-reader and physical Android QA not available. Dictionaries cover preview UI completely; native editorial sign-off is outstanding. Legacy interface retains partial EN/RU.
 - Managed Chromium blocks file:// access; no bypass attempted. Export checked through local HTTP, no external subresources, real recipe works. Android local HTML viewer compatibility remains unverified.
 - Full SHA/JSON/backup validation, git diff --check, GitHub CI results and verified Drive receipts are recorded after execution. No commercial/production launch is implied by tests.
+
+
+## Confirmed GitHub CI
+
+Code checkpoint 02b0fe4d5cb74c0f005f824718aa5092a28932d4: both runs success, including old regression and six international preview integration tests:
+https://github.com/moi-pary72/hytale-craft/actions/runs/43581924264
+https://github.com/moi-pary72/hytale-craft/actions/runs/43581914846
+
+No snapshot/engine data changes: git diff against PR2 for data/, planner.js and game-recipes.js is empty. No production deployment. Draft PR #3 is stacked on #2.

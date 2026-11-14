@@ -1,0 +1,70 @@
+{
+  "project": "moi-pary72/hytale-craft",
+  "stage": 3,
+  "date": "2026-11-14",
+  "code_commit": "02b0fe4d5cb74c0f005f824718aa5092a28932d4",
+  "parent_pr": "https://github.com/moi-pary72/hytale-craft/pull/2",
+  "preview_pr": "https://github.com/moi-pary72/hytale-craft/pull/3",
+  "folder": "https://drive.google.com/drive/folders/1CyqdLmek-cig0dVSSH0y6hcfEPVRChkj",
+  "files": [
+    {
+      "name": "hytale-craft-json-stage3-02b0fe4.zip",
+      "bytes": 96722,
+      "sha256": "3d1b16ac83f54f811d11088e254ac58f92344d55036d436054a0793e4affb1c7",
+      "id": "1eX2fiiFfUYO91M9Bl0o8U8kAWNgDgd0x",
+      "url": "https://drive.google.com/file/d/1eX2fiiFfUYO91M9Bl0o8U8kAWNgDgd0x/view?usp=drivesdk",
+      "parent_id": "1shNIkB3SJ_JRAAuJPzCyk1Uqs_O30SJy",
+      "verification": "upload success; name/size/parent readback; local SHA-256 only (remote checksum unavailable)"
+    },
+    {
+      "name": "hytale-craft-docs-stage3-02b0fe4.zip",
+      "bytes": 43510,
+      "sha256": "71b7759d9ce819487797cab12e55f873edb846a5e4e7ddd5791d18f50d14ac6f",
+      "id": "11mNy9-5wXUBHnQ3pvaQs8MaJmDU5UJfP",
+      "url": "https://drive.google.com/file/d/11mNy9-5wXUBHnQ3pvaQs8MaJmDU5UJfP/view?usp=drivesdk",
+      "parent_id": "1SuAf81nVsfjMW40zafae1vc0iL5gheS8",
+      "verification": "upload success; name/size/parent readback; local SHA-256 only (remote checksum unavailable)"
+    },
+    {
+      "name": "hytale-craft-code-stage3-02b0fe4.zip",
+      "bytes": 261598,
+      "sha256": "94d2dd025f3abbe98ec03a2816cec3f324b2b3661ea1e774c637b9764a5005b8",
+      "id": "1Jm4tyBc5AkTTpq5vayamqi3RMRuV6KBf",
+      "url": "https://drive.google.com/file/d/1Jm4tyBc5AkTTpq5vayamqi3RMRuV6KBf/view?usp=drivesdk",
+      "parent_id": "1immtOZOtF0oJqbCj5ak5QFsVZsga1QXh",
+      "verification": "upload success; name/size/parent readback; local SHA-256 only (remote checksum unavailable)"
+    },
+    {
+      "name": "hytale-craft-stage3-preview.html",
+      "bytes": 2229045,
+      "sha256": "6d322a16a71ef6a54c326e445371ecc1ae24f7e9d40c94bc883db5bdd62b3e98",
+      "id": "1pS9eQle8hpIRp8iM5pI6S355ECFOhj2Z",
+      "url": "https://drive.google.com/file/d/1pS9eQle8hpIRp8iM5pI6S355ECFOhj2Z/view?usp=drivesdk",
+      "parent_id": "1rcxc2tEV8_sn0n7YuyxzWvISWJSjUa_c",
+      "verification": "upload success; name/size/parent readback; local SHA-256 only (remote checksum unavailable)"
+    },
+    {
+      "name": "hytale-preview-en.png",
+      "bytes": 316835,
+      "sha256": "049a21fd40d77b9626fc66d722c48217ce5f14b5b3b0db1ce8630c3729f52294",
+      "id": "1C3vhqJaXCj7iBTVDxhA0AFZmiTbrG8tb",
+      "url": "https://drive.google.com/file/d/1C3vhqJaXCj7iBTVDxhA0AFZmiTbrG8tb/view?usp=drivesdk",
+      "parent_id": "1rcxc2tEV8_sn0n7YuyxzWvISWJSjUa_c",
+      "verification": "upload success; name/size/parent readback; local SHA-256 only (remote checksum unavailable)"
+    },
+    {
+      "name": "hytale-preview-mobile.png",
+      "bytes": 310305,
+      "sha256": "c9beb095f00eb1f6f6a4f4a4d88cd7106eb60ec972a520a8792c78a61e71a805",
+      "id": "1ihmDO8-5wnvK_2jVLcmrf2p6PJVf-MwT",
+      "url": "https://drive.google.com/file/d/1ihmDO8-5wnvK_2jVLcmrf2p6PJVf-MwT/view?usp=drivesdk",
+      "parent_id": "1rcxc2tEV8_sn0n7YuyxzWvISWJSjUa_c",
+      "verification": "upload success; name/size/parent readback; local SHA-256 only (remote checksum unavailable)"
+    }
+  ],
+  "notes": [
+    "Snapshots and engines unchanged from PR #2. Data remain non-commercial and exact build is unknown.",
+    "Code/docs archives are checkpoint 02b0fe4; later changes are documentation-only receipts.",
+    "Self-contained HTML is owner-review, not a deployment; no external subresources needed. Physical Android/local-file support not verified."
+  ]
+}

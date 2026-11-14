@@ -58,3 +58,10 @@ Google Drive: повторный поиск и точный parent query под�
 Проверены HySphere license/contact, EULA и creator-policy URL; коммерческие права не подтверждены. Контактная форма поддерживает partnership requests, подготовлен unsent draft, ничего не отправлялось. Creator-policy URL — affiliate program, не blanket database license. Собственный normalized dataset из licensed archive тоже требует проверки прав, не автоматическая замена. Документы COMMERCIAL_DATA_READINESS.md/GROWTH_PLAN.md/UX_PREVIEW.md.
 
 Preview metrics: home≈57–61KB decoded, no snapshots before action, no loops; widths320/393 и CPU×4/150ms network emulation. Self-contained artifact создан, file:// в managed browser blocked; policy не обходилась, альтернативный local HTTP test подтвердил отсутствие subresource requests и реальный расчёт. Физического Android нет. Новые CI/Drive backup receipts и SHA будут записаны после подтверждённых операций.
+
+
+### Подтверждение этапа 3
+
+Draft PR №3: https://github.com/moi-pary72/hytale-craft/pull/3 . Preview checkpoint 02b0fe4d5cb74c0f005f824718aa5092a28932d4. Оба CI success, включая existing mobile +6 preview tests: https://github.com/moi-pary72/hytale-craft/actions/runs/43581924264 и https://github.com/moi-pary72/hytale-craft/actions/runs/43581914846 .
+
+Реально сохранены/metadata-readback проверены 6 stage3 файлов в существующих Drive folders: кодZIP, data+locales ZIP, docs ZIP, автономный HTML, EN PNG и RU PNG. Точные ссылки/размеры/local SHA в reports/STAGE3_DRIVE_BACKUPS.json. Архивы checkpoint02b0fe4 не включают собственный последующий receipt; новые изменения только документы. HySphere license остаётся ограничением, коммерческого approval нет. Никаких новых папок/secret/game archive/production deploy.
