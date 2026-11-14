@@ -1,3 +1,7 @@
+# Hytale Craft2.0 — latest verification
+
+See [UI_V2_TEST_RESULTS.md](UI_V2_TEST_RESULTS.md):23Python +17JS +25actual Chromium tests passed locally, four widths/four UI languages, all10 original illustrated goals. Public user-only build40files,39SHA entries, no restricted data. Final CI and live release evidence are attached to the single UI2.0 PR and appended Drive passport. Older results below remain historical.
+
 # Проверки — второй этап PR №2, 2026-11-14
 
 ## Выполнено локально

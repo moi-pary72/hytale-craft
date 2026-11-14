@@ -1,3 +1,7 @@
+# 2.0 update — 2026-11-14
+
+Existing https://hytale-craft.pages.dev/ actually responds HTTPS200. Preserve project hytale-craft and its main auto-deploy connection. The earlier unavailable-account notes below are history. No configuration change or new project is needed for UI2.0: the builder now includes all16 new WebP resources under exact allowlist/SHA checks. Same FrameworkNone / Rootblank / user-only command / dist. Verify the new build-manifest and mobile flow after merge; check reports/UI_V2_TEST_RESULTS.md and the single UI2.0 PR for release evidence.
+
 # Main production setup — owner authorized
 
 Current instruction: [PRODUCTION_LAUNCH.md](PRODUCTION_LAUNCH.md). The owner authorized free educational beta publication and merges. Use **one project hytale-craft**, production **main**, automatic updates from main. Earlier isolated-preview instructions are historical and superseded; do not create a preview project.

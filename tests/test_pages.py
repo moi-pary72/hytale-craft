@@ -50,3 +50,16 @@ class PagesBuildTests(unittest.TestCase):
         for path in ('//external.test/','/../','/x/?a=1'):
             with self.assertRaises(ValueError):pages.build(base_path=path)
         pages.build()
+
+    def test_v2_artwork_integrity_and_no_source_masters(self):
+        out=pages.build()
+        names=('defend','build','survive','farm','explore','boss','skills','workshop','logo','frame','world','world-mobile','nav-home','nav-inventory','nav-plan','nav-more')
+        self.assertEqual({p.stem for p in (out/'assets/ui-v2').glob('*.webp')},set(names))
+        self.assertFalse((out/'assets/ui-v2/PROVENANCE.md').exists())
+        self.assertFalse(any(out.rglob('*.png')))
+        path=ROOT/'assets/ui-v2/build.webp';original=path.read_bytes()
+        try:
+            path.write_bytes(original+b'corruption')
+            with self.assertRaisesRegex(ValueError,'UI artwork checksum mismatch'):pages.build()
+        finally:path.write_bytes(original)
+        pages.build()

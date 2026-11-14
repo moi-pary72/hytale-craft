@@ -78,12 +78,24 @@ class BetaTests(unittest.TestCase):
         import subprocess,sys
         subprocess.run([sys.executable,'scripts/export_beta.py'],cwd=ROOT,check=True,capture_output=True)
         p=self.page();requests=[];p.on('request',lambda r:requests.append(r.url));p.route('**/offline.html',lambda r:r.fulfill(status=200,content_type='text/html',body=(OUT/'hytale-craft-beta.html').read_text()));p.goto(self.url+'offline.html');self.ready(p);self.open(p);p.locator('[data-item]').click();p.get_by_role('button',name='Calculate resources',exact=True).click();self.assertIn('Practice fibre',p.locator('#calculation').inner_text());self.assertEqual(len(requests),1)
-        p2=self.page();p2.route('**/*-poster.webp',lambda r:r.fulfill(status=404,body=''));p2.goto(self.url);p2.wait_for_selector('#goals button');self.open(p2);self.assertTrue(p2.locator('#sheet').is_visible());self.assertEqual(p2.locator('#goals img').count(),0)
+        p2=self.page();p2.route('**/assets/**/*.webp',lambda r:r.fulfill(status=404,body=''));p2.goto(self.url);p2.wait_for_selector('#goals button');self.open(p2);self.assertTrue(p2.locator('#sheet').is_visible());self.assertEqual(p2.locator('#goals img').count(),0);self.assertEqual(p2.locator('#goals button').count(),10);self.assertEqual(p2.locator('.symbol').count(),0)
 
     def test_storage_failure_and_corrupt_locale(self):
         p=self.page();p.add_init_script("Storage.prototype.setItem=function(){throw new DOMException('Full','QuotaExceededError')}");p.goto(self.url);self.ready(p);p.locator('#nav button').nth(1).click();p.fill('#inventory','lesson:fibre: 2');p.get_by_role('button',name='Save inventory',exact=True).click();self.assertIn('not saved',p.locator('#notice').inner_text());self.assertIsNone(p.evaluate('localStorage.getItem("hytale-craft-inventory-v1")'))
         p2=self.page();p2.route('**/locales/beta/*.json',lambda r:r.fulfill(status=200,content_type='application/json',body='BROKEN'));p2.goto(self.url);p2.wait_for_selector('#boot-error:not([hidden])');self.assertEqual(p2.locator('#goals button').count(),0);self.assertIn('Reload',p2.locator('#boot-error').inner_text())
 
+
+    def test_v2_artwork_and_navigation_inside_modal_preserve_data(self):
+        p=self.page();errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.goto(self.url);self.ready(p)
+        self.assertEqual(p.locator('#goals .scene img').count(),10)
+        self.assertTrue(p.locator('#goals .scene img').evaluate_all('(xs)=>xs.every(x=>x.naturalWidth>=400)'))
+        self.assertEqual(p.locator('.brand img').get_attribute('alt'),'Hytale Craft')
+        self.open(p);self.assertTrue(p.locator('#sheet-nav').is_visible())
+        p.locator('#sheet-nav [data-view=inventory]').click();p.fill('#inventory','lesson:fibre: 7');p.get_by_role('button',name='Save inventory',exact=True).click()
+        saved=p.evaluate('localStorage.getItem("hytale-craft-inventory-v1")')
+        p.locator('#sheet-nav [data-view=plan]').click();p.wait_for_selector('#plan');self.assertEqual(p.evaluate('localStorage.getItem("hytale-craft-inventory-v1")'),saved)
+        p.locator('#sheet-nav [data-view=home]').click();p.wait_for_selector('#sheet:not([open])',state='attached');self.assertTrue(p.locator('#nav').is_visible())
+        p.reload();self.ready(p);self.assertEqual(p.evaluate('localStorage.getItem("hytale-craft-inventory-v1")'),saved);self.assertFalse(errors,errors)
 
     def test_language_preference_survives_reload_during_pending_fetch(self):
         p=self.page();session=p.context.new_cdp_session(p);session.send('Network.enable');session.send('Network.setCacheDisabled',{'cacheDisabled':True});session.send('Network.emulateNetworkConditions',{'offline':False,'latency':250,'downloadThroughput':1000000,'uploadThroughput':1000000})

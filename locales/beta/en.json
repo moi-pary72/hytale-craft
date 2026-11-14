@@ -36,5 +36,6 @@
   "welcomeSource": "Try an example or choose your recipes.",
   "artPending": "Final illustration pending",
   "waitAction": "Opening…",
-  "navInventory": "Inventory"
+  "navInventory": "Inventory",
+  "betaBadge": "Beta"
 }

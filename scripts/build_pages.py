@@ -41,6 +41,15 @@ def build(policy='user-only', site_url=None, base_path='/'):
             raw=(ROOT/'assets/art-pair'/name).read_bytes()
             if hashlib.sha256(raw).hexdigest()!=meta['sha256']:
                 raise ValueError('Art checksum mismatch')
+        ui_names = ('defend', 'build', 'survive', 'farm', 'explore', 'boss', 'skills', 'workshop', 'world', 'world-mobile', 'logo', 'frame', 'nav-home', 'nav-inventory', 'nav-plan', 'nav-more')
+        ui_manifest=json.loads((ROOT/'assets/ui-v2/manifest.json').read_text())
+        if set(ui_manifest['files']) != {name+'.webp' for name in ui_names}:
+            raise ValueError('Incomplete UI artwork manifest')
+        for name,meta in ui_manifest['files'].items():
+            src=ROOT/'assets/ui-v2'/name
+            if src.is_symlink() or hashlib.sha256(src.read_bytes()).hexdigest()!=meta['sha256']:
+                raise ValueError('UI artwork checksum mismatch: '+name)
+            paths.append('assets/ui-v2/'+name)
         # Legacy SVG scenes are excluded from beta output.
         for name in paths:
             src = ROOT/name
