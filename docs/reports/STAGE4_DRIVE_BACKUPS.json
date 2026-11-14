@@ -1,0 +1,108 @@
+{
+  "stage": 4,
+  "date": "2026-11-14",
+  "source_commit": "d94523240252b87563cd12d7456ef7b86d371d66",
+  "pull_request": "https://github.com/moi-pary72/hytale-craft/pull/4",
+  "verification": "ZIP CRC checked locally. Drive metadata readback confirmed names, byte sizes and existing parent folder IDs. Local SHA-256 recorded; connector exposes no remote checksum. Sharing permissions were not changed.",
+  "files": [
+    {
+      "name": "STAGE4_PERFORMANCE.json",
+      "bytes": 1362,
+      "local_sha256": "9e671c6eb8027822035c831a10863ad8cd585baf91f87dba335c539b56a4e835",
+      "folder_id": "1SuAf81nVsfjMW40zafae1vc0iL5gheS8",
+      "drive_id": "1cuuZO1DX3DW545_Ek5qZPLz9b8Ud6y6w",
+      "url": "https://drive.google.com/file/d/1cuuZO1DX3DW545_Ek5qZPLz9b8Ud6y6w/view?usp=drivesdk",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "STAGE4_TEST_RESULTS.md",
+      "bytes": 2841,
+      "local_sha256": "f4d3134270e30d69ef71ebb92a7cb68d55447181883fef51030246267d2cb45c",
+      "folder_id": "1SuAf81nVsfjMW40zafae1vc0iL5gheS8",
+      "drive_id": "1gvce_Z3oD3F7G6qWoUOimR36RglEvzDW",
+      "url": "https://drive.google.com/file/d/1gvce_Z3oD3F7G6qWoUOimR36RglEvzDW/view?usp=drivesdk",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "hytale-craft-stage4-mobile.html",
+      "bytes": 2235049,
+      "local_sha256": "951749166906f5f67833959ed038dece33fc71ff3abde154910d7eda772e6d20",
+      "folder_id": "1rcxc2tEV8_sn0n7YuyxzWvISWJSjUa_c",
+      "drive_id": "1NUbM7S9ZtijX29imQb7CzMuWyR5H1zEj",
+      "url": "https://drive.google.com/file/d/1NUbM7S9ZtijX29imQb7CzMuWyR5H1zEj/view?usp=drivesdk",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "hytale-stage4-d9452324-code.zip",
+      "bytes": 138709,
+      "local_sha256": "d530069ae6e0697174847c2c49f491d96ac7c0de932e4954d4db59f7b2404b1b",
+      "folder_id": "1immtOZOtF0oJqbCj5ak5QFsVZsga1QXh",
+      "drive_id": "1v_Emc3jnW-YMJOEG79RvFjeS353-NF4B",
+      "url": "https://drive.google.com/file/d/1v_Emc3jnW-YMJOEG79RvFjeS353-NF4B/view?usp=drivesdk",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "hytale-stage4-d9452324-database.zip",
+      "bytes": 85016,
+      "local_sha256": "3b086394b4efcad8e63fc0b8494acf2aa74bd61528b9120965ea95838574398c",
+      "folder_id": "1shNIkB3SJ_JRAAuJPzCyk1Uqs_O30SJy",
+      "drive_id": "1_EnOKlrfUXMtIszRjsYwy8EiuLOXd7Uw",
+      "url": "https://drive.google.com/file/d/1_EnOKlrfUXMtIszRjsYwy8EiuLOXd7Uw/view?usp=drivesdk",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "hytale-stage4-d9452324-documentation.zip",
+      "bytes": 62059,
+      "local_sha256": "a5970ad317df300a1453bc9c19f912ce457c6feb69da8c1fe433a2153e4fc89b",
+      "folder_id": "1immtOZOtF0oJqbCj5ak5QFsVZsga1QXh",
+      "drive_id": "12UFrQY4C3eq_pCkJCwVIpW-B-Ju9Fxij",
+      "url": "https://drive.google.com/file/d/12UFrQY4C3eq_pCkJCwVIpW-B-Ju9Fxij/view?usp=drivesdk",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "hytale-stage4-d9452324-pages-user-only.zip",
+      "bytes": 36107,
+      "local_sha256": "a4d6bbd0939250d799f1ab9ef9e6050f1be5f411c33e72c4e69a5c0d051b9f3a",
+      "folder_id": "1immtOZOtF0oJqbCj5ak5QFsVZsga1QXh",
+      "drive_id": "1Je-xpRAH0ifVe1XOaEHia6XwHM4hTXl4",
+      "url": "https://drive.google.com/file/d/1Je-xpRAH0ifVe1XOaEHia6XwHM4hTXl4/view?usp=drivesdk",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "hytale-stage4-mobile-ru-320.png",
+      "bytes": 271049,
+      "local_sha256": "66985bd6c394e5051f90906b439d976300c210da432032b9bbb9831627c42b18",
+      "folder_id": "1rcxc2tEV8_sn0n7YuyxzWvISWJSjUa_c",
+      "drive_id": "17gsqSVDDjogTELCetEL7IreiO1MBSlEn",
+      "url": "https://drive.google.com/file/d/17gsqSVDDjogTELCetEL7IreiO1MBSlEn/view?usp=drivesdk",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "hytale-stage4-mobile-ru-360.png",
+      "bytes": 291539,
+      "local_sha256": "88512ff5ead772edb5e0fd1822e1a921aa9e221c3289c8a6dfc0919d192330dc",
+      "folder_id": "1rcxc2tEV8_sn0n7YuyxzWvISWJSjUa_c",
+      "drive_id": "10kT-OXrJIzSTzdUUpS3TnzNfck52yCkQ",
+      "url": "https://drive.google.com/file/d/10kT-OXrJIzSTzdUUpS3TnzNfck52yCkQ/view?usp=drivesdk",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "hytale-stage4-mobile-ru-393.png",
+      "bytes": 310305,
+      "local_sha256": "c9beb095f00eb1f6f6a4f4a4d88cd7106eb60ec972a520a8792c78a61e71a805",
+      "folder_id": "1rcxc2tEV8_sn0n7YuyxzWvISWJSjUa_c",
+      "drive_id": "1RTCKcYa7kbgfxdCiIpK_rqgLvCzuG_vr",
+      "url": "https://drive.google.com/file/d/1RTCKcYa7kbgfxdCiIpK_rqgLvCzuG_vr/view?usp=drivesdk",
+      "verified_name_size_parent": true
+    },
+    {
+      "name": "hytale-stage4-mobile-ru-430.png",
+      "bytes": 336489,
+      "local_sha256": "8b622a69961681873dce4339a051c8a4789578ab4112ea797610952e236e85af",
+      "folder_id": "1rcxc2tEV8_sn0n7YuyxzWvISWJSjUa_c",
+      "drive_id": "1vEDq1wyzr3UFYFTDJGLZAPhleQvO2miz",
+      "url": "https://drive.google.com/file/d/1vEDq1wyzr3UFYFTDJGLZAPhleQvO2miz/view?usp=drivesdk",
+      "verified_name_size_parent": true
+    }
+  ]
+}

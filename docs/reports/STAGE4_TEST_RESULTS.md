@@ -23,3 +23,7 @@ Performance receipt: `STAGE4_PERFORMANCE.json`; first-screen decoded resources a
 ## Limits
 
 No physical Android, real Cloudflare account/deploy/TLS/header test, native-language QA or complete WCAG audit. File:// is unavailable under managed browser policy; offline HTML is validated via local HTTP, Android downloaded-file behavior needs owner testing. No public preview URL was created: owner review is an autonomous HTML on Drive, not a hosted deployment. Full-data artifact retains the snapshot licence restrictions. All data/build SHA and upload receipts are in Stage4 Drive manifest; remote connector metadata confirms name/size/parent but exposes no remote checksum.
+
+## Remote CI / backups receipt
+
+GitHub Actions [43585948449](https://github.com/moi-pary72/hytale-craft/actions/runs/43585948449), code commit `d94523240252b87563cd12d7456ef7b86d371d66`: test job and all steps completed successfully, including mobile integration. Draft [PR4](https://github.com/moi-pary72/hytale-craft/pull/4) targets PR3 branch. Eleven Drive files uploaded and read back by name/size/parent, ZIP CRC checked locally; see `STAGE4_DRIVE_BACKUPS.json`. Passport appended with revision guard and read back; earlier history retained. These ZIPs represent the code checkpoint; later receipt/documentation commits do not change runtime code.
