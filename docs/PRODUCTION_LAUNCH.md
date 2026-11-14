@@ -39,3 +39,7 @@ Before publish:22Python+17JS plus beta mobile8 and project-path1 checks locally;
 After actual publish verify both hosts separately: index has new beta/nav/sheet,24public files/manifest hashes (Github404 base differs),4locales,320/360/393/430, Back/Escape/swipe, actions, quantity/inventory/plan/reload, missing paths404 and no forbidden source files. Real Android/IME/screen reader remains a hardware limitation. GitHub Pages ignores Cloudflare headers/redirect files; rely on HTML CSP/noindex there and validate actual HTTPS behavior.
 
 Failed workflow checks must not deploy; prior served version stays in place. Keep old main tag/ZIP and last verified beta dist ZIP. For a code rollback, create an ordinary reviewed revert/restore commit/PR, never force-push main. Keep Pages in Actions mode; do not return to publishing repository root while restricted snapshots are present. Rebuild/audit the selected verified beta revision before republishing. Browser inventories/recipes are not reverted with site code; export full beta data before host migration. A hostname has separate localStorage.
+
+## Final observed preparation checks
+
+PR6 headc4accf4 passed runs43603568865/43603564361. Release PR8 head8ea6720 passed43603570551/43603566411 (22Python,17JS,24browser across the full suite). Local beta8 and GitHub project-path1 also pass. Permission403 remains, main and all existing PR merges unchanged. Existing GitHub URL responds200 but is still old interface, not new beta. No Cloudflare working address claimed. Machine receipt: reports/PRODUCTION_LAUNCH_STATUS.json.
