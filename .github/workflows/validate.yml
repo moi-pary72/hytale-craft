@@ -34,3 +34,16 @@ jobs:
           python tests/pages_browser.py
           python tests/art_browser.py
           python tests/beta_browser.py
+      - name: Rebuild and audit isolated preview artifact
+        if: github.ref == 'refs/heads/codex/https-preview' || github.head_ref == 'codex/https-preview'
+        run: |
+          python3 scripts/build_pages.py --data-policy user-only
+          python3 scripts/audit_pages.py
+      - name: Save reviewed user-only dist (no deployment)
+        if: github.ref == 'refs/heads/codex/https-preview' || github.head_ref == 'codex/https-preview'
+        uses: actions/upload-artifact@v4
+        with:
+          name: hytale-craft-user-only-${{ github.sha }}
+          path: dist/
+          if-no-files-found: error
+          retention-days: 7

@@ -1,3 +1,19 @@
+# Stage7 — isolated HTTPS preview preparation (2026-11-14)
+
+Branch `codex/https-preview` based on PR6 head79941caba61bf5fd73812e32e6f7f4b579771f67, stack2→3→4→5→6→Stage7. No merge, main change or deployment. Runtime/art/data identical to Stage6; all24public file hashes match. Four educational examples remain explicitly NOT Hytale.
+
+**GitHub Pages settings actually verified through REST**: legacy publishing from main:/, public+HTTPS, built commit1c9c1e035207b954894fdba225ceca2dc4742f38, build2026-11-14T08:19:28Z. Therefore main merges can really publish the existing site; do not merge for preview. All current PR2–6 heads are draft/unmerged and CI-success, exact snapshots in reports/STAGE7_GITHUB_STATE.json. No deployment workflow is checked in; source updates create automation PRs, not merges.
+
+Cloudflare tools/account connection are unavailable here; no project/settings/slug checked or created. Official docs confirm a test branch can be deployed without main merge. Recommended new isolated Pages project hytale-craft-preview, Production branch codex/https-preview, FrameworkNone, exact user-only Python command, outputdist. Its first deploy is called production in that new project but is a public test requiring separate owner approval. Existing configured projects can use true non-production previews; do not reconfigure an unknown production project blindly. URLs are public by default/noindex is not access control.
+
+Android owner steps and approval boundary: CLOUDFLARE_ANDROID_PREVIEW.md. `.cloudflare/preview-settings.json` is a reference, not auto-applied API configuration. CI saves an audited dist artifact only for this test branch, no deployment job/token. Cloudflare Git default auto-deploy must be restricted by owner after the first approved deploy; don't choose All non-Production branches or main. No paid service, DNS, analytics, old data or art change.
+
+Local checks:21Python+17JS and7beta mobile scenarios passed; existing full suite runs in CI. Audit verifies24files/23content checksums, no game snapshots/private/docs/backups, no secret-like patterns; hashes identical to Stage6. Current limits remain physical Android, actual HTTPS/Cloudflare headers/Back behavior on hardware,8final scenes and smooth authored animation. Source code is ready for owner-approved connection, not an already live site. Owner must use the actual URL returned by Cloudflare, no guessed preview link.
+
+Reports: STAGE7_DIST_AUDIT.json, STAGE7_GITHUB_STATE.json, STAGE7_TEST_RESULTS.md. Receipts/CI/artifact IDs and Drive verification will be recorded after actual completion. Previous history below is preserved.
+
+---
+
 # Stage6 — mobile beta candidate, awaiting merge/deployment approval (2026-11-14)
 
 Final documentation checkpoint `6c009cffb091ff61382b91ec4d6556c09307bae3` additionally archived and metadata-readback verified: https://drive.google.com/file/d/1MKoM9EOlwnFNRNc2vr-bGbYCQiDAB0Qk/view?usp=drivesdk . Total13 Stage6 uploads, existing folders/sharing unchanged. Runtime checkpoint7176b06a remains unchanged; later commits contain documentation receipts only.

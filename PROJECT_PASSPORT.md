@@ -1,3 +1,13 @@
+# Этап7 — изолированный HTTPS-preview, без публикации (2026-11-14)
+
+Новая ветка codex/https-preview поверх PR6. Main/стек2–6 не объединять. GitHub Pages фактически публикуется из main:/ (legacy), build1c9c1e035207b954894fdba225ceca2dc4742f38; настройки прочитаны REST и не изменены. CI всех текущих PR2–6 успешен. Для онлайн-проверки merge не требуется.
+
+Инструкция Android: docs/CLOUDFLARE_ANDROID_PREVIEW.md; точные поля .cloudflare/preview-settings.json. Рекомендуется отдельный новый Pages-проект hytale-craft-preview, Production branch codex/https-preview, None, Python user-only, outputdist. В Cloudflare первый deploy нового проекта называется production, но не затрагивает существующие main/GitHubPages. Всё равно публичен и требует отдельного разрешения. Аккаунт Cloudflare не подключён/не проверен; проект/URL не созданы. Noindex не защита доступа. Не нажимать Save and Deploy до решения владельца.
+
+Runtime beta/две сцены/учебные примеры идентичны Stage6. Публичный dist исключает базы, документы, тесты, архивы/секреты; CI готовит скачиваемый artifact без deployment. История и постоянные художественные референсы сохранены ниже и в docs/PROJECT_STATE.md. Следующий шаг владельца: разрешить GitHub app только для этого repo, заполнить поля и отдельно подтвердить публичный Deploy; после публикации передать фактический HTTPS URL для проверки.
+
+---
+
 # Этап 6 — мобильная beta, подготовлена без публикации (2026-11-14)
 
 Актуальный draft [PR №6](https://github.com/moi-pary72/hytale-craft/pull/6) поверх PR5, стек2→3→4→5→6. Runtime checkpoint7176b06ac767539f62c0eca7e9cfe688af53a39a, ветка codex/mobile-beta. Main/production/Cloudflare не изменены, merge/deploy не выполнялись. GitHub CI43593544711 прошёл полностью.
