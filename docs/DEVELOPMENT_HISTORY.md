@@ -36,3 +36,9 @@ Assets.zip importer разрешает документированное Parent
 Daily recipe workflow: HTTP allowlisted exports, schema/license/count/revision checks, local hashes, browser SHA-256, versioned snapshots, previous files, PR без merge. ID workflow больше не открывает PR из-за одного timestamp отчёта. CI дополнен Playwright mobile Chromium. Подробности — DATA_SCHEMA/ASSETS_IMPORT.
 
 Google Drive: повторный поиск и точный parent query подтвердили отсутствие Hytale Craft; папка успешно создана в «Проекты с ChatGPT», затем шесть разделов 01–06, readback списка подтверждён. Это устраняет блокировку первого этапа. Фактические upload/checksum/readback backups будут записаны в DRIVE_BACKUPS.json после сохранения, без преждевременного заявления.
+
+### Подтверждение второго этапа
+
+Код/данные: `f4ca8eb` и `461b99b`; исправление воспроизводимости CI: `7802e0b57646708122b6b075d43cfae1c3449d7f`. В первом запуске Python/JS прошли, установка Playwright упала из-за ubuntu-latest (26.04); причина подтверждена логом. Validation закреплён на поддерживаемом Ubuntu 24.04. Новые **оба CI успешны**, включая браузер: https://github.com/moi-pary72/hytale-craft/actions/runs/43578617436 и https://github.com/moi-pary72/hytale-craft/actions/runs/43578613365 . Не приписывать успех старому упавшему запуску.
+
+Существующий паспорт Docs перемещён в 01 с сохранением ID и истории; parent readback подтверждён. На Drive реально сохранены 10 файлов: два ZIP кода (461b99b/7802e0b), ZIP исходных публичных export JSON, normalized HySphere JSON, OpenHytale JSON, PROJECT_STATE.md, DEVELOPMENT_HISTORY.md, TEST_RESULTS.md, PR2_REVIEW.md, PNG mobile card. Имена/размеры/папки проверены отдельными metadata reads. Локальные SHA-256 и точные URL — docs/reports/DRIVE_BACKUPS.json. Коннектор не вернул remote checksum, поэтому проверка байтов на стороне Drive по SHA не заявлена. Игровой Assets.zip и секреты не загружались. Старые версии сохранены.

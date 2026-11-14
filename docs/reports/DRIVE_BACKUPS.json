@@ -1,0 +1,100 @@
+{
+  "project": "moi-pary72/hytale-craft",
+  "date": "2026-11-14",
+  "code_commit": "7802e0b57646708122b6b075d43cfae1c3449d7f",
+  "folder": "https://drive.google.com/drive/folders/1CyqdLmek-cig0dVSSH0y6hcfEPVRChkj",
+  "passport": "https://docs.google.com/document/d/1-rruSanhYEEGBP9awFejT6CCiz9TIjE_kiypXfqsDSY",
+  "files": [
+    {
+      "name": "hytale-craft-code-461b99b.zip",
+      "id": "1fyeP67q5OS_k1ZLNUH7F5p5jsn7xdy_L",
+      "url": "https://drive.google.com/file/d/1fyeP67q5OS_k1ZLNUH7F5p5jsn7xdy_L/view?usp=drivesdk",
+      "parent_id": "1immtOZOtF0oJqbCj5ak5QFsVZsga1QXh",
+      "bytes": 175501,
+      "local_sha256": "b91f705675076bf8d410295fc912b21b285f09e20d744ad84f150c0c797f65f3",
+      "verification": "upload success + metadata name/size/parent readback; remote checksum unavailable"
+    },
+    {
+      "name": "hysphere-public-export-2026-08-12.zip",
+      "id": "1IweFe_p-hxwEzNQBIpAZkS7QpbU99ku9",
+      "url": "https://drive.google.com/file/d/1IweFe_p-hxwEzNQBIpAZkS7QpbU99ku9/view?usp=drivesdk",
+      "parent_id": "1shNIkB3SJ_JRAAuJPzCyk1Uqs_O30SJy",
+      "bytes": 233244,
+      "local_sha256": "08e17f826c125b2e9869ecee57fb6b9209f0221e1d36d43ee2718f4eaefa2252",
+      "verification": "upload success + metadata name/size/parent readback; remote checksum unavailable"
+    },
+    {
+      "name": "hysphere-2026-08-12.json",
+      "id": "1aLtbFZR6V778A-i6bSOxyPUVOBWL7_Nu",
+      "url": "https://drive.google.com/file/d/1aLtbFZR6V778A-i6bSOxyPUVOBWL7_Nu/view?usp=drivesdk",
+      "parent_id": "1shNIkB3SJ_JRAAuJPzCyk1Uqs_O30SJy",
+      "bytes": 1323010,
+      "local_sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+      "verification": "upload success + metadata name/size/parent readback; remote checksum unavailable"
+    },
+    {
+      "name": "catalog.json",
+      "id": "1f9v8prV-SxvWkL6REZjYZyrl7b_s_hon",
+      "url": "https://drive.google.com/file/d/1f9v8prV-SxvWkL6REZjYZyrl7b_s_hon/view?usp=drivesdk",
+      "parent_id": "1shNIkB3SJ_JRAAuJPzCyk1Uqs_O30SJy",
+      "bytes": 543034,
+      "local_sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+      "verification": "upload success + metadata name/size/parent readback; remote checksum unavailable"
+    },
+    {
+      "name": "PROJECT_STATE.md",
+      "id": "1Odbbszf2Xpil0XB1zEt73p7eqpkUnvGd",
+      "url": "https://drive.google.com/file/d/1Odbbszf2Xpil0XB1zEt73p7eqpkUnvGd/view?usp=drivesdk",
+      "parent_id": "1oe_oNGZw7YSy9bYJit52InSx2HUFbZPV",
+      "bytes": 13769,
+      "local_sha256": "769e6f0a3876720f95d97be6cd1129a6eac9e826edd2d36ce78e5357cff43a65",
+      "verification": "upload success + metadata name/size/parent readback; remote checksum unavailable"
+    },
+    {
+      "name": "DEVELOPMENT_HISTORY.md",
+      "id": "192HLuEMBHa1jsuyq1xqftkdJOpJQQa74",
+      "url": "https://drive.google.com/file/d/192HLuEMBHa1jsuyq1xqftkdJOpJQQa74/view?usp=drivesdk",
+      "parent_id": "1aJUxAEgbTdmYoFzII4JyNWmlPTchDLkI",
+      "bytes": 8330,
+      "local_sha256": "31e5910685719ca8612d160216af6078a9321e9695062879104979af1131523c",
+      "verification": "upload success + metadata name/size/parent readback; remote checksum unavailable"
+    },
+    {
+      "name": "TEST_RESULTS.md",
+      "id": "1ZTzTXedL1hOU6DUD8cDMT00cCKkA72n4",
+      "url": "https://drive.google.com/file/d/1ZTzTXedL1hOU6DUD8cDMT00cCKkA72n4/view?usp=drivesdk",
+      "parent_id": "1SuAf81nVsfjMW40zafae1vc0iL5gheS8",
+      "bytes": 4270,
+      "local_sha256": "1245b3f32a802c9f3bc06d8db36025d6631e5175d33c33ea0ee78074c08f033d",
+      "verification": "upload success + metadata name/size/parent readback; remote checksum unavailable"
+    },
+    {
+      "name": "PR2_REVIEW.md",
+      "id": "18-IDieJgP3lFFJr3KeCPaM_7_ESuzWhb",
+      "url": "https://drive.google.com/file/d/18-IDieJgP3lFFJr3KeCPaM_7_ESuzWhb/view?usp=drivesdk",
+      "parent_id": "1SuAf81nVsfjMW40zafae1vc0iL5gheS8",
+      "bytes": 4410,
+      "local_sha256": "1f43de7b5b64ea343b398a92bd12ad158841f942df108f578f87469399072fd7",
+      "verification": "upload success + metadata name/size/parent readback; remote checksum unavailable"
+    },
+    {
+      "name": "hytale-shortbow-mobile.png",
+      "id": "1PHlG-WIOug_yTZPglpc0-wDjO4RgmUX2",
+      "url": "https://drive.google.com/file/d/1PHlG-WIOug_yTZPglpc0-wDjO4RgmUX2/view?usp=drivesdk",
+      "parent_id": "1rcxc2tEV8_sn0n7YuyxzWvISWJSjUa_c",
+      "bytes": 126935,
+      "local_sha256": "5894e54104c58032ead478be6de66e85d4bcb3c6a78eff6e18b26c90c1753ede",
+      "verification": "upload success + metadata name/size/parent readback; remote checksum unavailable"
+    },
+    {
+      "name": "hytale-craft-code-7802e0b.zip",
+      "id": "1Z9bpjL-yO0w9eo33xRTE4QQy2Y4iLfeU",
+      "url": "https://drive.google.com/file/d/1Z9bpjL-yO0w9eo33xRTE4QQy2Y4iLfeU/view?usp=drivesdk",
+      "parent_id": "1immtOZOtF0oJqbCj5ak5QFsVZsga1QXh",
+      "bytes": 175516,
+      "local_sha256": "27327717c86f2251f803020b9534196bbb0613eee4c0c3196a875586ff2d5ef1",
+      "verification": "upload success + metadata name/size/parent readback; remote checksum unavailable"
+    }
+  ],
+  "note": "Two code snapshots retained. Latest code backup includes supported Ubuntu runner pin. Later documentation-only changes are in Git. Public source export is not Assets.zip. Remote checksum not returned by connector."
+}

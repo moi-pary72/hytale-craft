@@ -18,3 +18,12 @@
 Предыдущий этап CI: success https://github.com/moi-pary72/hytale-craft/actions/runs/43576518362 . В этом этапе validation workflow расширен browser smoke и direct Node reporter; актуальные результаты новой ветки проверяются после push и фиксируются в истории/PR. Daily workflows сами не выполняют merge; расписания начнут работать только после отдельного разрешённого merge в default branch.
 
 Физического Android нет; проверка — Chromium mobile emulation. Новая версия публичного Pages не публиковалась и не тестировалась как production. 623 source-backed записи **не означают официальную сверку** с лицензионным архивом. Точная game build не предоставлена источником. Синтетика существует только в тестах; реальные assertions ссылаются на source-backed snapshot.
+
+## Подтверждённый CI второго этапа
+
+Код `7802e0b57646708122b6b075d43cfae1c3449d7f`: **success**, включая Python, JS и mobile integration:
+
+- https://github.com/moi-pary72/hytale-craft/actions/runs/43578617436 (pull_request).
+- https://github.com/moi-pary72/hytale-craft/actions/runs/43578613365 (push).
+
+Первоначальный запуск на `461b99b`: Python/JS success, установка browser dependency failure из-за ubuntu-latest=26.04, не поддерживаемой Playwright 1.56. Validation теперь закреплён на Ubuntu 24.04. Локально дополнительно проверена ширина **320 px**; горизонтальной прокрутки нет.
