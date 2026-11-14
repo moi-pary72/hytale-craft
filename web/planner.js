@@ -1,6 +1,7 @@
 /* Shared deterministic calculator. Names/IDs are opaque keys; no game data here. */
 (function(root){'use strict';
 function compute(db,goals,inventory={}){
+ for(const [id,n] of Object.entries(inventory))if(!Number.isSafeInteger(n)||n<0||n>1e12)throw Error('Invalid inventory: '+id);
  const totals=Object.create(null),steps=Object.create(null),stock=Object.assign(Object.create(null),inventory),stack=new Set();
  function add(obj,k,n){const v=(obj[k]||0)+n;if(!Number.isSafeInteger(v)||v>1e12)throw Error('Quantity overflow');obj[k]=v}
  let calls=0;

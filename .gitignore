@@ -1,2 +1,6 @@
 __pycache__/
 *.pyc
+
+.private/
+Assets.zip
+*.credentials.json

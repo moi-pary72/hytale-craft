@@ -1,3 +1,9 @@
+# Текущее обновление — второй этап PR №2, 2026-11-14
+
+Подробный актуальный паспорт: [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md). Получены и подключены 623 source-backed полных рецепта / 3219 предметов HySphere (2026-08-12, Early Access, exact build неизвестна), 1486 записей отделены. Это реальные данные независимого источника с non-commercial attribution, не официальная сверка. Старый каталог OpenHytale 3641/403 ID сохранён отдельно. Main/public Pages не изменяются. Инструкция для лицензированного Assets.zip — docs/ASSETS_IMPORT.md. История ниже отражает предыдущие этапы.
+
+---
+
 # Актуальное состояние — 2026-11-14
 
 Основной документ продолжения: [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md). История: [docs/DEVELOPMENT_HISTORY.md](docs/DEVELOPMENT_HISTORY.md).

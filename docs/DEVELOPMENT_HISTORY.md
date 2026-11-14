@@ -20,3 +20,19 @@ Google Drive подключён; существующий паспорт дос�
 PR создан: https://github.com/moi-pary72/hytale-craft/pull/2 (draft, не merged). Код: https://github.com/moi-pary72/hytale-craft/commit/287b1dcb3a2a6991e0f8313a4a9943f51e334bf8 . GitHub CI validation прошёл: https://github.com/moi-pary72/hytale-craft/actions/runs/43576518362 .
 
 Существующий Google Docs паспорт действительно обновлён через Docs API; добавлены результат, ограничения, источник и ссылка PR. Загрузка ZIP/JSON в Drive не выполнялась, структура папок остаётся заблокирована auto-review; ответ пользователя на вопрос ещё не получен. Не путать обновление документа с резервной копией исходников.
+
+## 2026-11-14 — второй этап: ревью, реальные source-backed рецепты и Drive
+
+Повторно fetched main и PR branch: main `1c9c1e0`, head до этапа `d16f043`, параллельных изменений не обнаружено. Изучены исходники/тесты/Actions и существующий Google Docs паспорт; прежние отчёты сверены с кодом. Review findings — `docs/reports/PR2_REVIEW.md`.
+
+Найден новый разрешённый публичный export HySphere `sphere-data/v1`, extraction 2026-08-12. Получены реальные 3219 item / 2109 recipe records. 623 полных explicit single-output craft recipes нормализованы, 1486 неполных/неподдерживаемых (включая 403 salvage) выделены. Точная game build неизвестна; source-backed, не officially verified. English names из источника, RU не придуманы. Лицензия non-commercial attribution; ссылку на HySphere показываем. Файлы разных дат/источников не смешиваются.
+
+В UI подключены source-backed карточки и калькулятор. Сражаться→Оружие→Crude Shortbow открывает ингредиенты/выход/станции; фраза пользователя «Простой короткий лук» — search alias. Инвентарь, партии/остатки, копирование и массовый план работают с настоящими записями; очередь сохраняется по source revision. Missing recipes предлагают свой рецепт. Старый editor/локальные записи сохраняются отдельно.
+
+На реальном графе обнаружены cycles лепестков при изготовлении глины. Расчёт останавливается, пользователь явно выбирает получить промежуточный предмет отдельно. Автоматическая подстановка сырья/альтернатив не используется. Интеграционный тест расширен на этот случай.
+
+Assets.zip importer разрешает документированное Parent override с циклами/неизвестными родителями, сохраняет groups/multiple/metadata/PrimaryOutput как review candidate и не публикует. Неподдерживаемые сложные данные не превращаются в конкретный ингредиент. Официальный архив по-прежнему не получен, локальный parser не проверен на полной актуальной game build.
+
+Daily recipe workflow: HTTP allowlisted exports, schema/license/count/revision checks, local hashes, browser SHA-256, versioned snapshots, previous files, PR без merge. ID workflow больше не открывает PR из-за одного timestamp отчёта. CI дополнен Playwright mobile Chromium. Подробности — DATA_SCHEMA/ASSETS_IMPORT.
+
+Google Drive: повторный поиск и точный parent query подтвердили отсутствие Hytale Craft; папка успешно создана в «Проекты с ChatGPT», затем шесть разделов 01–06, readback списка подтверждён. Это устраняет блокировку первого этапа. Фактические upload/checksum/readback backups будут записаны в DRIVE_BACKUPS.json после сохранения, без преждевременного заявления.
