@@ -44,3 +44,17 @@ Google Drive: повторный поиск и точный parent query под�
 Существующий паспорт Docs перемещён в 01 с сохранением ID и истории; parent readback подтверждён. На Drive реально сохранены 10 файлов: два ZIP кода (461b99b/7802e0b), ZIP исходных публичных export JSON, normalized HySphere JSON, OpenHytale JSON, PROJECT_STATE.md, DEVELOPMENT_HISTORY.md, TEST_RESULTS.md, PR2_REVIEW.md, PNG mobile card. Имена/размеры/папки проверены отдельными metadata reads. Локальные SHA-256 и точные URL — docs/reports/DRIVE_BACKUPS.json. Коннектор не вернул remote checksum, поэтому проверка байтов на стороне Drive по SHA не заявлена. Игровой Assets.zip и секреты не загружались. Старые версии сохранены.
 
 Дополнительно сохранён и metadata-readback проверен итоговый архив передачи контекста `hytale-craft-handoff-bd844ba.zip` (документы на commit bd844ba), ссылка и checksum в DRIVE_BACKUPS.json. Всего 11 файлов с этой итоговой копией; receipt самого handoff записан после создания ZIP, чтобы избежать циклического хеша. Google Docs паспорт дополнен итогами 623 recipes/CI/backups и повторно прочитан: запись подтверждена. Основная кодовая копия остаётся 7802e0b, код после неё не менялся.
+
+## 2026-11-14 — этап 3: international UX и launch preparation
+
+Сверены фактические main/PR2 head, прочитан Drive паспорт и документация/тесты. Параллельных изменений не было. Для reviewable визуального концепта создана отдельная зависимая ветка `codex/international-ux-preview` от d90e010, не перезаписан дизайн index. Draft PR target — ветка PR2, без merge/deploy.
+
+Создан отдельный рабочий preview на существующих engines/data/storage: 10 goal tiles, оригинальные SVG мини-сцены, полноценные preview UI словари EN/RU/ES/PT-BR, browser/manual language choice, source isolation и все необходимые crafting/user-data tools. Данные и engines сохранены. Art остаётся prototype; FR/DE/zh-Hans остаются drafts; legacy partial EN/RU не выдаётся за полностью готовый международный production.
+
+Проверки выявили race при reload сразу после выбора языка — предпочтение теперь сохраняется до fetch, устаревший ответ словаря не перезаписывает новый выбор. Исправлена потеря ещё не сохранённого batch textarea при первой lazy загрузке snapshot. Corrupt user JSON не удаляется и не заменяется без явного import.
+
+Подготовлены robots/sitemap/OG и metadata; выявлено ограничение host-root robots для GitHub project Pages, не менялся чужой репозиторий. Preview/importer noindex, single canonical homepage. Домен не выбран/не куплен. Analytics/ads не добавлены.
+
+Проверены HySphere license/contact, EULA и creator-policy URL; коммерческие права не подтверждены. Контактная форма поддерживает partnership requests, подготовлен unsent draft, ничего не отправлялось. Creator-policy URL — affiliate program, не blanket database license. Собственный normalized dataset из licensed archive тоже требует проверки прав, не автоматическая замена. Документы COMMERCIAL_DATA_READINESS.md/GROWTH_PLAN.md/UX_PREVIEW.md.
+
+Preview metrics: home≈57–61KB decoded, no snapshots before action, no loops; widths320/393 и CPU×4/150ms network emulation. Self-contained artifact создан, file:// в managed browser blocked; policy не обходилась, альтернативный local HTTP test подтвердил отсутствие subresource requests и реальный расчёт. Физического Android нет. Новые CI/Drive backup receipts и SHA будут записаны после подтверждённых операций.

@@ -1,0 +1,77 @@
+{
+  "stage": 3,
+  "preview": "preview.html",
+  "locales": {
+    "en": {
+      "keys": 114,
+      "coverage": "all preview UI keys; project translations; native editorial QA pending"
+    },
+    "ru": {
+      "keys": 114,
+      "coverage": "all preview UI keys; project translations; native editorial QA pending"
+    },
+    "es": {
+      "keys": 114,
+      "coverage": "all preview UI keys; project translations; native editorial QA pending"
+    },
+    "pt-BR": {
+      "keys": 114,
+      "coverage": "all preview UI keys; project translations; native editorial QA pending"
+    }
+  },
+  "home": [
+    {
+      "language": "en",
+      "startup_decoded_bytes": 57450,
+      "requests": 17,
+      "data_requests_before_goal": 0,
+      "widths": [
+        320,
+        393
+      ]
+    },
+    {
+      "language": "ru",
+      "startup_decoded_bytes": 60822,
+      "requests": 17,
+      "data_requests_before_goal": 0,
+      "widths": [
+        320,
+        393
+      ]
+    },
+    {
+      "language": "es",
+      "startup_decoded_bytes": 58015,
+      "requests": 17,
+      "data_requests_before_goal": 0,
+      "widths": [
+        320,
+        393
+      ]
+    },
+    {
+      "language": "pt-BR",
+      "startup_decoded_bytes": 58065,
+      "requests": 17,
+      "data_requests_before_goal": 0,
+      "widths": [
+        320,
+        393
+      ]
+    }
+  ],
+  "slow_phone": {
+    "cpu_slowdown": 4,
+    "latency_ms": 150,
+    "download_bytes_per_second": 150000,
+    "home_ready_seconds": 1.116,
+    "continuous_animations": 0
+  },
+  "limits": [
+    "Local Chromium measurements, not physical Android or field Core Web Vitals",
+    "Offline file:// navigation blocked by managed browser; self-contained artifact tested over local HTTP with one document request and no subresources",
+    "Legacy UI remains partial EN/RU; new language coverage applies to preview",
+    "Commercial launch blocked; source data non-commercial"
+  ]
+}

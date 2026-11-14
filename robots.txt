@@ -1,0 +1,8 @@
+# Project Pages serves this below /hytale-craft/. Search engines require /robots.txt at the host root.
+# Keep previews crawlable so their meta noindex can be read. Do not treat these directives as access control.
+User-agent: *
+Allow: /hytale-craft/
+Disallow: /hytale-craft/data/
+Disallow: /hytale-craft/docs/
+Disallow: /hytale-craft/tests/
+Sitemap: https://moi-pary72.github.io/hytale-craft/sitemap.xml

@@ -1,3 +1,28 @@
+# Stage 3 — International UX preview (2026-11-14)
+
+Актуальное продолжение: ветка `codex/international-ux-preview`, основана на PR №2 head `d90e0105ec9c9a4283e0f142fdc4092df471c77b`. Main/production и ветка PR №2 не меняются. Отдельный draft PR нацелен на ветку PR №2: сначала согласовать визуальный концепт, не выполнять merge автоматически.
+
+## Что добавлено
+
+- `preview.html` и `web/preview/`: работающий goal-first интерфейс поверх прежних planner/game-recipes engines, snapshots и ключей user storage. `index.html` сохраняет текущий дизайн; в нём добавлены только SEO metadata и helper. Старый asset importer получает noindex.
+- Десять крупных целей по две в ряд на мобильном, оригинальные SVG miniature scenes (`assets/preview`, генератор `scripts/build_preview_scenes.py`). Это векторные прототипы 3D art direction, не официальные ассеты и не утверждённый финальный дизайн. Подробнее `UX_PREVIEW.md`.
+- Preview подключает все 623 recipes/отдельный OpenHytale IDs, карточки, quantity/inventory/leftovers/stations, shared-stock batch plan, editor/JSON import-export, cycle/acquire/incomplete warnings и SHA-256. Снимки JSON и engines не изменены. Snapshot fetch отложен до цели/расчёта, на первом экране их нет.
+- UI dictionaries `locales/en.json`, `ru.json`, `es.json`, `pt-BR.json` имеют одинаковое полное покрытие всех preview UI keys. Browser detection, manual override/persistence, regional fallback, защита async language race. Языки FR/DE/zh-Hans — draft, не selectable. Оригинальные EN game names/IDs отделены от UI. Официальные переводы игровых названий не придумываются.
+- EN/RU/ES/PT-BR технически полностью покрывают **preview**, native-speaker QA ещё не проведена. Старый index/asset-importer остаётся с прежним частичным EN/RU, не объявлять весь production полностью локализованным. После утверждения концепта отдельно решить, переносить preview в основной entry point.
+- SEO: one canonical URL, root title/description/OG locale/image, original social card, sitemap only homepage, preview/importer noindex. robots.txt в GitHub project subpath сам по себе не контролирует host-root robots; это ограничение задокументировано, другие репозитории не менялись. Нет фиктивных localized URLs/hreflang, нет дублирующих item SEO pages.
+- `scripts/export_preview.py`: self-contained HTML с original CSS/JS/SVG + pinned snapshots/словари для owner review без deploy. Коммерческие ограничения данных остаются. file:// заблокирован политикой browser environment, не обходился; artifact проверен через разрешённый local HTTP без подресурсных запросов. Actual Android file viewer не проверен. local file и hosted origin имеют отдельный storage, нужен явный export/import.
+- `COMMERCIAL_DATA_READINESS.md`: запрет коммерческого запуска с текущей лицензией, проверенные URL, конкретные пути разрешения, готовый unsent запрос HySphere. `GROWTH_PLAN.md`: бесплатные каналы, SEO, домен/localStorage migration, privacy/minors gates. Никаких ads/analytics/accounts/outreach/domain changes.
+
+## Проверки и результаты этапа 3
+
+14 прежних Python tests + 11 прежних JS regression tests; 4 новых JS localization/SEO tests; 6 новых browser scenarios (включают четыре языка, widths320/393, keyboard skip/focus, исходные данные без потерь, реальный shortbow/inventory/batch/editor/export/import, bad/missing snapshot, broken user storage, delayed catalog plan, self-contained export, throttled startup). Прежний mobile regression test тоже запускается. GitHub CI дополняется этими тестами.
+
+Стартовый preview ≈57–61KB decoded resources; 0 data JSON requests до цели, 0 постоянных animations. Local CPU×4 + 150ms latency +150000bytes/s: точное измерение и ограничения в reports/STAGE3_PERFORMANCE.json. Это не physical Android или field performance guarantee.
+
+Новые действия владельца: оценить screenshot/preview и оригинальный арт-концепт; дать native QA переводов; получить письменные коммерческие права/сменить источник; отдельно разрешить merge/deployment. Ни запуск рекламы, ни сам домен, ни публичный деплой сейчас не готовы автоматически. Подробный этап2 контекст и права/данные сохранены ниже.
+
+---
+
 # Hytale Craft — актуальное состояние
 
 Обновлено 2026-11-14, второй этап ревью PR №2. Предыдущие события сохранены в `DEVELOPMENT_HISTORY.md` и Google Docs; старые утверждения «0 рецептов» относились к первому этапу.
