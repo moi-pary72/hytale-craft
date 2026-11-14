@@ -25,6 +25,11 @@
 @media(max-width:750px){.quick-start{padding:14px}.quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.quick-item{padding:10px;font-size:12px;min-height:70px}}
 </style><style>
 /* Compact goal-first home */
+#planner-shell[hidden],#goal-next[hidden]{display:none!important}
+#planner-shell{display:block!important}
+#planner-shell[hidden]{display:none!important}
+#inventory-more{margin-top:20px}#inventory-more>summary{cursor:pointer;padding:13px;background:#253b57;border-radius:12px;font-weight:700}
+
 main{padding-top:8px}main>h1{font-size:clamp(27px,5vw,42px);margin:12px 0 8px}main>.lead,main>.status,main>.quick-start{display:none!important}
 .goal-home{max-width:760px;margin:12px auto 18px;padding:20px;background:#141e33;border:1px solid #455c7e;border-radius:22px}
 .goal-home h2{font-size:24px;margin:0 0 9px}.goal-home p{color:#b9cae6;font-size:14px;line-height:1.5}
