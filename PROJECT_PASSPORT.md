@@ -90,3 +90,4 @@ index.html: автономное мобильное SPA без библиоте�
 
 ## Передача новому чату
 Прочитай этот файл и актуальный index.html из GitHub, затем проверь состояние Pages. Продолжай разработку Hytale Craft, сохраняя существующий функционал. Пользователь предпочитает большие законченные этапы и самостоятельную работу, с отчётом о фактических изменениях.
+Этап7: draftPR7 https://github.com/moi-pary72/hytale-craft/pull/7 ; CI43597302206 success, фактический CI ZIP14114808254 скачан, CRC/SHA256 GitHub digest и24runtime файла проверены. Инструкция Android сохранена: https://drive.google.com/file/d/1HxW6cB_wJUrBSZw3SLEBR7pxXa16MxLB/view . Реестр Drive: docs/reports/STAGE7_DRIVE_BACKUPS.json. Публикации нет.
