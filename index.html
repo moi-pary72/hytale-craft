@@ -35,12 +35,13 @@ const dictionary={"BETA · независимый инструмент":"БЕТ�
 const language=document.getElementById('language');
 let current='en';try{current=localStorage.getItem('hytale-craft-language')==='ru'?'ru':'en'}catch(e){}
 language.value=current;
+dictionary["БЕТА · независимый инструмент"]="BETA · independent fan tool";dictionary["BETA · независимый инструмент"]="BETA · independent fan tool";
 const baseline=new WeakMap();
 const placeholders=new WeakMap();
 const keys=Object.keys(dictionary).sort((a,b)=>b.length-a.length);
 function translate(value){if(Object.hasOwn(dictionary,value))return dictionary[value];const trimmed=value.trim();if(Object.hasOwn(dictionary,trimmed))return value.replace(trimmed,dictionary[trimmed]);for(const key of keys){if(value.startsWith(key)&&value.length>key.length)return dictionary[key]+value.slice(key.length)}return value}
 function visit(node){if(node.nodeType===3){if(!baseline.has(node))baseline.set(node,node.nodeValue);const base=baseline.get(node);const target=current==='en'?translate(base):base;if(node.nodeValue!==target)node.nodeValue=target;return}
-if(node.nodeType!==1||['SCRIPT','STYLE','TEXTAREA'].includes(node.tagName))return;
+if(node.nodeType!==1||['SCRIPT','STYLE'].includes(node.tagName))return;
 if(node.hasAttribute('placeholder')){if(!placeholders.has(node))placeholders.set(node,node.getAttribute('placeholder'));const base=placeholders.get(node);node.setAttribute('placeholder',current==='en'?base.split('\n').map(translate).join('\n'):base)}
 for(const child of node.childNodes)visit(child)}
 let busy=false;const observer=new MutationObserver(records=>{if(busy)return;busy=true;observer.disconnect();for(const record of records){if(record.type==='childList'){for(const node of record.addedNodes)visit(node)}else if(record.type==='characterData'&&record.target.nodeType===3){baseline.set(record.target,record.target.nodeValue);visit(record.target)}}observer.observe(document.body,{subtree:true,childList:true,characterData:true});busy=false});
