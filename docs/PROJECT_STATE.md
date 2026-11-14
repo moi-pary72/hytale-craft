@@ -1,5 +1,7 @@
 # Stage6 — mobile beta candidate, awaiting merge/deployment approval (2026-11-14)
 
+Final documentation checkpoint `6c009cffb091ff61382b91ec4d6556c09307bae3` additionally archived and metadata-readback verified: https://drive.google.com/file/d/1MKoM9EOlwnFNRNc2vr-bGbYCQiDAB0Qk/view?usp=drivesdk . Total13 Stage6 uploads, existing folders/sharing unchanged. Runtime checkpoint7176b06a remains unchanged; later commits contain documentation receipts only.
+
 Branch `codex/mobile-beta`, based on PR5 head `6e1e5da61be9398a7f20efeb8ed6af9a5dfdff70`. Stack PR2→3→4→5→[draft PR6](https://github.com/moi-pary72/hytale-craft/pull/6); prior branches/main/production unchanged. This is a prepared **free educational UX beta**, not a verified Hytale recipe catalog. No public deployment or hostname created.
 
 ## Current entry/architecture
