@@ -1,3 +1,11 @@
+# Current data investigation — 2026-11-15
+
+Owner personally tested Android and fully approved the existing design/navigation/UX. Preserve all10Seeker cards, Maker, artwork/motion/styles, mode switching, storage and both hosting integrations. Published main remains24200b4; this research branch must not merge/deploy or bundle real data.
+
+See [recipe-research/REPORT_RU.md](recipe-research/REPORT_RU.md), [source/licence matrix](recipe-research/SOURCES_AND_LICENSES.md), [13-item comparison](recipe-research/RECIPE_COMPARISON.md), [pipeline](recipe-research/PIPELINE_AND_SCHEMA.md), [implementation plan](recipe-research/INTEGRATION_PLAN.md), [unsent letters](recipe-research/PERMISSIONS_AND_LETTERS_EN.md). Key new finding: official Shared Source Agreement v2.0 is restricted, not open-data; studio clarification plus source-specific permission remains necessary. No ready commercial vanilla dataset verified. New offline canonical-v2 importer is synthetic-only and always blocks publication; no group/by-product solver or real Assets.zip adapter is claimed complete. All earlier source/snapshot sections below are preserved history, not current release permissions.
+
+---
+
 # Current state — Seeker / Maker, 2026-11-15
 
 PR11 is merged at `bba201f55bb15a2b619d8d6188cdc61b88e29c17`; both production sites were verified after publication. Earlier “unmerged” sections below are preserved history. Five legacy collectors are paused; no old queued/running jobs existed at merge. Historical snapshots remain in old refs, not in the current tree or public dist. No history/backup deletion.
