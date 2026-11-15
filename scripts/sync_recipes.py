@@ -22,6 +22,7 @@ def sha(raw):
     return hashlib.sha256(raw).hexdigest()
 
 def fetch(path):
+    raise PermissionError('Third-party collection disabled pending explicit rights and owner approval')
     # The documented export accepts curl; urllib's default UA is denied upstream.
     result = subprocess.run(['curl','--fail','--silent','--show-error','--proto','=https',
                              '--max-time','45','--max-filesize','15000000',ORIGIN+path],capture_output=True,check=True)
@@ -82,7 +83,7 @@ def normalize(manifest, item_data, recipe_data, hashes):
             'items':sorted(items,key=lambda x:x['id']),'recipes':sorted(recipes,key=lambda x:x['id']),
             'incomplete_recipes':sorted(incomplete,key=lambda x:x['id'])}
 
-def write_snapshot(data, root=Path('data/recipes')):
+def write_snapshot(data, root=Path('.private/legacy-recipe-review')):
     root=Path(root);root.mkdir(parents=True,exist_ok=True)
     slug='hysphere-'+data['source']['extracted_at'][:10]
     dest=root/(slug+'.json');raw=encoded(data)
@@ -100,20 +101,6 @@ def write_snapshot(data, root=Path('data/recipes')):
     return True
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--local-dir',type=Path);args=ap.parse_args()
-    report={'status':'failed','publication':'source-backed recipes only; no official verification'}
-    try:
-        raw={key:((args.local_dir/('hysphere-'+key+'.json')).read_bytes() if args.local_dir else fetch('/data/v1/'+key+'.json')) for key in ('manifest','items','recipes')}
-        data=normalize(*(json.loads(raw[k]) for k in ('manifest','items','recipes')),{k:sha(v) for k,v in raw.items()})
-        changed=write_snapshot(data)
-        report={'status':'validated','items':len(data['items']),'source_backed_recipes':len(data['recipes']),'incomplete_recipes':len(data['incomplete_recipes']),
-                'reasons':dict(Counter(reason for r in data['incomplete_recipes'] for reason in r['reasons'])),'source':data['source']}
-        print(json.dumps({'changed':changed,**report},ensure_ascii=False))
-    except Exception as exc:
-        report['error']=str(exc)[:500]
-        raise
-    finally:
-        Path('docs/reports').mkdir(exist_ok=True,parents=True)
-        Path('docs/reports/recipe-sync.json').write_bytes(encoded(report))
+    raise SystemExit('Disabled: no third-party download or public snapshot write. Use import_catalog.py with authorized local JSON; review only.')
 
 if __name__=='__main__':main()

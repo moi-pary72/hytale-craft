@@ -1,0 +1,767 @@
+{
+  "refs": [
+    {
+      "ref": "refs/audit/pull/1/head",
+      "commit": "f252be4cd36a34c7596fc54c10e2c47906150298",
+      "datasets": []
+    },
+    {
+      "ref": "refs/audit/pull/10/head",
+      "commit": "b128b0365cdece8d74bbe243db4366d2e36917bb",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    },
+    {
+      "ref": "refs/audit/pull/2/head",
+      "commit": "d90e0105ec9c9a4283e0f142fdc4092df471c77b",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    },
+    {
+      "ref": "refs/audit/pull/3/head",
+      "commit": "57ee4f65b5d4080289e5ac918f7153938dbf4998",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    },
+    {
+      "ref": "refs/audit/pull/4/head",
+      "commit": "1d670994a5f82d3b1baab09d31cb42e7fba7cc97",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    },
+    {
+      "ref": "refs/audit/pull/5/head",
+      "commit": "89d2db99d827219ac522a74945691e3f9993ddb8",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    },
+    {
+      "ref": "refs/audit/pull/6/head",
+      "commit": "31e3c7569e228812e01fb749c081ed5e6439c4ea",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    },
+    {
+      "ref": "refs/audit/pull/7/head",
+      "commit": "ca6e7bcd4afc8133f60504ebbb3eb5a22618d0c8",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    },
+    {
+      "ref": "refs/audit/pull/8/head",
+      "commit": "b4e619cbaa631559241d47d5289668ff7599c751",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    },
+    {
+      "ref": "refs/audit/pull/9/head",
+      "commit": "cb62f6fdcec19460d6844543eb139b1e9962f462",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    },
+    {
+      "ref": "refs/remotes/origin/codex/approved-art-pair",
+      "commit": "89d2db99d827219ac522a74945691e3f9993ddb8",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    },
+    {
+      "ref": "refs/remotes/origin/codex/cloudflare-testing-ready",
+      "commit": "1d670994a5f82d3b1baab09d31cb42e7fba7cc97",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    },
+    {
+      "ref": "refs/remotes/origin/codex/https-preview",
+      "commit": "ca6e7bcd4afc8133f60504ebbb3eb5a22618d0c8",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    },
+    {
+      "ref": "refs/remotes/origin/codex/international-ux-preview",
+      "commit": "57ee4f65b5d4080289e5ac918f7153938dbf4998",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    },
+    {
+      "ref": "refs/remotes/origin/codex/mobile-beta",
+      "commit": "31e3c7569e228812e01fb749c081ed5e6439c4ea",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    },
+    {
+      "ref": "refs/remotes/origin/codex/production-launch",
+      "commit": "b4e619cbaa631559241d47d5289668ff7599c751",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    },
+    {
+      "ref": "refs/remotes/origin/codex/published-beta-state",
+      "commit": "cb62f6fdcec19460d6844543eb139b1e9962f462",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    },
+    {
+      "ref": "refs/remotes/origin/codex/ui-v2",
+      "commit": "b128b0365cdece8d74bbe243db4366d2e36917bb",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    },
+    {
+      "ref": "refs/remotes/origin/codex/verified-catalog-planner",
+      "commit": "d90e0105ec9c9a4283e0f142fdc4092df471c77b",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    },
+    {
+      "ref": "refs/remotes/origin/feature/searchable-crafting-catalog",
+      "commit": "f252be4cd36a34c7596fc54c10e2c47906150298",
+      "datasets": []
+    },
+    {
+      "ref": "refs/remotes/origin/main",
+      "commit": "a972e4d664687211319b1b94cf87462de7022f1a",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    },
+    {
+      "ref": "refs/tags/backup/main-before-beta-20261114",
+      "commit": "1c9c1e035207b954894fdba225ceca2dc4742f38",
+      "datasets": []
+    },
+    {
+      "ref": "refs/tags/backup/pre-ui-v2-20261114",
+      "commit": "232b9c4f1da592e415245d0144c1d7acb1e7b845",
+      "datasets": [
+        {
+          "path": "data/catalog.json",
+          "bytes": 543034,
+          "sha256": "f7e462519e772591b53ea6083a4779cf8cb76f01f74fefe1a5d82208ac74fe59",
+          "items": 3641,
+          "recipes": 0
+        },
+        {
+          "path": "data/recipes/hysphere-2026-08-12.json",
+          "bytes": 1323010,
+          "sha256": "f36e60c19717a811597d45e411eeace422a1081457c811782128d3e19d5887bb",
+          "items": 3219,
+          "recipes": 623
+        },
+        {
+          "path": "data/recipes/manifest.json",
+          "bytes": 179,
+          "sha256": "8cef3b1ea5e14f6b86134976367b85a87e303c758f6581dbf9abda1fcdad9664",
+          "items": null,
+          "recipes": null
+        },
+        {
+          "path": "data/openhytale-catalog-index.json",
+          "bytes": 424,
+          "sha256": "f601329ad533124c77bc602e8dda359ee25a2327548d8fcb1173fdc2bb7d6052",
+          "items": null,
+          "recipes": null
+        }
+      ]
+    }
+  ],
+  "historical_json_blobs": [
+    {
+      "git_blob": "5eb00c0814003caa26b24c354b06877fd8b1bcde",
+      "path": "data/catalog.json",
+      "bytes": 543034,
+      "items": 3641,
+      "recipes": 0,
+      "recipe_ids": 403
+    },
+    {
+      "git_blob": "6c7f7df8a4f3d254209f5170f009e85370a53b6f",
+      "path": "data/official-downloader-status.json",
+      "bytes": 494,
+      "items": null,
+      "recipes": null,
+      "recipe_ids": null
+    },
+    {
+      "git_blob": "5a508e85de6315cc8560b1efdd70d65c58156aed",
+      "path": "data/openhytale-catalog-index.json",
+      "bytes": 424,
+      "items": null,
+      "recipes": null,
+      "recipe_ids": null
+    },
+    {
+      "git_blob": "3b76e1301ba3688c01e43b9198fc7b36e90536fd",
+      "path": "data/recipe-discovery.json",
+      "bytes": 4590,
+      "items": null,
+      "recipes": null,
+      "recipe_ids": null
+    },
+    {
+      "git_blob": "aaa619c38dbbffb3a88c43c74d97a139ba8c04cd",
+      "path": "data/recipes/hysphere-2026-08-12.json",
+      "bytes": 1323010,
+      "items": 3219,
+      "recipes": 623,
+      "recipe_ids": null
+    },
+    {
+      "git_blob": "c96590b6878059eb789a8ef03bd42575ea3ac46a",
+      "path": "data/recipes/manifest.json",
+      "bytes": 179,
+      "items": null,
+      "recipes": null,
+      "recipe_ids": null
+    },
+    {
+      "git_blob": "dec78f41f0b5697561de18c1a921210ddbb3a384",
+      "path": "data/source-health.json",
+      "bytes": 1652,
+      "items": null,
+      "recipes": null,
+      "recipe_ids": null
+    },
+    {
+      "git_blob": "524292e0cef66cbb1445ea4d027daa8287116441",
+      "path": "docs/reports/recipe-sync.json",
+      "bytes": 978,
+      "items": null,
+      "recipes": null,
+      "recipe_ids": null
+    }
+  ],
+  "ref_count": 23,
+  "commits_reachable": 91
+}

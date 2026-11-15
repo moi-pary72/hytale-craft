@@ -12,6 +12,7 @@ HEADERS = {"User-Agent": "HytaleCraftDataSync/0.2"}
 OUT = Path("data/recipe-probe.json")
 
 def inspect(path):
+    raise PermissionError('Third-party collection disabled pending explicit rights and owner approval')
     req = urllib.request.Request(BASE + path, headers=HEADERS)
     try:
         with urllib.request.urlopen(req, timeout=25) as res:
@@ -32,15 +33,7 @@ def inspect(path):
         return {"path": path, "error": str(exc)[:350]}
 
 def main():
-    results = [inspect(p) for p in PATHS]
-    report = {"checked_at": datetime.now(timezone.utc).isoformat(),
-              "source": BASE, "results": results}
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    for r in results:
-        print(r["path"], r.get("http", r.get("error")), r.get("count", ""), r.get("keys", ""))
-    if not any(r.get("http") == 200 for r in results):
-        raise SystemExit("No candidate recipe endpoint worked; inspect report")
+    raise SystemExit('Disabled: no third-party download or public snapshot write. Use import_catalog.py with authorized local JSON; review only.')
 
 if __name__ == "__main__":
     main()

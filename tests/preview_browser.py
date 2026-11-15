@@ -7,6 +7,7 @@ from functools import partial
 from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 from pathlib import Path
 from playwright.sync_api import sync_playwright
+from legacy_fixture import install
 
 ROOT=Path(__file__).resolve().parents[1]
 class QuietHandler(SimpleHTTPRequestHandler):
@@ -24,7 +25,7 @@ class PreviewTests(unittest.TestCase):
         cls.browser.close();cls.p.stop();cls.server.shutdown();cls.server.server_close()
     def page(self,locale='en-US',width=393):
         c=self.browser.new_context(locale=locale,viewport={'width':width,'height':851},is_mobile=True,has_touch=True,reduced_motion='reduce',permissions=['clipboard-read','clipboard-write'])
-        self.addCleanup(c.close);p=c.new_page();p.set_default_timeout(10000);return p
+        self.addCleanup(c.close);p=c.new_page();p.set_default_timeout(10000);install(p);return p
     def ready(self,p):
         p.wait_for_function('document.querySelector("#goals button")!==null')
     def test_international_home_and_mobile_budget(self):
@@ -54,19 +55,19 @@ class PreviewTests(unittest.TestCase):
         p=self.page();errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.goto(self.url);self.ready(p)
         original={'Fixture':{'yield':2,'source':'Synthetic test fixture','ingredients':{'Raw':3}}}
         p.evaluate('(d)=>localStorage.setItem("hytale-craft-recipes-v1",JSON.stringify(d))',original);p.reload();self.ready(p)
-        p.locator('[data-goal=fight]').click();p.locator('#items [data-item="Weapon_Shortbow_Crude"]').click()
+        p.locator('[data-goal=fight]').click();p.locator('#items [data-item="Fixture_Product"]').click()
         for lang in ('en','ru','es','pt-BR'):
             p.select_option('#language',lang);p.wait_for_function('(l)=>document.documentElement.lang===l',arg=lang)
             d=json.loads((ROOT/'locales'/f'{lang}.json').read_text())
             self.assertIn(d['credit'],p.locator('#item-card').inner_text())
             p.fill('#quantity','2');p.locator('#item-card button').filter(has_text=d['calculate']).click()
-            self.assertIn('Stick',p.locator('#card-result').inner_text());self.assertIn('12',p.locator('#card-result').inner_text())
+            self.assertIn('Rod',p.locator('#card-result').inner_text());self.assertIn('10',p.locator('#card-result').inner_text())
             self.assertNotIn('Расчёт',p.locator('#item-card').inner_text()) if lang not in ('ru',) else None
         p.select_option('#language','en');p.wait_for_function('document.documentElement.lang==="en"')
-        p.locator('#item-card button').filter(has_text='My inventory').click();p.fill('#inventory','Ingredient_Stick: 3');p.click('#save-inventory');p.locator('#item-card button').filter(has_text='Calculate resources').click();self.assertIn('5',p.locator('#card-result').inner_text())
-        p.locator('#card-result button').click();self.assertIn('Ingredient_Stick',p.evaluate('navigator.clipboard.readText()'))
+        p.locator('#item-card button').filter(has_text='My inventory').click();p.fill('#inventory','Fixture_Rod: 1');p.click('#save-inventory');p.locator('#item-card button').filter(has_text='Calculate resources').click();self.assertIn('5',p.locator('#card-result').inner_text())
+        p.locator('#card-result button').click();self.assertIn('Fixture_Rod',p.evaluate('navigator.clipboard.readText()'))
         p.locator('#item-card button').filter(has_text='Add to crafting plan').click();p.click('#run-plan');self.assertIn('5',p.locator('#plan-result').inner_text())
-        p.reload();self.ready(p);self.assertEqual(p.locator('#inventory').input_value(),'Ingredient_Stick: 3');self.assertEqual(p.evaluate('JSON.parse(localStorage.getItem("hytale-craft-recipes-v1"))'),original)
+        p.reload();self.ready(p);self.assertEqual(p.locator('#inventory').input_value(),'Fixture_Rod: 1');self.assertEqual(p.evaluate('JSON.parse(localStorage.getItem("hytale-craft-recipes-v1"))'),original)
         p.locator('[data-goal=fight]').click();p.select_option('#source','user');p.locator('#items [data-item="Fixture"]').click();p.fill('#quantity','3');p.locator('#item-card button').filter(has_text='Calculate resources').click();self.assertIn('6',p.locator('#card-result').inner_text())
         p.locator('#editor-panel').evaluate('(x)=>x.open=true');p.locator('#tools').evaluate('(x)=>x.open=true');p.fill('#recipe-name','CreatedInPreview');p.fill('#recipe-inputs','Raw: 2');p.locator('#editor button[type=submit]').click();self.assertIn('CreatedInPreview',p.evaluate('JSON.parse(localStorage.getItem("hytale-craft-recipes-v1"))'))
         with p.expect_download() as saved:p.click('#export')
@@ -74,8 +75,8 @@ class PreviewTests(unittest.TestCase):
         p.on('dialog',lambda dialog:dialog.accept());p.set_input_files('#file',{'name':'invalid.json','mimeType':'application/json','buffer':b'{}'});p.wait_for_function('document.getElementById("notice").textContent.includes("Invalid recipe backup")');self.assertIn('CreatedInPreview',p.evaluate('JSON.parse(localStorage.getItem("hytale-craft-recipes-v1"))'))
         self.assertFalse(errors,errors)
     def test_plan_can_start_before_catalog_load_and_corrupt_user_data_is_preserved(self):
-        p=self.page();p.goto(self.url);self.ready(p);p.locator('#tools').evaluate('(x)=>x.open=true');p.locator('#plan-panel').evaluate('(x)=>x.open=true');p.fill('#plan','Weapon_Shortbow_Crude: 2');p.click('#run-plan');p.wait_for_function('document.getElementById("plan-result").textContent.includes("12")')
-        self.assertIn('Weapon_Shortbow_Crude: 2',p.locator('#plan').input_value())
+        p=self.page();p.goto(self.url);self.ready(p);p.locator('#tools').evaluate('(x)=>x.open=true');p.locator('#plan-panel').evaluate('(x)=>x.open=true');p.fill('#plan','Fixture_Product: 2');p.click('#run-plan');p.wait_for_function('document.getElementById("plan-result").textContent.includes("10")')
+        self.assertIn('Fixture_Product: 2',p.locator('#plan').input_value())
         p.evaluate('localStorage.setItem("hytale-craft-recipes-v1","BROKEN")');p.reload();self.ready(p);self.assertEqual(p.evaluate('localStorage.getItem("hytale-craft-recipes-v1")'),'BROKEN');self.assertIn('Existing data was kept',p.locator('#notice').inner_text())
 
     def test_self_contained_export_without_subresource_requests(self):
@@ -85,8 +86,8 @@ class PreviewTests(unittest.TestCase):
             subprocess.run([sys.executable,'scripts/export_preview.py','--output',str(output)],cwd=ROOT,check=True,capture_output=True)
             p=self.page();requests=[];errors=[];p.on('request',lambda r:requests.append(r.url));p.on('pageerror',lambda e:errors.append(str(e)))
             p.route('**/offline.html',lambda route:route.fulfill(status=200,content_type='text/html',body=output.read_text()))
-            p.goto(self.url.replace('preview.html','offline.html'));self.ready(p);p.locator('[data-goal=fight]').click();p.locator('[data-item="Weapon_Shortbow_Crude"]').click();p.fill('#quantity','2');p.locator('#item-card button').filter(has_text='Calculate resources').click()
-            self.assertIn('12',p.locator('#card-result').inner_text());self.assertEqual(len(requests),1);self.assertFalse(errors,errors)
+            p.goto(self.url.replace('preview.html','offline.html'));self.ready(p);p.locator('[data-goal=fight]').click();p.locator('[data-item="lesson:blade"]').click();p.get_by_role('button',name='Calculate resources',exact=True).click()
+            self.assertIn('Practice fibre',p.locator('#calculation').inner_text());self.assertEqual(len(requests),1);self.assertFalse(errors,errors)
 
     def test_slow_phone_startup_and_reduced_motion(self):
         import time
@@ -112,7 +113,7 @@ class PreviewTests(unittest.TestCase):
     def test_all_goals_clear_previous_card_and_external_editor_changes(self):
         p=self.page();errors=[];p.on('pageerror',lambda e:errors.append(str(e)))
         p.goto(self.url);self.ready(p)
-        p.locator('[data-goal=fight]').click();p.locator('[data-item="Weapon_Shortbow_Crude"]').click()
+        p.locator('[data-goal=fight]').click();p.locator('[data-item="Fixture_Product"]').click()
         self.assertTrue(p.locator('#item-card').is_visible())
         for goal in ('defend','gather','build','survive','farm','explore','boss','skills','workshop','fight'):
             p.locator('[data-goal='+goal+']').click()
@@ -140,7 +141,7 @@ class PreviewTests(unittest.TestCase):
     def test_slow_json_load_and_timeout_then_retry(self):
         p=self.page();p.set_default_timeout(20000)
         session=p.context.new_cdp_session(p);session.send('Network.enable');session.send('Network.emulateNetworkConditions',{'offline':False,'latency':200,'downloadThroughput':400000,'uploadThroughput':50000})
-        p.goto(self.url);self.ready(p);p.locator('[data-goal=fight]').click();p.locator('[data-item="Weapon_Shortbow_Crude"]').click()
+        p.goto(self.url);self.ready(p);p.locator('[data-goal=fight]').click();p.locator('[data-item="Fixture_Product"]').click()
         self.assertTrue(p.locator('#quantity').is_visible())
         p2=self.page();p2.add_init_script('''window.CRAFT_BUILD={requestTimeoutMs:500};const realFetch=window.fetch.bind(window);window.blockTestData=true;window.fetch=(url,options)=>window.blockTestData&&String(url).startsWith('data/')?new Promise((resolve,reject)=>options.signal.addEventListener('abort',()=>reject(new DOMException('Timeout fixture','AbortError')))):realFetch(url,options);''')
         p2.goto(self.url);self.ready(p2);p2.locator('[data-goal=fight]').click()
@@ -148,7 +149,7 @@ class PreviewTests(unittest.TestCase):
         self.assertTrue(p2.locator('#retry').is_visible())
         p2.evaluate('window.blockTestData=false');p2.click('#retry')
         p2.wait_for_function('document.querySelector("#source option[value=recipes]").disabled===false')
-        p2.select_option('#source','recipes');p2.locator('[data-item="Weapon_Shortbow_Crude"]').click()
+        p2.select_option('#source','recipes');p2.locator('[data-item="Fixture_Product"]').click()
         self.assertTrue(p2.locator('#quantity').is_visible())
 
 if __name__=='__main__':unittest.main()

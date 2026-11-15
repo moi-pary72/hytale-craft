@@ -10,6 +10,7 @@ BASE="https://openhytale.org"
 ROOT=Path("data")
 ROOT.mkdir(exist_ok=True)
 def fetch(path):
+    raise PermissionError('Third-party collection disabled pending explicit rights and owner approval')
     url=urljoin(BASE,path)
     if urlparse(url).netloc!="openhytale.org": raise ValueError("untrusted host")
     req=urllib.request.Request(url,headers={"User-Agent":"HytaleCraftImporter/0.1","Accept":"application/json"})
@@ -33,29 +34,6 @@ def paths_from_index(index):
     walk(index)
     return sorted(found)[:40]
 def main():
-    report={"checked_at":datetime.now(timezone.utc).isoformat(),"sources":{},"candidates":[]}
-    for path in ["/api/meta.json","/api/catalogs.json","/api/search.json"]:
-        try:
-            data=fetch(path)
-            info={"type":type(data).__name__}
-            if isinstance(data,dict):info["keys"]=list(data)[:60]
-            if isinstance(data,list):info["length"]=len(data)
-            report["sources"][path]=info
-            if path.endswith("catalogs.json"):
-                (ROOT/"openhytale-catalog-index.json").write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n")
-                report["candidates"]+=paths_from_index(data)
-            if path.endswith("meta.json"):report["meta"]=data
-            if path.endswith("search.json"):
-                report["search_index_recipe_examples"]=[x for x in (data if isinstance(data,list) else data.get("entries",[])) if isinstance(x,dict) and "recipe" in json.dumps(x,ensure_ascii=False).lower()][:3]
-        except Exception as e:report["sources"][path]={"error":str(e)[:300]}
-    report["candidates"]=sorted(set(report["candidates"]))
-    report["candidate_results"]=[]
-    for path in report["candidates"]:
-        try:
-            data=fetch(path)
-            report["candidate_results"].append({"path":path,"type":type(data).__name__,"count":len(data) if isinstance(data,(list,dict)) else None,"keys":list(data)[:20] if isinstance(data,dict) else None,"sample":(data[:1] if isinstance(data,list) else {k:data[k] for k in list(data)[:1]})})
-        except Exception as e:report["candidate_results"].append({"path":path,"error":str(e)[:180]})
-    (ROOT/"recipe-discovery.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    print("Catalog discovery:",json.dumps({"sources":report["sources"],"candidates":report["candidates"],"results":[{"path":r["path"],"count":r.get("count"),"error":r.get("error")} for r in report["candidate_results"]]},ensure_ascii=False))
-    if not report["candidates"]:print("WARNING: No recipe catalog found in verified index; see artifact. Discovery completed without usable recipes.")
+    raise SystemExit('Disabled: no third-party download or public snapshot write. Use import_catalog.py with authorized local JSON; review only.')
+
 if __name__=="__main__":main()

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "snapshot": {"game_version":"synthetic-test-v1","channel":"synthetic","source_revision":"original-fixture-1","updated_at":"2026-11-15T00:00:00Z"},
+  "sources": [{"id":"fixture-author","url":"https://example.invalid/original-fixture","revision":"fixture-1","license":{"id":"CC0-1.0","url":"https://creativecommons.org/publicdomain/zero/1.0/","commercial_use":"allowed","redistribution":"allowed"}}],
+  "items": [
+    {"id":"Fixture_Raw","names":{"en":"Synthetic raw material","ru":"Искусственный материал"},"category":"synthetic","status":"tutorial","source_id":"fixture-author","source_record":"original:raw"},
+    {"id":"Fixture_Part","names":{"en":"Synthetic component","ru":null},"category":"synthetic","status":"tutorial","source_id":"fixture-author","source_record":"original:part"},
+    {"id":"Fixture_Product","names":{"en":"Synthetic product","ru":null},"category":"synthetic","status":"tutorial","source_id":"fixture-author","source_record":"original:product"}
+  ],
+  "stations": [{"id":"Fixture_Workshop","names":{"en":"Synthetic workstation"},"status":"tutorial","source_id":"fixture-author","source_record":"original:workstation"}],
+  "recipes": [
+    {"id":"Fixture_Part_Recipe","status":"tutorial","source_id":"fixture-author","source_record":"original:recipe-part","inputs":[{"item_id":"Fixture_Raw","quantity":5}],"outputs":[{"item_id":"Fixture_Part","quantity":3}],"stations":[]},
+    {"id":"Fixture_Product_Recipe","status":"tutorial","source_id":"fixture-author","source_record":"original:recipe-product","inputs":[{"item_id":"Fixture_Part","quantity":2}],"outputs":[{"item_id":"Fixture_Product","quantity":1}],"stations":["Fixture_Workshop"]}
+  ]
+}
