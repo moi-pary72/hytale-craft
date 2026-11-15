@@ -30,12 +30,14 @@ jobs:
           node tests/planner.test.js
           node tests/preview.test.js
           node tests/beta.test.js
+          node tests/workspace.test.js
       - name: Mobile beta checks
         run: |
           python -m pip install playwright==1.56.0
           python -m playwright install --with-deps chromium
           export CHROMIUM_PATH="$(python -c 'from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print(p.chromium.executable_path); p.stop()')"
           python tests/beta_browser.py
+          python tests/modes_browser.py
           python tests/github_pages_browser.py
       - uses: actions/configure-pages@v5
       - name: Build only allowed public files

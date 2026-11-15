@@ -5,7 +5,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def audit(directory=None):
     out=Path(directory or ROOT/'dist');manifest=json.loads((out/'build-manifest.json').read_text())
-    allowed={'index.html','404.html','robots.txt','_headers','_redirects','build-manifest.json','sitemap.xml','web/build-config.js','web/planner.js','web/preview/i18n.js','web/beta/app.js','web/beta/style.css','web/beta/examples.js'}
+    allowed={'index.html','404.html','robots.txt','_headers','_redirects','build-manifest.json','sitemap.xml','web/build-config.js','web/planner.js','web/preview/i18n.js','web/beta/app.js','web/beta/style.css','web/beta/examples.js', 'web/beta/workspace.js'}
     allowed.update('locales/'+prefix+lang+'.json' for prefix in ('','beta/') for lang in ('en','ru','es','pt-BR'))
     allowed.update('assets/art-pair/'+name+'.webp' for name in ('fight-poster','gather-poster','fight-atlas','gather-atlas'))
     allowed.update('assets/ui-v2/'+name+'.webp' for name in ('defend', 'build', 'survive', 'farm', 'explore', 'boss', 'skills', 'workshop', 'world', 'world-mobile', 'logo', 'frame', 'nav-home', 'nav-inventory', 'nav-plan', 'nav-more'))

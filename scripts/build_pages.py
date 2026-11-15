@@ -28,7 +28,7 @@ def build(policy='user-only', site_url=None, base_path='/'):
         raise ValueError('dist must not be a symlink')
     with tempfile.TemporaryDirectory(prefix='pages-', dir=ROOT / '.private') as tmp:
         out = Path(tmp)
-        paths = ['web/planner.js', 'web/preview/i18n.js', 'web/beta/app.js', 'web/beta/style.css', 'web/beta/examples.js']
+        paths = ['web/planner.js', 'web/preview/i18n.js', 'web/beta/app.js', 'web/beta/style.css', 'web/beta/examples.js', 'web/beta/workspace.js']
         paths += ['locales/' + lang + '.json' for lang in LANGUAGES]
         paths += ['locales/beta/' + lang + '.json' for lang in LANGUAGES]
         paths += ['assets/art-pair/' + name + '.webp' for name in ('fight-poster','gather-poster','fight-atlas','gather-atlas')]

@@ -1,3 +1,11 @@
+# Current state — Seeker / Maker, 2026-11-15
+
+PR11 is merged at `bba201f55bb15a2b619d8d6188cdc61b88e29c17`; both production sites were verified after publication. Earlier “unmerged” sections below are preserved history. Five legacy collectors are paused; no old queued/running jobs existed at merge. Historical snapshots remain in old refs, not in the current tree or public dist. No history/backup deletion.
+
+Current mode work: [MODES.md](docs/MODES.md). Default Seeker retains ten approved cards; Maker adds eight tool entrances using the existing shared planner/storage. New bounded saved projects, structural recipe tree and optional user station metadata; four languages. Four explicitly educational recipes and zero verified real game recipes in public output. User-only build remains mandatory. Owner now authorizes ordinary safe merge/publication after green tests, but not disputed data, history rewrite, backup deletion, external letters or paid services. Rollback tag `backup/pre-modes-20261115` is retained. Final test/publication evidence: [reports/MODES_TEST_RESULTS.md](docs/reports/MODES_TEST_RESULTS.md).
+
+---
+
 # Data safety — unmerged candidate, 2026-11-15
 
 One branch codex/data-safety, no merge/deployment. [Audit](docs/data-safety/AUDIT.md), [history cleanup plan](docs/data-safety/HISTORY_CLEANUP_PLAN.md), [offline importer](docs/data-safety/IMPORTER.md), [tests](docs/data-safety/TEST_RESULTS.md). Dataset removed only from draft current tree; main/history/other refs still retain it. No irreversible deletion, force push, tag/artifact cleanup or new public disputed dataset. Public beta stays byte-identical. New private candidate importer tested with original synthetic records. Letters ready but not sent. Native Drive passport receives exact Draft PR and verified backups after creation; old history below preserved.

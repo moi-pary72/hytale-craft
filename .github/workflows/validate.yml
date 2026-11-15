@@ -19,6 +19,7 @@ jobs:
       - run: node tests/planner.test.js
       - run: node tests/preview.test.js
       - run: node tests/beta.test.js
+      - run: node tests/workspace.test.js
       - name: Build and audit public beta boundary
         run: |
           python scripts/build_pages.py --data-policy user-only
@@ -35,6 +36,7 @@ jobs:
           python tests/pages_browser.py
           python tests/art_browser.py
           python tests/beta_browser.py
+          python tests/modes_browser.py
           python tests/github_pages_browser.py
       - name: Save mobile beta screenshots and performance evidence
         uses: actions/upload-artifact@v4
@@ -46,6 +48,7 @@ jobs:
             .private/stage6/sheet-*.png
             .private/stage6/startup.json
             .private/stage6/slow.json
+            .private/stage6/maker-*.png
           if-no-files-found: error
           retention-days: 14
       - name: Rebuild and audit isolated preview artifact
