@@ -173,6 +173,8 @@ def run(source, output=Path('.private/catalog-candidate.json'), report=Path('.pr
         if errors: return result
         if output.exists():
             old=output.read_bytes();previous=strict_json(old)
+            if not isinstance(previous,dict) or not isinstance(previous.get('snapshot'),dict) or not isinstance(previous['snapshot'].get('game_version'),str) or not previous['snapshot']['game_version'].strip():
+                raise ImportFailure('Existing candidate metadata invalid; prior candidate preserved')
             if previous.get('snapshot',{}).get('game_version')!=data['snapshot']['game_version'] and not allow_version_change: raise ImportFailure('Version change requires --allow-version-change; prior candidate preserved')
         candidate=copy.deepcopy(data)
         candidate['import_provenance']={'importer_version':1,'input_sha256':result['input_sha256'],'input_name':source.name}

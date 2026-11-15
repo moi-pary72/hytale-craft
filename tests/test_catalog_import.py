@@ -62,3 +62,12 @@ class CatalogImportTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);source=root/'input.json';source.write_bytes(FIXTURE.read_bytes());run(source,root=root);out=root/'.private/catalog-candidate.json';before=out.read_bytes()
             result=run(source,root=root,expected_sha256='0'*64);self.assertFalse(result['written']);self.assertIn('SHA-256',result['errors'][0]['message']);self.assertEqual(out.read_bytes(),before)
+
+    def test_malformed_existing_candidate_produces_report_without_overwrite(self):
+        for raw in (b'[]',b'null',b'{"snapshot":[]}',b'{"snapshot":{}}',b'{"snapshot":{"game_version":null}}'):
+            with self.subTest(raw=raw),tempfile.TemporaryDirectory() as tmp:
+                root=Path(tmp);out=root/'.private/catalog-candidate.json';out.parent.mkdir();out.write_bytes(raw)
+                result=run(FIXTURE.resolve(),root=root,allow_version_change=True)
+                self.assertFalse(result['written']);self.assertIn('Existing candidate metadata invalid',result['errors'][0]['message'])
+                self.assertEqual(out.read_bytes(),raw);self.assertFalse(list(out.parent.glob('*.previous')))
+                report=json.loads((out.parent/'catalog-import-report.json').read_text());self.assertEqual(report,result)

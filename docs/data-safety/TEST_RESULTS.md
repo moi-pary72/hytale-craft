@@ -1,3 +1,7 @@
+# PR11 re-review — 2026-11-15
+
+See [PR11_MERGE_REVIEW.md](PR11_MERGE_REVIEW.md). Fresh tests now38Python/17JS/25browser after correcting malformed-existing-candidate error reporting. Previous results below describe the original cee5314 draft and remain historical. No UI/build output changes, merge or deployment.
+
 # Test results — 2026-11-15
 
 Local branch codex/data-safety; baseline a972e4d. No deployment, merge or history rewrite performed.
