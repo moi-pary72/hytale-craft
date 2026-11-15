@@ -7,7 +7,7 @@ test('prepared 5000-recipe snapshot supports 500 goals and a large shared invent
 });
 test('prepared snapshot is isolated from input edits and returned search/result mutations',()=>{
  const d=makeCatalog(20),plan=p.prepare(d),id=d.items[1].id,expected=plan.compute({[id]:2});d.recipes[0].inputs[0].quantity=99;d.items[1].names.en='Changed';
- const rows=plan.search('load:item-00000');rows.items[0].names.en='Tampered';rows.items[0].recipe_ids.push('absent');const pristine=structuredClone(expected);expected.stock[id]=99;for(const r of expected.requirements)for(const e of r.entries){e.categories.push('tampered');e.augment_tags.push('tampered')}assert.deepEqual(plan.compute({[id]:2}),pristine);
+ const rows=plan.search('load:item-00000');rows.items[0].names.en='Tampered';rows.items[0].recipe_ids.push('absent');const pristine=JSON.stringify(expected);expected.stock[id]=99;for(const r of expected.requirements)for(const e of r.entries){e.categories.push('tampered');e.augment_tags.push('tampered')}assert.equal(JSON.stringify(plan.compute({[id]:2})),pristine);
  assert.equal(plan.search('load:item-00000').items[0].names.en,'Load item 0');assert.equal(plan.search('load:item-00000').items[0].recipe_ids.length,1);assert.equal(plan.compute({[id]:2}).totals['load:raw'],2);assert.equal(plan.compute({[id]:2}).stock[id],0);assert.equal(Object.isFrozen(plan),true);
 });
 test('catalogue search is bounded, multilingual and filters recipes without losing raw items',()=>{
