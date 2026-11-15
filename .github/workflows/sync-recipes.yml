@@ -1,43 +1,10 @@
-name: Review source-backed recipe snapshot updates
+name: Third-party data collection paused (sync-recipes)
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '14 7 * * *'
 permissions:
-  contents: write
-  pull-requests: write
-concurrency:
-  group: recipe-snapshot-sync
-  cancel-in-progress: false
+  contents: read
 jobs:
-  sync:
+  policy:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - run: python -m unittest discover -s tests -v
-      - name: Import documented public exports (not an official game download)
-        run: python scripts/sync_recipes.py
-      - name: Validate candidate integrity and all recipes
-        run: node tests/planner.test.js
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: recipe-snapshot-report
-          path: docs/reports/recipe-sync.json
-          retention-days: 90
-      - uses: peter-evans/create-pull-request@v7
-        with:
-          branch: automation/recipe-update
-          title: 'Review HySphere recipe snapshot update (non-commercial attribution)'
-          commit-message: 'Update validated source-backed recipe snapshot'
-          body: 'Complete explicit recipes only; unresolved rows stay separate. Exact game build remains unknown unless supplied by source. Check license, source revision, hashes and counts before manual merge. Previous snapshots are retained. This is not official-game verification. No automatic merge.'
-          add-paths: |
-            data/recipes/
-            docs/reports/recipe-sync.json
+      - run: echo "Disabled pending source/game rights review. No downloads, snapshot writes or update PRs."

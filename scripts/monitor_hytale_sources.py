@@ -20,6 +20,7 @@ SOURCES={
 }
 MAX_BYTES=8_000_000
 def fetch(url):
+    raise PermissionError('Third-party collection disabled pending explicit rights and owner approval')
     req=urllib.request.Request(url,headers={"User-Agent":"HytaleCraftSourceMonitor/1.0","Accept":"application/json,text/html;q=0.5"})
     try:
         with urllib.request.urlopen(req,timeout=30) as r:
@@ -43,16 +44,7 @@ def fetch(url):
     except (urllib.error.URLError,TimeoutError,ValueError) as e:
         return {"url":url,"error":str(e)[:250]}
 def main():
-    now=datetime.now(timezone.utc).isoformat()
-    report={"checked_at":now,"sources":{},"publication":"diagnostics-only; no unvalidated recipes deployed"}
-    for source,urls in SOURCES.items():
-        report["sources"][source]=[fetch(url) for url in urls]
-    # Preserve existing verified data; never overwrite production recipes with unvalidated responses.
-    dest=ROOT/"source-health.json"
-    dest.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    for name,entries in report["sources"].items():
-        print(name,[(e["url"],e.get("status",e.get("error")),e.get("metadata",{})) for e in entries])
-    if not any("status" in e for v in report["sources"].values() for e in v):
-        raise SystemExit("All sources unreachable. Existing data is preserved.")
+    raise SystemExit('Disabled: no third-party download or public snapshot write. Use import_catalog.py with authorized local JSON; review only.')
+
 if __name__=="__main__":
     main()

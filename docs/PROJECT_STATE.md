@@ -1,3 +1,9 @@
+# Data safety candidate — 2026-11-15 (unmerged draft)
+
+See [data-safety/AUDIT.md](data-safety/AUDIT.md), [importer contract](data-safety/IMPORTER.md), [history plan](data-safety/HISTORY_CLEANUP_PLAN.md), [tests](data-safety/TEST_RESULTS.md) and [final unsent letters](data-safety/LETTERS_FINAL_EN.md). Branch codex/data-safety withholds the HySphere current-tree snapshot, neutralizes unnecessary OpenHytale bulk data and pauses five collection entry points. Main/old refs still contain data; no history rewrite/tag/artifact removal, no merge/deploy. Current public beta and all39content hashes remain unchanged. New offline importer creates private blocked candidates from original synthetic JSON only.37Python/17JS/25browser tests passed locally. Owner must separately approve merge/history remediation/messages/real-data integration. Preserve [CF-Pages-Skip] on draft branch commits to avoid automatic preview deployment. Older state below is history, not a claim that this draft has changed main.
+
+---
+
 # Hytale Craft 2.0 — current release work (2026-11-14)
 
 Current implementation: [UI_V2.md](UI_V2.md). One branch `codex/ui-v2` based on main232b9c4; owner authorized one PR, merge after visual/CI checks and publication to the existing sites. All ten goals now have original illustrated scenes; original wordmark/background/frame/navigation artwork is separate from localized HTML. Existing two pose animations and all planner/storage mechanisms remain. Four languages EN/RU/ES/PT-BR; four explicitly educational recipes, **zero real Hytale recipes in dist**. Legal data plan: [LEGAL_RECIPE_PLAN.md](LEGAL_RECIPE_PLAN.md).

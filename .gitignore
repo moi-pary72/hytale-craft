@@ -6,3 +6,8 @@ Assets.zip
 *.credentials.json
 
 dist/
+
+# Avoid accidentally reintroducing snapshots/backups. Tracked neutral markers remain.
+/data/recipes/*.json
+*.previous.json
+*.zip

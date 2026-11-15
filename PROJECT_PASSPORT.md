@@ -1,3 +1,9 @@
+# Data safety — unmerged candidate, 2026-11-15
+
+One branch codex/data-safety, no merge/deployment. [Audit](docs/data-safety/AUDIT.md), [history cleanup plan](docs/data-safety/HISTORY_CLEANUP_PLAN.md), [offline importer](docs/data-safety/IMPORTER.md), [tests](docs/data-safety/TEST_RESULTS.md). Dataset removed only from draft current tree; main/history/other refs still retain it. No irreversible deletion, force push, tag/artifact cleanup or new public disputed dataset. Public beta stays byte-identical. New private candidate importer tested with original synthetic records. Letters ready but not sent. Native Drive passport receives exact Draft PR and verified backups after creation; old history below preserved.
+
+---
+
 # Hytale Craft 2.0 — current release work (2026-11-14)
 
 Current implementation: [UI_V2.md](docs/UI_V2.md). One branch `codex/ui-v2` based on main232b9c4; owner authorized one PR, merge after visual/CI checks and publication to the existing sites. All ten goals now have original illustrated scenes; original wordmark/background/frame/navigation artwork is separate from localized HTML. Existing two pose animations and all planner/storage mechanisms remain. Four languages EN/RU/ES/PT-BR; four explicitly educational recipes, **zero real Hytale recipes in dist**. Legal data plan: [LEGAL_RECIPE_PLAN.md](docs/LEGAL_RECIPE_PLAN.md).

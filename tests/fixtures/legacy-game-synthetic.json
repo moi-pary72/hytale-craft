@@ -1,0 +1,244 @@
+{
+  "schema_version": 3,
+  "source": {
+    "name": "Original synthetic regression fixture; not Hytale",
+    "extracted_at": "2026-01-01",
+    "revision": "synthetic-browser-v1",
+    "game_version": "synthetic",
+    "verification": "synthetic-test-only",
+    "usage": "original CC0 fixture"
+  },
+  "items": [
+    {
+      "id": "Fixture_Product",
+      "names": {
+        "en": "Fixture Product",
+        "ru": "Fixture Product"
+      },
+      "category": "weapons"
+    },
+    {
+      "id": "Fixture_Rod",
+      "names": {
+        "en": "Fixture Rod",
+        "ru": "Fixture Rod"
+      },
+      "category": "other"
+    },
+    {
+      "id": "Fixture_Fibre",
+      "names": {
+        "en": "Fixture Fibre",
+        "ru": "Fixture Fibre"
+      },
+      "category": "other"
+    },
+    {
+      "id": "Fixture_Incomplete",
+      "names": {
+        "en": "Fixture Incomplete",
+        "ru": "Fixture Incomplete"
+      },
+      "category": "weapons"
+    },
+    {
+      "id": "Fixture_Vessel",
+      "names": {
+        "en": "Fixture Vessel",
+        "ru": "Fixture Vessel"
+      },
+      "category": "decor"
+    },
+    {
+      "id": "Fixture_Bar",
+      "names": {
+        "en": "Fixture Bar",
+        "ru": "Fixture Bar"
+      },
+      "category": "other"
+    },
+    {
+      "id": "Fixture_Ore",
+      "names": {
+        "en": "Fixture Ore",
+        "ru": "Fixture Ore"
+      },
+      "category": "other"
+    },
+    {
+      "id": "Fixture_Clay",
+      "names": {
+        "en": "Fixture Clay",
+        "ru": "Fixture Clay"
+      },
+      "category": "other"
+    },
+    {
+      "id": "Fixture_Clay_Part",
+      "names": {
+        "en": "Fixture Clay Part",
+        "ru": "Fixture Clay Part"
+      },
+      "category": "other"
+    }
+  ],
+  "recipes": [
+    {
+      "id": "original-test-product",
+      "status": "source-backed",
+      "inputs": [
+        {
+          "kind": "ItemId",
+          "id": "Fixture_Rod",
+          "quantity": 3
+        },
+        {
+          "kind": "ItemId",
+          "id": "Fixture_Fibre",
+          "quantity": 5
+        }
+      ],
+      "outputs": [
+        {
+          "kind": "ItemId",
+          "id": "Fixture_Product",
+          "quantity": 1
+        }
+      ],
+      "bench_requirements": [
+        {
+          "id": "Fixture_Bench",
+          "type": "Crafting",
+          "categories": [],
+          "tier": null
+        }
+      ],
+      "source_url": "https://example.invalid/original-test-fixture"
+    },
+    {
+      "id": "original-test-vessel",
+      "status": "source-backed",
+      "inputs": [
+        {
+          "kind": "ItemId",
+          "id": "Fixture_Bar",
+          "quantity": 3
+        },
+        {
+          "kind": "ItemId",
+          "id": "Fixture_Clay",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "kind": "ItemId",
+          "id": "Fixture_Vessel",
+          "quantity": 1
+        }
+      ],
+      "bench_requirements": [
+        {
+          "id": "Fixture_Bench",
+          "type": "Crafting",
+          "categories": [],
+          "tier": null
+        }
+      ],
+      "source_url": "https://example.invalid/original-test-fixture"
+    },
+    {
+      "id": "original-test-bar",
+      "status": "source-backed",
+      "inputs": [
+        {
+          "kind": "ItemId",
+          "id": "Fixture_Ore",
+          "quantity": 5
+        }
+      ],
+      "outputs": [
+        {
+          "kind": "ItemId",
+          "id": "Fixture_Bar",
+          "quantity": 2
+        }
+      ],
+      "bench_requirements": [
+        {
+          "id": "Fixture_Furnace",
+          "type": "Crafting",
+          "categories": [],
+          "tier": null
+        }
+      ],
+      "source_url": "https://example.invalid/original-test-fixture"
+    },
+    {
+      "id": "original-test-clay",
+      "status": "source-backed",
+      "inputs": [
+        {
+          "kind": "ItemId",
+          "id": "Fixture_Clay_Part",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "kind": "ItemId",
+          "id": "Fixture_Clay",
+          "quantity": 1
+        }
+      ],
+      "bench_requirements": [
+        {
+          "id": "Fixture_Bench",
+          "type": "Crafting",
+          "categories": [],
+          "tier": null
+        }
+      ],
+      "source_url": "https://example.invalid/original-test-fixture"
+    },
+    {
+      "id": "original-test-clay-part",
+      "status": "source-backed",
+      "inputs": [
+        {
+          "kind": "ItemId",
+          "id": "Fixture_Clay",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "kind": "ItemId",
+          "id": "Fixture_Clay_Part",
+          "quantity": 1
+        }
+      ],
+      "bench_requirements": [
+        {
+          "id": "Fixture_Bench",
+          "type": "Crafting",
+          "categories": [],
+          "tier": null
+        }
+      ],
+      "source_url": "https://example.invalid/original-test-fixture"
+    }
+  ],
+  "incomplete_recipes": [
+    {
+      "id": "fixture-incomplete",
+      "outputs": [
+        "Fixture_Incomplete",
+        "Fixture_Fibre"
+      ],
+      "reasons": [
+        "synthetic_unresolved"
+      ]
+    }
+  ]
+}

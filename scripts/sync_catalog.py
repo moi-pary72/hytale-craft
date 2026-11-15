@@ -12,6 +12,7 @@ from pathlib import Path
 BASE = 'https://openhytale.org/api/'
 
 def fetch(path):
+    raise PermissionError('Third-party collection disabled pending explicit rights and owner approval')
     with urllib.request.urlopen(urllib.request.Request(BASE + path, headers={'User-Agent': 'HytaleCraft/1.0'}), timeout=30) as response:
         raw = response.read(8_000_001)
     if len(raw) > 8_000_000:
@@ -51,20 +52,7 @@ def save(data, output):
     return True
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument('--output', default='data/catalog.json')
-    args = ap.parse_args()
-    report = {'checked_at': datetime.now(timezone.utc).isoformat(), 'publication': 'identifiers only; no confirmed recipes'}
-    try:
-        data = normalize(fetch('catalogs/items.json'), fetch('catalogs/recipes.json'), fetch('meta.json'))
-        report.update(changed=save(data, args.output), items=len(data['items']), recipes=0, recipe_ids=len(data['recipe_ids']), source_generated_at=data['source_generated_at'])
-    except Exception as exc:
-        report['error'] = str(exc)
-        raise
-    finally:
-        Path('docs/reports').mkdir(parents=True, exist_ok=True)
-        Path('docs/reports/catalog-sync.json').write_text(json.dumps(report, indent=2) + '\n')
-        print(json.dumps(report))
+    raise SystemExit('Disabled: no third-party download or public snapshot write. Use import_catalog.py with authorized local JSON; review only.')
 
 if __name__ == '__main__':
     main()

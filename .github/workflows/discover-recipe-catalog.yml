@@ -1,30 +1,10 @@
-name: Discover real Hytale recipe catalogs
+name: Third-party data collection paused (discover-recipe-catalog)
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - 'scripts/discover_recipe_catalog.py'
-      - '.github/workflows/discover-recipe-catalog.yml'
-  schedule:
-    - cron: '43 6 * * *'
 permissions:
   contents: read
 jobs:
-  discover:
+  policy:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - run: python scripts/discover_recipe_catalog.py
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: real-recipe-catalog-discovery
-          path: |
-            data/recipe-discovery.json
-            data/openhytale-catalog-index.json
-          retention-days: 30
-          if-no-files-found: warn
+      - run: echo "Disabled pending source/game rights review. No downloads, snapshot writes or update PRs."

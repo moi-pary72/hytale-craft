@@ -31,8 +31,15 @@ class RecipeSyncTests(unittest.TestCase):
             d['source']['revision']='fixture2'
             self.assertTrue(write_snapshot(d,Path(p)))
             self.assertTrue(list(Path(p).glob('*.previous.json')))
-    def test_published_snapshot_and_manifest(self):
-        root=Path('data/recipes');m=json.loads((root/'manifest.json').read_text());raw=(root/m['path']).read_bytes()
-        import hashlib
-        self.assertEqual(hashlib.sha256(raw).hexdigest(),m['sha256'])
-        d=json.loads(raw);self.assertGreater(len(d['recipes']),0);self.assertGreater(len(d['incomplete_recipes']),0)
+    def test_no_active_community_snapshot(self):
+        root=Path('data/recipes');m=json.loads((root/'manifest.json').read_text())
+        self.assertIsNone(m['path']);self.assertIsNone(m['sha256']);self.assertIsNone(m['active'])
+        self.assertFalse((root/'hysphere-2026-08-12.json').exists())
+    def test_network_collection_disabled(self):
+        from scripts.sync_recipes import fetch
+        from scripts.sync_catalog import fetch as fetch_catalog
+        from unittest.mock import patch
+        with patch('subprocess.run') as network:
+            for fn in (fetch,fetch_catalog):
+                with self.assertRaises(PermissionError):fn('anything')
+            network.assert_not_called()
