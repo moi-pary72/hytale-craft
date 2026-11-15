@@ -1,3 +1,11 @@
+# Current state — Seeker / Maker, 2026-11-15
+
+PR11 is merged at `bba201f55bb15a2b619d8d6188cdc61b88e29c17`; both production sites were verified after publication. Earlier “unmerged” sections below are preserved history. Five legacy collectors are paused; no old queued/running jobs existed at merge. Historical snapshots remain in old refs, not in the current tree or public dist. No history/backup deletion.
+
+Current mode work: [MODES.md](MODES.md). Default Seeker retains ten approved cards; Maker adds eight tool entrances using the existing shared planner/storage. New bounded saved projects, structural recipe tree and optional user station metadata; four languages. Four explicitly educational recipes and zero verified real game recipes in public output. User-only build remains mandatory. Owner now authorizes ordinary safe merge/publication after green tests, but not disputed data, history rewrite, backup deletion, external letters or paid services. Rollback tag `backup/pre-modes-20261115` is retained. Final test/publication evidence: [reports/MODES_TEST_RESULTS.md](reports/MODES_TEST_RESULTS.md).
+
+---
+
 # Data safety candidate — 2026-11-15 (unmerged draft)
 
 See [data-safety/AUDIT.md](data-safety/AUDIT.md), [importer contract](data-safety/IMPORTER.md), [history plan](data-safety/HISTORY_CLEANUP_PLAN.md), [tests](data-safety/TEST_RESULTS.md) and [final unsent letters](data-safety/LETTERS_FINAL_EN.md). Branch codex/data-safety withholds the HySphere current-tree snapshot, neutralizes unnecessary OpenHytale bulk data and pauses five collection entry points. Main/old refs still contain data; no history rewrite/tag/artifact removal, no merge/deploy. Current public beta and all39content hashes remain unchanged. New offline importer creates private blocked candidates from original synthetic JSON only.37Python/17JS/25browser tests passed locally. Owner must separately approve merge/history remediation/messages/real-data integration. Preserve [CF-Pages-Skip] on draft branch commits to avoid automatic preview deployment. Older state below is history, not a claim that this draft has changed main.
