@@ -1,3 +1,11 @@
+# Canonical engine release — 2026-11-15
+
+Owner approves tested code/allowed-data releases, preserves the existing Android design, and reports the studio enquiry already sent (response pending; do not repeat). This independent release branch starts from24200b4, reviews PR13 and copies only its original importer/tests/fixture; research PR13 is not merged.
+
+[CANONICAL_ENGINE.md](docs/CANONICAL_ENGINE.md) documents the bounded stock-first engine, groups/units/alternatives/co-products/salvage/station+unlock checks, separate technical/rights gates, immutable legacy compatibility and new optional saved learning-workshop state. Accessible through Maker calculator/More using the existing sheet; home art/CSS/navigation/mode/user projects unchanged.4old +4advanced ORIGINAL learning methods,0real game recipes. [PRACTICAL_DATA_OPTIONS.md](docs/PRACTICAL_DATA_OPTIONS.md) is the incremental source follow-up; real data still requires permission. [Release checks](docs/reports/CANONICAL_ENGINE_TEST_RESULTS.md) and PR/native passport hold exact CI/deployment/backup proof. No old datasets/collectors/monetization/paid services.
+
+---
+
 # Current state — Seeker / Maker, 2026-11-15
 
 PR11 is merged at `bba201f55bb15a2b619d8d6188cdc61b88e29c17`; both production sites were verified after publication. Earlier “unmerged” sections below are preserved history. Five legacy collectors are paused; no old queued/running jobs existed at merge. Historical snapshots remain in old refs, not in the current tree or public dist. No history/backup deletion.

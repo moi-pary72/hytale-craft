@@ -1,0 +1,11 @@
+{
+  "kind": "original-synthetic",
+  "game_data": false,
+  "source_revision": "hytale-craft-original-lab-1",
+  "source_ids": [
+    "synthetic"
+  ],
+  "sha256": "02d5c548c81e88085d9ff3ae0c049ef2bc923ce585e4bc056e66d6b1adec9386",
+  "path": "data/educational-canonical-v2.json",
+  "evidence": "docs/CANONICAL_ENGINE.md#original-learning-data"
+}
