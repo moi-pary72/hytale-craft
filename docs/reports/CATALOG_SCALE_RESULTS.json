@@ -1,0 +1,52 @@
+{
+  "kind": "synthetic-only-not-game-data",
+  "node": "v24.22.1",
+  "catalogues": [
+    {
+      "items": 5001,
+      "recipes": 5000,
+      "json_bytes": 3940560,
+      "prepare_ms": 193.3702,
+      "cold_single_goal_median_ms": 125.36748400000005,
+      "prepared_single_goal_median_ms": 0.060839999999984684,
+      "search_50_median_ms": 1.2084929999999758,
+      "batch_500_goals_3000_inventory_ms": 1323.743638,
+      "batch_trials": 1000
+    },
+    {
+      "items": 10000,
+      "recipes": 9999,
+      "json_bytes": 7887271,
+      "prepare_ms": 151.72069599999986,
+      "cold_single_goal_median_ms": 97.71844699999974,
+      "prepared_single_goal_median_ms": 0.04161199999998644,
+      "search_50_median_ms": 1.1669219999998859,
+      "batch_500_goals_3000_inventory_ms": 1105.758304,
+      "batch_trials": 1000
+    }
+  ],
+  "mobile_chromium_cpu_4x": {
+    "items": 5001,
+    "recipes": 5000,
+    "total": 1,
+    "id": "load:item-04999",
+    "raw": 20,
+    "prepare_ms": 347.19999999552965,
+    "search_ms": 7.300000004470348,
+    "calculate_ms": 4
+  },
+  "import_5000": {
+    "candidate_sha256": "a64dda2a591067938ac1856d15fd1ca3a85bebaf231903e814e7684e52f17a79",
+    "counts": {
+      "groups": 0,
+      "items": 5001,
+      "recipes": 5000,
+      "sources": 1,
+      "stations": 1
+    },
+    "errors": [],
+    "input_sha256": "f8890c8ef9b282655f79b3efbe7e7715acd0696c366b3c5c8e0d12d01d3ad5a9",
+    "publication": "blocked-pending-owner-and-rights-review",
+    "written": true
+  }
+}

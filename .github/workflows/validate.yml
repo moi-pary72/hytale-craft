@@ -21,6 +21,7 @@ jobs:
       - run: node tests/beta.test.js
       - run: node tests/workspace.test.js
       - run: node tests/canonical.test.js
+      - run: node tests/catalog_scale.test.js
       - name: Build and audit public beta boundary
         run: |
           python scripts/build_pages.py --data-policy user-only

@@ -12,6 +12,7 @@ async function publication(catalog,trustedApproval,raw){
  return {allowed:digest===trustedApproval.sha256&&same,reason:digest===trustedApproval.sha256&&same?'reviewed-original-learning-data':'payload-mismatch'};
 }
 function calculate(catalog,goals,inventory,options={}){return engine().compute(catalog,goals,inventory,options)}
+function prepare(catalog){return engine().prepare(catalog)}
 function legacy(db,goals,inventory){const planner=root.HytalePlanner||(typeof require==='function'?require('./planner.js'):null);return planner.compute(db,goals,inventory)}
-root.CraftCanonical={technical,publication,calculate,legacy};if(typeof module!=='undefined')module.exports=root.CraftCanonical;
+root.CraftCanonical={technical,publication,calculate,prepare,legacy};if(typeof module!=='undefined')module.exports=root.CraftCanonical;
 })(globalThis);

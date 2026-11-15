@@ -1,3 +1,7 @@
+## 2026-11-15 — catalogue search and prepared planner
+
+Expanded source search and licence decisions: [report](docs/CATALOG_SEARCH_2026-11-15.md). No newly authorized real dataset, no new real imports. Studio enquiry already sent by owner, reply pending. Prepared immutable calculation snapshot and multilingual paginated search tested with5,000/9,999original synthetic methods; shared inventory up to10,000IDs. Design, existing user storage and publication rights gate preserved. This is infrastructure, not a populated game catalogue; public payload/learning controls still require reviewed adaptation for an authorized real source. [Measurements](docs/reports/CATALOG_SCALE_RESULTS.json).
+
 # Canonical engine release — 2026-11-15
 
 Owner approves tested code/allowed-data releases, preserves the existing Android design, and reports the studio enquiry already sent (response pending; do not repeat). This independent release branch starts from24200b4, reviews PR13 and copies only its original importer/tests/fixture; research PR13 is not merged.

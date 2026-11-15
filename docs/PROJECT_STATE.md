@@ -1,3 +1,7 @@
+## Catalogue search and scale preparation — 2026-11-15
+
+New source investigation: [expanded search](CATALOG_SEARCH_2026-11-15.md). No new commercially cleared complete vanilla source; real imports remain0. Original prepared snapshot/search API and synthetic5,000/9,999recipe load tests added. Existing learning UI reuses the prepared planner; design/storage/rights gates unchanged. See limitations: public payload still1MB and learning-specific controls; paginated search is infrastructure, not a populated real catalogue. Owner studio enquiry pending, no duplicate sent.
+
 # Canonical engine release — 2026-11-15
 
 Owner approves tested code/allowed-data releases, preserves the existing Android design, and reports the studio enquiry already sent (response pending; do not repeat). This independent release branch starts from24200b4, reviews PR13 and copies only its original importer/tests/fixture; research PR13 is not merged.

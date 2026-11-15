@@ -125,3 +125,11 @@ Owner authorized tested ordinary merges and publication. PR11 Ready→normal mer
 ## 2026-11-15 — canonical calculation release
 
 Studio enquiry already sent by owner; no duplicate communication. Review PR13 and transfer only original v2 importer/tests/fixture into independent code release. Add bounded canonical JS planner, material/stock ledger, alternatives/groups/weighted units/multi-output/co-products, explicit salvage and dynamic cycles, stations/levels/unlocks. Separate reviewed original-data approval+SHA gate, new lazy-loaded original learning panel in existing sheet, unchanged legacy calculator/storage/projects/home design.4existing+4advanced educational methods,0real recipes. Pre-release exact24200b4 backup uploaded/downloaded/CRC+SHA+227files verified, remote rollback tag retained.59Python/44JS/36browser tests passed; final CI/live/Drive evidence appended to release PR/passport. No research PR merge, disputed dataset, paid service or history/backup deletion.
+
+
+## 2026-11-15 — expanded catalogue search and scale readiness
+
+- Extended search to GitLab, Hugging Face, Kaggle, npm, multiple languages, new hosting/wiki/tool candidates; documented actual counts, missing rights and false positives. No third-party records downloaded or published.
+- Added original private prepared canonical snapshot, bounded multilingual filtered/paginated search, up to10,000inventory keys; unchanged single-shot/legacy API and saved keys. Existing lab compiles once for repeat calculations.
+- Generated5,000/9,999synthetic methods; verified existing offline importer with5,000records, publication remains blocked. Added Node and mobile Chromium scale regressions to CI.
+- Approved artwork/CSS/home/navigation/locales unchanged. Publication evidence and Drive backup links are appended to the release PR/passport after checks, not presumed in advance.
