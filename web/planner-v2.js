@@ -24,14 +24,14 @@ function compile(input){
 function requirements(recipe,options){
  const available=options.stations,known=options.knownRecipes;
  function station(e){const v=available&&Object.hasOwn(available,e.station_id)?available[e.station_id]:undefined;if(v===undefined)return available?'missing':'unknown';const actual=typeof v==='number'?{level:v}:v;if(!obj(actual)||!integer(actual.level,0,MAX))fail('canonicalOptions');let unknown=e.min_level===null||e.type==='unknown'||actual.type===undefined;if(e.min_level!==null&&actual.level<e.min_level)return 'missing';if(actual.type!==undefined&&actual.type!==e.type)return 'missing';for(const [required,provided] of [['categories','categories'],['augment_tags','augment_tags']])if(e[required].length){if(!Array.isArray(actual[provided]))unknown=true;else if(!e[required].every(x=>actual[provided].includes(x)))return 'missing'}return unknown?'unknown':'available'}
- const entries=recipe.station_requirements.entries.map(e=>({...e,status:station(e)})),mode=recipe.station_requirements.mode;
+ const entries=recipe.station_requirements.entries.map(e=>({...e,categories:[...e.categories],augment_tags:[...e.augment_tags],status:station(e)})),mode=recipe.station_requirements.mode;
  let status=!entries.length?'available':mode==='unknown'?'unknown':mode==='any'?(entries.some(e=>e.status==='available')?'available':entries.some(e=>e.status==='unknown')?'unknown':'missing'):(entries.some(e=>e.status==='missing')?'missing':entries.some(e=>e.status==='unknown')?'unknown':'available');
  const k=recipe.requirements.knowledge_required,m=recipe.requirements.memories_level;let unlock=k===null||m===null?'unknown':'available';if(k===true){if(!known)unlock='unknown';else if(!known.includes(recipe.id))unlock='missing'}if(m!==null){if(options.memoriesLevel===undefined){if(unlock!=='missing')unlock='unknown'}else if(options.memoriesLevel<m)unlock='missing'}
  return {recipe_id:recipe.id,mode,entries,station_status:status,unlock_status:unlock,requirements:{...recipe.requirements}};
 }
-function compute(input,goals,inventory={},options={}){
- const model=compile(input),{tables,producers}=model;
- if(!obj(goals)||!obj(inventory)||!obj(options)||Object.keys(goals).length>500||Object.keys(inventory).length>500)fail('canonicalOptions');
+function run(model,goals,inventory={},options={}){
+ const {tables,producers}=model;
+ if(!obj(goals)||!obj(inventory)||!obj(options)||Object.keys(goals).length>500||Object.keys(inventory).length>10000)fail('canonicalOptions');
  for(const k of ['allowSalvage','strictRequirements'])if(options[k]!==undefined&&typeof options[k]!=='boolean')fail('canonicalOptions');
  if(options.knownRecipes!==undefined&&(!Array.isArray(options.knownRecipes)||options.knownRecipes.length>10000||options.knownRecipes.some(x=>typeof x!=='string')))fail('canonicalOptions');if(options.memoriesLevel!==undefined&&!integer(options.memoriesLevel,1,MAX))fail('canonicalOptions');if(options.stations!==undefined&&!obj(options.stations))fail('canonicalOptions');for(const k of ['recipeChoices','materialChoices'])if(options[k]!==undefined&&!obj(options[k]))fail('canonicalOptions');
  let state={stock:Object.assign(Object.create(null),inventory),totals:Object.create(null),steps:Object.create(null),requirements:Object.create(null),waste:Object.create(null),consumed:Object.create(null)},calls=0,trials=0;
@@ -61,5 +61,31 @@ function compute(input,goals,inventory={},options={}){
  for(const [id,n] of targets)state=walk(state,id,n,[],0);
  return {...state,requirements:Object.values(state.requirements),strategy:'bounded-stock-first',optimal:false,diagnostics:{calls,trials}};
 }
-const api={compile,compute,requirements};root.HytaleCanonicalPlanner=api;if(typeof module!=='undefined')module.exports=api;
+function compute(input,goals,inventory={},options={}){return run(compile(input),goals,inventory,options)}
+function prepare(input){
+ // Private validated snapshot: never accept a caller-supplied compiled model.
+ const model=compile(input),{tables,producers}=model;
+ const normalize=value=>value.normalize('NFKC').toLowerCase();
+ const index=[...tables.items.values()].map(item=>{
+  const names=Object.fromEntries(Object.entries(obj(item.names)?item.names:{}).filter(([k,v])=>['en','ru','es','pt-BR'].includes(k)&&typeof v==='string'));
+  const category=typeof item.category==='string'?item.category:'';
+  const recipes=producers.get(item.id)||[];
+  return {id:item.id,names,category,recipes,text:normalize([item.id,category,...Object.values(names)].join(' '))};
+ }).sort((a,b)=>compare(a.id,b.id));
+ function search(query='',filters={}){
+  if(typeof query!=='string'||query.length>200||!obj(filters))fail('canonicalOptions');
+  const {offset=0,limit=50,category,station,kind}=filters;
+  if(!integer(offset,0,10000)||!integer(limit,1,100)||[category,station,kind].some(v=>v!==undefined&&typeof v!=='string')||(kind!==undefined&&!['craft','processing','salvage','unknown'].includes(kind)))fail('canonicalOptions');
+  const tokens=normalize(query).trim().split(/\s+/).filter(Boolean),items=[];let total=0;
+  for(const row of index){if(!tokens.every(t=>row.text.includes(t))||(category!==undefined&&row.category!==category))continue;
+   const recipes=row.recipes.filter(r=>(kind===undefined||r.kind===kind)&&(station===undefined||r.station_requirements.entries.some(e=>e.station_id===station)));
+   if((kind!==undefined||station!==undefined)&&!recipes.length)continue;
+   if(total>=offset&&items.length<limit)items.push({id:row.id,names:{...row.names},category:row.category,recipe_ids:recipes.map(r=>r.id)});
+   total++;
+  }
+  return {total,offset,limit,items};
+ }
+ return Object.freeze({compute:(goals,inventory={},options={})=>run(model,goals,inventory,options),search,stats:Object.freeze({items:tables.items.size,recipes:tables.recipes.size,groups:tables.groups.size,stations:tables.stations.size})});
+}
+const api={compile,compute,prepare,requirements};root.HytaleCanonicalPlanner=api;if(typeof module!=='undefined')module.exports=api;
 })(globalThis);

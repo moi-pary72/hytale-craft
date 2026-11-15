@@ -33,6 +33,16 @@ class AdvancedTests(beta.BetaTests):
         fc.value.set_files({'name':'legacy.json','mimeType':'application/json','buffer':json.dumps(legacy).encode()});p.wait_for_function('()=>document.getElementById("notice").textContent.includes("Saved")');self.assertEqual(p.evaluate('localStorage.getItem("hytale-craft-advanced-v1")'),raw)
     def test_corrupt_local_settings_are_exportable_not_overwritten(self):
         p=self.page();p.goto(self.url);p.wait_for_selector('#goals button');p.evaluate('localStorage.setItem("hytale-craft-advanced-v1","BROKEN")');self.lab(p,ready=False);p.wait_for_function('()=>document.getElementById("sheet-content").textContent.includes("damaged")');self.assertEqual(p.evaluate('localStorage.getItem("hytale-craft-advanced-v1")'),'BROKEN')
+    def test_large_original_catalogue_preparation_search_and_calculation(self):
+        import subprocess
+        raw=subprocess.check_output(['node','-e',"process.stdout.write(JSON.stringify(require('./tests/helpers/synthetic-catalog.js').makeCatalog(5000)))"],cwd=beta.ROOT)
+        p=self.page();p.goto(self.url);p.wait_for_selector('#goals button')
+        cdp=p.context.new_cdp_session(p);cdp.send('Emulation.setCPUThrottlingRate',{'rate':4})
+        report=p.evaluate("""data=>{const start=performance.now(),plan=CraftCanonical.prepare(data),prepared=performance.now();const rows=plan.search('Нагрузочный 4999',{limit:50}),searched=performance.now();const result=plan.compute({'load:item-04999':7}),done=performance.now();return {items:plan.stats.items,recipes:plan.stats.recipes,total:rows.total,id:rows.items[0].id,raw:result.totals['load:raw'],prepare_ms:prepared-start,search_ms:searched-prepared,calculate_ms:done-searched}}""",json.loads(raw))
+        self.assertEqual(report['items'],5001);self.assertEqual(report['recipes'],5000);self.assertEqual(report['total'],1);self.assertEqual(report['id'],'load:item-04999');self.assertEqual(report['raw'],20);self.assertLess(report['prepare_ms'],10000)
+        (OUT/'scale-mobile.json').write_text(json.dumps(report,indent=2));cdp.send('Emulation.setCPUThrottlingRate',{'rate':1})
+        self.assertFalse(p.evaluate('document.documentElement.scrollWidth>innerWidth'));self.lab(p);self.run_calc(p);self.assertIn('Practice residue',p.locator('#advanced-result').inner_text())
+
     def test_offline_lab_and_missing_publication_approval(self):
         import subprocess,sys
         subprocess.run([sys.executable,'scripts/export_beta.py'],cwd=beta.ROOT,check=True,capture_output=True)
