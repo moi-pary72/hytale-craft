@@ -1,0 +1,172 @@
+{
+  "checked_at": "2026-11-15",
+  "base_main": "24200b4fc0ad0f0516b1269549e031f6d50f8bbd",
+  "scope": "research and original synthetic-only offline candidate; no new real dataset or deployment",
+  "confidence_legend": {
+    "high": "direct published statement or observed metadata/UI",
+    "medium": "publisher extraction/freshness claim, not independently verified against exact build",
+    "unknown": "no sufficient evidence"
+  },
+  "observed_counts": {
+    "hysphere": {
+      "items": 3219,
+      "recipe_rows": 2109,
+      "craft_rows": 1706,
+      "salvage_rows": 403,
+      "full_supported_recipes_currently_verified": null,
+      "exact_game_build": null,
+      "extract": "2026-08-12T11:09:57.625Z",
+      "evidence": [
+        "https://hysphere.app/data/v1/manifest.json",
+        "https://hysphere.app/recipes",
+        "https://hysphere.app/methodology"
+      ]
+    },
+    "source_gs": {
+      "items": 3189,
+      "recipe_rows": 2080,
+      "salvage_rows_claimed": 403,
+      "build": "0.6.4-b27",
+      "extract": "2026-09-09",
+      "evidence": [
+        "https://hytale.source.gs/about/",
+        "https://hytale.source.gs/terms/"
+      ]
+    },
+    "hytaledb": {
+      "items": 3960,
+      "recipe_rows": 410,
+      "snapshot": "0.7.3-8e1d7ab9",
+      "extract_timestamp": null,
+      "evidence": [
+        "https://hytaledb.net/data",
+        "https://hytaledb.net/terms"
+      ]
+    },
+    "hytl": {
+      "observed_all_items": 3973,
+      "release_only_count": null,
+      "recipe_rows": null,
+      "timeline_release": "0.7.7",
+      "timeline_pre_release": "0.8.0-pre.5",
+      "exact_record_game_build": null,
+      "method": "ordinary Chromium UI; no restricted API requests",
+      "evidence": [
+        "https://hytl.dev/resources/items",
+        "https://hytl.dev/updates",
+        "https://hytl.dev/items/Weapon_Shortbow_Crude",
+        "https://github.com/ModLabsCC/hytl-wiki/blob/main/LICENSE-CONTENT"
+      ]
+    },
+    "openhytale": {
+      "item_id_count": 3641,
+      "recipe_id_count": 403,
+      "full_recipe_bodies_obtained_this_run": 0,
+      "meta_generated_at": "2026-07-06T11:57:22.295504Z",
+      "evidence": [
+        "https://openhytale.org/about/",
+        "https://openhytale.org/api/meta.json",
+        "https://openhytale.org/api/catalogs.json"
+      ]
+    },
+    "isaacguru": {
+      "homepage_items": 2958,
+      "homepage_version_label": "Update 2",
+      "exact_build": null,
+      "total_recipes": null,
+      "evidence": [
+        "https://hytale.isaacguru.com/",
+        "https://hytale.isaacguru.com/about"
+      ]
+    }
+  },
+  "rights_decision": "No complete vanilla recipe index with verified intended commercial/public redistribution rights found; publication blocked",
+  "official_terms": [
+    "https://hytale.com/eula",
+    "https://hytale.com/terms-of-service",
+    "https://hytale.com/shared-source-license"
+  ],
+  "schema_refs": [
+    "https://docs.hytale.com/assets/item/recipes/",
+    "https://docs.hytale.com/assets/item/items/",
+    "https://hytale-moddings.github.io/hytale-modding-docs/reference/crafting-system/recipes/"
+  ],
+  "comparison": {
+    "target_items": 13,
+    "sources": [
+      "Source",
+      "IsaacGuru"
+    ],
+    "additional_hytl_item_checks": 1,
+    "same_build_independence_verified": false,
+    "recipe_bodies_redistributed": false
+  },
+  "robots_checks": [
+    {
+      "url": "https://hytale.source.gs/robots.txt",
+      "status": 200,
+      "error": null,
+      "api_disallow": true,
+      "licence_grant": false
+    },
+    {
+      "url": "https://hysphere.app/robots.txt",
+      "status": 200,
+      "error": null,
+      "api_disallow": true,
+      "licence_grant": false
+    },
+    {
+      "url": "https://hytaledb.net/robots.txt",
+      "status": 200,
+      "error": null,
+      "api_disallow": false,
+      "licence_grant": false
+    },
+    {
+      "url": "https://hytl.dev/robots.txt",
+      "status": 200,
+      "error": null,
+      "api_disallow": true,
+      "licence_grant": false
+    },
+    {
+      "url": "https://openhytale.org/robots.txt",
+      "status": 200,
+      "error": null,
+      "api_disallow": false,
+      "licence_grant": false
+    },
+    {
+      "url": "https://hytale.isaacguru.com/robots.txt",
+      "status": 200,
+      "error": null,
+      "api_disallow": false,
+      "licence_grant": false
+    },
+    {
+      "url": "https://docs.hytale.com/robots.txt",
+      "status": null,
+      "error": "HTTP Error 404: Not Found",
+      "api_disallow": false,
+      "licence_grant": false
+    },
+    {
+      "url": "https://hytale-moddings.github.io/robots.txt",
+      "status": null,
+      "error": "HTTP Error 404: Not Found",
+      "api_disallow": false,
+      "licence_grant": false
+    }
+  ],
+  "tests": {
+    "python": 55,
+    "javascript": 24,
+    "browser": 29,
+    "unchanged_public_hashes": 40
+  },
+  "emails_sent": 0,
+  "game_archives_obtained": 0,
+  "public_real_recipes": 0,
+  "public_learning_recipes": 4
+}

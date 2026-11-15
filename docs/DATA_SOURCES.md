@@ -1,3 +1,9 @@
+# Source and rights investigation — current2026-11-15
+
+Latest findings: [source/licence matrix](recipe-research/SOURCES_AND_LICENSES.md), [summary](recipe-research/REPORT_RU.md), [13-item comparison](recipe-research/RECIPE_COMPARISON.md). No source was imported and no new rights granted. Published24200b4 still has4educational examples/0real recipes. Earlier623/3641counts and collection descriptions below are historical; five collection paths are paused, not active automatic feeds. Shared Source Agreement/ToS permissions need explicit clarification before any new public real-data release.
+
+---
+
 # Источники Hytale — повторная проверка 2026-11-14
 
 | Источник | Фактический результат | Версия / формат | Обновление и ограничения |

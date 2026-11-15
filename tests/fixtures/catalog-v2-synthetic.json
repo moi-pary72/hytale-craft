@@ -1,0 +1,318 @@
+{
+  "schema_version": 2,
+  "snapshot": {
+    "game_version": "synthetic-v2.1",
+    "channel": "test",
+    "source_revision": "original-fixture-1",
+    "updated_at": "2026-11-15T00:00:00Z"
+  },
+  "sources": [
+    {
+      "id": "synthetic",
+      "url": "https://example.invalid/original-fixture",
+      "revision": "original-fixture-1",
+      "license": {
+        "id": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "commercial_use": "allowed",
+        "redistribution": "allowed",
+        "automated_access": "allowed",
+        "game_ip_use": "unknown"
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "sample:raw-a",
+      "status": "tutorial",
+      "source_id": "synthetic",
+      "source_record": "authored-test/sample:raw-a",
+      "names": {
+        "en": "sample:raw-a",
+        "ru": null,
+        "es": null,
+        "pt-BR": null
+      },
+      "category": "synthetic"
+    },
+    {
+      "id": "sample:raw-b",
+      "status": "tutorial",
+      "source_id": "synthetic",
+      "source_record": "authored-test/sample:raw-b",
+      "names": {
+        "en": "sample:raw-b",
+        "ru": null,
+        "es": null,
+        "pt-BR": null
+      },
+      "category": "synthetic"
+    },
+    {
+      "id": "sample:part",
+      "status": "tutorial",
+      "source_id": "synthetic",
+      "source_record": "authored-test/sample:part",
+      "names": {
+        "en": "sample:part",
+        "ru": null,
+        "es": null,
+        "pt-BR": null
+      },
+      "category": "synthetic"
+    },
+    {
+      "id": "sample:device",
+      "status": "tutorial",
+      "source_id": "synthetic",
+      "source_record": "authored-test/sample:device",
+      "names": {
+        "en": "sample:device",
+        "ru": null,
+        "es": null,
+        "pt-BR": null
+      },
+      "category": "synthetic"
+    },
+    {
+      "id": "sample:byproduct",
+      "status": "tutorial",
+      "source_id": "synthetic",
+      "source_record": "authored-test/sample:byproduct",
+      "names": {
+        "en": "sample:byproduct",
+        "ru": null,
+        "es": null,
+        "pt-BR": null
+      },
+      "category": "synthetic"
+    }
+  ],
+  "groups": [
+    {
+      "id": "sample:resource",
+      "status": "tutorial",
+      "source_id": "synthetic",
+      "source_record": "authored-test/sample:resource",
+      "kind": "resource_type",
+      "selection": "mixed",
+      "membership_complete": true,
+      "members": [
+        {
+          "item_id": "sample:raw-a",
+          "units": 1
+        },
+        {
+          "item_id": "sample:raw-b",
+          "units": 2
+        }
+      ]
+    }
+  ],
+  "stations": [
+    {
+      "id": "sample:station",
+      "status": "tutorial",
+      "source_id": "synthetic",
+      "source_record": "authored-test/sample:station",
+      "names": {
+        "en": "Original imaginary station"
+      }
+    }
+  ],
+  "recipes": [
+    {
+      "id": "sample:make-part",
+      "status": "tutorial",
+      "source_id": "synthetic",
+      "source_record": "authored-test/sample:make-part",
+      "kind": "craft",
+      "inputs": [
+        {
+          "quantity": 3,
+          "options": [
+            {
+              "kind": "item",
+              "id": "sample:raw-a"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "item_id": "sample:part",
+          "quantity": 2
+        }
+      ],
+      "primary_output": "sample:part",
+      "station_requirements": {
+        "mode": "any",
+        "entries": [
+          {
+            "station_id": "sample:station",
+            "type": "Crafting",
+            "min_level": 2,
+            "categories": [
+              "original-test"
+            ],
+            "augment_tags": []
+          }
+        ]
+      },
+      "requirements": {
+        "knowledge_required": false,
+        "memories_level": 1
+      },
+      "time_seconds": 1.25
+    },
+    {
+      "id": "sample:make-device",
+      "status": "tutorial",
+      "source_id": "synthetic",
+      "source_record": "authored-test/sample:make-device",
+      "kind": "craft",
+      "inputs": [
+        {
+          "quantity": 2,
+          "options": [
+            {
+              "kind": "item",
+              "id": "sample:part"
+            }
+          ]
+        },
+        {
+          "quantity": 4,
+          "options": [
+            {
+              "kind": "group",
+              "id": "sample:resource"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "item_id": "sample:device",
+          "quantity": 1
+        },
+        {
+          "item_id": "sample:byproduct",
+          "quantity": 1
+        }
+      ],
+      "primary_output": "sample:device",
+      "station_requirements": {
+        "mode": "any",
+        "entries": [
+          {
+            "station_id": "sample:station",
+            "type": "Crafting",
+            "min_level": 2,
+            "categories": [
+              "original-test"
+            ],
+            "augment_tags": []
+          }
+        ]
+      },
+      "requirements": {
+        "knowledge_required": false,
+        "memories_level": 1
+      },
+      "time_seconds": 1.25
+    },
+    {
+      "id": "sample:alternate-part",
+      "status": "tutorial",
+      "source_id": "synthetic",
+      "source_record": "authored-test/sample:alternate-part",
+      "kind": "processing",
+      "inputs": [
+        {
+          "quantity": 2,
+          "options": [
+            {
+              "kind": "item",
+              "id": "sample:raw-a"
+            },
+            {
+              "kind": "item",
+              "id": "sample:raw-b"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "item_id": "sample:part",
+          "quantity": 1
+        }
+      ],
+      "primary_output": "sample:part",
+      "station_requirements": {
+        "mode": "any",
+        "entries": [
+          {
+            "station_id": "sample:station",
+            "type": "Crafting",
+            "min_level": 2,
+            "categories": [
+              "original-test"
+            ],
+            "augment_tags": []
+          }
+        ]
+      },
+      "requirements": {
+        "knowledge_required": false,
+        "memories_level": 1
+      },
+      "time_seconds": 1.25
+    },
+    {
+      "id": "sample:recycle-device",
+      "status": "tutorial",
+      "source_id": "synthetic",
+      "source_record": "authored-test/sample:recycle-device",
+      "kind": "salvage",
+      "inputs": [
+        {
+          "quantity": 1,
+          "options": [
+            {
+              "kind": "item",
+              "id": "sample:device"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "item_id": "sample:part",
+          "quantity": 1
+        }
+      ],
+      "primary_output": "sample:part",
+      "station_requirements": {
+        "mode": "any",
+        "entries": [
+          {
+            "station_id": "sample:station",
+            "type": "Crafting",
+            "min_level": 2,
+            "categories": [
+              "original-test"
+            ],
+            "augment_tags": []
+          }
+        ]
+      },
+      "requirements": {
+        "knowledge_required": false,
+        "memories_level": 1
+      },
+      "time_seconds": 1.25
+    }
+  ]
+}
