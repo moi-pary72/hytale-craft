@@ -27,5 +27,10 @@ function prepare(bundle){
 
  return {data,meta:bundle.meta,items,recipes,producers,blocked,cycleInputs,search:planner.search,stats:planner.stats,compute,availability,path,usedIn:id=>[...(used.get(id)||[])]};
 }
-root.CraftLab={prepare};if(typeof module!=='undefined')module.exports=root.CraftLab;
+function withoutSource(bundle,sourceId){
+ const data=bundle.canonical,keep=x=>x.source_id!==sourceId,items=data.items.filter(keep),ids=new Set(items.map(x=>x.id)),stations=data.stations.filter(keep),stationIds=new Set(stations.map(x=>x.id)),groups=data.groups.filter(keep).map(g=>({...g,members:g.members.filter(m=>ids.has(m.item_id))})).filter(g=>g.members.length),groupIds=new Set(groups.map(g=>g.id));
+ const recipes=data.recipes.filter(r=>keep(r)&&r.outputs.every(o=>ids.has(o.item_id))&&r.inputs.every(s=>s.options.every(o=>o.kind==='item'?ids.has(o.id):groupIds.has(o.id)))&&r.station_requirements.entries.every(e=>stationIds.has(e.station_id)));
+ return {...bundle,canonical:{...data,sources:data.sources.filter(s=>s.id!==sourceId),items,stations,groups,recipes}};
+}
+root.CraftLab={prepare,withoutSource};if(typeof module!=='undefined')module.exports=root.CraftLab;
 })(globalThis);

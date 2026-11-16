@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "files": {
+    "categories.webp": {
+      "sha256": "9bd526d16edcdbca9443a319548ae63b36fe1de40b2a4384c023f0cce017546c",
+      "width": 1024,
+      "height": 1024
+    }
+  },
+  "tiles": [
+    "sword",
+    "axe",
+    "pickaxe",
+    "helmet",
+    "breastplate",
+    "wood",
+    "stone",
+    "metal",
+    "fabric",
+    "plant",
+    "food",
+    "alchemy",
+    "furniture",
+    "building",
+    "station",
+    "neutral"
+  ]
+}

@@ -30,7 +30,7 @@ class DeepTests(unittest.TestCase):
   for id in ['lesson:blade','lesson:pick']:
    p.locator('[data-craftable="'+id+'"]').get_by_role('button',name='Add to preview',exact=True).click();p.wait_for_timeout(80)
   self.assertIn('compete for materials',p.locator('#sheet-content').inner_text());self.assertIn('lesson:fibre: 3',p.evaluate('localStorage.getItem("hytale-craft-inventory-v1")'))
-  p.locator('#sheet-content>details').first.locator('summary').first.click();p.get_by_role('button',name='Add one Practice fibre',exact=True).click();p.wait_for_timeout(80);self.assertIn('lesson:fibre: 4',p.evaluate('localStorage.getItem("hytale-craft-inventory-v1")'))
+  p.locator('#sheet-content>details').filter(has=p.locator('input[type=search]')).first.locator('summary').first.click();p.get_by_role('button',name='Add one Practice fibre',exact=True).click();p.wait_for_timeout(80);self.assertIn('lesson:fibre: 4',p.evaluate('localStorage.getItem("hytale-craft-inventory-v1")'))
   p.reload();p.wait_for_selector('#goals button');self.open(p);self.assertIn('lesson:fibre: 4',p.evaluate('localStorage.getItem("hytale-craft-inventory-v1")'))
 
  def test_detail_raw_used_in_back_and_keyboard(self):

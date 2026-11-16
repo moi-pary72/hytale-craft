@@ -28,7 +28,7 @@ def build(policy='user-only', site_url=None, base_path='/'):
         raise ValueError('dist must not be a symlink')
     with tempfile.TemporaryDirectory(prefix='pages-', dir=ROOT / '.private') as tmp:
         out = Path(tmp)
-        paths = ['web/craftable.js', 'web/beta/deep.js', 'web/beta/deep.css', 'web/planner.js', 'web/preview/i18n.js', 'web/beta/app.js', 'web/beta/style.css', 'web/beta/examples.js', 'web/beta/workspace.js', 'web/planner-v2.js', 'web/canonical-adapter.js']
+        paths = ['web/craftable.js', 'web/beta/deep.js', 'web/beta/deep.css', 'web/item-visuals.js','web/item-visuals.css','assets/item-system/categories.webp','web/planner.js', 'web/preview/i18n.js', 'web/beta/app.js', 'web/beta/style.css', 'web/beta/examples.js', 'web/beta/workspace.js', 'web/planner-v2.js', 'web/canonical-adapter.js']
         paths += ['locales/' + lang + '.json' for lang in LANGUAGES]
         paths += ['locales/beta/' + lang + '.json' for lang in LANGUAGES]
         paths += ['assets/art-pair/' + name + '.webp' for name in ('fight-poster','gather-poster','fight-atlas','gather-atlas')]
@@ -56,6 +56,11 @@ def build(policy='user-only', site_url=None, base_path='/'):
             src=ROOT/'assets/learning-items'/name
             if src.is_symlink() or hashlib.sha256(src.read_bytes()).hexdigest()!=sha:raise ValueError('Learning art integrity')
             paths.append('assets/learning-items/'+name)
+        import importlib.util
+        visual_spec=importlib.util.spec_from_file_location('item_visuals_integrity',Path(__file__).with_name('item_visuals_integrity.py'))
+        visual_module=importlib.util.module_from_spec(visual_spec);visual_spec.loader.exec_module(visual_module)
+        verify_visuals=visual_module.verify
+        verify_visuals(ROOT)
         # Legacy SVG scenes are excluded from beta output.
         for name in paths:
             src = ROOT/name

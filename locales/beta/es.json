@@ -174,5 +174,11 @@
   "dwNoCrafts": "Aún no puedes fabricar nada con estos filtros. Añade materiales o explora todas las recetas.",
   "dwStockKinds": "Tipos de objetos en el inventario",
   "dwBrokenInventory": "Hay que revisar el inventario guardado. Abre el editor de texto; los datos originales se han conservado.",
-  "dwAddMaterials": "Añadir materiales"
+  "dwAddMaterials": "Añadir materiales",
+  "visualDemo": "Demo",
+  "visualTry": "Prueba el planificador con objetos de demostración.",
+  "visualOwn": "Tus propias recetas",
+  "visualPrevious": "Anterior",
+  "visualNext": "Siguiente",
+  "visualGoals": "Objetivos de fabricación"
 }

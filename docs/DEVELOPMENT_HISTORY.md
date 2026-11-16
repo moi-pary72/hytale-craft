@@ -1,3 +1,8 @@
+
+## Stage18 — visual items and private lab preservation, 2026-11-16 (Draft only)
+
+New branch `codex/stage18-visual-items` is based on PR17 `71e0d5e` (base PR16 `891904a`); main `e1395d9` and sites unchanged. Shared3-level item visuals, original category atlas, Cards/Compact preference, visual inventory, tighter Demo disclosures and deep Plan/Projects/Advanced panels. Source disconnect preserves inventory/plan bytes. Real3219items/638methods tested privately; no restricted records/assets in Git/public CI. Prior source SHA verified; clean code checkout reproduced exact normalized payload. No permanent full-data cloud backup or commercial clearance claimed. See [technical report](stage18/REPORT.md), [visual review](stage18/VISUAL_REPORT.md), [recovery](stage18/RECOVERY.md), [aggregate QA](stage18/AGGREGATE_QA.json). Existing history preserved; no merge/deploy. Private artifact identifiers remain in native passport/private delivery journal only.
+
 Delivery: [Draft PR17](https://github.com/moi-pary72/hytale-craft/pull/17), code f98f038, [green CI](https://github.com/moi-pary72/hytale-craft/actions/runs/43822854372). Safe-code backup, limited owner-only review and report read back successfully; private file identifiers retained only in native passport/private journal. No main/deploy.
 
 
