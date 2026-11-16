@@ -5,6 +5,11 @@
       "sha256": "9bd526d16edcdbca9443a319548ae63b36fe1de40b2a4384c023f0cce017546c",
       "width": 1024,
       "height": 1024
+    },
+    "extended.webp": {
+      "sha256": "b2b20b00068d84a0fbc46b0d5842fe2cc75de7c408ee8aa5b40c7cb08e6be0a2",
+      "width": 1024,
+      "height": 1024
     }
   },
   "tiles": [
@@ -24,5 +29,23 @@
     "building",
     "station",
     "neutral"
+  ],
+  "extended_tiles": [
+    "bow",
+    "dagger",
+    "hammer",
+    "shield",
+    "ore",
+    "coal",
+    "leather",
+    "fibre",
+    "boots",
+    "gauntlets",
+    "leggings",
+    "chest",
+    "cauldron",
+    "furnace",
+    "anvil",
+    "crystal"
   ]
 }

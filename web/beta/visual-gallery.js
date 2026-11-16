@@ -1,0 +1,10 @@
+/* Owner-only interactive art review. These are original categories, not a game dataset. */
+(function(root){'use strict';
+const keys=['sword','axe','pickaxe','helmet','breastplate','wood','stone','metal','fabric','plant','food','alchemy','furniture','building','station',...root.CraftItemVisuals.extendedTiles,'neutral'];
+const el=(tag,text,cls)=>{const x=document.createElement(tag);if(text!==undefined)x.textContent=text;if(cls)x.className=cls;return x},btn=(text,fn)=>{const b=el('button',text);b.type='button';b.onclick=fn;return b};
+function render(host,c,selected){host.classList.add('dw-view');const hero=el('section',undefined,'dw-hero');hero.append(el('h3',c.t('visualGallery')),el('p',c.t('galleryIntro')),el('span',c.t('galleryOriginal'),'dw-badge'));host.append(hero);
+ if(selected&&keys.includes(selected)){const panel=el('section',undefined,'dw-panel');panel.append(root.CraftItemVisuals.image({},c.lang,selected),el('h3',c.t('vf_'+selected)),el('p',c.t(selected==='neutral'?'galleryUnknown':'galleryNotExact')));host.append(panel,btn(c.t('galleryTry'),()=>c.go({view:'catalog',all:true})));return}
+ const search=el('input');search.type='search';search.placeholder=c.t('gallerySearch');search.setAttribute('aria-label',search.placeholder);const grid=el('div',undefined,'dw-grid'),pager=el('div',undefined,'dw-tabs');root.CraftItemVisuals.modeControl(host,grid,c.lang);host.append(search,grid,pager);let offset=0;function draw(){grid.replaceChildren();const q=search.value.toLocaleLowerCase(),ids=keys.filter(k=>c.t('vf_'+k).toLocaleLowerCase().includes(q));for(const key of ids.slice(offset,offset+24)){const b=btn('',()=>c.go({view:'visualGallery',family:key}));b.className='dw-slot';b.dataset.gallery=key;b.append(root.CraftItemVisuals.image({},c.lang,key),el('strong',c.t('vf_'+key)));grid.append(b)}const prev=btn(c.t('visualPrevious'),()=>{offset-=24;draw()}),next=btn(c.t('visualNext'),()=>{offset+=24;draw()});prev.disabled=!offset;next.disabled=offset+24>=ids.length;pager.replaceChildren(prev,el('span',ids.length+' · '+c.t('galleryOriginal')),next)}search.oninput=()=>{offset=0;draw()};draw();
+}
+root.CraftVisualGallery={render};
+})(globalThis);
