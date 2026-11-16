@@ -5,7 +5,14 @@ function prepare(bundle){
  const core=root.HytaleCanonicalPlanner||(typeof require==='function'?require('../planner-v2.js'):null),data=bundle.canonical,planner=core.prepare(data);
  const items=new Map(data.items.map(i=>[i.id,i])),recipes=new Map(data.recipes.map(r=>[r.id,r])),producers=new Map(),used=new Map(),blocked=new Set(bundle.meta.blocked_items||[]);
  for(const r of data.recipes){for(const out of r.outputs){if(!producers.has(out.item_id))producers.set(out.item_id,[]);producers.get(out.item_id).push(r)}for(const term of r.inputs)for(const o of term.options)if(o.kind==='item'){if(!used.has(o.id))used.set(o.id,new Set());for(const out of r.outputs)used.get(o.id).add(out.item_id)}}
- function compute(goals,inventory={},options={}){const value=planner.compute(goals,inventory,options),unresolved=Object.keys(value.totals).filter(id=>blocked.has(id));return {...value,unresolved,complete:!unresolved.length,materialOnly:!options.strictRequirements,externalItems:[...(options.externalItems||[])]}}
+ function compute(goals,inventory={},options={}){
+  // Self-consuming target methods are unresolved source records, even if the
+  // target was marked externally obtainable or is already present in stock.
+  for(const id of Object.keys(goals)){
+   const methods=producers.get(id)||[],choice=options.recipeChoices?.[id],selected=choice?methods.filter(r=>r.id===choice):methods;
+   if(selected.length&&selected.every(r=>r.inputs.some(slot=>slot.options.length===1&&slot.options[0].kind==='item'&&slot.options[0].id===id)))throw Error('canonicalCycle');
+  }
+  const value=planner.compute(goals,inventory,options),unresolved=Object.keys(value.totals).filter(id=>blocked.has(id));return {...value,unresolved,complete:!unresolved.length,materialOnly:!options.strictRequirements,externalItems:[...(options.externalItems||[])]}}
  function availability(id,inventory={},options={}){
   if(!producers.has(id))return {id,status:blocked.has(id)?'incomplete':'no-method',maximum:0};
   const own=inventory[id]||0,stock=Object.assign(Object.create(null),inventory);delete stock[id];
