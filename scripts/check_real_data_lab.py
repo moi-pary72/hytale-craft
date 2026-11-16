@@ -6,7 +6,7 @@ from playwright.sync_api import sync_playwright
 try:from serve_real_data_lab import make_server
 except ModuleNotFoundError:from scripts.serve_real_data_lab import make_server
 ROOT=Path(__file__).resolve().parents[1]
-def run(build,math_file,out):
+def run(build,math_file,out,visuals=None):
  out=Path(out).resolve()
  if not out.is_relative_to((ROOT/'.private').resolve()):raise ValueError('Real screenshots and reports must remain private')
  out.mkdir(parents=True,exist_ok=True,mode=0o700);data=json.loads((build/'research-data.json').read_text());math=json.loads(math_file.read_text());model=data['canonical'];names={i['id']:i['names']['en'] or i['id'] for i in model['items']};metrics=[];errors=[];screens=[]
@@ -16,11 +16,19 @@ def run(build,math_file,out):
    browser=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox'])
    for width in [320,360,393,430]:
     context=browser.new_context(viewport={'width':width,'height':852},is_mobile=True,has_touch=True,reduced_motion='reduce');p=context.new_page();p.set_default_timeout(15000);p.on('pageerror',lambda e:errors.append(str(e)));start=time.monotonic();p.goto(url,wait_until='domcontentloaded');p.wait_for_selector('.lab-card');assert not p.evaluate('document.documentElement.scrollWidth>innerWidth');metrics.append({'width':width,'ready_seconds':round(time.monotonic()-start,3),**p.evaluate('window.CRAFT_LAB_BOOT')})
+    if visuals:p.check('#lab-interpretations')
     for sample,count in [('100',100),('1000',1000),('10000',len(model['items']))]:
      p.select_option('#lab-size',sample);assert str(count)+' matching items' in p.locator('#view-content').inner_text();assert p.locator('.lab-card').count()<=24
      p.locator('.lab-controls').evaluate('(el)=>window.scrollTo(0,el.getBoundingClientRect().top+scrollY-10)');p.wait_for_timeout(200)
      if width==393:p.screenshot(path=str(out/f'catalog-{count}.png'));screens.append(f'catalog-{count}.png')
     if width==393:
+     if visuals:
+      bindings=json.loads(Path(visuals).read_text());verified=0
+      for entry in bindings['entries']:
+       p.fill('#lab-search',entry['item_id']);p.locator('[data-item="'+entry['item_id']+'"]').click();p.locator('#sheet-content [data-research=true] img').first.evaluate('(e)=>e.decode()');assert 'reference version unmatched' in p.locator('#sheet-content [data-research=true]').first.get_attribute('aria-label');p.get_by_text('Visual evidence · original interpretation, not official art',exact=True).click();assert entry['reference']['reference_version'] in p.locator('#sheet-content').inner_text();verified+=1
+       if verified==1:p.screenshot(path=str(out/'individual-evidence.png'));screens.append('individual-evidence.png')
+       p.keyboard.press('Escape')
+      report['observed_private_interpretations']=verified;p.fill('#lab-search','Iron');p.locator('.lab-controls').evaluate('(el)=>window.scrollTo(0,el.getBoundingClientRect().top+scrollY-10)');p.screenshot(path=str(out/'iron-catalogue.png'));screens.append('iron-catalogue.png');p.fill('#lab-search','')
      p.locator('.iv-modes [data-mode=compact]').click();p.locator('.lab-controls').evaluate('(el)=>window.scrollTo(0,el.getBoundingClientRect().top+scrollY-10)');p.screenshot(path=str(out/'catalog-compact.png'));screens.append('catalog-compact.png');assert p.locator('.iv-compact .lab-card').count()==24
      p.locator('.iv-modes [data-mode=cards]').click()
      # Source selectors reflect actual methods and preserve multiple outputs.
@@ -51,4 +59,4 @@ def run(build,math_file,out):
   assert not errors,errors;report.update(widths=metrics,screenshots=screens,javascript_errors=errors,real_items=len(model['items']),real_material_recipes=len(model['recipes']),all_checks_passed=True);(out/'browser-report.json').write_text(json.dumps(report,indent=2));print(json.dumps({k:v for k,v in report.items() if k!='screenshots'}))
  finally:server.shutdown();server.server_close()
 if __name__=='__main__':
- p=argparse.ArgumentParser();p.add_argument('build',type=Path);p.add_argument('math_report',type=Path);p.add_argument('--output',type=Path,default=ROOT/'.private/real-data-lab/screens');a=p.parse_args();run(a.build,a.math_report,a.output)
+ p=argparse.ArgumentParser();p.add_argument('build',type=Path);p.add_argument('math_report',type=Path);p.add_argument('--output',type=Path,default=ROOT/'.private/real-data-lab/screens');p.add_argument('--visuals',type=Path);a=p.parse_args();run(a.build,a.math_report,a.output,a.visuals)

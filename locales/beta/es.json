@@ -218,5 +218,6 @@
   "galleryOriginal": "Categorías originales",
   "galleryNotExact": "Ilustración aproximada de categoría, no una imagen oficial de un objeto concreto.",
   "galleryUnknown": "Apariencia desconocida. La imagen neutra no representa un modelo del juego.",
-  "galleryTry": "Probar el planificador de ejemplo"
+  "galleryTry": "Probar el planificador de ejemplo",
+  "gallerySearch": "Buscar categorías visuales"
 }

@@ -17,7 +17,12 @@ function family(item={}){
  const name=String(item.id||'')+' '+String(item.names?.en||item.name||''),categoryName=String(item.category||'');
  if(/essence|rune|gemstone|crystal|rare|arcade|machine|adamantite|mithril|thorium|cobalt|onyxium/i.test(name))return 'neutral';
  if(/wood(?:en)?|bone|crude|copper|bronze|gold/i.test(name)&&/boots|gauntlets|leggings|dagger|shield/i.test(name))return 'neutral';
- for(const [key,re]of [['bow',/shortbow|longbow|(?:^|[\s_:])bow(?:$|[\s_:])/i],['dagger',/dagger/i],['hammer',/hammer/i],['shield',/shield/i],['ore',/(?:^|[\s_:])ore(?:$|[\s_:])/i],['coal',/charcoal|(?:^|[\s_:])coal(?:$|[\s_:])/i],['leather',/leather|hide/i],['fibre',/fibre|fiber/i],['boots',/boots|armor_iron_feet/i],['gauntlets',/gauntlet|armor_iron_hands/i],['leggings',/leggings|greaves|armor_iron_legs/i],['chest',/(?:^|[\s_:])chest(?:$|[\s_:])/i],['cauldron',/cauldron/i],['furnace',/furnace/i],['anvil',/anvil/i]])if(re.test(name))return key;
+ if(/wood(?:en)?|bone|crude|copper|bronze|gold/i.test(name)&&/hatchet/i.test(name))return 'neutral';
+ if((categoryName==='Armor'||/^Armor[_:]/i.test(String(item.id||'')))&&(/cuirass|breastplate|chestplate|(?:^|_)Chest(?:_|$)/i.test(name))){if(/wood|bone|crude|copper|bronze|gold/i.test(name))return 'neutral';return 'breastplate'}
+ for(const [key,re]of [['axe',/hatchet/i],['bow',/shortbow|longbow|(?:^|[\s_:])bow(?:$|[\s_:])/i],['dagger',/dagger/i],['hammer',/hammer/i],['shield',/shield/i],['ore',/(?:^|[\s_:])ore(?:$|[\s_:])/i],['coal',/charcoal|(?:^|[\s_:])coal(?:$|[\s_:])/i],['leather',/leather|hide/i],['fibre',/fibre|fiber/i],['boots',/boots|armor_iron_feet/i],['gauntlets',/gauntlet|armor_iron_hands/i],['leggings',/leggings|greaves|armor_iron_legs/i],['chest',/(?:^|[\s_:])chest(?:$|[\s_:])/i],['cauldron',/cauldron/i],['furnace',/furnace/i],['anvil',/anvil/i]])if(re.test(name))return key;
+ if(categoryName==='Bench'||/^Bench_/i.test(name))return 'station';
+ if(categoryName==='Food'&&/raw|fish/i.test(name)&&!/cooked|meal|stew/i.test(name))return 'neutral';
+ if(categoryName==='Furniture')return 'neutral';
  if(categoryName==='Rock')return 'stone';if(categoryName==='Wood')return 'wood';if(categoryName==='Plant')return 'plant';if(categoryName==='Cloth')return 'fabric';
  // Broad Furniture/Alchemy categories must not turn beds or machines into chairs/potions.
  const result=category({...item,category:categoryName==='Furniture'||categoryName==='Alchemy'?'':categoryName});return result;
