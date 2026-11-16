@@ -17,7 +17,7 @@
       "checked": 1,
       "available": 1,
       "blocked": 0,
-      "elapsed": 0.5
+      "elapsed": 0.3999999985098839
     },
     "source_detach_preserved_bytes": true,
     "unresolved_and_cycles": {
@@ -25,44 +25,44 @@
       "cycle": "cycle"
     },
     "memory": {
-      "usedSize": 9443316,
-      "totalSize": 16990208,
-      "embedderHeapUsedSize": 2740400,
-      "backingStorageSize": 4273244
+      "usedSize": 9427908,
+      "totalSize": 17514496,
+      "embedderHeapUsedSize": 2743904,
+      "backingStorageSize": 4273793
     },
     "slow_network": {
-      "visible_icon_ready_seconds": 5.371,
-      "ready_seconds": 3.786,
+      "visible_icon_ready_seconds": 5.138,
+      "ready_seconds": 3.423,
       "cpu_throttling": 4,
       "latency_ms": 150,
       "download_bytes_per_second": 150000,
-      "prepareAndLoadMs": 1922.3999999985099,
+      "prepareAndLoadMs": 1746.1000000014901,
       "bytes": 2098714
     },
     "offline_after_loaded": true,
     "widths": [
       {
         "width": 320,
-        "ready_seconds": 0.628,
-        "prepareAndLoadMs": 287.3999999985099,
+        "ready_seconds": 0.829,
+        "prepareAndLoadMs": 354.30000000447035,
         "bytes": 2098714
       },
       {
         "width": 360,
-        "ready_seconds": 0.532,
-        "prepareAndLoadMs": 246.79999999701977,
+        "ready_seconds": 0.558,
+        "prepareAndLoadMs": 313.5,
         "bytes": 2098714
       },
       {
         "width": 393,
-        "ready_seconds": 0.569,
-        "prepareAndLoadMs": 259.6000000014901,
+        "ready_seconds": 0.519,
+        "prepareAndLoadMs": 293.09999999403954,
         "bytes": 2098714
       },
       {
         "width": 430,
-        "ready_seconds": 0.454,
-        "prepareAndLoadMs": 232.79999999701977,
+        "ready_seconds": 0.46,
+        "prepareAndLoadMs": 174.79999999701977,
         "bytes": 2098714
       }
     ],
@@ -72,5 +72,27 @@
     "all_checks_passed": true
   },
   "physical_android": false,
-  "public_real_recipes": 0
+  "public_real_recipes": 0,
+  "registry_counts": {
+    "items": 3219,
+    "supported_methods": 638,
+    "quarantined": 1471,
+    "item_visual_evidence": 7,
+    "generic_visual_levels": {
+      "individual": 0,
+      "category": 2143,
+      "neutral": 1076
+    }
+  },
+  "ci": {
+    "code_checkpoint": "cd11d5b0a9f31d7b71b20383cf17c26924ef27c1",
+    "runs": [
+      43902937233,
+      43903011516
+    ],
+    "conclusion": "success",
+    "python": 75,
+    "javascript": 68,
+    "browser": 57
+  }
 }
