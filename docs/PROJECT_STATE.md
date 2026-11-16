@@ -1,3 +1,5 @@
+Delivery: [Draft PR16](https://github.com/moi-pary72/hytale-craft/pull/16), [source CI](https://github.com/moi-pary72/hytale-craft/actions/runs/43815053546), [mobile contact](https://drive.google.com/file/d/1SEoQ3RC6w3s2WyFi1LBMy0KQLOvShzE0/view), [verified source ZIP](https://drive.google.com/file/d/1ztRHUuCb4kUREnJS2MgxP8awQtfE8deH/view). Source checkpoint1f95a05; no merge/deploy. Detailed receipt: docs/reports/deep-workshop/DELIVERY.json.
+
 ## 2026-11-16 — Deep workshop candidate (Draft, not published)
 
 Branch `codex/deep-workshop-craftable`, based on main `e1395d9`. Current task explicitly requires owner approval before main changes; previous general publication authorization does not apply to this draft. No merge/deployment. [Audit](deep-workshop/AUDIT.md), [competitor UX](deep-workshop/COMPETITOR_UX.md), [visual/flow plan](deep-workshop/UX_VISUAL_PLAN.md), [snapshot pipeline](deep-workshop/DATA_PIPELINE.md).

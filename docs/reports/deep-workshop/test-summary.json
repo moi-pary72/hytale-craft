@@ -30,5 +30,12 @@
   ],
   "base_main": "e1395d969ba8f208f86d99c794b6551224508794",
   "physical_android": false,
-  "ci": "pending draft PR checks"
+  "ci": {
+    "source_commit": "1f95a05c4121d8f9d52a2307fcde866f38eb6820",
+    "conclusion": "success",
+    "runs": [
+      "https://github.com/moi-pary72/hytale-craft/actions/runs/43815053546",
+      "https://github.com/moi-pary72/hytale-craft/actions/runs/43815047303"
+    ]
+  }
 }
