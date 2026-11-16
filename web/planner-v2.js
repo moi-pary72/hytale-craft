@@ -25,13 +25,14 @@ function requirements(recipe,options){
  const available=options.stations,known=options.knownRecipes;
  function station(e){const v=available&&Object.hasOwn(available,e.station_id)?available[e.station_id]:undefined;if(v===undefined)return available?'missing':'unknown';const actual=typeof v==='number'?{level:v}:v;if(!obj(actual)||!integer(actual.level,0,MAX))fail('canonicalOptions');let unknown=e.min_level===null||e.type==='unknown'||actual.type===undefined;if(e.min_level!==null&&actual.level<e.min_level)return 'missing';if(actual.type!==undefined&&actual.type!==e.type)return 'missing';for(const [required,provided] of [['categories','categories'],['augment_tags','augment_tags']])if(e[required].length){if(!Array.isArray(actual[provided]))unknown=true;else if(!e[required].every(x=>actual[provided].includes(x)))return 'missing'}return unknown?'unknown':'available'}
  const entries=recipe.station_requirements.entries.map(e=>({...e,categories:[...e.categories],augment_tags:[...e.augment_tags],status:station(e)})),mode=recipe.station_requirements.mode;
- let status=!entries.length?'available':mode==='unknown'?'unknown':mode==='any'?(entries.some(e=>e.status==='available')?'available':entries.some(e=>e.status==='unknown')?'unknown':'missing'):(entries.some(e=>e.status==='missing')?'missing':entries.some(e=>e.status==='unknown')?'unknown':'available');
+ let status=mode==='unknown'?'unknown':!entries.length?'available':mode==='any'?(entries.some(e=>e.status==='available')?'available':entries.some(e=>e.status==='unknown')?'unknown':'missing'):(entries.some(e=>e.status==='missing')?'missing':entries.some(e=>e.status==='unknown')?'unknown':'available');
  const k=recipe.requirements.knowledge_required,m=recipe.requirements.memories_level;let unlock=k===null||m===null?'unknown':'available';if(k===true){if(!known)unlock='unknown';else if(!known.includes(recipe.id))unlock='missing'}if(m!==null){if(options.memoriesLevel===undefined){if(unlock!=='missing')unlock='unknown'}else if(options.memoriesLevel<m)unlock='missing'}
  return {recipe_id:recipe.id,mode,entries,station_status:status,unlock_status:unlock,requirements:{...recipe.requirements}};
 }
 function run(model,goals,inventory={},options={}){
  const {tables,producers}=model;
  if(!obj(goals)||!obj(inventory)||!obj(options)||Object.keys(goals).length>500||Object.keys(inventory).length>10000)fail('canonicalOptions');
+ if(options.externalItems!==undefined&&(!Array.isArray(options.externalItems)||options.externalItems.length>10000||options.externalItems.some(id=>typeof id!=='string'||!tables.items.has(id))))fail('canonicalOptions');const external=new Set(options.externalItems||[]);
  for(const k of ['allowSalvage','strictRequirements'])if(options[k]!==undefined&&typeof options[k]!=='boolean')fail('canonicalOptions');
  if(options.knownRecipes!==undefined&&(!Array.isArray(options.knownRecipes)||options.knownRecipes.length>10000||options.knownRecipes.some(x=>typeof x!=='string')))fail('canonicalOptions');if(options.memoriesLevel!==undefined&&!integer(options.memoriesLevel,1,MAX))fail('canonicalOptions');if(options.stations!==undefined&&!obj(options.stations))fail('canonicalOptions');for(const k of ['recipeChoices','materialChoices'])if(options[k]!==undefined&&!obj(options[k]))fail('canonicalOptions');
  let state={stock:Object.assign(Object.create(null),inventory),totals:Object.create(null),steps:Object.create(null),requirements:Object.create(null),waste:Object.create(null),consumed:Object.create(null)},calls=0,trials=0;
@@ -51,7 +52,7 @@ function run(model,goals,inventory={},options={}){
   for(const o of term.options){if(o.kind==='item'){if(!forced||forced===o.id)actions.push(t=>walk(t,o.id,q,stack,depth))}else{const g=tables.groups.get(o.id);if(!forced||g.members.some(m=>m.item_id===forced))actions.push(t=>group(t,g,q,stack,depth,forced))}}
   if(!actions.length)fail('canonicalChoice');return choose(s,actions);
  }
- function walk(s,id,n,stack,depth){if(++calls>20000||depth>100)fail('canonicalLimit');n=use(s,id,n,depth>0);if(!n)return s;if(stack.includes(id))fail('canonicalCycle');
+ function walk(s,id,n,stack,depth){if(++calls>20000||depth>100)fail('canonicalLimit');n=use(s,id,n,depth>0);if(!n)return s;if(external.has(id)){add(s.totals,id,n);if(depth>0)add(s.consumed,id,n);return s}if(stack.includes(id))fail('canonicalCycle');
   const explicit=own(options.recipeChoices,id);if(explicit!==undefined&&typeof explicit!=='string')fail('canonicalChoice');const allRecipes=producers.get(id)||[];if(allRecipes.length&&allRecipes.every(r=>r.kind==='unknown'))fail('canonicalIncomplete');let recipes=allRecipes.filter(r=>r.kind!=='unknown');if(explicit){recipes=recipes.filter(r=>r.id===explicit);if(!recipes.length)fail('canonicalChoice');if(recipes[0].kind==='salvage'&&!options.allowSalvage)fail('canonicalSalvage')}else recipes=recipes.filter(r=>r.kind!=='salvage'||options.allowSalvage);
   if(!recipes.length){add(s.totals,id,n);if(depth>0)add(s.consumed,id,n);return s}
   const ancestry=[...stack,id];recipes.sort((a,b)=>compare(a.id,b.id));return choose(s,recipes.map(r=>t=>{if(['blocked','incomplete'].includes(r.status))fail('canonicalIncomplete');const checks=requirements(r,options);if(options.strictRequirements&&(checks.station_status!=='available'||checks.unlock_status!=='available'))fail('canonicalRequirements');const out=r.outputs.find(o=>o.item_id===id),batches=Math.ceil(n/out.quantity);for(let i=0;i<r.inputs.length;i++)t=slot(t,r,i,batches,ancestry,depth+1);for(const o of r.outputs)add(t.stock,o.item_id,times(o.quantity,batches));if(use(t,id,n,depth>0))fail('canonicalNoRoute');add(t.steps,r.id,batches);t.requirements[r.id]=checks;return t}));
@@ -74,10 +75,10 @@ function prepare(input){
  }).sort((a,b)=>compare(a.id,b.id));
  function search(query='',filters={}){
   if(typeof query!=='string'||query.length>200||!obj(filters))fail('canonicalOptions');
-  const {offset=0,limit=50,category,station,kind}=filters;
-  if(!integer(offset,0,10000)||!integer(limit,1,100)||[category,station,kind].some(v=>v!==undefined&&typeof v!=='string')||(kind!==undefined&&!['craft','processing','salvage','unknown'].includes(kind)))fail('canonicalOptions');
+  const {offset=0,limit=50,category,station,kind,catalogLimit=10000}=filters;
+  if(!integer(catalogLimit,1,10000)||!integer(offset,0,10000)||!integer(limit,1,100)||[category,station,kind].some(v=>v!==undefined&&typeof v!=='string')||(kind!==undefined&&!['craft','processing','salvage','unknown'].includes(kind)))fail('canonicalOptions');
   const tokens=normalize(query).trim().split(/\s+/).filter(Boolean),items=[];let total=0;
-  for(const row of index){if(!tokens.every(t=>row.text.includes(t))||(category!==undefined&&row.category!==category))continue;
+  for(const row of catalogLimit===10000?index:index.slice(0,catalogLimit)){if(!tokens.every(t=>row.text.includes(t))||(category!==undefined&&row.category!==category))continue;
    const recipes=row.recipes.filter(r=>(kind===undefined||r.kind===kind)&&(station===undefined||r.station_requirements.entries.some(e=>e.station_id===station)));
    if((kind!==undefined||station!==undefined)&&!recipes.length)continue;
    if(total>=offset&&items.length<limit)items.push({id:row.id,names:{...row.names},category:row.category,recipe_ids:recipes.map(r=>r.id)});
