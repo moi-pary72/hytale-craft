@@ -1,4 +1,4 @@
-import unittest,tempfile,json,hashlib
+import unittest,tempfile,json,hashlib,shutil
 from pathlib import Path
 from scripts.verify_real_data_lab import verify,ROOT
 class PreservationTests(unittest.TestCase):
@@ -9,6 +9,11 @@ class PreservationTests(unittest.TestCase):
     (p/name).write_bytes(b'{}');files[name]={'sha256':hashlib.sha256(b'{}').hexdigest()}
    manifest=p/'checks.json';manifest.write_text(json.dumps({'files':files,'source_revision':'synthetic','normalization_date':'2026-11-16'}));self.assertTrue(verify(p,manifest)['raw_integrity']);(p/'items.json').write_bytes(b'bad')
    with self.assertRaisesRegex(ValueError,'checksum'):verify(p,manifest)
+ def test_original_art_manifest_rejects_corrupt_bytes(self):
+  from scripts.item_visuals_integrity import verify as verify_art
+  with tempfile.TemporaryDirectory(dir=ROOT/'.private') as temp:
+   folder=Path(temp);target=folder/'assets/item-system';target.parent.mkdir();shutil.copytree(ROOT/'assets/item-system',target);self.assertEqual(verify_art(folder)['schema'],1);p=target/'categories.webp';p.write_bytes(p.read_bytes()+b'changed')
+   with self.assertRaisesRegex(ValueError,'integrity'):verify_art(folder)
  def test_public_paths_rejected(self):
   with self.assertRaises(ValueError):verify(ROOT/'dist')
 if __name__=='__main__':unittest.main()

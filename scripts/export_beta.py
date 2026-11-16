@@ -5,6 +5,9 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def safe(value):return json.dumps(value,ensure_ascii=True).replace('<','\\u003c').replace('>','\\u003e').replace('&','\\u0026')
 def export(output):
+    try:from item_visuals_integrity import verify as verify_visuals
+    except ModuleNotFoundError:from scripts.item_visuals_integrity import verify as verify_visuals
+    verify_visuals(ROOT)
     html=(ROOT/'beta.html').read_text()
     data={f'locales/{prefix}{lang}.json':(ROOT/'locales'/prefix/f'{lang}.json').read_text() for prefix in ('','beta/') for lang in ('en','ru','es','pt-BR')}
     images={('item-'+p.stem if directory=='assets/learning-items' else p.stem):'data:image/webp;base64,'+base64.b64encode(p.read_bytes()).decode() for directory in ('assets/art-pair','assets/ui-v2','assets/learning-items','assets/item-system') for p in (ROOT/directory).glob('*.webp')}

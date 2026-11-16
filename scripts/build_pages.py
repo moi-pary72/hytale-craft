@@ -56,9 +56,9 @@ def build(policy='user-only', site_url=None, base_path='/'):
             src=ROOT/'assets/learning-items'/name
             if src.is_symlink() or hashlib.sha256(src.read_bytes()).hexdigest()!=sha:raise ValueError('Learning art integrity')
             paths.append('assets/learning-items/'+name)
-        visual=json.loads((ROOT/'assets/item-system/manifest.json').read_text())
-        for name,meta in visual['files'].items():
-            if name!='categories.webp' or hashlib.sha256((ROOT/'assets/item-system'/name).read_bytes()).hexdigest()!=meta['sha256']:raise ValueError('Item visual integrity')
+        try:from item_visuals_integrity import verify as verify_visuals
+        except ModuleNotFoundError:from scripts.item_visuals_integrity import verify as verify_visuals
+        verify_visuals(ROOT)
         # Legacy SVG scenes are excluded from beta output.
         for name in paths:
             src = ROOT/name

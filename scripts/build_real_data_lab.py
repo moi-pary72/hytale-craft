@@ -56,6 +56,9 @@ def normalize(manifest,items,recipes,hashes,normalized_on=None):
 def build(input_dir,output,acknowledge=False,root=ROOT,normalized_on=None):
  if not acknowledge:raise ValueError('Explicit --local-research-only acknowledgement required; it is not a distribution licence')
  if normalized_on is not None:datetime.strptime(normalized_on,'%Y-%m-%d')
+ try:from item_visuals_integrity import verify as verify_visuals
+ except ModuleNotFoundError:from scripts.item_visuals_integrity import verify as verify_visuals
+ verify_visuals(root)
  root=Path(root);output=base.private_path(output,root);inp=base.private_path(input_dir,root)
  if output.exists():raise ValueError('Use a new private output directory; existing research builds are preserved')
  raw={}
