@@ -157,3 +157,11 @@ Studio enquiry already sent by owner; no duplicate communication. Review PR13 an
 - Added original private prepared canonical snapshot, bounded multilingual filtered/paginated search, up to10,000inventory keys; unchanged single-shot/legacy API and saved keys. Existing lab compiles once for repeat calculations.
 - Generated5,000/9,999synthetic methods; verified existing offline importer with5,000records, publication remains blocked. Added Node and mobile Chromium scale regressions to CI.
 - Approved artwork/CSS/home/navigation/locales unchanged. Publication evidence and Drive backup links are appended to the release PR/passport after checks, not presumed in advance.
+
+## 2026-11-16 — Public release of Deep Workshop / Visual Item System
+
+Owner authorized integration16→17→18→19 and publication on the existing Cloudflare project. No new PR/project or private user-preview is required. Public user-only allowlist includes Deep Workshop, catalogue/search, Beautiful/Compact, inventory, item details/craft paths, shared plans/projects/advanced tools, What Can I Craft and original category artwork. Existing storage keys remain unchanged; research source/bindings are excluded. Real3219/638/1471 snapshot stays private and was used for compatibility only.
+
+Current evidence does not grant public whole-dataset redistribution of HySphere (https://hysphere.app/about#data-license). Source.gs terms allow linked figures, not wholesale republication; official recipe docs describe schema, not a released vanilla recipe catalogue. No independently verified rights-cleared game recipe selection has been established. Public count remains **0 true game recipes**;4basic +8advancedoriginal educational methods are labelled as such. Do not claim the research catalogue is public. No advertising/paid service or repeat studio request.
+
+Public build manifest now records exact deployment commit for real-host verification. Preserve prelaunchmain e1395d969ba8f208f86d99c794b6551224508794 as a remote backup branch plus safe code archive; rollback uses a normal reviewed revert commit, never force/reset/delete history. Final merge/deploy evidence is appended to project passport after real-host checks.

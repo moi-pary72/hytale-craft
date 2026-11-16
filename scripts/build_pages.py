@@ -3,6 +3,8 @@
 import argparse
 import hashlib
 import json
+import os
+import subprocess
 import re
 import shutil
 import tempfile
@@ -22,6 +24,11 @@ def build(policy='user-only', site_url=None, base_path='/'):
         if u.scheme != 'https' or not u.hostname or u.username or u.password or u.query or u.fragment or u.path not in ('', '/'):
             raise ValueError('SITE_URL must be an HTTPS origin without credentials, query or path')
         site_url = site_url.rstrip('/')
+    revision = os.environ.get('CF_PAGES_COMMIT_SHA') or os.environ.get('GITHUB_SHA')
+    if not revision:
+        revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
+    if not re.fullmatch(r'[0-9a-f]{40}', revision):
+        raise ValueError('Invalid build revision')
     (ROOT/'.private').mkdir(exist_ok=True)
     target = ROOT / 'dist'
     if target.is_symlink():
@@ -94,7 +101,7 @@ def build(policy='user-only', site_url=None, base_path='/'):
         (out/'_redirects').write_text('/preview.html / 302\n/art-preview.html / 302\n/beta.html / 302\n')
         (out/'_headers').write_text("/*\n  X-Robots-Tag: noindex, nofollow\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: no-referrer\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'\n  Cache-Control: no-cache\n")
         hashes = {str(p.relative_to(out)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(out.rglob('*')) if p.is_file()}
-        (out/'build-manifest.json').write_text(json.dumps({'schema':1, 'testing':True, 'data_policy':policy, 'files':hashes}, indent=2)+'\n')
+        (out/'build-manifest.json').write_text(json.dumps({'schema':1, 'testing':True, 'data_policy':policy, 'revision':revision, 'real_game_recipes':0, 'files':hashes}, indent=2)+'\n')
         if target.exists():
             shutil.rmtree(target)
         shutil.copytree(out, target)
