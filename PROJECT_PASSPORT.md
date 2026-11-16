@@ -1,3 +1,15 @@
+Delivery: [Draft PR16](https://github.com/moi-pary72/hytale-craft/pull/16), [source CI](https://github.com/moi-pary72/hytale-craft/actions/runs/43815053546), [mobile contact](https://drive.google.com/file/d/1SEoQ3RC6w3s2WyFi1LBMy0KQLOvShzE0/view), [verified source ZIP](https://drive.google.com/file/d/1ztRHUuCb4kUREnJS2MgxP8awQtfE8deH/view). Source checkpoint1f95a05; no merge/deploy. Detailed receipt: docs/reports/deep-workshop/DELIVERY.json.
+
+## 2026-11-16 — Deep workshop candidate (Draft, not published)
+
+Branch `codex/deep-workshop-craftable`, based on main `e1395d9`. Current task explicitly requires owner approval before main changes; previous general publication authorization does not apply to this draft. No merge/deployment. [Audit](docs/deep-workshop/AUDIT.md), [competitor UX](docs/deep-workshop/COMPETITOR_UX.md), [visual/flow plan](docs/deep-workshop/UX_VISUAL_PLAN.md), [snapshot pipeline](docs/deep-workshop/DATA_PIPELINE.md).
+
+First working phase adds a branded inventory-discovery sheet, illustrated catalogue and item/raw-material details, nested craft paths/used-in links, bounded independent capacities and a separate simultaneous one-item-per-goal preview. Existing planner, storage, projects, editor, imports and native sheet/history are reused.7 original learning item illustrations; no game dataset, rarity/station invention, ads or paid services. Four locales.4classic+4advanced original learning methods remain;0verified game recipes. Canonical lab remains separate; discovery currently supports the legacy single-output collection. Private immutable snapshot history wraps existing v2 validation/diff; publication remains blocked.
+
+The10home scenes, layout, motion, mode/navigation and base CSS are unchanged. Candidate screenshots/tests/backups and Draft PR link are recorded under `docs/reports/deep-workshop` after verification. Physical Android/IME/screen-reader and a full canonical discovery integration remain later work.
+
+---
+
 ## 2026-11-15 — catalogue search and prepared planner
 
 Expanded source search and licence decisions: [report](docs/CATALOG_SEARCH_2026-11-15.md). No newly authorized real dataset, no new real imports. Studio enquiry already sent by owner, reply pending. Prepared immutable calculation snapshot and multilingual paginated search tested with5,000/9,999original synthetic methods; shared inventory up to10,000IDs. Design, existing user storage and publication rights gate preserved. This is infrastructure, not a populated game catalogue; public payload/learning controls still require reviewed adaptation for an authorized real source. [Measurements](docs/reports/CATALOG_SCALE_RESULTS.json).

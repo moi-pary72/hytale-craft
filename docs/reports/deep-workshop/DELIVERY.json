@@ -1,0 +1,77 @@
+{
+  "pr": "https://github.com/moi-pary72/hytale-craft/pull/16",
+  "source_commit": "1f95a05c4121d8f9d52a2307fcde866f38eb6820",
+  "contact": {
+    "accepted_input": "file_uri",
+    "success": true,
+    "id": "1SEoQ3RC6w3s2WyFi1LBMy0KQLOvShzE0",
+    "title": "Deep Workshop \u2014 Mobile Contact Sheet.jpg",
+    "file_name": "Deep Workshop \u2014 Mobile Contact Sheet.jpg",
+    "mime_type": "image/jpeg",
+    "url": "https://drive.google.com/file/d/1SEoQ3RC6w3s2WyFi1LBMy0KQLOvShzE0/view?usp=drivesdk",
+    "parent_id": "1rcxc2tEV8_sn0n7YuyxzWvISWJSjUa_c",
+    "structuredContent": {
+      "accepted_input": "file_uri",
+      "success": true,
+      "id": "1SEoQ3RC6w3s2WyFi1LBMy0KQLOvShzE0",
+      "title": "Deep Workshop \u2014 Mobile Contact Sheet.jpg",
+      "file_name": "Deep Workshop \u2014 Mobile Contact Sheet.jpg",
+      "mime_type": "image/jpeg",
+      "url": "https://drive.google.com/file/d/1SEoQ3RC6w3s2WyFi1LBMy0KQLOvShzE0/view?usp=drivesdk",
+      "parent_id": "1rcxc2tEV8_sn0n7YuyxzWvISWJSjUa_c"
+    }
+  },
+  "source": {
+    "accepted_input": "file_uri",
+    "success": true,
+    "id": "1ztRHUuCb4kUREnJS2MgxP8awQtfE8deH",
+    "title": "Hytale Craft \u2014 Deep Workshop \u2014 Source 1f95a05.zip",
+    "file_name": "Hytale Craft \u2014 Deep Workshop \u2014 Source 1f95a05.zip",
+    "mime_type": "application/zip",
+    "url": "https://drive.google.com/file/d/1ztRHUuCb4kUREnJS2MgxP8awQtfE8deH/view?usp=drivesdk",
+    "parent_id": "1immtOZOtF0oJqbCj5ak5QFsVZsga1QXh",
+    "structuredContent": {
+      "accepted_input": "file_uri",
+      "success": true,
+      "id": "1ztRHUuCb4kUREnJS2MgxP8awQtfE8deH",
+      "title": "Hytale Craft \u2014 Deep Workshop \u2014 Source 1f95a05.zip",
+      "file_name": "Hytale Craft \u2014 Deep Workshop \u2014 Source 1f95a05.zip",
+      "mime_type": "application/zip",
+      "url": "https://drive.google.com/file/d/1ztRHUuCb4kUREnJS2MgxP8awQtfE8deH/view?usp=drivesdk",
+      "parent_id": "1immtOZOtF0oJqbCj5ak5QFsVZsga1QXh"
+    }
+  },
+  "preview": {
+    "accepted_input": "file_uri",
+    "success": true,
+    "id": "1fNV-__ielfWiEPQXKxPjX4cjxd4VerHt",
+    "title": "Deep Workshop \u2014 Offline Review.html",
+    "file_name": "Deep Workshop \u2014 Offline Review.html",
+    "mime_type": "text/html",
+    "url": "https://drive.google.com/file/d/1fNV-__ielfWiEPQXKxPjX4cjxd4VerHt/view?usp=drivesdk",
+    "parent_id": "1rcxc2tEV8_sn0n7YuyxzWvISWJSjUa_c",
+    "structuredContent": {
+      "accepted_input": "file_uri",
+      "success": true,
+      "id": "1fNV-__ielfWiEPQXKxPjX4cjxd4VerHt",
+      "title": "Deep Workshop \u2014 Offline Review.html",
+      "file_name": "Deep Workshop \u2014 Offline Review.html",
+      "mime_type": "text/html",
+      "url": "https://drive.google.com/file/d/1fNV-__ielfWiEPQXKxPjX4cjxd4VerHt/view?usp=drivesdk",
+      "parent_id": "1rcxc2tEV8_sn0n7YuyxzWvISWJSjUa_c"
+    }
+  },
+  "source_readback": {
+    "path": "/workspace/attachments/bf3c5a44-64a2-4acc-b03f-ae3eb8a3359d/Hytale Craft \u2014 Deep Workshop \u2014 Source 1f95a05.zip",
+    "size_bytes": 1395988,
+    "sha256": "bd38113dcc29760d418447ab1cefc4516102f660c03c42e429c4ba8be23b9522",
+    "verified": true
+  },
+  "preview_readback": {
+    "path": "/workspace/attachments/6fe8e16c-40b2-44b5-852b-c47e5a953e29/Deep Workshop \u2014 Offline Review.html",
+    "size_bytes": 2202601,
+    "sha256": "3f6a3dff47962f498c1a295c4d4b2eaf21e6c91fa22f06b8f278e69555f89b84",
+    "verified": true
+  },
+  "publication": false
+}

@@ -1,3 +1,11 @@
+CI follow-up (Draft16): fixed inconsistent10s navigation deadline versus15s readiness assertion in the existing slow-network browser test; DOMContentLoaded and15s deadline, original15s performance assertion retained. Runtime/art/storage unchanged.
+
+Delivery: [Draft PR16](https://github.com/moi-pary72/hytale-craft/pull/16), [source CI](https://github.com/moi-pary72/hytale-craft/actions/runs/43815053546), [mobile contact](https://drive.google.com/file/d/1SEoQ3RC6w3s2WyFi1LBMy0KQLOvShzE0/view), [verified source ZIP](https://drive.google.com/file/d/1ztRHUuCb4kUREnJS2MgxP8awQtfE8deH/view). Source checkpoint1f95a05; no merge/deploy. Detailed receipt: docs/reports/deep-workshop/DELIVERY.json.
+
+## 2026-11-16 — Deep workshop / inventory discovery draft
+
+Independent branch from e1395d9. Audited current UI/engine/importers and selected public competitor UX without copying datasets. Reused existing calculation, storage and history; implemented branded slots/cards/detail/path/used-in and inventory feasibility with honest independent-vs-shared semantics. Added private content-addressed snapshot index over the existing canonical-v2 importer; rights gate unchanged. First browser review caught a shifted canonical-lab entrance and an offline generic-icon path; both corrected before review. No main change, merge, deploy, external messages or monetization. Links and final QA/backups recorded in docs/reports/deep-workshop.
+
 # История разработки
 
 ## 2026-11-14 — аудит, ID-каталог и исправление карточек
