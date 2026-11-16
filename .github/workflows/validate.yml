@@ -25,6 +25,7 @@ jobs:
       - run: node tests/craftable.test.js
       - run: node tests/lab_adapter.test.js
       - run: node tests/item_visuals.test.js
+      - run: node tests/stage19.test.js
       - name: Build and audit public beta boundary
         run: |
           python scripts/build_pages.py --data-policy user-only
@@ -47,6 +48,7 @@ jobs:
           python tests/deep_browser.py
           python tests/real_lab_browser.py
           python tests/stage18_browser.py
+          python tests/stage19_browser.py
       - name: Save mobile beta screenshots and performance evidence
         uses: actions/upload-artifact@v4
         with:
