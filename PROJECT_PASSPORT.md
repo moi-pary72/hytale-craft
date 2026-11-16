@@ -1,3 +1,8 @@
+
+## 2026-11-16 — Real Data Lab (private research, not released)
+
+[Report](docs/real-data-lab/REPORT.md) / [aggregate QA](docs/real-data-lab/AGGREGATE_QA.json). Branch codex/real-data-lab depends on Draft16; main/sites unchanged. Private HySphere August snapshot:3219items,638supported material recipes (623single+15multi),1471quarantined; exact build unknown. New offline private canonical adapter, branded paginated viewer, inventory/plan/discovery, explicit external-input choices and source arithmetic/mobile QA. No real rows/assets in Git or public CI; only own code/synthetic tests/aggregate reports. See report for rights/limitations and local resume paths. No commercial clearance, merge, deployment or external message.
+
 Delivery: [Draft PR16](https://github.com/moi-pary72/hytale-craft/pull/16), [source CI](https://github.com/moi-pary72/hytale-craft/actions/runs/43815053546), [mobile contact](https://drive.google.com/file/d/1SEoQ3RC6w3s2WyFi1LBMy0KQLOvShzE0/view), [verified source ZIP](https://drive.google.com/file/d/1ztRHUuCb4kUREnJS2MgxP8awQtfE8deH/view). Source checkpoint1f95a05; no merge/deploy. Detailed receipt: docs/reports/deep-workshop/DELIVERY.json.
 
 ## 2026-11-16 — Deep workshop candidate (Draft, not published)

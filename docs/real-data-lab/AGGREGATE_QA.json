@@ -1,0 +1,76 @@
+{
+  "scope": "Aggregate evidence only; no source rows, item IDs or ingredient lists",
+  "arithmetic": {
+    "source_revision": "2026-08-12T11:09:57.625Z",
+    "items": 3219,
+    "supported_recipes": 638,
+    "compared_to_historical_legacy": 354,
+    "partial_source_paths_among_compared": 223,
+    "complete_source_paths_among_compared": 131,
+    "cycles_blocked": 183,
+    "skipped_different_method_coverage": 86,
+    "multi_output_batches_checked": 15,
+    "station_level_checks": 150,
+    "alternative_output_targets": 1,
+    "simultaneous_plan_targets": 3,
+    "errors": 0,
+    "official_game_verification": false,
+    "deepest_steps": 4,
+    "manual_external_compared": 620,
+    "manual_external_cycles_remaining": 0,
+    "manual_external_deepest_steps": 8
+  },
+  "mobile": {
+    "source_revision": "2026-08-12T11:09:57.625Z",
+    "physical_android": false,
+    "public_upload": false,
+    "discovery": {
+      "checked": 1,
+      "available": 1,
+      "blocked": 0,
+      "elapsed": 0.5
+    },
+    "unresolved_and_cycles": {
+      "blocked": 1100,
+      "cycle": "cycle"
+    },
+    "slow_network": {
+      "ready_seconds": 3.073,
+      "cpu_throttling": 4,
+      "latency_ms": 150,
+      "download_bytes_per_second": 150000,
+      "prepareAndLoadMs": 1850.6000000014901,
+      "bytes": 2098714
+    },
+    "widths": [
+      {
+        "width": 320,
+        "ready_seconds": 0.598,
+        "prepareAndLoadMs": 293.6000000014901,
+        "bytes": 2098714
+      },
+      {
+        "width": 360,
+        "ready_seconds": 0.461,
+        "prepareAndLoadMs": 191.80000000074506,
+        "bytes": 2098714
+      },
+      {
+        "width": 393,
+        "ready_seconds": 0.479,
+        "prepareAndLoadMs": 204.70000000298023,
+        "bytes": 2098714
+      },
+      {
+        "width": 430,
+        "ready_seconds": 0.432,
+        "prepareAndLoadMs": 216.80000000074506,
+        "bytes": 2098714
+      }
+    ],
+    "javascript_errors": [],
+    "real_items": 3219,
+    "real_material_recipes": 638,
+    "all_checks_passed": true
+  }
+}

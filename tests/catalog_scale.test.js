@@ -20,3 +20,4 @@ test('10000-table boundaries stay explicit and technical preparation grants no p
  assert.equal(p.prepare(makeCatalog(9999)).stats.items,10000);assert.throws(()=>p.prepare(makeCatalog(10000)),/canonicalInvalid/);
  const adapter=require('../web/canonical-adapter.js'),d=makeCatalog(10);assert.equal(adapter.prepare(d).stats.recipes,10);assert.equal((await adapter.publication(d)).allowed,false);
 });
+test('catalogue sample limits keep full dependency snapshot and independent pagination',()=>{const plan=p.prepare(makeCatalog(1000));assert.equal(plan.search('',{catalogLimit:100}).total,100);assert.equal(plan.search('',{catalogLimit:1000,limit:24}).total,1000);assert.equal(plan.search('',{catalogLimit:1000,offset:24,limit:24}).items.length,24);assert.throws(()=>plan.search('',{catalogLimit:0}),/canonicalOptions/);assert.throws(()=>plan.search('',{catalogLimit:10001}),/canonicalOptions/);assert.equal(plan.stats.items,1001)});
