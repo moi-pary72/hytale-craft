@@ -5,10 +5,11 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def audit(directory=None):
     out=Path(directory or ROOT/'dist');manifest=json.loads((out/'build-manifest.json').read_text())
-    allowed={'index.html','404.html','robots.txt','_headers','_redirects','build-manifest.json','sitemap.xml','web/build-config.js','web/planner.js','web/preview/i18n.js','web/beta/app.js','web/beta/style.css','web/beta/examples.js', 'web/beta/workspace.js','web/planner-v2.js','web/canonical-adapter.js','web/beta/advanced-data.json'}
+    allowed={'web/craftable.js','web/beta/deep.js','web/beta/deep.css','index.html','404.html','robots.txt','_headers','_redirects','build-manifest.json','sitemap.xml','web/build-config.js','web/planner.js','web/preview/i18n.js','web/beta/app.js','web/beta/style.css','web/beta/examples.js', 'web/beta/workspace.js','web/planner-v2.js','web/canonical-adapter.js','web/beta/advanced-data.json'}
     allowed.update('locales/'+prefix+lang+'.json' for prefix in ('','beta/') for lang in ('en','ru','es','pt-BR'))
     allowed.update('assets/art-pair/'+name+'.webp' for name in ('fight-poster','gather-poster','fight-atlas','gather-atlas'))
     allowed.update('assets/ui-v2/'+name+'.webp' for name in ('defend', 'build', 'survive', 'farm', 'explore', 'boss', 'skills', 'workshop', 'world', 'world-mobile', 'logo', 'frame', 'nav-home', 'nav-inventory', 'nav-plan', 'nav-more'))
+    allowed.update('assets/learning-items/'+k+'.webp' for k in ('blade','strip','stone','fibre','pick','panel','wood'))
     files={str(p.relative_to(out)) for p in out.rglob('*') if p.is_file()}
     if files-allowed:raise ValueError('Unexpected public files: '+str(sorted(files-allowed)))
     if files-{'build-manifest.json'}!=set(manifest['files']):raise ValueError('Manifest membership mismatch')

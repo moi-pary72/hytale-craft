@@ -1,3 +1,7 @@
+## 2026-11-16 — Deep workshop / inventory discovery draft
+
+Independent branch from e1395d9. Audited current UI/engine/importers and selected public competitor UX without copying datasets. Reused existing calculation, storage and history; implemented branded slots/cards/detail/path/used-in and inventory feasibility with honest independent-vs-shared semantics. Added private content-addressed snapshot index over the existing canonical-v2 importer; rights gate unchanged. First browser review caught a shifted canonical-lab entrance and an offline generic-icon path; both corrected before review. No main change, merge, deploy, external messages or monetization. Links and final QA/backups recorded in docs/reports/deep-workshop.
+
 # История разработки
 
 ## 2026-11-14 — аудит, ID-каталог и исправление карточек

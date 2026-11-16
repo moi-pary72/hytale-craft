@@ -1,0 +1,34 @@
+{
+  "local_tests": {
+    "python": 63,
+    "js": 54,
+    "deep": 6,
+    "beta": 9,
+    "modes": 4,
+    "advanced": 8,
+    "legacy": 1,
+    "preview": 9,
+    "pages": 1,
+    "art": 4,
+    "github-pages": 1
+  },
+  "browser_total": 43,
+  "main_modified": false,
+  "deployed": false,
+  "real_game_recipes_added": 0,
+  "supported_locales": [
+    "en",
+    "ru",
+    "es",
+    "pt-BR"
+  ],
+  "mobile_widths": [
+    320,
+    360,
+    393,
+    430
+  ],
+  "base_main": "e1395d969ba8f208f86d99c794b6551224508794",
+  "physical_android": false,
+  "ci": "pending draft PR checks"
+}

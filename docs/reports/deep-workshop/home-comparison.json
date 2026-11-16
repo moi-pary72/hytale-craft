@@ -1,0 +1,38 @@
+[
+  {
+    "width": 320,
+    "same_dimensions": true,
+    "identical_pixels": true,
+    "changed_pixels": 0,
+    "changed_fraction": 0.0,
+    "mean_channel_difference": 0.0,
+    "visual_regression_threshold_passed": true
+  },
+  {
+    "width": 360,
+    "same_dimensions": true,
+    "identical_pixels": true,
+    "changed_pixels": 0,
+    "changed_fraction": 0.0,
+    "mean_channel_difference": 0.0,
+    "visual_regression_threshold_passed": true
+  },
+  {
+    "width": 393,
+    "same_dimensions": true,
+    "identical_pixels": true,
+    "changed_pixels": 0,
+    "changed_fraction": 0.0,
+    "mean_channel_difference": 0.0,
+    "visual_regression_threshold_passed": true
+  },
+  {
+    "width": 430,
+    "same_dimensions": true,
+    "identical_pixels": true,
+    "changed_pixels": 0,
+    "changed_fraction": 0.0,
+    "mean_channel_difference": 0.0,
+    "visual_regression_threshold_passed": true
+  }
+]

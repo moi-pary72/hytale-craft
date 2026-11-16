@@ -28,7 +28,7 @@ def build(policy='user-only', site_url=None, base_path='/'):
         raise ValueError('dist must not be a symlink')
     with tempfile.TemporaryDirectory(prefix='pages-', dir=ROOT / '.private') as tmp:
         out = Path(tmp)
-        paths = ['web/planner.js', 'web/preview/i18n.js', 'web/beta/app.js', 'web/beta/style.css', 'web/beta/examples.js', 'web/beta/workspace.js', 'web/planner-v2.js', 'web/canonical-adapter.js']
+        paths = ['web/craftable.js', 'web/beta/deep.js', 'web/beta/deep.css', 'web/planner.js', 'web/preview/i18n.js', 'web/beta/app.js', 'web/beta/style.css', 'web/beta/examples.js', 'web/beta/workspace.js', 'web/planner-v2.js', 'web/canonical-adapter.js']
         paths += ['locales/' + lang + '.json' for lang in LANGUAGES]
         paths += ['locales/beta/' + lang + '.json' for lang in LANGUAGES]
         paths += ['assets/art-pair/' + name + '.webp' for name in ('fight-poster','gather-poster','fight-atlas','gather-atlas')]
@@ -50,6 +50,12 @@ def build(policy='user-only', site_url=None, base_path='/'):
             if src.is_symlink() or hashlib.sha256(src.read_bytes()).hexdigest()!=meta['sha256']:
                 raise ValueError('UI artwork checksum mismatch: '+name)
             paths.append('assets/ui-v2/'+name)
+        item_manifest=json.loads((ROOT/'assets/learning-items/manifest.json').read_text())
+        if set(item_manifest)!={k+'.webp' for k in ('blade','strip','stone','fibre','pick','panel','wood')}:raise ValueError('Unexpected learning art')
+        for name,sha in item_manifest.items():
+            src=ROOT/'assets/learning-items'/name
+            if src.is_symlink() or hashlib.sha256(src.read_bytes()).hexdigest()!=sha:raise ValueError('Learning art integrity')
+            paths.append('assets/learning-items/'+name)
         # Legacy SVG scenes are excluded from beta output.
         for name in paths:
             src = ROOT/name
