@@ -1,0 +1,76 @@
+{
+  "methods": {
+    "methods": 638,
+    "one_batch_verified": 636,
+    "self_seeded": 2,
+    "unresolved_selectors": 0,
+    "errors": 0
+  },
+  "mobile": {
+    "source_revision": "2026-08-12T11:09:57.625Z",
+    "physical_android": false,
+    "public_upload": false,
+    "observed_private_interpretations": 7,
+    "real_method_selection": true,
+    "real_multiple_outputs": true,
+    "discovery": {
+      "checked": 1,
+      "available": 1,
+      "blocked": 0,
+      "elapsed": 0.5
+    },
+    "source_detach_preserved_bytes": true,
+    "unresolved_and_cycles": {
+      "blocked": 1100,
+      "cycle": "cycle"
+    },
+    "memory": {
+      "usedSize": 9443316,
+      "totalSize": 16990208,
+      "embedderHeapUsedSize": 2740400,
+      "backingStorageSize": 4273244
+    },
+    "slow_network": {
+      "visible_icon_ready_seconds": 5.371,
+      "ready_seconds": 3.786,
+      "cpu_throttling": 4,
+      "latency_ms": 150,
+      "download_bytes_per_second": 150000,
+      "prepareAndLoadMs": 1922.3999999985099,
+      "bytes": 2098714
+    },
+    "offline_after_loaded": true,
+    "widths": [
+      {
+        "width": 320,
+        "ready_seconds": 0.628,
+        "prepareAndLoadMs": 287.3999999985099,
+        "bytes": 2098714
+      },
+      {
+        "width": 360,
+        "ready_seconds": 0.532,
+        "prepareAndLoadMs": 246.79999999701977,
+        "bytes": 2098714
+      },
+      {
+        "width": 393,
+        "ready_seconds": 0.569,
+        "prepareAndLoadMs": 259.6000000014901,
+        "bytes": 2098714
+      },
+      {
+        "width": 430,
+        "ready_seconds": 0.454,
+        "prepareAndLoadMs": 232.79999999701977,
+        "bytes": 2098714
+      }
+    ],
+    "javascript_errors": [],
+    "real_items": 3219,
+    "real_material_recipes": 638,
+    "all_checks_passed": true
+  },
+  "physical_android": false,
+  "public_real_recipes": 0
+}
