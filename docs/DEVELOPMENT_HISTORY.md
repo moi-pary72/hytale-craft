@@ -1,3 +1,5 @@
+CI follow-up (Draft16): fixed inconsistent10s navigation deadline versus15s readiness assertion in the existing slow-network browser test; DOMContentLoaded and15s deadline, original15s performance assertion retained. Runtime/art/storage unchanged.
+
 Delivery: [Draft PR16](https://github.com/moi-pary72/hytale-craft/pull/16), [source CI](https://github.com/moi-pary72/hytale-craft/actions/runs/43815053546), [mobile contact](https://drive.google.com/file/d/1SEoQ3RC6w3s2WyFi1LBMy0KQLOvShzE0/view), [verified source ZIP](https://drive.google.com/file/d/1ztRHUuCb4kUREnJS2MgxP8awQtfE8deH/view). Source checkpoint1f95a05; no merge/deploy. Detailed receipt: docs/reports/deep-workshop/DELIVERY.json.
 
 ## 2026-11-16 — Deep workshop / inventory discovery draft

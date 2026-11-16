@@ -1,0 +1,6 @@
+{
+  "cpu_slowdown": 4,
+  "latency_ms": 150,
+  "download_bytes_per_second": 150000,
+  "home_ready_seconds": 4.763
+}
