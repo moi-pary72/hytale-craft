@@ -56,8 +56,10 @@ def build(policy='user-only', site_url=None, base_path='/'):
             src=ROOT/'assets/learning-items'/name
             if src.is_symlink() or hashlib.sha256(src.read_bytes()).hexdigest()!=sha:raise ValueError('Learning art integrity')
             paths.append('assets/learning-items/'+name)
-        try:from item_visuals_integrity import verify as verify_visuals
-        except ModuleNotFoundError:from scripts.item_visuals_integrity import verify as verify_visuals
+        import importlib.util
+        visual_spec=importlib.util.spec_from_file_location('item_visuals_integrity',Path(__file__).with_name('item_visuals_integrity.py'))
+        visual_module=importlib.util.module_from_spec(visual_spec);visual_spec.loader.exec_module(visual_module)
+        verify_visuals=visual_module.verify
         verify_visuals(ROOT)
         # Legacy SVG scenes are excluded from beta output.
         for name in paths:

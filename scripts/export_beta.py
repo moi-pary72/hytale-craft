@@ -5,8 +5,10 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def safe(value):return json.dumps(value,ensure_ascii=True).replace('<','\\u003c').replace('>','\\u003e').replace('&','\\u0026')
 def export(output):
-    try:from item_visuals_integrity import verify as verify_visuals
-    except ModuleNotFoundError:from scripts.item_visuals_integrity import verify as verify_visuals
+    import importlib.util
+    visual_spec=importlib.util.spec_from_file_location('item_visuals_integrity',Path(__file__).with_name('item_visuals_integrity.py'))
+    visual_module=importlib.util.module_from_spec(visual_spec);visual_spec.loader.exec_module(visual_module)
+    verify_visuals=visual_module.verify
     verify_visuals(ROOT)
     html=(ROOT/'beta.html').read_text()
     data={f'locales/{prefix}{lang}.json':(ROOT/'locales'/prefix/f'{lang}.json').read_text() for prefix in ('','beta/') for lang in ('en','ru','es','pt-BR')}
