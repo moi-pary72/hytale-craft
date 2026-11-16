@@ -174,5 +174,11 @@
   "dwNoCrafts": "Nothing craftable with these filters yet. Add supplies or explore all recipes.",
   "dwStockKinds": "Different items in inventory",
   "dwBrokenInventory": "Your saved inventory needs attention. Open the text editor; the original data has been preserved.",
-  "dwAddMaterials": "Add materials"
+  "dwAddMaterials": "Add materials",
+  "visualDemo": "Demo",
+  "visualTry": "Try the planner with original demo items.",
+  "visualOwn": "Your own recipes",
+  "visualPrevious": "Previous",
+  "visualNext": "Next",
+  "visualGoals": "Crafting goals"
 }

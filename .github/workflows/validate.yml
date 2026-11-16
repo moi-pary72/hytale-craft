@@ -24,6 +24,7 @@ jobs:
       - run: node tests/catalog_scale.test.js
       - run: node tests/craftable.test.js
       - run: node tests/lab_adapter.test.js
+      - run: node tests/item_visuals.test.js
       - name: Build and audit public beta boundary
         run: |
           python scripts/build_pages.py --data-policy user-only
@@ -45,6 +46,7 @@ jobs:
           python tests/github_pages_browser.py
           python tests/deep_browser.py
           python tests/real_lab_browser.py
+          python tests/stage18_browser.py
       - name: Save mobile beta screenshots and performance evidence
         uses: actions/upload-artifact@v4
         with:

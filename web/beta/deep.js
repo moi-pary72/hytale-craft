@@ -2,8 +2,7 @@
 (function(root){'use strict';
 const previews=new Map();
 const el=(tag,text,cls)=>{const x=document.createElement(tag);if(text!==undefined)x.textContent=text;if(cls)x.className=cls;return x};
-function icon(id){const key=id.startsWith('lesson:')?id.slice(7):null;return ['blade','pick','panel','strip','fibre','stone','wood'].includes(key)?'assets/learning-items/'+key+'.webp':'assets/ui-v2/nav-plan.webp'}
-function image(id){const im=el('img');const path=icon(id),key=path.startsWith('assets/learning-items/')?'item-'+id.slice(7):'nav-plan';im.src=root.CRAFT_BETA_IMAGES?.[key]||path;im.alt='';im.width=110;im.height=110;im.loading='lazy';return im}
+function image(id){return root.CraftItemVisuals.image({id},document.documentElement.lang)}
 function badge(s,ok=false){return el('span',s,'dw-badge'+(ok?' success':''))}
 function btn(s,fn,cls){const b=el('button',s,cls);b.type='button';b.onclick=fn;return b}
 function slot(id,q,c){const box=el('div',undefined,'dw-slot');box.append(image(id),el('strong',c.name(id)),el('span','× '+q,'dw-count'));return box}
@@ -23,11 +22,11 @@ function detail(host,id,c){
  const notes=el('details',undefined,'dw-help');notes.append(el('summary',c.t('dwProvenance')),el('p',c.t(c.scope==='demo'?'tutorial':'sourceOwn'),'warning'),el('p',r?.source||c.t(c.scope==='demo'?'dwOriginal':'dwNoConfirmed')),el('code',id,'dw-meta'));host.append(notes);
 }
 function craftable(host,c){
- heading(host,c,c.t('craftable'),c.t('dwIntro'));host.append(el('p',c.t(c.scope==='demo'?'tutorial':'sourceOwn'),'warning'));
+ heading(host,c,c.t('craftable'),c.t('dwIntro'));host.append(dataNotice(c));
  let inventory,raw=c.inventoryRaw();try{inventory=root.CraftWorkspace.parseLines(raw)}catch{empty(host,c,'dwBrokenInventory');host.append(btn(c.t('inventory'),c.inventory));return}
  let model;try{model=root.Craftable.prepare(c.db)}catch{empty(host,c,'recipeError');return}
  const selected=new Set((previews.get(c.scope)||[]).filter(id=>Object.hasOwn(c.db,id))),summary=section(host,c.t('dwSummary')),inventorySection=el('details');inventorySection.open=!Object.keys(inventory).length;inventorySection.append(el('summary',c.t('inventory')+' · '+Object.keys(inventory).length));host.append(inventorySection);const results=section(host,c.t('dwAvailable')),combined=section(host,c.t('dwTogether'));
- const invSearch=el('input');invSearch.type='search';invSearch.placeholder=c.t('dwFindMaterial');invSearch.setAttribute('aria-label',c.t('dwFindMaterial'));inventorySection.append(invSearch);const invGrid=el('div',undefined,'dw-grid');inventorySection.append(invGrid);
+ const invSearch=el('input');invSearch.type='search';invSearch.placeholder=c.t('dwFindMaterial');invSearch.setAttribute('aria-label',c.t('dwFindMaterial'));inventorySection.append(invSearch);const invGrid=el('div',undefined,'dw-grid');root.CraftItemVisuals.modeControl(inventorySection,invGrid,document.documentElement.lang);inventorySection.append(invGrid);
  const allIds=[...new Set([...Object.keys(inventory),...Object.values(c.db).flatMap(r=>Object.keys(r.ingredients)),...model.ids])];let invLimit=12,showAll=!Object.keys(inventory).length;
  function adjust(id,delta){const next=Object.assign(Object.create(null),inventory);next[id]=Math.max(0,(next[id]||0)+delta);if(next[id]>999999){c.notify('limit');return}if(!next[id])delete next[id];const value=Object.entries(next).map(([k,q])=>k+': '+q).join('\n');if(c.saveInventory(value,raw)){raw=value;inventory=next;inventorySection.querySelector('summary').textContent=c.t('inventory')+' · '+Object.keys(inventory).length;drawInventory();schedule()}}
  function drawInventory(){invGrid.replaceChildren();const query=invSearch.value.toLocaleLowerCase();const ids=allIds.filter(id=>(showAll||query||inventory[id]>0)&&(!query||c.name(id).toLocaleLowerCase().includes(query)||id.toLowerCase().includes(query)));for(const id of ids.slice(0,invLimit)){const card=slot(id,inventory[id]||0,c),actions=el('div',undefined,'dw-actions');for(const [label,delta] of [['−',-1],['+',1]]){const b=btn(label,()=>{adjust(id,delta);invGrid.querySelector('[data-control="'+CSS.escape(id+label)+'"]')?.focus({preventScroll:true})});b.dataset.control=id+label;b.setAttribute('aria-label',c.t(delta>0?'dwAdd':'dwRemove')+' '+c.name(id));b.disabled=delta<0&&!inventory[id];actions.append(b)}card.append(actions);invGrid.append(card)}if(ids.length>invLimit)invGrid.append(btn(c.t('dwMore'),()=>{invLimit+=12;drawInventory()},'dw-load'))}
@@ -51,6 +50,14 @@ function craftable(host,c){
  }
  search.oninput=()=>{limit=12;schedule()};drawCombined();schedule();
 }
+function dataNotice(c,key){const d=el('details',undefined,'dw-data-notice'),s=el('summary');s.append(badge(c.t(c.scope==='user'?'user':'visualDemo')),el('span',c.t(c.scope==='user'?'visualOwn':'visualTry')));d.append(s,el('p',c.t(key||(c.scope==='user'?'sourceOwn':'tutorial'))));return d}
+function inventory(host,c){
+ let raw=c.inventoryRaw(),stock;try{stock=root.CraftWorkspace.parseLines(raw)}catch{return}
+ const panel=section(host,c.t('inventory')),search=el('input'),grid=el('div',undefined,'dw-grid'),pager=el('div',undefined,'dw-tabs');search.type='search';search.placeholder=c.t('dwFindMaterial');search.setAttribute('aria-label',search.placeholder);panel.append(search);root.CraftItemVisuals.modeControl(panel,grid,document.documentElement.lang);panel.append(grid,pager);let offset=0;
+ const ids=[...new Set([...Object.keys(stock),...Object.keys(c.db),...Object.values(c.db).flatMap(r=>Object.keys(r.ingredients))])];
+ function draw(){grid.replaceChildren();const q=search.value.toLocaleLowerCase(),filtered=ids.filter(id=>!q||c.name(id).toLocaleLowerCase().includes(q)||id.toLowerCase().includes(q));for(const id of filtered.slice(offset,offset+24)){const x=slot(id,stock[id]||0,c),actions=el('div',undefined,'dw-actions');for(const [label,delta]of [['−',-1],['+',1]]){const b=btn(label,()=>{const next=Object.assign(Object.create(null),stock),n=(next[id]||0)+delta;if(n<0||n>999999)return;if(n)next[id]=n;else delete next[id];const v=Object.entries(next).map(([id,n])=>id+': '+n).join('\n');if(c.saveInventory(v,raw)){raw=v;stock=next;draw()}});b.setAttribute('aria-label',c.t(delta>0?'dwAdd':'dwRemove')+' '+c.name(id));b.disabled=delta<0&&!stock[id];actions.append(b)}x.append(actions);grid.append(x)}pager.replaceChildren();const prev=btn(c.t('visualPrevious'),()=>{offset=Math.max(0,offset-24);draw()}),next=btn(c.t('visualNext'),()=>{offset+=24;draw()});prev.disabled=!offset;next.disabled=offset+24>=filtered.length;pager.append(prev,el('span',Math.floor(offset/24)+1+' / '+Math.max(1,Math.ceil(filtered.length/24))),next)}search.oninput=()=>{offset=0;draw()};draw();
+}
+function planPreview(host,c,input){const panel=section(host,c.t('visualGoals')),grid=el('div',undefined,'dw-grid');panel.append(grid);input.addEventListener('input',draw);function draw(){grid.replaceChildren();try{const goals=root.CraftWorkspace.parseLines(input.value);for(const [id,q]of Object.entries(goals).slice(0,24))grid.append(slot(id,q,c));if(!grid.children.length)grid.append(el('p',c.t('dwChooseGoals')))}catch{grid.append(el('p',c.t('badLines')))}}draw()}
 function decorateResult(host,value){host.classList.add('dw-result');const rows=[...host.querySelectorAll('.row')];let i=0;for(const map of [value.totals,value.steps,value.stock])for(const [id,q] of Object.entries(map))if(q>0)rows[i++]?.prepend(image(id))}
-root.CraftDeepUI={detail,craftable,path,image,slot,decorateResult};
+root.CraftDeepUI={detail,craftable,path,image,slot,decorateResult,dataNotice,inventory,planPreview};
 })(globalThis);

@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "purpose": "Integrity metadata only, not a copy or redistribution licence",
+  "source_url": "https://hysphere.app/data",
+  "terms_url": "https://hysphere.app/about#data-license",
+  "access": "documented /data/v1 noncommercial export; not /api scraping",
+  "source_revision": "2026-08-12T11:09:57.625Z",
+  "exact_game_build": null,
+  "normalization_date": "2026-11-16",
+  "files": {
+    "items.json": {
+      "sha256": "2ca40b7ec9ea78869cabdac579c3787c40a9728b0f492e88d3629f42dea7ad59",
+      "url": "https://hysphere.app/data/v1/items.json"
+    },
+    "manifest.json": {
+      "sha256": "12709143ba45909056aa7fc7ce782d15c5a78a41165b5dd0d42234e4b918bc6c",
+      "url": "https://hysphere.app/data/v1/manifest.json"
+    },
+    "recipes.json": {
+      "sha256": "d007c9f482198d6353acba43af9142736bcc0f446235b60f418a01e9f208d09e",
+      "url": "https://hysphere.app/data/v1/recipes.json"
+    }
+  },
+  "normalized_data_sha256": "65f5f3774f1e1afa470f03640fe249a8959960c884d978fe5b9e15c62adc314b",
+  "metrics": {
+    "excluded_rows": 1471,
+    "items": 3219,
+    "legacy_single_output": 623,
+    "multi_output": 15,
+    "source_kind_counts": {
+      "craft": 1706,
+      "salvage": 403
+    },
+    "source_rows": 2109,
+    "stations": 17,
+    "supported_recipes": 638
+  },
+  "archive_on_drive": false,
+  "permanent_real_data_backup": false
+}

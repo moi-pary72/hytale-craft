@@ -11,13 +11,13 @@ except ModuleNotFoundError:
  from scripts import sync_recipes as legacy,import_catalog as base,import_catalog_v2 as schema
 ROOT=Path(__file__).resolve().parents[1]
 
-def normalize(manifest,items,recipes,hashes):
+def normalize(manifest,items,recipes,hashes,normalized_on=None):
  # Preserve existing source contract/count/version/ID checks, including historical623 regression.
  old=legacy.normalize(manifest,items,recipes,hashes)
  source='hysphere-research';revision=manifest['revision'];known={r['id'] for r in items['items']}
  def provenance(record,status='unverified'):return {'status':status,'source_id':source,'source_record':record}
  canonical={'schema_version':2,'snapshot':{'game_version':manifest['game']['version'],'channel':'unknown-source-channel','source_revision':revision,'updated_at':manifest['extractedAt']},'sources':[{'id':source,'url':legacy.ORIGIN+'/data','revision':revision,'license':{'id':'Non-commercial-attribution','url':legacy.LICENSE,'commercial_use':'prohibited','redistribution':'unknown','automated_access':'allowed','game_ip_use':'unknown'}}],'items':[],'groups':[],'stations':[],'recipes':[]}
- meta={'items':{},'excluded':[],'raw_hashes':hashes,'exact_build':None,'normalized_on':datetime.now(timezone.utc).date().isoformat(),'attribution':'Data: HySphere — non-commercial local research; underlying Hytale IP remains with Hypixel Studios.','license_url':legacy.LICENSE,'source_url':legacy.ORIGIN+'/data'}
+ meta={'items':{},'excluded':[],'raw_hashes':hashes,'exact_build':None,'normalized_on':normalized_on or datetime.now(timezone.utc).date().isoformat(),'attribution':'Data: HySphere — non-commercial local research; underlying Hytale IP remains with Hypixel Studios.','license_url':legacy.LICENSE,'source_url':legacy.ORIGIN+'/data'}
  for row in items['items']:
   canonical['items'].append({'id':row['id'],**provenance('items/'+row['id']),'names':{'en':row.get('name') or None,'ru':None,'es':None,'pt-BR':None},'category':row.get('category') or 'unknown'})
   meta['items'][row['id']]={k:row.get(k) for k in ('hasRecipe','craftRecipeId','quality','itemLevel','obtainHint','categories','parent')}
@@ -53,8 +53,9 @@ def normalize(manifest,items,recipes,hashes):
  meta['validation_warnings']=warnings
  return {'canonical':canonical,'meta':meta,'policy':{'local_only':True,'public_distribution':False,'commercial_use':False,'exact_build_verified':False,'officially_verified':False}}
 
-def build(input_dir,output,acknowledge=False,root=ROOT):
+def build(input_dir,output,acknowledge=False,root=ROOT,normalized_on=None):
  if not acknowledge:raise ValueError('Explicit --local-research-only acknowledgement required; it is not a distribution licence')
+ if normalized_on is not None:datetime.strptime(normalized_on,'%Y-%m-%d')
  root=Path(root);output=base.private_path(output,root);inp=base.private_path(input_dir,root)
  if output.exists():raise ValueError('Use a new private output directory; existing research builds are preserved')
  raw={}
@@ -63,8 +64,8 @@ def build(input_dir,output,acknowledge=False,root=ROOT):
   if file.is_symlink():raise ValueError('No source symlinks')
   with file.open('rb') as stream:raw[k]=stream.read(base.MAX_BYTES+1)
  if any(len(v)>base.MAX_BYTES for v in raw.values()):raise ValueError('Research source exceeds bounded importer input')
- hashes={k:hashlib.sha256(v).hexdigest() for k,v in raw.items()};data=normalize(*(base.strict_json(raw[k]) for k in ('manifest','items','recipes')),hashes)
- output.mkdir(parents=True,mode=0o700);files=['web/planner.js','web/planner-v2.js','web/canonical-adapter.js','web/craftable.js','web/beta/workspace.js','web/beta/style.css','web/beta/deep.css','web/lab/adapter.js','web/lab/app.js','web/lab/style.css']
+ hashes={k:hashlib.sha256(v).hexdigest() for k,v in raw.items()};data=normalize(*(base.strict_json(raw[k]) for k in ('manifest','items','recipes')),hashes,normalized_on)
+ output.mkdir(parents=True,mode=0o700);files=['web/item-visuals.js','web/item-visuals.css','assets/item-system/categories.webp','web/planner.js','web/planner-v2.js','web/canonical-adapter.js','web/craftable.js','web/beta/workspace.js','web/beta/style.css','web/beta/deep.css','web/lab/adapter.js','web/lab/app.js','web/lab/style.css']
  for name in files:
   path=root/name;dest=output/name;dest.parent.mkdir(parents=True,exist_ok=True)
   if path.is_symlink():raise ValueError('No source symlinks')
@@ -81,4 +82,4 @@ def build(input_dir,output,acknowledge=False,root=ROOT):
  base.atomic(output/'research-report.json',base.encoded(report));return report
 
 if __name__=='__main__':
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('input',type=Path);p.add_argument('--output',type=Path,default=Path('.private/real-data-lab/build'));p.add_argument('--local-research-only',action='store_true');a=p.parse_args();print(json.dumps(build(a.input,a.output,a.local_research_only)))
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('input',type=Path);p.add_argument('--output',type=Path,default=Path('.private/real-data-lab/build'));p.add_argument('--local-research-only',action='store_true');p.add_argument('--normalized-on');a=p.parse_args();print(json.dumps(build(a.input,a.output,a.local_research_only,normalized_on=a.normalized_on)))
