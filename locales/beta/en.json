@@ -219,5 +219,9 @@
   "galleryNotExact": "This is an approximate category illustration, not an official depiction of a specific game item.",
   "galleryUnknown": "Appearance unknown. This neutral image makes no claim about a game model.",
   "galleryTry": "Try the learning planner",
-  "gallerySearch": "Search visual categories"
+  "gallerySearch": "Search visual categories",
+  "guideTitle": "Find your next craft",
+  "guideSearch": "Search items",
+  "guideTools": "Tools",
+  "materials": "Materials"
 }

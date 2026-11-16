@@ -14,7 +14,7 @@ from urllib.parse import urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 LANGUAGES = ('en', 'ru', 'es', 'pt-BR')
 
-def build(policy='user-only', site_url=None, base_path='/'):
+def build(policy='user-only', site_url=None, base_path='/', guide=False):
     if base_path != '/' and not re.fullmatch(r'/[a-zA-Z0-9_-]+/',base_path):
         raise ValueError('Invalid publication base path')
     if policy != 'user-only':
@@ -80,7 +80,7 @@ def build(policy='user-only', site_url=None, base_path='/'):
         spec=importlib.util.spec_from_file_location('canonical_publication',ROOT/'scripts/canonical_publication.py');gate=importlib.util.module_from_spec(spec);spec.loader.exec_module(gate)
         learning,approval,raw=gate.approved_learning(ROOT)
         (out/'web/beta/advanced-data.json').write_bytes(raw)
-        config = {'canonicalApproval':approval, 'testing': True, 'dataPolicy': 'user-only', 'requestTimeoutMs': 12000}
+        config = {'canonicalApproval':approval, 'guideUX':guide, 'testing': True, 'dataPolicy': 'user-only', 'requestTimeoutMs': 12000}
         (out/'web/build-config.js').write_text('window.CRAFT_BUILD='+json.dumps(config)+';\n')
         html = (ROOT/'beta.html').read_text()
         html = html.replace('<script defer src="web/preview/i18n.js">', '<script defer src="web/build-config.js"></script><script defer src="web/preview/i18n.js">')
@@ -114,4 +114,4 @@ if __name__ == '__main__':
     parser.add_argument('--base-path', default='/', help='GitHub project path for 404 home link; Cloudflare uses /')
     args=parser.parse_args()
     (ROOT/'.private').mkdir(exist_ok=True)
-    print(build(args.data_policy,args.site_url,args.base_path))
+    print(build(args.data_policy,args.site_url,args.base_path,guide=True))
