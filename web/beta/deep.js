@@ -6,7 +6,7 @@ function image(id){return root.CraftItemVisuals.image({id},document.documentElem
 function badge(s,ok=false){return el('span',s,'dw-badge'+(ok?' success':''))}
 function btn(s,fn,cls){const b=el('button',s,cls);b.type='button';b.onclick=fn;return b}
 function slot(id,q,c){const box=el('div',undefined,'dw-slot');box.append(image(id),el('strong',c.name(id)),el('span','× '+q,'dw-count'));return box}
-function heading(host,c,title,desc){host.classList.add('dw-view');const h=el('section',undefined,'dw-hero');h.append(el('span',c.t('dwEyebrow'),'dw-eyebrow'),el('h3',title),el('p',desc));h.append(badge(c.t(c.scope==='demo'?'tutorialShort':'user')));host.append(h);return h}
+function heading(host,c,title,desc){host.classList.add('dw-view');const h=el('section',undefined,'dw-hero');h.append(el('span',c.t('dwEyebrow'),'dw-eyebrow'),el('h3',title),el('p',desc));h.append(badge(c.t(c.scope==='demo'?'visualDemo':'user')));host.append(h);return h}
 function section(host,title){const s=el('section',undefined,'dw-panel');s.append(el('h3',title));host.append(s);return s}
 function empty(host,c,key){const d=el('div',undefined,'dw-empty');d.append(image('none'),el('p',c.t(key)));host.append(d)}
 function path(host,c,id,q=1){

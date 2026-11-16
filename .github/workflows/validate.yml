@@ -61,6 +61,7 @@ jobs:
             .private/engine/screens/lab-*.png
             .private/deep-workshop/craftable-*.png
             .private/deep-workshop/detail*.png
+            .private/stage18/public-screens/*.png
           if-no-files-found: error
           retention-days: 14
       - name: Rebuild and audit isolated preview artifact

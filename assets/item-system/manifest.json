@@ -2,9 +2,9 @@
   "schema": 1,
   "files": {
     "categories.webp": {
-      "sha256": "ac04ec3e3ecb091ef0daac148e984743e6d6a08f79124e5ae38b482ffb36cdd5",
-      "width": 1254,
-      "height": 1254
+      "sha256": "9bd526d16edcdbca9443a319548ae63b36fe1de40b2a4384c023f0cce017546c",
+      "width": 1024,
+      "height": 1024
     }
   },
   "tiles": [
