@@ -2,6 +2,8 @@ import unittest,tempfile,json,hashlib,shutil
 from pathlib import Path
 from scripts.verify_real_data_lab import verify,ROOT
 class PreservationTests(unittest.TestCase):
+ @classmethod
+ def setUpClass(cls):(ROOT/'.private').mkdir(exist_ok=True)
  def test_pinned_manifest_validates_bytes_and_detects_corruption_without_network(self):
   with tempfile.TemporaryDirectory(dir=ROOT/'.private') as tmp:
    p=Path(tmp);files={}
