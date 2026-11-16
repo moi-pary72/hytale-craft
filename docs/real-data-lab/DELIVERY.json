@@ -1,0 +1,20 @@
+{
+  "code_checkpoint": "f98f0383b21a36006c3ecb53ea9e5fdc212667b3",
+  "draft_pr": "https://github.com/moi-pary72/hytale-craft/pull/17",
+  "base_pr": 16,
+  "production_changed": false,
+  "ci_runs": [
+    "https://github.com/moi-pary72/hytale-craft/actions/runs/43822854372",
+    "https://github.com/moi-pary72/hytale-craft/actions/runs/43822786391"
+  ],
+  "ci_conclusion": "success",
+  "drive": {
+    "safe_code_archive": "uploaded; byte-identical readback and ZIP CRC verified",
+    "aggregate_report": "uploaded; byte-identical readback verified",
+    "limited_review_contact": "owner-only permissions verified; byte-identical readback verified",
+    "source_dumps_uploaded": false,
+    "private_build_uploaded": false,
+    "private_links_location": "Existing native project passport and private workspace delivery journal; intentionally omitted from public Git"
+  },
+  "passport_appended": true
+}

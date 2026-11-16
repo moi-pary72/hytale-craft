@@ -1,3 +1,5 @@
+Delivery: [Draft PR17](https://github.com/moi-pary72/hytale-craft/pull/17), code f98f038, [green CI](https://github.com/moi-pary72/hytale-craft/actions/runs/43822854372). Safe-code backup, limited owner-only review and report read back successfully; private file identifiers retained only in native passport/private journal. No main/deploy.
+
 
 ## 2026-11-16 — Real Data Lab (private research, not released)
 
