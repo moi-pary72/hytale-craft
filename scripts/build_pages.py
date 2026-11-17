@@ -80,7 +80,10 @@ def build(policy='user-only', site_url=None, base_path='/', guide=False):
         spec=importlib.util.spec_from_file_location('canonical_publication',ROOT/'scripts/canonical_publication.py');gate=importlib.util.module_from_spec(spec);spec.loader.exec_module(gate)
         learning,approval,raw=gate.approved_learning(ROOT)
         (out/'web/beta/advanced-data.json').write_bytes(raw)
-        config = {'canonicalApproval':approval, 'guideUX':guide, 'testing': True, 'dataPolicy': 'user-only', 'requestTimeoutMs': 12000}
+        ref_spec=importlib.util.spec_from_file_location('reference_publication',ROOT/'scripts/reference_publication.py');refs=importlib.util.module_from_spec(ref_spec);ref_spec.loader.exec_module(refs)
+        selection,reference_approval,reference_raw=refs.approved(ROOT)
+        (out/'web/beta/reference-data.json').write_bytes(reference_raw)
+        config = {'canonicalApproval':approval, 'guideUX':guide, 'referencesPath':'web/beta/reference-data.json', 'referencesSha256':reference_approval['sha256'], 'testing': True, 'dataPolicy': 'user-only', 'requestTimeoutMs': 12000}
         (out/'web/build-config.js').write_text('window.CRAFT_BUILD='+json.dumps(config)+';\n')
         html = (ROOT/'beta.html').read_text()
         html = html.replace('<script defer src="web/preview/i18n.js">', '<script defer src="web/build-config.js"></script><script defer src="web/preview/i18n.js">')
@@ -101,7 +104,7 @@ def build(policy='user-only', site_url=None, base_path='/', guide=False):
         (out/'_redirects').write_text('/preview.html / 302\n/art-preview.html / 302\n/beta.html / 302\n')
         (out/'_headers').write_text("/*\n  X-Robots-Tag: noindex, nofollow\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: no-referrer\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'\n  Cache-Control: no-cache\n")
         hashes = {str(p.relative_to(out)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(out.rglob('*')) if p.is_file()}
-        (out/'build-manifest.json').write_text(json.dumps({'schema':1, 'testing':True, 'data_policy':policy, 'revision':revision, 'real_game_recipes':0, 'files':hashes}, indent=2)+'\n')
+        (out/'build-manifest.json').write_text(json.dumps({'schema':1, 'testing':True, 'data_policy':policy, 'revision':revision, 'real_game_items':5, 'real_game_recipes':2, 'complete_game_recipes':0, 'files':hashes}, indent=2)+'\n')
         if target.exists():
             shutil.rmtree(target)
         shutil.copytree(out, target)

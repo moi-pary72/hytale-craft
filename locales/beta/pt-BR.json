@@ -235,11 +235,20 @@
   "theme_skills": "Habilidades",
   "theme_workshop": "Oficina",
   "themeHero": "O que vamos fazer?",
-  "themeIntro": "Exemplos demo · sem catálogo do jogo",
+  "themeIntro": "Pequena seleção do jogo · exemplos demo identificados",
   "themeUnavailable": "Sem dados do jogo",
   "themeEmpty": "Esta seção está pronta, mas itens e receitas com permissão de publicação ainda não foram conectados. Use as ferramentas e suas receitas.",
   "themeArmorParts": "Elmos · Peitorais · Luvas · Perneiras — aguardando dados",
   "themeSort": "Ordenação",
   "themeSortName": "Por nome",
-  "themeSortComplexity": "Por número de ingredientes"
+  "themeSortComplexity": "Por número de ingredientes",
+  "refLabel": "Referência",
+  "swords": "Espadas",
+  "helmets": "Elmos",
+  "refArt": "Ilustração original de categoria, não um ícone oficial",
+  "refAvailability": "Disponibilidade na sobrevivência não confirmada",
+  "refOutput": "Quantidade produzida: não informada pela fonte",
+  "refNoRecipe": "Esta seleção não contém receita ou obtenção verificadas.",
+  "refScope": "Dados numéricos conferidos manualmente: Hytale Source0.6.4-b27. Sem exportação em massa ou garantia da versão atual.",
+  "refUnavailable": "Referências indisponíveis · seus dados estão preservados"
 }

@@ -235,11 +235,20 @@
   "theme_skills": "Abilities",
   "theme_workshop": "Workshop",
   "themeHero": "What will you do?",
-  "themeIntro": "Demo examples · game catalogue not connected",
+  "themeIntro": "Small game reference selection · demo examples are labelled",
   "themeUnavailable": "No game data",
   "themeEmpty": "This section is ready, but publishable game items and recipes are not connected yet. Tools and your own recipes remain available.",
   "themeArmorParts": "Helms · Chest armour · Gloves · Leg armour — awaiting data",
   "themeSort": "Item order",
   "themeSortName": "By name",
-  "themeSortComplexity": "By ingredient count"
+  "themeSortComplexity": "By ingredient count",
+  "refLabel": "Reference",
+  "swords": "Swords",
+  "helmets": "Helmets",
+  "refArt": "Original category illustration, not an official item icon",
+  "refAvailability": "Survival availability not independently confirmed",
+  "refOutput": "Output quantity: not stated by the source",
+  "refNoRecipe": "No verified recipe or acquisition path in this selection.",
+  "refScope": "Manually checked numerical citations, Hytale Source0.6.4-b27. Not a bulk export or a claim of current-game verification.",
+  "refUnavailable": "Game references unavailable · your data is preserved"
 }
