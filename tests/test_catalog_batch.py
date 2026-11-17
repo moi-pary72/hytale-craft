@@ -5,6 +5,7 @@ from unittest.mock import patch
 from scripts import prepare_catalog_batch as m,fetch_hytl_batch as f
 class Batch(unittest.TestCase):
  def test_candidate_is_private_and_never_auto_approved(self):
+  (m.base.ROOT/'.private').mkdir(exist_ok=True)
   with tempfile.TemporaryDirectory(dir=m.base.ROOT/'.private') as d:
    root=Path(d);source=root/'source.json';source.write_text((m.base.ROOT/'tests/fixtures/catalog-v2-synthetic.json').read_text());out=root/'result';r=m.prepare(source,out);self.assertEqual(sum(r['groups'].values()),r['items']);self.assertEqual(r['groups']['A'],0);self.assertEqual(json.loads((out/'records.json').read_text())['publication'],'blocked')
    with self.assertRaises(ValueError):m.prepare(source,out)
