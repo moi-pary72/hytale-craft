@@ -1,9 +1,9 @@
 {
   "path": "data/reference-selection.json",
-  "sha256": "f10a75b98c84bcfa264c15ff92d35e52fc2f1608b299e078f3d893a3829a59cb",
-  "items": 5,
-  "source_reported_partial_recipes": 2,
+  "sha256": "274a6077bf80223be75eda775ec4bdd5f3f689ab1136f7c2730964e0ed01b7e2",
+  "items": 7,
+  "source_reported_partial_recipes": 4,
   "complete_recipes": 0,
   "reviewed_on": "2026-11-17",
-  "basis": "docs/STAGE22_REFERENCE_SCOPE.md"
+  "basis": "docs/STAGE23.md"
 }

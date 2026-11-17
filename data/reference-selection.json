@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "basis": "Two bounded manually recorded factual citations; no bulk export, text, icons or compilation copied. Source terms permit linked numerical citations. Not a blanket game-IP or commercial dataset licence.",
+  "basis": "Four bounded linked numerical recipe citations and seven checked item identities. No bulk scraping or foreign export. Output counts remain unknown. Not a blanket licence.",
   "terms_url": "https://hytale.source.gs/terms/",
   "items": {
     "Weapon_Sword_Iron": {
@@ -27,7 +27,11 @@
         "station": "Blacksmith's Anvil",
         "output_quantity": null,
         "status": "source-reported-partial"
-      }
+      },
+      "category": "weapons",
+      "visual_family": "sword",
+      "item_level": 20,
+      "durability": 120
     },
     "Armor_Iron_Head": {
       "id": "Armor_Iron_Head",
@@ -53,7 +57,11 @@
         "station": "Armorer's Workbench",
         "output_quantity": null,
         "status": "source-reported-partial"
-      }
+      },
+      "category": "armor",
+      "visual_family": "helmet",
+      "item_level": 20,
+      "durability": 100
     },
     "Ingredient_Bar_Iron": {
       "id": "Ingredient_Bar_Iron",
@@ -65,12 +73,21 @@
       },
       "theme": "workshop",
       "subcategory": "materials",
-      "source_url": "https://hytale.source.gs/items/iron-sword/",
+      "source_url": "https://hytale.source.gs/items/iron-ingot/",
       "build": "0.6.4-b27",
       "observed_on": "2026-11-17",
       "availability": "unknown",
       "art": "original-category-illustration",
-      "recipe": null
+      "recipe": {
+        "ingredients": {
+          "Ore_Iron": 1
+        },
+        "station": "Furnace",
+        "output_quantity": null,
+        "status": "source-reported-partial"
+      },
+      "category": "materials",
+      "visual_family": "metal"
     },
     "Ingredient_Leather_Light": {
       "id": "Ingredient_Leather_Light",
@@ -82,12 +99,21 @@
       },
       "theme": "workshop",
       "subcategory": "materials",
-      "source_url": "https://hytale.source.gs/items/iron-sword/",
+      "source_url": "https://hytale.source.gs/items/light-leather/",
       "build": "0.6.4-b27",
       "observed_on": "2026-11-17",
       "availability": "unknown",
       "art": "original-category-illustration",
-      "recipe": null
+      "recipe": {
+        "ingredients": {
+          "Ingredient_Hide_Light": 1
+        },
+        "station": "Tanning Rack",
+        "output_quantity": null,
+        "status": "source-reported-partial"
+      },
+      "category": "materials",
+      "visual_family": "leather"
     },
     "Ingredient_Fabric_Scrap_Linen": {
       "id": "Ingredient_Fabric_Scrap_Linen",
@@ -100,6 +126,46 @@
       "theme": "workshop",
       "subcategory": "materials",
       "source_url": "https://hytale.source.gs/items/iron-sword/",
+      "build": "0.6.4-b27",
+      "observed_on": "2026-11-17",
+      "availability": "unknown",
+      "art": "original-category-illustration",
+      "recipe": null,
+      "category": "materials",
+      "visual_family": "fabric"
+    },
+    "Ore_Iron": {
+      "id": "Ore_Iron",
+      "names": {
+        "en": "Iron Ore",
+        "ru": "Железная руда",
+        "es": "Mineral de hierro",
+        "pt-BR": "Minério de ferro"
+      },
+      "category": "materials",
+      "theme": "gather",
+      "subcategory": "ores",
+      "visual_family": "ore",
+      "source_url": "https://hytale.source.gs/items/iron-ore/",
+      "build": "0.6.4-b27",
+      "observed_on": "2026-11-17",
+      "availability": "unknown",
+      "art": "original-category-illustration",
+      "recipe": null
+    },
+    "Ingredient_Hide_Light": {
+      "id": "Ingredient_Hide_Light",
+      "names": {
+        "en": "Light Hide",
+        "ru": "Лёгкая шкура",
+        "es": "Piel ligera",
+        "pt-BR": "Pele leve"
+      },
+      "category": "materials",
+      "theme": "workshop",
+      "subcategory": "materials",
+      "visual_family": "leather",
+      "source_url": "https://hytale.source.gs/items/light-hide/",
       "build": "0.6.4-b27",
       "observed_on": "2026-11-17",
       "availability": "unknown",
