@@ -267,5 +267,21 @@
   "catalogStateD": "Needs review",
   "s23Prev": "Previous",
   "s23Next": "Next",
-  "ores": "Ores"
+  "ores": "Ores",
+  "longswords": "Longswords",
+  "daggers": "Daggers",
+  "battleaxes": "Battleaxes",
+  "maces": "Maces",
+  "bows": "Bows",
+  "spears": "Spears",
+  "shields": "Shields",
+  "chestpieces": "Chest armour",
+  "gloves": "Gauntlets",
+  "legpieces": "Leg armour",
+  "pickaxes": "Pickaxes",
+  "hatchets": "Hatchets",
+  "shovels": "Shovels",
+  "armor": "Armour",
+  "tools": "Tools",
+  "refIdentityScope": "Item ID observed in the OpenHytale catalog, snapshot July 6, 2026; exact game build unknown. Display name and category are derived from the structured ID, not official localization. This confirms an entry in the catalog, not Survival availability, stats or a recipe. Category artwork is original and illustrative."
 }

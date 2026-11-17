@@ -54,6 +54,7 @@ jobs:
           python tests/themes_browser.py
           python tests/reference_browser.py
           python tests/craft_paths_browser.py
+          python tests/public_identities_browser.py
       - name: Save mobile beta screenshots and performance evidence
         uses: actions/upload-artifact@v4
         with:
