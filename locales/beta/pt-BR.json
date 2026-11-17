@@ -250,5 +250,22 @@
   "refOutput": "Quantidade produzida: não informada pela fonte",
   "refNoRecipe": "Esta seleção não contém receita ou obtenção verificadas.",
   "refScope": "Dados numéricos conferidos manualmente: Hytale Source0.6.4-b27. Sem exportação em massa ou garantia da versão atual.",
-  "refUnavailable": "Referências indisponíveis · seus dados estão preservados"
+  "refUnavailable": "Referências indisponíveis · seus dados estão preservados",
+  "s23ShowPath": "Mostrar cadeia de fabricação",
+  "s23BatchNote": "Cada receita mostra um lote. Não calculamos o total sem conhecer a quantidade produzida.",
+  "s23Unknown": "Forma de obtenção ainda desconhecida",
+  "s23Cycle": "Ciclo detectado: ramo interrompido",
+  "s23Version": "Outra versão: ramo não combinado",
+  "s23Limit": "Cadeia muito grande. Abra um componente.",
+  "s23Method": "Método de fabricação",
+  "s23Output": "Produção por lote",
+  "s23ItemLevel": "Nível do item",
+  "s23Durability": "Durabilidade",
+  "catalogStateA": "Receita completa verificada",
+  "catalogStateB": "Composição segundo a fonte",
+  "catalogStateC": "Receita desconhecida",
+  "catalogStateD": "Requer revisão",
+  "s23Prev": "Anterior",
+  "s23Next": "Próximo",
+  "ores": "Minérios"
 }

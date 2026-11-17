@@ -250,5 +250,22 @@
   "refOutput": "Output quantity: not stated by the source",
   "refNoRecipe": "No verified recipe or acquisition path in this selection.",
   "refScope": "Manually checked numerical citations, Hytale Source0.6.4-b27. Not a bulk export or a claim of current-game verification.",
-  "refUnavailable": "Game references unavailable · your data is preserved"
+  "refUnavailable": "Game references unavailable · your data is preserved",
+  "s23ShowPath": "Show crafting path",
+  "s23BatchNote": "Each recipe shows one batch. Total resources cannot be calculated while outputs are unknown.",
+  "s23Unknown": "Acquisition method is not yet known",
+  "s23Cycle": "Cycle detected: this branch is stopped",
+  "s23Version": "Different source version: branch not combined",
+  "s23Limit": "Path is too large. Open an individual component.",
+  "s23Method": "Crafting method",
+  "s23Output": "Batch output",
+  "s23ItemLevel": "Item level",
+  "s23Durability": "Durability",
+  "catalogStateA": "Complete verified recipe",
+  "catalogStateB": "Source-reported composition",
+  "catalogStateC": "Recipe unknown",
+  "catalogStateD": "Needs review",
+  "s23Prev": "Previous",
+  "s23Next": "Next",
+  "ores": "Ores"
 }
