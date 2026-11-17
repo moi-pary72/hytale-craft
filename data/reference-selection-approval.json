@@ -1,9 +1,10 @@
 {
   "path": "data/reference-selection.json",
-  "sha256": "274a6077bf80223be75eda775ec4bdd5f3f689ab1136f7c2730964e0ed01b7e2",
-  "items": 7,
+  "sha256": "9f804744e96c096a55d6a71fcd1ac8ee2274ddd42f04af4805ff9c1bc2ee63d7",
+  "items": 100,
   "source_reported_partial_recipes": 4,
   "complete_recipes": 0,
   "reviewed_on": "2026-11-17",
-  "basis": "docs/STAGE23.md"
+  "basis": "docs/PUBLIC_ITEM_IDENTITIES.md",
+  "identity_only_api_items": 93
 }

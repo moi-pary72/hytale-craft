@@ -1,0 +1,21 @@
+# Bounded public identity selection — 17 November 2026
+
+100 item identities total: the seven existing linked facts plus93 additional catalog identities. Four source-reported ingredient compositions, **zero fully verified recipes**. New records do not assert a recipe, yield, station, stats, progression, or Survival/Creative availability. Names are our readable labels/translations derived from structured identifiers, not official localization. Classification uses explicit identifier types (Weapon_Sword, Armor_*_Head, Tool_Pickaxe, etc.), not gameplay inference or a power ranking. Original category images are not official item portraits; unrepresented types such as spears/maces/shovels use a neutral illustration.
+
+## Specific reuse basis and limits
+
+https://openhytale.org/developers/ explicitly states: “The data is free to consume from any tool, bot, plugin, or LLM agent — no auth, no rate limit, no analytics.” It documents `GET /api/catalogs/items.json` and using an identifying User-Agent. https://openhytale.org/about/ describes normal in-game catalog enumeration, descriptive metadata and no redistributed game files. This provides a positive statement for descriptive tool use; this decision is not based merely on an absent licence. The footer's “no ads” describes the provider's own site; it is not treated as a licence clause imposed on all consumers.
+
+We publish a bounded, independently arranged selection of identifier facts with attribution, our labels, original category art and no provider prose, game assets, recipe bodies or full export. This decision does **not** claim the API's MIT **code** licence licenses its data, nor a blanket commercial dataset licence or studio endorsement. Any future monetization, larger-scale mirroring, new fields, asset reuse or data-provider terms change requires a fresh scope review. The current site has no ads or paid features. A full HySphere export is still excluded; its data/about routes returned403 at this check and no access bypass was attempted.
+
+Provider snapshot: `generated_at=2026-07-06T11:57:22.295504Z`, exact game build unknown. Observed API:3641item identifiers,403recipe identifiers; the recipe endpoint contains **names only**, not403complete recipes. No ingredient quantities can be inferred from those names. Original API responses remain private. The existing HySphere3219/638research bundle is not published or relabelled independent. It is separate from these public facts.
+
+Source identity-list SHA256: d914b5c3e307bea1982cbf3e475a01888118a31914b6193898e14c9cf4d8b181. The small reviewed selection excludes variants with NPC/example/ancient/etc. suffixes but still cannot claim ordinary-game availability. Snapshot date is displayed per record; no composition or stats is backfilled between July OpenHytale and the existing Source0.6.4-b27 selection. Same-ID existing records keep their original provenance.
+
+## Reproduction and publication boundary
+
+`scripts/prepare_public_item_identities.py .private/IDENTITIES.json --output .private/NEW-CANDIDATE.json` uses the pinned identity snapshot and explicit reviewed type/material selection, requires3641unique string IDs, and prepares93new identities without overwriting an old candidate. The public gate separately requires exact reviewed payload SHA256,100total identities,93APIidentity-only records,4partial compositions and no extra gameplay fields in identity-only records. It never automatically approves an export or exposes private snapshots. A changed source/payload requires a new review.
+
+Existing inventory/projects, calculation engine, source-failure safeguards, ten home tiles and styles are retained. Public browsing is read-only; missing recipes are explicit. Bounded search and48card themed pagination are reused. Code rollback target: e4cf0771f3e1351dce2b46a2004401ebcf7dfceb.
+
+Validation before publication:82Python tests passed, existing4path unit tests passed, new identity browser flow plus reference/theme/path regressions passed (11focused browser tests total). Identity browsing checked4languages ×320/360/393/430px, generated-label/source disclosure, missing recipes, Back/search preservation and untouched inventory. Public output audit passed; no runtime external API requests, original source dump or new art assets added.

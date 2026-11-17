@@ -267,5 +267,21 @@
   "catalogStateD": "Requer revisão",
   "s23Prev": "Anterior",
   "s23Next": "Próximo",
-  "ores": "Minérios"
+  "ores": "Minérios",
+  "longswords": "Espadas longas",
+  "daggers": "Adagas",
+  "battleaxes": "Machados de batalha",
+  "maces": "Maças",
+  "bows": "Arcos",
+  "spears": "Lanças",
+  "shields": "Escudos",
+  "chestpieces": "Peitorais",
+  "gloves": "Manoplas",
+  "legpieces": "Grevas",
+  "pickaxes": "Picaretas",
+  "hatchets": "Machados",
+  "shovels": "Pás",
+  "armor": "Armadura",
+  "tools": "Ferramentas",
+  "refIdentityScope": "ID observado no catálogo OpenHytale de 6 de julho de 2026; versão exata desconhecida. Nome e categoria derivados do ID, não uma tradução oficial. A entrada não confirma disponibilidade em Survival, atributos ou receita. Ilustração de categoria original e representativa."
 }
