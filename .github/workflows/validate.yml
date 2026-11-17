@@ -25,6 +25,7 @@ jobs:
       - run: node tests/craftable.test.js
       - run: node tests/lab_adapter.test.js
       - run: node tests/item_visuals.test.js
+      - run: node tests/item_art.test.js
       - run: node tests/stage19.test.js
       - run: node tests/reference_catalog.test.js
       - name: Build and audit public beta boundary
@@ -55,6 +56,7 @@ jobs:
           python tests/reference_browser.py
           python tests/craft_paths_browser.py
           python tests/public_identities_browser.py
+          python tests/item_art_browser.py
       - name: Save mobile beta screenshots and performance evidence
         uses: actions/upload-artifact@v4
         with:

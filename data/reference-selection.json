@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "basis": "Seven existing bounded factual references plus93 curated descriptive identity facts from a documented tool-consumable API. No source prose, images, full export or additional recipes.",
+  "basis": "Eight bounded source-linked factual records plus92 curated descriptive identity facts. One cached same-build Iron Pickaxe composition added; no output counts assumed and no full export.",
   "terms_url": "https://hytale.source.gs/terms/",
   "items": {
     "Weapon_Sword_Iron": {
@@ -171,6 +171,35 @@
       "availability": "unknown",
       "art": "original-category-illustration",
       "recipe": null
+    },
+    "Tool_Pickaxe_Iron": {
+      "id": "Tool_Pickaxe_Iron",
+      "names": {
+        "en": "Iron Pickaxe",
+        "ru": "Железная кирка",
+        "es": "Pico de hierro",
+        "pt-BR": "Picareta de ferro"
+      },
+      "theme": "gather",
+      "subcategory": "pickaxes",
+      "category": "tools",
+      "visual_family": "pickaxe",
+      "source_name": "Hytale Source",
+      "source_url": "https://hytale.source.gs/items/iron-pickaxe/",
+      "build": "0.6.4-b27",
+      "observed_on": "2026-11-17",
+      "availability": "unknown",
+      "art": "original-category-illustration",
+      "recipe": {
+        "ingredients": {
+          "Ingredient_Bar_Iron": 5,
+          "Ingredient_Leather_Light": 2,
+          "Ingredient_Fabric_Scrap_Linen": 2
+        },
+        "station": "Workbench",
+        "output_quantity": null,
+        "status": "source-reported-partial"
+      }
     },
     "Weapon_Sword_Copper": {
       "id": "Weapon_Sword_Copper",
@@ -1895,28 +1924,6 @@
         "ru": "Кирка · Медь",
         "es": "Pico · Cobre",
         "pt-BR": "Picareta · Cobre"
-      },
-      "theme": "gather",
-      "subcategory": "pickaxes",
-      "category": "tools",
-      "visual_family": "pickaxe",
-      "source_name": "OpenHytale API",
-      "source_url": "https://openhytale.org/api/catalogs/items.json",
-      "build": "OpenHytale 2026-07-06 (game build unknown)",
-      "observed_on": "2026-11-17",
-      "availability": "unknown",
-      "art": "original-category-illustration",
-      "label_origin": "derived-from-id",
-      "classification_basis": "structured-id-type; not gameplay or progression verification",
-      "recipe": null
-    },
-    "Tool_Pickaxe_Iron": {
-      "id": "Tool_Pickaxe_Iron",
-      "names": {
-        "en": "Iron Pickaxe",
-        "ru": "Кирка · Железо",
-        "es": "Pico · Hierro",
-        "pt-BR": "Picareta · Ferro"
       },
       "theme": "gather",
       "subcategory": "pickaxes",

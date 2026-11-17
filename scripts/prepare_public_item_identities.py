@@ -17,14 +17,14 @@ def selection(source):
   chosen.extend((f'Weapon_{typ}_{m}',typ,m,'fight','weapons') for m in MATERIALS if f'Weapon_{typ}_{m}' in known and f'Weapon_{typ}_{m}' not in items)
  for m in MATERIALS:
   chosen.extend((f'Armor_{m}_{typ}',typ,m,'defend','armor') for typ in ['Head','Chest','Hands','Legs'] if f'Armor_{m}_{typ}' in known and f'Armor_{m}_{typ}' not in items)
- tools=[(f'Tool_{typ}_{m}',typ,m,'gather','tools') for typ in ['Pickaxe','Hatchet','Shovel'] for m in MATERIALS if f'Tool_{typ}_{m}' in known];chosen.extend(tools[:15])
- if len(chosen)!=93:raise ValueError('Selection scope changed')
+ tools=[(f'Tool_{typ}_{m}',typ,m,'gather','tools') for typ in ['Pickaxe','Hatchet','Shovel'] for m in MATERIALS if f'Tool_{typ}_{m}' in known and f'Tool_{typ}_{m}' not in items];chosen.extend(tools[:14])
+ if len(chosen)!=92:raise ValueError('Selection scope changed')
  for key,typ,mat,theme,category in chosen:
   sub,family,labels=TYPES[typ];materials=MATERIALS[mat];names={lang:(materials[k]+' '+labels[k] if k==0 else labels[k]+' · '+materials[k]) for k,lang in enumerate(['en','ru','es','pt-BR'])}
   items[key]={'id':key,'names':names,'theme':theme,'subcategory':sub,'category':category,'visual_family':family,'source_name':'OpenHytale API','source_url':'https://openhytale.org/api/catalogs/items.json','build':'OpenHytale 2026-07-06 (game build unknown)','observed_on':'2026-11-17','availability':'unknown','art':'original-category-illustration','label_origin':'derived-from-id','classification_basis':'structured-id-type; not gameplay or progression verification','recipe':None}
- data['basis']='Seven existing bounded factual references plus93 curated descriptive identity facts from a documented tool-consumable API. No source prose, images, full export or additional recipes.';data['source_notes']={'openhytale':{'metadata_generated_at':'2026-07-06T11:57:22.295504Z','source_sha256':PIN,'identity_only':True,'usage_statement':'https://openhytale.org/developers/','rights_scope':'bounded descriptive public tool, no monetization; not a commercial dataset or game-asset licence'}}
+ data['basis']='Eight bounded source-linked factual records plus92 curated descriptive identity facts. One cached same-build Iron Pickaxe composition added; no output counts assumed and no full export.';data['source_notes']={'openhytale':{'metadata_generated_at':'2026-07-06T11:57:22.295504Z','source_sha256':PIN,'identity_only':True,'usage_statement':'https://openhytale.org/developers/','rights_scope':'bounded descriptive public tool, no monetization; not a commercial dataset or game-asset licence'}}
  return data
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('source',type=Path);p.add_argument('--output',type=Path,required=True);a=p.parse_args();source=base.private_path(a.source,base.ROOT);out=base.private_path(a.output,base.ROOT)
  if out.exists():raise SystemExit('Preserve previous candidate')
- data=selection(source);out.parent.mkdir(parents=True,exist_ok=True);base.atomic(out,(json.dumps(data,ensure_ascii=False,indent=2)+'\n').encode());print(json.dumps({'items':len(data['items']),'identity_only_added':93,'new_recipes':0,'review_before_publication':True}))
+ data=selection(source);out.parent.mkdir(parents=True,exist_ok=True);base.atomic(out,(json.dumps(data,ensure_ascii=False,indent=2)+'\n').encode());print(json.dumps({'items':len(data['items']),'identity_only_added':92,'new_recipes':0,'review_before_publication':True}))
