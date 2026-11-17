@@ -10,6 +10,18 @@
       "sha256": "b2b20b00068d84a0fbc46b0d5842fe2cc75de7c408ee8aa5b40c7cb08e6be0a2",
       "width": 1024,
       "height": 1024
+    },
+    "crafting.webp": {
+      "sha256": "3a4f883d1c2e1db9404355301450cfbfaf6680e88684ae5e717a9242761bb51f",
+      "width": 1024,
+      "height": 1024,
+      "original_project_art": true
+    },
+    "materials.webp": {
+      "sha256": "414c8f18b6c9a51c33c3335840179cd1ea8ae684e40423ab0f68f4dbd7921080",
+      "width": 1024,
+      "height": 1024,
+      "original_project_art": true
     }
   },
   "tiles": [
@@ -47,5 +59,35 @@
     "furnace",
     "anvil",
     "crystal"
+  ],
+  "crafting_tiles": [
+    "longsword",
+    "mace",
+    "spear",
+    "shovel",
+    "crossbow",
+    "staff",
+    "hoe",
+    "sickle",
+    "fishing",
+    "torch",
+    "rope",
+    "backpack",
+    "seed",
+    "map",
+    "robe",
+    "lantern"
+  ],
+  "material_columns": [
+    "Copper",
+    "Iron",
+    "Cobalt",
+    "Adamantite"
+  ],
+  "material_rows": [
+    "Sword",
+    "Battleaxe",
+    "Pickaxe",
+    "Head"
   ]
 }
