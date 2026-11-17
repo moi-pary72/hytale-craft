@@ -5,7 +5,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def audit(directory=None):
     out=Path(directory or ROOT/'dist');manifest=json.loads((out/'build-manifest.json').read_text())
-    allowed={'web/item-visuals.js','web/item-visuals.css','assets/item-system/categories.webp','assets/item-system/extended.webp','web/craftable.js','web/beta/deep.js','web/beta/deep.css','index.html','404.html','robots.txt','_headers','_redirects','build-manifest.json','sitemap.xml','web/build-config.js','web/planner.js','web/preview/i18n.js','web/beta/app.js','web/beta/style.css','web/beta/examples.js', 'web/beta/workspace.js','web/planner-v2.js','web/canonical-adapter.js','web/beta/advanced-data.json'}
+    allowed={'web/beta/reference-data.json','web/item-visuals.js','web/item-visuals.css','assets/item-system/categories.webp','assets/item-system/extended.webp','web/craftable.js','web/beta/deep.js','web/beta/deep.css','index.html','404.html','robots.txt','_headers','_redirects','build-manifest.json','sitemap.xml','web/build-config.js','web/planner.js','web/preview/i18n.js','web/beta/app.js','web/beta/style.css','web/beta/examples.js', 'web/beta/workspace.js','web/planner-v2.js','web/canonical-adapter.js','web/beta/advanced-data.json'}
     allowed.update('locales/'+prefix+lang+'.json' for prefix in ('','beta/') for lang in ('en','ru','es','pt-BR'))
     allowed.update('assets/art-pair/'+name+'.webp' for name in ('fight-poster','gather-poster','fight-atlas','gather-atlas'))
     allowed.update('assets/ui-v2/'+name+'.webp' for name in ('defend', 'build', 'survive', 'farm', 'explore', 'boss', 'skills', 'workshop', 'world', 'world-mobile', 'logo', 'frame', 'nav-home', 'nav-inventory', 'nav-plan', 'nav-more'))
@@ -26,6 +26,9 @@ def audit(directory=None):
     spec=importlib.util.spec_from_file_location('canonical_publication',ROOT/'scripts/canonical_publication.py');gate=importlib.util.module_from_spec(spec);spec.loader.exec_module(gate)
     data,approval,raw=gate.approved_learning(ROOT)
     if (out/'web/beta/advanced-data.json').read_bytes()!=raw:raise ValueError('Unapproved canonical public payload')
+    rs=importlib.util.spec_from_file_location('reference_publication',ROOT/'scripts/reference_publication.py');rm=importlib.util.module_from_spec(rs);rs.loader.exec_module(rm)
+    _,_,rr=rm.approved(ROOT)
+    if (out/'web/beta/reference-data.json').read_bytes()!=rr:raise ValueError('Unapproved reference content')
     html=(out/'index.html').read_text()
     if 'id="sheet"' not in html or 'web/beta/app.js' not in html or 'web/preview/app.js' in html:raise ValueError('Wrong entry point')
     for p in out.rglob('*'):

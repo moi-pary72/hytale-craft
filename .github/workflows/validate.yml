@@ -51,6 +51,7 @@ jobs:
           python tests/stage19_browser.py
           python tests/guide_browser.py
           python tests/themes_browser.py
+          python tests/reference_browser.py
       - name: Save mobile beta screenshots and performance evidence
         uses: actions/upload-artifact@v4
         with:

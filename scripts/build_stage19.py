@@ -12,7 +12,7 @@ def build(mode,output,input_dir=None,evidence=None,visuals=None,art=None,acknowl
  if mode=='PUBLIC_RELEASE':
   if any(x is not None for x in (input_dir,evidence,visuals,art)):raise ValueError('No research inputs accepted for public mode')
   pages=module('build_pages');public=pages.build('user-only',site_url='https://hytale-craft.pages.dev');audit=module('audit_pages').audit(public);shutil.copytree(public,out);out.chmod(0o700)
-  report={'mode':mode,'public_real_items':0,'public_real_recipes':0,'original_learning_methods':8,'noindex':True,'deployed':False,'rights':'No approved real source; do not substitute source declarations for permission','audit_files':audit['files'],'bytes':audit['total_bytes']}
+  report={'mode':mode,'public_real_items':5,'public_real_recipes':2,'complete_real_recipes':0,'original_learning_methods':8,'noindex':True,'deployed':False,'rights':'Only bounded reviewed factual references; no full foreign catalogue rights','audit_files':audit['files'],'bytes':audit['total_bytes']}
  elif mode=='PRIVATE_REAL_DATA':
   if not acknowledge or input_dir is None:raise ValueError('Private mode needs authorized inputs and --local-research-only')
   verify=module('verify_real_data_lab');report=verify.verify(input_dir,ROOT/'docs/stage18/RESTORE_MANIFEST.json',out);report.update(mode=mode,deployed=False)

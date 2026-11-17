@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "basis": "Two bounded manually recorded factual citations; no bulk export, text, icons or compilation copied. Source terms permit linked numerical citations. Not a blanket game-IP or commercial dataset licence.",
+  "terms_url": "https://hytale.source.gs/terms/",
+  "items": {
+    "Weapon_Sword_Iron": {
+      "id": "Weapon_Sword_Iron",
+      "names": {
+        "en": "Iron Sword",
+        "ru": "Железный меч",
+        "es": "Espada de hierro",
+        "pt-BR": "Espada de ferro"
+      },
+      "theme": "fight",
+      "subcategory": "swords",
+      "source_url": "https://hytale.source.gs/items/iron-sword/",
+      "build": "0.6.4-b27",
+      "observed_on": "2026-11-17",
+      "availability": "unknown",
+      "art": "original-category-illustration",
+      "recipe": {
+        "ingredients": {
+          "Ingredient_Bar_Iron": 6,
+          "Ingredient_Leather_Light": 3,
+          "Ingredient_Fabric_Scrap_Linen": 3
+        },
+        "station": "Blacksmith's Anvil",
+        "output_quantity": null,
+        "status": "source-reported-partial"
+      }
+    },
+    "Armor_Iron_Head": {
+      "id": "Armor_Iron_Head",
+      "names": {
+        "en": "Iron Helm",
+        "ru": "Железный шлем",
+        "es": "Casco de hierro",
+        "pt-BR": "Elmo de ferro"
+      },
+      "theme": "defend",
+      "subcategory": "helmets",
+      "source_url": "https://hytale.source.gs/items/iron-helm/",
+      "build": "0.6.4-b27",
+      "observed_on": "2026-11-17",
+      "availability": "unknown",
+      "art": "original-category-illustration",
+      "recipe": {
+        "ingredients": {
+          "Ingredient_Bar_Iron": 9,
+          "Ingredient_Leather_Light": 4,
+          "Ingredient_Fabric_Scrap_Linen": 3
+        },
+        "station": "Armorer's Workbench",
+        "output_quantity": null,
+        "status": "source-reported-partial"
+      }
+    },
+    "Ingredient_Bar_Iron": {
+      "id": "Ingredient_Bar_Iron",
+      "names": {
+        "en": "Iron Ingot",
+        "ru": "Железный слиток",
+        "es": "Lingote de hierro",
+        "pt-BR": "Lingote de ferro"
+      },
+      "theme": "workshop",
+      "subcategory": "materials",
+      "source_url": "https://hytale.source.gs/items/iron-sword/",
+      "build": "0.6.4-b27",
+      "observed_on": "2026-11-17",
+      "availability": "unknown",
+      "art": "original-category-illustration",
+      "recipe": null
+    },
+    "Ingredient_Leather_Light": {
+      "id": "Ingredient_Leather_Light",
+      "names": {
+        "en": "Light Leather",
+        "ru": "Лёгкая кожа",
+        "es": "Cuero ligero",
+        "pt-BR": "Couro leve"
+      },
+      "theme": "workshop",
+      "subcategory": "materials",
+      "source_url": "https://hytale.source.gs/items/iron-sword/",
+      "build": "0.6.4-b27",
+      "observed_on": "2026-11-17",
+      "availability": "unknown",
+      "art": "original-category-illustration",
+      "recipe": null
+    },
+    "Ingredient_Fabric_Scrap_Linen": {
+      "id": "Ingredient_Fabric_Scrap_Linen",
+      "names": {
+        "en": "Linen Scraps",
+        "ru": "Льняные лоскуты",
+        "es": "Retales de lino",
+        "pt-BR": "Retalhos de linho"
+      },
+      "theme": "workshop",
+      "subcategory": "materials",
+      "source_url": "https://hytale.source.gs/items/iron-sword/",
+      "build": "0.6.4-b27",
+      "observed_on": "2026-11-17",
+      "availability": "unknown",
+      "art": "original-category-illustration",
+      "recipe": null
+    }
+  }
+}
