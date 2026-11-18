@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#091526">
+<meta name="description" content="Просмотр собственного JSON-каталога Hytale прямо в браузере без передачи файла на сервер.">
+<title>Hytale Craft — Локальный каталог</title>
+<link rel="stylesheet" href="web/local-catalog.css">
+<script defer src="web/local-catalog.js"></script>
+</head><body>
+<main>
+<header><a href="./" class="back">← Hytale Craft</a><span class="label">LOCAL · PRIVATE</span></header>
+<h1>Твой каталог — прямо в браузере</h1>
+<p class="lead">Открой собственный JSON-файл каталога с телефона или компьютера. Файл читается <strong>только на этом устройстве</strong>, без отправки на сайт и без сохранения в облако.</p>
+<section class="panel" aria-label="Загрузка каталога">
+<label for="catalog-file" class="upload">Выбрать JSON-каталог</label>
+<input id="catalog-file" type="file" accept=".json,application/json">
+<p class="hint">Из архива Hytale Craft выбери файл <code>research-data.json</code>. Сначала распакуй ZIP в «Файлах» Android. На других устройствах можно выбрать совместимый файл формата <code>canonical.items / canonical.recipes</code>.</p>
+<p id="status" role="status" aria-live="polite">Каталог ещё не загружен.</p>
+</section>
+<section id="browser" class="panel" hidden>
+<div class="stats" id="stats"></div>
+<div class="filters"><label>Поиск по названию или ID<input id="query" type="search" autocomplete="off" placeholder="Например: Iron Sword"></label>
+<label>Категория<select id="category"><option value="">Все категории</option></select></label></div>
+<p class="hint">Данные из стороннего источника могут относиться к старой версии игры. Наличие предмета и рецепта в текущем Hytale не подтверждено.</p>
+<div id="results" class="results"></div>
+<div class="pager"><button id="prev" type="button">← Назад</button><span id="page" aria-live="polite"></span><button id="next" type="button">Дальше →</button></div>
+<section id="detail" class="detail" hidden aria-label="Карточка предмета"></section>
+</section>
+<footer>Неофициальный инструмент. Данные не загружаются на сервер, не публикуются и исчезают из страницы при обновлении или закрытии вкладки.</footer>
+</main>
+</body></html>
