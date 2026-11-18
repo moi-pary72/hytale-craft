@@ -283,5 +283,7 @@
   "shovels": "Palas",
   "armor": "Armadura",
   "tools": "Herramientas",
-  "refIdentityScope": "ID observado en el catálogo OpenHytale del 6 de julio de 2026; versión exacta desconocida. Nombre y categoría derivados del ID, no traducción oficial. La entrada no confirma disponibilidad en Survival, estadísticas ni receta. Ilustración de categoría original y orientativa."
+  "refIdentityScope": "ID observado en el catálogo OpenHytale del 6 de julio de 2026; versión exacta desconocida. Nombre y categoría derivados del ID, no traducción oficial. La entrada no confirma disponibilidad en Survival, estadísticas ni receta. Ilustración de categoría original y orientativa.",
+  "refEarlyBuild": "receta histórica; no verificada en la versión actual",
+  "refEarlyScope": "Cantidades e item de salida citados de Update 2 (enero 2026). No verificado en la versión actual; las cadenas entre versiones no se calculan."
 }
