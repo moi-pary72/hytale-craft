@@ -252,7 +252,7 @@
   "refScope": "Manually checked numerical citations, Hytale Source0.6.4-b27. Not a bulk export or a claim of current-game verification.",
   "refUnavailable": "Game references unavailable · your data is preserved",
   "s23ShowPath": "Show crafting path",
-  "s23BatchNote": "Each recipe shows one batch. Total resources cannot be calculated while outputs are unknown.",
+  "s23BatchNote": "Each step shows one recipe batch. Total resources are not calculated when the output is unknown or ingredients come from a different game version.",
   "s23Unknown": "Acquisition method is not yet known",
   "s23Cycle": "Cycle detected: this branch is stopped",
   "s23Version": "Different source version: branch not combined",
