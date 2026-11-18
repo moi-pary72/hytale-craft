@@ -5,3 +5,10 @@ test('alternatives, cycles and versions do not invent a production chain',()=>{c
 test('5000 synthetic items have bounded search and paths',()=>{const i={};for(let n=0;n<5000;n++)i['synthetic:'+n]={names:{en:'Synthetic '+n},build:'synthetic',theme:'gather',subcategory:'synthetic',recipe:n?{ingredients:{['synthetic:'+(n-1)]:1},output_quantity:1}:null};const start=performance.now(),m=prepare(i);a.equal(m.search('',{limit:999999}).ids.length,48);a.equal(m.search('synthetic:4999').ids[0],'synthetic:4999');const p=m.path('synthetic:4999');let leaf=p;while(leaf.children.length)leaf=leaf.children[0];a.equal(leaf.status,'limit');a.ok(performance.now()-start<5000)});
 
 test('wide recipes obey the shared 200-node budget',()=>{const ingredients={},items={root:{build:'same',recipe:{ingredients}}};for(let n=0;n<1000;n++){ingredients['child'+n]=1;items['child'+n]={build:'same'}}const p=prepare(items).path('root');a.equal(p.children.length,199);a.equal(p.children.at(-1).status,'limit')});
+
+test('eight individually cited Update 2 recipes have output one, but are not current-game verified',()=>{
+ const items=raw.items,ids=['Weapon_Shield_Iron','Weapon_Daggers_Iron','Weapon_Mace_Iron','Weapon_Longsword_Iron','Armor_Iron_Chest','Armor_Iron_Legs','Tool_Hatchet_Iron','Tool_Shovel_Iron'],m=prepare(items);
+ a.equal(Object.keys(items).length,100);a.equal(Object.values(items).filter(x=>x.recipe).length,13);
+ for(const id of ids){const x=items[id];a.equal(x.source_name,'Hytale Item Laboratory');a.equal(x.recipe.status,'source-documented-complete');a.equal(x.recipe.output_quantity,1);a.equal(m.status(id),'B');const p=m.path(id);a.equal(p.output_quantity,1);a.equal(p.children.length,3);a.ok(p.children.every(c=>c.status==='version'));}
+ a.equal(m.methods('Weapon_Mace_Iron').length,2);a.equal(m.path('Weapon_Mace_Iron',{Weapon_Mace_Iron:'forge'}).station,'Forge');a.equal(items.Weapon_Sword_Iron.recipe.output_quantity,null);
+});
