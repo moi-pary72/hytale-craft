@@ -22,6 +22,18 @@
       "width": 1024,
       "height": 1024,
       "original_project_art": true
+    },
+    "weapon-variants.webp": {
+      "sha256": "db0645b88c4c09916fcf0facc12ee03f678fef6d27f3748894fc5490b19db6a8",
+      "width": 1024,
+      "height": 1024,
+      "original_project_art": true
+    },
+    "weapon-variants-additions.webp": {
+      "sha256": "93d86f928a843d6b6b20c0d196e42c1c3963d5966aed4d7c40bb2fcd23a20ed2",
+      "width": 1024,
+      "height": 1024,
+      "original_project_art": true
     }
   },
   "tiles": [
@@ -89,5 +101,26 @@
     "Battleaxe",
     "Pickaxe",
     "Head"
+  ],
+  "weapon_variant_rows": [
+    "Longsword",
+    "Daggers",
+    "Mace",
+    "Shield"
+  ],
+  "weapon_variant_columns": [
+    "Copper",
+    "Iron",
+    "Cobalt",
+    "Adamantite"
+  ],
+  "weapon_variant_additions": [
+    "Weapon_Longsword_Thorium",
+    "Weapon_Daggers_Thorium",
+    "Weapon_Mace_Thorium",
+    "Weapon_Spear_Copper",
+    "Weapon_Spear_Iron",
+    "Weapon_Spear_Thorium",
+    "Weapon_Spear_Cobalt"
   ]
 }
