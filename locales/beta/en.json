@@ -252,7 +252,7 @@
   "refScope": "Manually checked numerical citations, Hytale Source0.6.4-b27. Not a bulk export or a claim of current-game verification.",
   "refUnavailable": "Game references unavailable · your data is preserved",
   "s23ShowPath": "Show crafting path",
-  "s23BatchNote": "Each recipe shows one batch. Total resources cannot be calculated while outputs are unknown.",
+  "s23BatchNote": "Each step shows one recipe batch. Total resources are not calculated when the output is unknown or ingredients come from a different game version.",
   "s23Unknown": "Acquisition method is not yet known",
   "s23Cycle": "Cycle detected: this branch is stopped",
   "s23Version": "Different source version: branch not combined",
@@ -283,5 +283,7 @@
   "shovels": "Shovels",
   "armor": "Armour",
   "tools": "Tools",
-  "refIdentityScope": "Item ID observed in the OpenHytale catalog, snapshot July 6, 2026; exact game build unknown. Display name and category are derived from the structured ID, not official localization. This confirms an entry in the catalog, not Survival availability, stats or a recipe. Category artwork is original and illustrative."
+  "refIdentityScope": "Item ID observed in the OpenHytale catalog, snapshot July 6, 2026; exact game build unknown. Display name and category are derived from the structured ID, not official localization. This confirms an entry in the catalog, not Survival availability, stats or a recipe. Category artwork is original and illustrative.",
+  "refEarlyBuild": "historical recipe; not verified in current game release",
+  "refEarlyScope": "The ingredient quantities and one-item yield are cited from the Update 2 (January 2026) game-file reference. Current-release accuracy has not been verified. No cross-version ingredient totals are calculated."
 }

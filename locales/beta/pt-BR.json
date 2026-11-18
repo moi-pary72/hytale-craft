@@ -252,7 +252,7 @@
   "refScope": "Dados numéricos conferidos manualmente: Hytale Source0.6.4-b27. Sem exportação em massa ou garantia da versão atual.",
   "refUnavailable": "Referências indisponíveis · seus dados estão preservados",
   "s23ShowPath": "Mostrar cadeia de fabricação",
-  "s23BatchNote": "Cada receita mostra um lote. Não calculamos o total sem conhecer a quantidade produzida.",
+  "s23BatchNote": "Cada etapa mostra um lote. Não calculamos totais se o rendimento for desconhecido ou os ingredientes forem de outra versão do jogo.",
   "s23Unknown": "Forma de obtenção ainda desconhecida",
   "s23Cycle": "Ciclo detectado: ramo interrompido",
   "s23Version": "Outra versão: ramo não combinado",
@@ -283,5 +283,7 @@
   "shovels": "Pás",
   "armor": "Armadura",
   "tools": "Ferramentas",
-  "refIdentityScope": "ID observado no catálogo OpenHytale de 6 de julho de 2026; versão exata desconhecida. Nome e categoria derivados do ID, não uma tradução oficial. A entrada não confirma disponibilidade em Survival, atributos ou receita. Ilustração de categoria original e representativa."
+  "refIdentityScope": "ID observado no catálogo OpenHytale de 6 de julho de 2026; versão exata desconhecida. Nome e categoria derivados do ID, não uma tradução oficial. A entrada não confirma disponibilidade em Survival, atributos ou receita. Ilustração de categoria original e representativa.",
+  "refEarlyBuild": "receita histórica; não verificada na versão atual",
+  "refEarlyScope": "Quantidades e rendimento de um item citados da Update 2 (janeiro de 2026). Não verificado na versão atual; cadeias entre versões não são calculadas."
 }

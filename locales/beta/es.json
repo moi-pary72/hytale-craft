@@ -252,7 +252,7 @@
   "refScope": "Datos numéricos revisados manualmente: Hytale Source0.6.4-b27. Sin exportación masiva ni garantía de versión actual.",
   "refUnavailable": "Referencias no disponibles · tus datos se conservan",
   "s23ShowPath": "Mostrar cadena de fabricación",
-  "s23BatchNote": "Se muestra un lote por receta. No se calcula el total si se desconoce la producción.",
+  "s23BatchNote": "Cada paso muestra un lote. No se calculan totales si se desconoce la producción o los ingredientes pertenecen a otra versión del juego.",
   "s23Unknown": "Aún no se conoce cómo obtenerlo",
   "s23Cycle": "Ciclo detectado: rama detenida",
   "s23Version": "Otra versión: rama no combinada",
@@ -283,5 +283,7 @@
   "shovels": "Palas",
   "armor": "Armadura",
   "tools": "Herramientas",
-  "refIdentityScope": "ID observado en el catálogo OpenHytale del 6 de julio de 2026; versión exacta desconocida. Nombre y categoría derivados del ID, no traducción oficial. La entrada no confirma disponibilidad en Survival, estadísticas ni receta. Ilustración de categoría original y orientativa."
+  "refIdentityScope": "ID observado en el catálogo OpenHytale del 6 de julio de 2026; versión exacta desconocida. Nombre y categoría derivados del ID, no traducción oficial. La entrada no confirma disponibilidad en Survival, estadísticas ni receta. Ilustración de categoría original y orientativa.",
+  "refEarlyBuild": "receta histórica; no verificada en la versión actual",
+  "refEarlyScope": "Cantidades e item de salida citados de Update 2 (enero 2026). No verificado en la versión actual; las cadenas entre versiones no se calculan."
 }

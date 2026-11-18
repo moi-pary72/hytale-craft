@@ -104,7 +104,7 @@ def build(policy='user-only', site_url=None, base_path='/', guide=False):
         (out/'_redirects').write_text('/preview.html / 302\n/art-preview.html / 302\n/beta.html / 302\n')
         (out/'_headers').write_text("/*\n  X-Robots-Tag: noindex, nofollow\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: no-referrer\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'\n  Cache-Control: no-cache\n")
         hashes = {str(p.relative_to(out)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(out.rglob('*')) if p.is_file()}
-        (out/'build-manifest.json').write_text(json.dumps({'schema':1, 'testing':True, 'data_policy':policy, 'revision':revision, 'real_game_items':len(selection['items']), 'real_game_recipes':sum(i['recipe'] is not None for i in selection['items'].values()), 'complete_game_recipes':0, 'files':hashes}, indent=2)+'\n')
+        (out/'build-manifest.json').write_text(json.dumps({'schema':1, 'testing':True, 'data_policy':policy, 'revision':revision, 'real_game_items':len(selection['items']), 'real_game_recipes':sum(i['recipe'] is not None for i in selection['items'].values()), 'complete_game_recipes':0, 'source_documented_complete_recipes':sum(i['recipe'] is not None and i['recipe'].get('status')=='source-documented-complete' for i in selection['items'].values()), 'files':hashes}, indent=2)+'\n')
         if target.exists():
             shutil.rmtree(target)
         shutil.copytree(out, target)

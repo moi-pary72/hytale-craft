@@ -4,9 +4,9 @@ from pathlib import Path
 from scripts import reference_publication as gate,prepare_public_item_identities as maker
 class PublicIdentities(unittest.TestCase):
  def test_identities_do_not_assert_recipes_or_availability(self):
-  data,a,_=gate.approved();self.assertEqual(len(data['items']),100);new=[i for i in data['items'].values() if i.get('source_name')=='OpenHytale API'];self.assertEqual(len(new),92)
+  data,a,_=gate.approved();self.assertEqual(len(data['items']),100);new=[i for i in data['items'].values() if i.get('source_name')=='OpenHytale API'];self.assertEqual(len(new),84)
   for row in new:self.assertIsNone(row['recipe']);self.assertEqual(row['availability'],'unknown');self.assertEqual(row['label_origin'],'derived-from-id');self.assertNotIn('item_level',row);self.assertNotIn('durability',row)
-  self.assertEqual(sum(i['recipe'] is not None for i in data['items'].values()),5)
+  self.assertEqual(sum(i['recipe'] is not None for i in data['items'].values()),13);self.assertEqual(sum(i.get('source_name')=='Hytale Item Laboratory' for i in data['items'].values()),8)
  def test_updated_hash_cannot_expand_scope_or_invent_fields(self):
   data,a,_=gate.approved();key=next(k for k,i in data['items'].items() if i.get('source_name')=='OpenHytale API')
   for mutation in ['count','stats','recipe','version']:

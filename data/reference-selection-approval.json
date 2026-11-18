@@ -1,10 +1,11 @@
 {
   "path": "data/reference-selection.json",
-  "sha256": "2879bebaf7fd533bfeba2824415d90ed39d077252d7ecf1f753539a777473948",
+  "sha256": "46c4f20d7c8cfa05a2cfb0ae546962ba6e7e67a82926456790c660eb00abd3d7",
   "items": 100,
   "source_reported_partial_recipes": 5,
   "complete_recipes": 0,
-  "reviewed_on": "2026-11-17",
-  "basis": "docs/ITEM_ART_RELEASE.md",
-  "identity_only_api_items": 92
+  "reviewed_on": "2026-11-18",
+  "basis": "docs/RECIPE_EARLY_BUILD_BATCH.md",
+  "identity_only_api_items": 84,
+  "source_documented_complete_recipes": 8
 }
