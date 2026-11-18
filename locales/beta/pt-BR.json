@@ -252,7 +252,7 @@
   "refScope": "Dados numéricos conferidos manualmente: Hytale Source0.6.4-b27. Sem exportação em massa ou garantia da versão atual.",
   "refUnavailable": "Referências indisponíveis · seus dados estão preservados",
   "s23ShowPath": "Mostrar cadeia de fabricação",
-  "s23BatchNote": "Cada receita mostra um lote. Não calculamos o total sem conhecer a quantidade produzida.",
+  "s23BatchNote": "Cada etapa mostra um lote. Não calculamos totais se o rendimento for desconhecido ou os ingredientes forem de outra versão do jogo.",
   "s23Unknown": "Forma de obtenção ainda desconhecida",
   "s23Cycle": "Ciclo detectado: ramo interrompido",
   "s23Version": "Outra versão: ramo não combinado",
