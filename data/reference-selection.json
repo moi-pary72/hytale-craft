@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "basis": "Eight bounded source-linked factual records plus92 curated descriptive identity facts. One cached same-build Iron Pickaxe composition added; no output counts assumed and no full export.",
+  "basis": "Eight bounded 0.6.4-b27 source records; 84 OpenHytale descriptive identity records; eight independently reviewed Update 2 game-file recipe pages. No current-build game verification or full exports.",
   "terms_url": "https://hytale.source.gs/terms/",
   "items": {
     "Weapon_Sword_Iron": {
@@ -367,15 +367,24 @@
       "subcategory": "longswords",
       "category": "weapons",
       "visual_family": "sword",
-      "source_name": "OpenHytale API",
-      "source_url": "https://openhytale.org/api/catalogs/items.json",
-      "build": "OpenHytale 2026-07-06 (game build unknown)",
-      "observed_on": "2026-11-17",
+      "source_name": "Hytale Item Laboratory",
+      "source_url": "https://hytale.isaacguru.com/wiki/hytale/item/Weapon_Longsword_Iron",
+      "build": "Hytale Update 2 (January 2026; current build unverified)",
+      "observed_on": "2026-11-18",
       "availability": "unknown",
       "art": "original-category-illustration",
-      "label_origin": "derived-from-id",
-      "classification_basis": "structured-id-type; not gameplay or progression verification",
-      "recipe": null
+      "label_origin": "reviewed-early-build-facts",
+      "classification_basis": "Individually reviewed Update2 game-file reference; current-game status unknown",
+      "recipe": {
+        "ingredients": {
+          "Ingredient_Bar_Iron": 6,
+          "Ingredient_Leather_Light": 4,
+          "Ingredient_Fabric_Scrap_Linen": 3
+        },
+        "station": "Blacksmith's Anvil",
+        "output_quantity": 1,
+        "status": "source-documented-complete"
+      }
     },
     "Weapon_Longsword_Thorium": {
       "id": "Weapon_Longsword_Thorium",
@@ -521,15 +530,24 @@
       "subcategory": "daggers",
       "category": "weapons",
       "visual_family": "dagger",
-      "source_name": "OpenHytale API",
-      "source_url": "https://openhytale.org/api/catalogs/items.json",
-      "build": "OpenHytale 2026-07-06 (game build unknown)",
-      "observed_on": "2026-11-17",
+      "source_name": "Hytale Item Laboratory",
+      "source_url": "https://hytale.isaacguru.com/wiki/hytale/item/Weapon_Daggers_Iron",
+      "build": "Hytale Update 2 (January 2026; current build unverified)",
+      "observed_on": "2026-11-18",
       "availability": "unknown",
       "art": "original-category-illustration",
-      "label_origin": "derived-from-id",
-      "classification_basis": "structured-id-type; not gameplay or progression verification",
-      "recipe": null
+      "label_origin": "reviewed-early-build-facts",
+      "classification_basis": "Individually reviewed Update2 game-file reference; current-game status unknown",
+      "recipe": {
+        "ingredients": {
+          "Ingredient_Bar_Iron": 4,
+          "Ingredient_Leather_Light": 2,
+          "Ingredient_Fabric_Scrap_Linen": 3
+        },
+        "station": "Blacksmith's Anvil",
+        "output_quantity": 1,
+        "status": "source-documented-complete"
+      }
     },
     "Weapon_Daggers_Thorium": {
       "id": "Weapon_Daggers_Thorium",
@@ -785,15 +803,49 @@
       "subcategory": "maces",
       "category": "weapons",
       "visual_family": "neutral",
-      "source_name": "OpenHytale API",
-      "source_url": "https://openhytale.org/api/catalogs/items.json",
-      "build": "OpenHytale 2026-07-06 (game build unknown)",
-      "observed_on": "2026-11-17",
+      "source_name": "Hytale Item Laboratory",
+      "source_url": "https://hytale.isaacguru.com/wiki/hytale/item/Weapon_Mace_Iron",
+      "build": "Hytale Update 2 (January 2026; current build unverified)",
+      "observed_on": "2026-11-18",
       "availability": "unknown",
       "art": "original-category-illustration",
-      "label_origin": "derived-from-id",
-      "classification_basis": "structured-id-type; not gameplay or progression verification",
-      "recipe": null
+      "label_origin": "reviewed-early-build-facts",
+      "classification_basis": "Individually reviewed Update2 game-file reference; current-game status unknown",
+      "recipe": {
+        "ingredients": {
+          "Ingredient_Bar_Iron": 10,
+          "Ingredient_Leather_Light": 4,
+          "Ingredient_Fabric_Scrap_Linen": 3
+        },
+        "station": "Blacksmith's Anvil",
+        "output_quantity": 1,
+        "status": "source-documented-complete",
+        "alternative_stations": [
+          "Forge"
+        ]
+      },
+      "methods": [
+        {
+          "id": "anvil",
+          "ingredients": {
+            "Ingredient_Bar_Iron": 10,
+            "Ingredient_Leather_Light": 4,
+            "Ingredient_Fabric_Scrap_Linen": 3
+          },
+          "station": "Blacksmith's Anvil",
+          "output_quantity": 1
+        },
+        {
+          "id": "forge",
+          "ingredients": {
+            "Ingredient_Bar_Iron": 10,
+            "Ingredient_Leather_Light": 4,
+            "Ingredient_Fabric_Scrap_Linen": 3
+          },
+          "station": "Forge",
+          "output_quantity": 1
+        }
+      ]
     },
     "Weapon_Mace_Thorium": {
       "id": "Weapon_Mace_Thorium",
@@ -1225,15 +1277,24 @@
       "subcategory": "shields",
       "category": "weapons",
       "visual_family": "shield",
-      "source_name": "OpenHytale API",
-      "source_url": "https://openhytale.org/api/catalogs/items.json",
-      "build": "OpenHytale 2026-07-06 (game build unknown)",
-      "observed_on": "2026-11-17",
+      "source_name": "Hytale Item Laboratory",
+      "source_url": "https://hytale.isaacguru.com/wiki/hytale/item/Weapon_Shield_Iron",
+      "build": "Hytale Update 2 (January 2026; current build unverified)",
+      "observed_on": "2026-11-18",
       "availability": "unknown",
       "art": "original-category-illustration",
-      "label_origin": "derived-from-id",
-      "classification_basis": "structured-id-type; not gameplay or progression verification",
-      "recipe": null
+      "label_origin": "reviewed-early-build-facts",
+      "classification_basis": "Individually reviewed Update2 game-file reference; current-game status unknown",
+      "recipe": {
+        "ingredients": {
+          "Ingredient_Bar_Iron": 4,
+          "Ingredient_Leather_Light": 3,
+          "Ingredient_Fabric_Scrap_Linen": 3
+        },
+        "station": "Armorer's Workbench",
+        "output_quantity": 1,
+        "status": "source-documented-complete"
+      }
     },
     "Weapon_Shield_Thorium": {
       "id": "Weapon_Shield_Thorium",
@@ -1511,15 +1572,24 @@
       "subcategory": "chestpieces",
       "category": "armor",
       "visual_family": "breastplate",
-      "source_name": "OpenHytale API",
-      "source_url": "https://openhytale.org/api/catalogs/items.json",
-      "build": "OpenHytale 2026-07-06 (game build unknown)",
-      "observed_on": "2026-11-17",
+      "source_name": "Hytale Item Laboratory",
+      "source_url": "https://hytale.isaacguru.com/wiki/hytale/item/Armor_Iron_Chest",
+      "build": "Hytale Update 2 (January 2026; current build unverified)",
+      "observed_on": "2026-11-18",
       "availability": "unknown",
       "art": "original-category-illustration",
-      "label_origin": "derived-from-id",
-      "classification_basis": "structured-id-type; not gameplay or progression verification",
-      "recipe": null
+      "label_origin": "reviewed-early-build-facts",
+      "classification_basis": "Individually reviewed Update2 game-file reference; current-game status unknown",
+      "recipe": {
+        "ingredients": {
+          "Ingredient_Bar_Iron": 16,
+          "Ingredient_Leather_Light": 7,
+          "Ingredient_Fabric_Scrap_Linen": 6
+        },
+        "station": "Armorer's Workbench",
+        "output_quantity": 1,
+        "status": "source-documented-complete"
+      }
     },
     "Armor_Iron_Hands": {
       "id": "Armor_Iron_Hands",
@@ -1555,15 +1625,24 @@
       "subcategory": "legpieces",
       "category": "armor",
       "visual_family": "leggings",
-      "source_name": "OpenHytale API",
-      "source_url": "https://openhytale.org/api/catalogs/items.json",
-      "build": "OpenHytale 2026-07-06 (game build unknown)",
-      "observed_on": "2026-11-17",
+      "source_name": "Hytale Item Laboratory",
+      "source_url": "https://hytale.isaacguru.com/wiki/hytale/item/Armor_Iron_Legs",
+      "build": "Hytale Update 2 (January 2026; current build unverified)",
+      "observed_on": "2026-11-18",
       "availability": "unknown",
       "art": "original-category-illustration",
-      "label_origin": "derived-from-id",
-      "classification_basis": "structured-id-type; not gameplay or progression verification",
-      "recipe": null
+      "label_origin": "reviewed-early-build-facts",
+      "classification_basis": "Individually reviewed Update2 game-file reference; current-game status unknown",
+      "recipe": {
+        "ingredients": {
+          "Ingredient_Bar_Iron": 13,
+          "Ingredient_Leather_Light": 6,
+          "Ingredient_Fabric_Scrap_Linen": 4
+        },
+        "station": "Armorer's Workbench",
+        "output_quantity": 1,
+        "status": "source-documented-complete"
+      }
     },
     "Armor_Thorium_Head": {
       "id": "Armor_Thorium_Head",
@@ -2061,15 +2140,24 @@
       "subcategory": "hatchets",
       "category": "tools",
       "visual_family": "axe",
-      "source_name": "OpenHytale API",
-      "source_url": "https://openhytale.org/api/catalogs/items.json",
-      "build": "OpenHytale 2026-07-06 (game build unknown)",
-      "observed_on": "2026-11-17",
+      "source_name": "Hytale Item Laboratory",
+      "source_url": "https://hytale.isaacguru.com/wiki/hytale/item/Tool_Hatchet_Iron",
+      "build": "Hytale Update 2 (January 2026; current build unverified)",
+      "observed_on": "2026-11-18",
       "availability": "unknown",
       "art": "original-category-illustration",
-      "label_origin": "derived-from-id",
-      "classification_basis": "structured-id-type; not gameplay or progression verification",
-      "recipe": null
+      "label_origin": "reviewed-early-build-facts",
+      "classification_basis": "Individually reviewed Update2 game-file reference; current-game status unknown",
+      "recipe": {
+        "ingredients": {
+          "Ingredient_Bar_Iron": 5,
+          "Ingredient_Leather_Light": 2,
+          "Ingredient_Fabric_Scrap_Linen": 2
+        },
+        "station": "Workbench",
+        "output_quantity": 1,
+        "status": "source-documented-complete"
+      }
     },
     "Tool_Hatchet_Thorium": {
       "id": "Tool_Hatchet_Thorium",
@@ -2193,15 +2281,24 @@
       "subcategory": "shovels",
       "category": "tools",
       "visual_family": "neutral",
-      "source_name": "OpenHytale API",
-      "source_url": "https://openhytale.org/api/catalogs/items.json",
-      "build": "OpenHytale 2026-07-06 (game build unknown)",
-      "observed_on": "2026-11-17",
+      "source_name": "Hytale Item Laboratory",
+      "source_url": "https://hytale.isaacguru.com/wiki/hytale/item/Tool_Shovel_Iron",
+      "build": "Hytale Update 2 (January 2026; current build unverified)",
+      "observed_on": "2026-11-18",
       "availability": "unknown",
       "art": "original-category-illustration",
-      "label_origin": "derived-from-id",
-      "classification_basis": "structured-id-type; not gameplay or progression verification",
-      "recipe": null
+      "label_origin": "reviewed-early-build-facts",
+      "classification_basis": "Individually reviewed Update2 game-file reference; current-game status unknown",
+      "recipe": {
+        "ingredients": {
+          "Ingredient_Bar_Iron": 6,
+          "Ingredient_Leather_Light": 3,
+          "Ingredient_Fabric_Scrap_Linen": 2
+        },
+        "station": "Workbench",
+        "output_quantity": 1,
+        "status": "source-documented-complete"
+      }
     },
     "Tool_Shovel_Thorium": {
       "id": "Tool_Shovel_Thorium",
@@ -2233,6 +2330,12 @@
       "identity_only": true,
       "usage_statement": "https://openhytale.org/developers/",
       "rights_scope": "bounded descriptive public tool, no monetization; not a commercial dataset or game-asset licence"
+    },
+    "early_update2": {
+      "source": "Hytale Item Laboratory",
+      "build": "Update 2 (January 2026)",
+      "scope": "Eight individually reviewed recipe pages, concise numerical facts and backlinks only; no game art or copied prose",
+      "limitations": "Not confirmed for the current release; cross-version ingredient chains are not scaled"
     }
   }
 }
