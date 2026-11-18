@@ -283,5 +283,7 @@
   "shovels": "Pás",
   "armor": "Armadura",
   "tools": "Ferramentas",
-  "refIdentityScope": "ID observado no catálogo OpenHytale de 6 de julho de 2026; versão exata desconhecida. Nome e categoria derivados do ID, não uma tradução oficial. A entrada não confirma disponibilidade em Survival, atributos ou receita. Ilustração de categoria original e representativa."
+  "refIdentityScope": "ID observado no catálogo OpenHytale de 6 de julho de 2026; versão exata desconhecida. Nome e categoria derivados do ID, não uma tradução oficial. A entrada não confirma disponibilidade em Survival, atributos ou receita. Ilustração de categoria original e representativa.",
+  "refEarlyBuild": "receita histórica; não verificada na versão atual",
+  "refEarlyScope": "Quantidades e rendimento de um item citados da Update 2 (janeiro de 2026). Não verificado na versão atual; cadeias entre versões não são calculadas."
 }
