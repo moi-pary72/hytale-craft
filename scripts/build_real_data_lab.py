@@ -70,7 +70,7 @@ def build(input_dir,output,acknowledge=False,root=ROOT,normalized_on=None):
   with file.open('rb') as stream:raw[k]=stream.read(base.MAX_BYTES+1)
  if any(len(v)>base.MAX_BYTES for v in raw.values()):raise ValueError('Research source exceeds bounded importer input')
  hashes={k:hashlib.sha256(v).hexdigest() for k,v in raw.items()};data=normalize(*(base.strict_json(raw[k]) for k in ('manifest','items','recipes')),hashes,normalized_on)
- output.mkdir(parents=True,mode=0o700);files=['web/item-visuals.js','web/item-visuals.css','assets/item-system/crafting.webp','assets/item-system/materials.webp','assets/item-system/categories.webp','assets/item-system/extended.webp','web/planner.js','web/planner-v2.js','web/canonical-adapter.js','web/craftable.js','web/beta/workspace.js','web/beta/style.css','web/beta/deep.css','web/lab/adapter.js','web/lab/app.js','web/lab/style.css']
+ output.mkdir(parents=True,mode=0o700);files=['web/item-visuals.js','web/item-visuals.css','assets/item-system/crafting.webp','assets/item-system/materials.webp','assets/item-system/weapon-variants.webp','assets/item-system/categories.webp','assets/item-system/extended.webp','web/planner.js','web/planner-v2.js','web/canonical-adapter.js','web/craftable.js','web/beta/workspace.js','web/beta/style.css','web/beta/deep.css','web/lab/adapter.js','web/lab/app.js','web/lab/style.css']
  for name in files:
   path=root/name;dest=output/name;dest.parent.mkdir(parents=True,exist_ok=True)
   if path.is_symlink():raise ValueError('No source symlinks')

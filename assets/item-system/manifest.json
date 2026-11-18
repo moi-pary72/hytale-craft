@@ -22,6 +22,12 @@
       "width": 1024,
       "height": 1024,
       "original_project_art": true
+    },
+    "weapon-variants.webp": {
+      "sha256": "db0645b88c4c09916fcf0facc12ee03f678fef6d27f3748894fc5490b19db6a8",
+      "width": 1024,
+      "height": 1024,
+      "original_project_art": true
     }
   },
   "tiles": [
@@ -89,5 +95,17 @@
     "Battleaxe",
     "Pickaxe",
     "Head"
+  ],
+  "weapon_variant_rows": [
+    "Longsword",
+    "Daggers",
+    "Mace",
+    "Shield"
+  ],
+  "weapon_variant_columns": [
+    "Copper",
+    "Iron",
+    "Cobalt",
+    "Adamantite"
   ]
 }
