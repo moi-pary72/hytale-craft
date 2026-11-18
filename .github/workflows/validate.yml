@@ -28,6 +28,7 @@ jobs:
       - run: node tests/item_art.test.js
       - run: node tests/stage19.test.js
       - run: node tests/reference_catalog.test.js
+      - run: node tests/local_catalog.test.js
       - name: Build and audit public beta boundary
         run: |
           python scripts/build_pages.py --data-policy user-only

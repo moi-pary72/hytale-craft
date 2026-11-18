@@ -65,3 +65,6 @@ body::before{background-size:auto,100% auto}
 .craft-path-step .craft-path-step{padding-left:0;padding-right:0;border-left:0;border-bottom:1px solid #31475a;background:none}
 
 .craft-path-step>summary{display:flex;align-items:center;gap:8px}.craft-path-step>summary>.iv-art{width:44px;height:44px;border-radius:8px}.craft-path-step>summary>span{min-width:0;overflow-wrap:anywhere}.craft-path-step>summary::before{content:"▸"}.craft-path-step[open]>summary::before{content:"▾"}
+
+/* Local file reader is available without modifying public datasets. */
+.local-catalog-entry{text-align:center;margin:18px 0 12px}.local-catalog-entry a{color:#f9d394;font-size:14px;font-weight:750;text-underline-offset:4px}

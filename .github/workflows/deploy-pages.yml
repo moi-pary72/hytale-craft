@@ -33,6 +33,7 @@ jobs:
           node tests/workspace.test.js
           node tests/canonical.test.js
           node tests/catalog_scale.test.js
+          node tests/local_catalog.test.js
       - name: Mobile beta checks
         run: |
           python -m pip install playwright==1.56.0
