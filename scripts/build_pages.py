@@ -35,7 +35,7 @@ def build(policy='user-only', site_url=None, base_path='/', guide=False):
         raise ValueError('dist must not be a symlink')
     with tempfile.TemporaryDirectory(prefix='pages-', dir=ROOT / '.private') as tmp:
         out = Path(tmp)
-        paths = ['web/reference-catalog.js','web/craftable.js', 'web/beta/deep.js', 'web/beta/deep.css', 'web/item-visuals.js','web/item-visuals.css','assets/item-system/crafting.webp','assets/item-system/materials.webp','assets/item-system/weapon-variants.webp','assets/item-system/categories.webp','assets/item-system/extended.webp','web/planner.js', 'web/preview/i18n.js', 'web/beta/app.js', 'web/beta/style.css', 'web/beta/examples.js', 'web/beta/workspace.js', 'web/planner-v2.js', 'web/canonical-adapter.js']
+        paths = ['web/reference-catalog.js','web/craftable.js', 'web/beta/deep.js', 'web/beta/deep.css', 'web/item-visuals.js','web/item-visuals.css','assets/item-system/crafting.webp','assets/item-system/materials.webp','assets/item-system/weapon-variants.webp','assets/item-system/weapon-variants-additions.webp','assets/item-system/categories.webp','assets/item-system/extended.webp','web/planner.js', 'web/preview/i18n.js', 'web/beta/app.js', 'web/beta/style.css', 'web/beta/examples.js', 'web/beta/workspace.js', 'web/planner-v2.js', 'web/canonical-adapter.js']
         paths += ['locales/' + lang + '.json' for lang in LANGUAGES]
         paths += ['locales/beta/' + lang + '.json' for lang in LANGUAGES]
         paths += ['assets/art-pair/' + name + '.webp' for name in ('fight-poster','gather-poster','fight-atlas','gather-atlas')]

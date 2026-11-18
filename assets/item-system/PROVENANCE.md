@@ -19,3 +19,7 @@ Owner requested creative Hytale Craft artwork, without repeating unofficial-imag
 ## ChatGPT development — first independent weapon-art batch (2026-11-18)
 
 `weapon-variants.webp` is a new original 4×4 illustration sheet created for this project, using only the project's visual direction and existing original artwork as reference. Rows: longswords, paired daggers, maces, shields. Columns: copper, iron, cobalt, adamantite. Each of the sixteen cells maps to exactly one existing public item ID. Artistic colors and silhouettes are not verified in-game appearances or claims about rarity or power. Existing 16 exact project interpretations and all general fallbacks remain unchanged. No recipe data, game artwork, user storage or home design is modified.
+
+## ChatGPT development — second weapon-art batch (2026-11-18)
+
+`weapon-variants-additions.webp` adds **seven** original exact-ID sprites without overwriting the first16-variant atlas: longsword, paired daggers, mace in thorium-inspired teal and spears in copper/iron/thorium/cobalt. It is a 4×4 transparent atlas with slots0–6 used, other cells transparent. The source PNG and production WebP are retained in the project's private Google Drive `05 — Созданные файлы и артефакты/ChatGPT Stage26 — Item Art`; these are project illustrations, not officially verified equipment appearances. The currently public set has39 exact original interpretations after this batch if/when merged. No recipe information, provenance status or main homepage changed.
