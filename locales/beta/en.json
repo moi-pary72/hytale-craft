@@ -283,5 +283,7 @@
   "shovels": "Shovels",
   "armor": "Armour",
   "tools": "Tools",
-  "refIdentityScope": "Item ID observed in the OpenHytale catalog, snapshot July 6, 2026; exact game build unknown. Display name and category are derived from the structured ID, not official localization. This confirms an entry in the catalog, not Survival availability, stats or a recipe. Category artwork is original and illustrative."
+  "refIdentityScope": "Item ID observed in the OpenHytale catalog, snapshot July 6, 2026; exact game build unknown. Display name and category are derived from the structured ID, not official localization. This confirms an entry in the catalog, not Survival availability, stats or a recipe. Category artwork is original and illustrative.",
+  "refEarlyBuild": "historical recipe; not verified in current game release",
+  "refEarlyScope": "The ingredient quantities and one-item yield are cited from the Update 2 (January 2026) game-file reference. Current-release accuracy has not been verified. No cross-version ingredient totals are calculated."
 }
