@@ -71,3 +71,13 @@ body::before{background-size:auto,100% auto}
 
 /* First-play source coverage stays readable before the user types a search. */
 .guide-summary{padding:11px 13px;margin:9px 0 13px;background:#12263a;border:1px solid #43637a;border-radius:10px;color:#e3eefb;font-size:13px;line-height:1.55}
+
+/* Offline gathering progress in the guide basket; scoped, flexible, touch-friendly. */
+.basket-track-item{min-width:0;padding:11px 12px;margin:10px 0;background:#142538;border:1px solid #536c80;border-radius:10px;overflow-wrap:anywhere}
+.basket-track-item label{display:block;max-width:100%}
+.basket-track-item input{max-width:100%;box-sizing:border-box}
+.basket-track-actions{display:flex;gap:9px;flex-wrap:wrap;margin:9px 0 0}
+.basket-track-actions button{min-width:60px;min-height:44px;padding:7px 12px;flex:0 1 auto}
+.basket-progress-line{padding:6px 0 10px}
+.basket-progress-line p{margin:4px 0 6px}
+.basket-progress-line progress{display:block;max-width:100%;width:100%;height:12px}
