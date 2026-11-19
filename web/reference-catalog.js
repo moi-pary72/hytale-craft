@@ -34,7 +34,32 @@ function prepare(items){
   });
   return {kind:'historical-direct-only',build:item.build,method:method.id||null,station:method.station||null,quantity,batches,produced,materials};
  }
- return {search,status,methods,path,directMaterials,groups,items:table};
+ function combinedMaterials(targets,inventory={},choices={}){
+  if(!targets||typeof targets!=='object'||Array.isArray(targets)||!inventory||typeof inventory!=='object'||Array.isArray(inventory)||!choices||typeof choices!=='object'||Array.isArray(choices))throw Error('basket');
+  const selected=Object.entries(targets);
+  if(!selected.length||selected.length>8)throw Error('basket');
+  const totals=new Map(),rows=[];let build=null;
+  for(const [id,quantity] of selected){
+   const item=table.get(id);
+   if(!item||typeof item.build!=='string'||!item.build||!item.recipe||item.recipe.status!=='source-documented-complete')throw Error('unverified');
+   if(build!==null&&item.build!==build)throw Error('version');
+   build=item.build;
+   const p=directMaterials(id,quantity,{},Object.hasOwn(choices,id)?choices[id]:null);
+   rows.push({id,quantity:p.quantity,batches:p.batches,produced:p.produced,station:p.station,method:p.method});
+   for(const m of p.materials){
+    const next=(totals.get(m.id)||0)+m.total;
+    if(!Number.isSafeInteger(next)||next>999999999)throw Error('overflow');
+    totals.set(m.id,next);
+   }
+  }
+  const materials=[...totals].map(([id,total])=>{
+   const owned=Object.hasOwn(inventory,id)?inventory[id]:0;
+   if(!Number.isSafeInteger(owned)||owned<0||owned>999999)throw Error('inventory');
+   return {id,total,owned,missing:Math.max(0,total-owned)};
+  });
+  return {kind:'historical-direct-combined',build,rows,materials};
+ }
+ return {search,status,methods,path,directMaterials,combinedMaterials,groups,items:table};
 }
 root.CraftReferenceCatalog={prepare};if(typeof module!=='undefined')module.exports=root.CraftReferenceCatalog;
 })(globalThis);
