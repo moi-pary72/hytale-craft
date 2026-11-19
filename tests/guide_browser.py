@@ -13,6 +13,25 @@ class Guide(unittest.TestCase):
   build(guide=True);cls.server=ThreadingHTTPServer(('127.0.0.1',0),partial(SimpleHTTPRequestHandler,directory=str(ROOT/'dist')));threading.Thread(target=cls.server.serve_forever,daemon=True).start();cls.p=sync_playwright().start();cls.browser=cls.p.chromium.launch(executable_path=os.environ.get('CHROMIUM_PATH','/usr/bin/chromium'),args=['--no-sandbox'])
  @classmethod
  def tearDownClass(cls):cls.browser.close();cls.p.stop();cls.server.shutdown();cls.server.server_close()
+ def test_guide_shows_real_reference_cards_before_search(self):
+  for lang in ['en','ru','es','pt-BR']:
+   ctx=self.browser.new_context(viewport={'width':360,'height':760},locale=lang,reduced_motion='reduce')
+   p=ctx.new_page();errors=[];p.on('pageerror',lambda e:errors.append(str(e)))
+   p.goto(f'http://127.0.0.1:{self.server.server_port}/')
+   p.wait_for_selector('#guide-home [data-source="reference"]')
+   summary=p.locator('#catalog-overview').inner_text()
+   self.assertIn('100',summary)
+   self.assertIn('13',summary)
+   self.assertEqual(p.locator('#guide-home [data-source="reference"]').count(),8)
+   self.assertFalse(p.evaluate('document.documentElement.scrollWidth>innerWidth'))
+   p.locator('#guide-home [data-source="reference"]').first.click()
+   p.wait_for_selector('#sheet-content .dw-grid')
+   p.go_back()
+   p.wait_for_selector('#guide-search')
+   self.assertEqual(p.locator('#guide-search').input_value(),'')
+   self.assertEqual(p.locator('#guide-home [data-source="reference"]').count(),8)
+   self.assertFalse(errors)
+   ctx.close()
  def test_guide_search_item_back_and_large_user_recipe(self):
   for lang in ['en','ru','es','pt-BR']:
    ctx=self.browser.new_context(viewport={'width':393,'height':852},locale=lang,reduced_motion='reduce');p=ctx.new_page();errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.goto(f'http://127.0.0.1:{self.server.server_port}');p.wait_for_selector('#guide-search');(ROOT/'.private/mobile-guide').mkdir(exist_ok=True);p.screenshot(path=str(ROOT/'.private/mobile-guide'/('home-'+lang+'.png')));p.fill('#guide-search','lesson:blade');p.locator('#guide-home [data-item="lesson:blade"]').click();p.wait_for_selector('.dw-item-head');p.screenshot(path=str(ROOT/'.private/mobile-guide'/('item-'+lang+'.png')));self.assertIn('#item=',p.url);self.assertFalse(p.locator('#quantity').count());self.assertEqual(p.locator('#sheet').evaluate('(e)=>e.matches(":modal")'),False)

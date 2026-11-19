@@ -221,6 +221,7 @@
   "galleryTry": "Probar el planificador de ejemplo",
   "gallerySearch": "Buscar categorías visuales",
   "guideTitle": "Encuentra tu próximo objeto",
+  "guideBrowseSummary": "Explora {items} objetos y {recipes} recetas históricas. Ninguna está verificada en la versión actual del juego. Abre una ficha para ver las fuentes y los datos pendientes.",
   "guideSearch": "Buscar objetos",
   "guideTools": "Herramientas y planes",
   "materials": "Materiales",
