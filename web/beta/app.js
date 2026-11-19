@@ -38,6 +38,94 @@ function home(){$('boot-error').hidden=true;const lang=$('language');lang.value=
  for(const nav of [$('nav'),$('sheet-nav')]){nav.setAttribute('aria-label',t('nav'));nav.replaceChildren();for(const [key,view,icon] of [['home',null,'⌂'],['navInventory','inventory','♟'],['navPlan','plan','⚑'],['navMore','more','☰']]){const b=button(key,()=>{selectionTicket++;if(nav.id==='nav')opener=document.activeElement;stopMotion();if(!view)closeAll();else go({view})});b.dataset.view=view||'home';const art=n('span',undefined,'nav-icon');art.setAttribute('aria-hidden','true');const im=n('img');const id='nav-'+(view||'home');im.src=window.CRAFT_BETA_IMAGES?.[id]||'assets/ui-v2/'+id+'.webp';im.alt='';im.width=96;im.height=96;art.append(im);b.replaceChildren(art,n('span',t(key)));nav.append(b)}}markNav();if(guide)guideHome();
 
 }
+function emptyReferenceBasket(){return {schema:1,build:null,targets:{},methods:{}}}
+function readReferenceBasket(){
+ const raw=read(REF_BASKET,'');if(!raw)return emptyReferenceBasket();
+ try{
+  const value=JSON.parse(raw);
+  if(value?.schema!==1||typeof value.targets!=='object'||!value.targets||Array.isArray(value.targets)||typeof value.methods!=='object'||!value.methods||Array.isArray(value.methods))throw Error();
+  const entries=Object.entries(value.targets);
+  if(entries.length>8||typeof value.build!=='string'&&value.build!==null||Object.keys(value.methods).some(id=>!Object.hasOwn(value.targets,id)))throw Error();
+  if(entries.length&&(!value.build||value.build.length>160)||!entries.length&&value.build!==null)throw Error();
+  for(const [id,quantity] of entries){
+   const item=referenceItems[id],available=referenceModel?.methods(id)||[];
+   if(!item||item.build!==value.build||item.recipe?.status!=='source-documented-complete'||!Number.isSafeInteger(quantity)||quantity<1||quantity>999999)throw Error();
+   if(Object.hasOwn(value.methods,id)&&!available.some(m=>m.id===value.methods[id]))throw Error();
+  }
+  return value;
+ }catch{return null}
+}
+function updateReferenceBasketCount(){const b=$('reference-basket-entry');if(b){const basket=readReferenceBasket();b.textContent=t('s32OpenList')+(basket?' ('+Object.keys(basket.targets).length+')':' (!)')}}
+function saveReferenceBasket(value){if(!store(REF_BASKET,JSON.stringify(value)))return false;updateReferenceBasketCount();return true}
+function addReferenceBasket(id,quantity,method=null){
+ const basket=readReferenceBasket(),item=referenceItems[id];if(!basket||!item||item.recipe?.status!=='source-documented-complete')return false;
+ const targets=basket.targets,current=targets[id]||0,next=current+quantity;
+ if(!Number.isSafeInteger(quantity)||quantity<1||!Number.isSafeInteger(next)||next>999999||!Object.hasOwn(targets,id)&&Object.keys(targets).length>=8||basket.build&&basket.build!==item.build)return false;
+ basket.build=item.build;targets[id]=next;
+ if(method!==null)basket.methods[id]=method;
+ if(!referenceModel.methods(id).some(m=>m.id===basket.methods[id]))delete basket.methods[id];
+ return saveReferenceBasket(basket);
+}
+function referenceBasket(host){
+ host.classList.add('dw-view');host.append(n('h3',t('s32Title')),n('p',t('s32Warning'),'muted'));
+ const basket=readReferenceBasket();
+ if(!basket){
+  host.append(n('p',t('s32InvalidSaved'),'status error'),button('s32Reset',()=>{if(confirm(t('s32ConfirmClear'))&&saveReferenceBasket(emptyReferenceBasket()))render()}));
+  return;
+ }
+ const ids=Object.keys(basket.targets);
+ if(!ids.length){host.append(n('p',t('s32Empty'),'muted'));return}
+ host.append(n('p',basket.build+' · '+t('s31DirectOnly'),'muted'));
+ const targets=n('section',undefined,'dw-panel');targets.append(n('h3',t('s32Targets')));
+ for(const id of ids){
+  const line=n('div',undefined,'dw-panel');line.dataset.target=id;line.append(n('strong',referenceName(id)));
+  const fieldQty=field(line,'s31Amount','basket-qty-'+id,basket.targets[id],'number');
+  fieldQty.min='1';fieldQty.max='999999';fieldQty.inputMode='numeric';
+  fieldQty.onchange=()=>{
+   try{const value=qty(fieldQty.value),fresh=readReferenceBasket();if(!fresh||!Object.hasOwn(fresh.targets,id))throw Error();fresh.targets[id]=value;if(saveReferenceBasket(fresh))render()}catch{notify('s32BadNumber')}
+  };
+  const methods=referenceModel.methods(id);
+  if(methods.length>1){
+   const label=n('label',t('s31Method')),select=n('select');
+   select.setAttribute('aria-label',t('s31Method')+' '+referenceName(id));
+   for(const m of methods)select.add(new Option(m.station||m.id,m.id));
+   select.value=basket.methods[id]||methods[0].id;select.onchange=()=>{const fresh=readReferenceBasket();if(!fresh)return;fresh.methods[id]=select.value;if(saveReferenceBasket(fresh))render()};
+   line.append(label,select);
+  }
+  line.append(button('s32Inspect',()=>go({view:'catalog',item:id,all:true,reference:true})),button('s32Remove',()=>{
+   const fresh=readReferenceBasket();if(!fresh)return;delete fresh.targets[id];delete fresh.methods[id];if(!Object.keys(fresh.targets).length)fresh.build=null;
+   if(saveReferenceBasket(fresh))render();
+  }));targets.append(line);
+ }
+ host.append(targets);
+ let preview;try{preview=referenceModel.combinedMaterials(basket.targets,{},basket.methods)}catch{host.append(n('p',t('s32InvalidSaved'),'status error'));return}
+ const stock=n('section',undefined,'dw-panel');stock.append(n('h3',t('s32Stock')),n('p',t('s31OwnedHint'),'muted'));
+ let saved;try{saved=lines(read(INV))}catch{saved=null;stock.append(n('p',t('s31InventoryInvalid'),'muted'))}
+ const own=Object.create(null);
+ for(const m of preview.materials){
+  const input=field(stock,'s31Owned'+' — '+referenceName(m.id),'basket-owned-'+m.id,String(saved?.[m.id]??0),'number');
+  input.min='0';input.max='999999';input.inputMode='numeric';own[m.id]=input;
+ }
+ const result=n('section',undefined,'dw-panel');result.id='basket-result';result.setAttribute('aria-live','polite');
+ function calculate(){
+  result.replaceChildren();
+  try{
+   const inv=Object.create(null);
+   for(const [id,input] of Object.entries(own)){const value=Number(input.value);if(!input.value.trim()||!Number.isSafeInteger(value)||value<0||value>999999)throw Error();inv[id]=value}
+   const value=referenceModel.combinedMaterials(basket.targets,inv,basket.methods);
+   for(const row of value.rows){result.append(n('p',referenceName(row.id)+' × '+row.quantity+' · '+t('s31Batches')+': '+row.batches+' · '+t('workstations')+': '+(row.station||t('s23Unknown')),'muted'))}
+   result.append(n('h3',t('s32Combined')));
+   for(const m of value.materials){const line=n('p',referenceName(m.id)+' — '+t('s31Need')+': '+m.total+' · '+t('s31Owned')+': '+m.owned+' · '+t('s31Missing')+': '+m.missing);line.dataset.material=m.id;result.append(line)}
+   return value;
+  }catch{result.append(n('p',t('s31Invalid'),'status error'));return null}
+ }
+ stock.append(button('s32Recalculate',calculate));host.append(stock,result);
+ host.append(button('s32Copy',async()=>{const value=calculate();if(!value)return;
+  const text=value.materials.map(m=>referenceName(m.id)+' ['+m.id+'] · '+t('s31Need')+': '+m.total+' · '+t('s31Missing')+': '+m.missing).join('\n');
+  try{await navigator.clipboard.writeText(text);notify('copied')}catch{const area=field(host,'copy','basket-copy',text,'textarea');area.select();notify('clipboard')}
+ }),button('s32Clear',()=>{if(confirm(t('s32ConfirmClear'))&&saveReferenceBasket(emptyReferenceBasket()))render()}));
+ calculate();
+}
 function guideHome(){
  document.body.classList.add('guide-ui');$('hero').textContent=t('themeHero');$('limited').textContent=t(window.CRAFT_REFERENCE_ERROR?'refUnavailable':'themeIntro');$('mode-switch').hidden=true;$('goals').hidden=false;$('maker-home').hidden=true;
  let host=$('guide-home');if(!host){host=n('section');host.id='guide-home';$('goals').before(host)}host.replaceChildren();
