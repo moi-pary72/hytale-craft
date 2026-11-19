@@ -33,3 +33,30 @@ test('direct quantity uses per-batch output rounding and overflows are refused',
  items.product.recipe.ingredients.supply=Number.MAX_SAFE_INTEGER;
  a.throws(()=>model.directMaterials('product',5,{}),/overflow/);
 });
+
+test('same-build historical basket merges shared materials and subtracts stock only once',()=>{
+ const model=prepare(raw.items),plan=model.combinedMaterials(
+  {Weapon_Shield_Iron:3,Weapon_Mace_Iron:2},
+  {Ingredient_Bar_Iron:5,Ingredient_Leather_Light:1},
+  {Weapon_Mace_Iron:'forge'});
+ a.equal(plan.kind,'historical-direct-combined');
+ a.equal(plan.rows.length,2);a.equal(plan.rows[1].station,'Forge');
+ a.deepEqual(plan.materials.map(m=>[m.id,m.total,m.owned,m.missing]),[
+  ['Ingredient_Bar_Iron',32,5,27],
+  ['Ingredient_Leather_Light',17,1,16],
+  ['Ingredient_Fabric_Scrap_Linen',15,0,15]
+ ]);
+ a.ok(plan.build.includes('Update 2'));a.ok(!plan.materials.some(m=>m.id==='Ore_Iron'));
+});
+test('combined historical list rejects incomplete recipes, mixed builds, invalid count and overflow',()=>{
+ const model=prepare(raw.items);
+ for(const targets of [{},{Weapon_Sword_Iron:1},{Weapon_Shield_Iron:0},{Weapon_Shield_Iron:1.5}])
+  a.throws(()=>model.combinedMaterials(targets),/basket|unverified|quantity/);
+ a.throws(()=>model.combinedMaterials({Weapon_Shield_Iron:1,Weapon_Sword_Iron:1}),/version|unverified/);
+ a.throws(()=>model.combinedMaterials({Weapon_Shield_Iron:1},{Ingredient_Bar_Iron:-1}),/inventory/);
+ a.throws(()=>model.combinedMaterials({Weapon_Shield_Iron:1},{},{Weapon_Shield_Iron:'not-real'}),/method/);
+ const mixed=prepare({a:{build:'A',recipe:{status:'source-documented-complete',output_quantity:1,ingredients:{s:1}}},b:{build:'B',recipe:{status:'source-documented-complete',output_quantity:1,ingredients:{s:1}}},s:{build:'A'}});
+ a.throws(()=>mixed.combinedMaterials({a:1,b:1}),/version/);
+ const overflow=prepare({x:{build:'same',recipe:{status:'source-documented-complete',output_quantity:1,ingredients:{s:999999999}}},y:{build:'same',recipe:{status:'source-documented-complete',output_quantity:1,ingredients:{s:999999999}}},s:{build:'same'}});
+ a.throws(()=>overflow.combinedMaterials({x:1,y:1}),/overflow/);
+});
