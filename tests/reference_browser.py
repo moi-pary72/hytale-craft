@@ -112,6 +112,26 @@ class Reference(base.Guide):
     self.assertFalse(p.evaluate('document.documentElement.scrollWidth>innerWidth'))
    self.assertFalse(errors)
    c.close()
+ def test_legacy_and_corrupt_gathering_stock_are_distinguished(self):
+  c=self.browser.new_context(viewport={'width':360,'height':800},locale='en',reduced_motion='reduce');p=c.new_page()
+  p.goto(f'http://127.0.0.1:{self.server.server_port}/')
+  p.wait_for_selector('#reference-basket-entry')
+  payload={'schema':1,'build':'Hytale Update 2 (January 2026; current build unverified)','targets':{'Weapon_Shield_Iron':1},'methods':{}}
+  old=json.dumps(payload)
+  p.evaluate('(raw)=>localStorage.setItem("hytale-craft-historical-basket-v1",raw)',old)
+  p.reload();p.locator('#reference-basket-entry').click()
+  p.wait_for_selector('#basket-owned-Ingredient_Bar_Iron')
+  self.assertEqual(p.locator('#basket-owned-Ingredient_Bar_Iron').input_value(),'0')
+  self.assertEqual(p.locator('.status.error').count(),0)
+  p.goto(f'http://127.0.0.1:{self.server.server_port}/')
+  payload['stock']={'Ore_Iron':42}
+  corrupted=json.dumps(payload)
+  p.evaluate('(raw)=>localStorage.setItem("hytale-craft-historical-basket-v1",raw)',corrupted)
+  p.reload();p.locator('#reference-basket-entry').click()
+  p.wait_for_selector('.status.error')
+  self.assertEqual(p.evaluate('localStorage.getItem("hytale-craft-historical-basket-v1")'),corrupted)
+  self.assertEqual(p.locator('#basket-owned-Ingredient_Bar_Iron').count(),0)
+  c.close()
  def test_reference_items_four_languages(self):
   for lang in ['en','ru','es','pt-BR']:
    c=self.browser.new_context(viewport={'width':393,'height':852},locale=lang,reduced_motion='reduce');p=c.new_page();errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.goto(f'http://127.0.0.1:{self.server.server_port}');p.wait_for_selector('#guide-search');p.fill('#guide-search','Weapon_Sword_Iron');p.locator('#guide-home [data-item=Weapon_Sword_Iron]').click();p.wait_for_selector('#sheet-content .dw-grid');self.assertEqual(p.locator('.dw-grid .dw-slot').count(),3);self.assertEqual(p.locator('.dw-grid .dw-slot').first.locator('.iv-art').get_attribute('data-family'),'metal');self.assertIn('6',p.locator('.dw-grid').inner_text());self.assertFalse(p.locator('#quantity').count());self.assertEqual(p.locator('#sheet-content a[target=_blank]').get_attribute('href'),'https://hytale.source.gs/items/iron-sword/')
