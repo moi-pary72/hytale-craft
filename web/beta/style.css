@@ -68,3 +68,6 @@ body::before{background-size:auto,100% auto}
 
 /* Local file reader is available without modifying public datasets. */
 .local-catalog-entry{text-align:center;margin:18px 0 12px}.local-catalog-entry a{color:#f9d394;font-size:14px;font-weight:750;text-underline-offset:4px}
+
+/* First-play source coverage stays readable before the user types a search. */
+.guide-summary{padding:11px 13px;margin:9px 0 13px;background:#12263a;border:1px solid #43637a;border-radius:10px;color:#e3eefb;font-size:13px;line-height:1.55}
