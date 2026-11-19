@@ -12,3 +12,24 @@ test('eight individually cited Update 2 recipes have output one, but are not cur
  for(const id of ids){const x=items[id];a.equal(x.source_name,'Hytale Item Laboratory');a.equal(x.recipe.status,'source-documented-complete');a.equal(x.recipe.output_quantity,1);a.equal(m.status(id),'B');const p=m.path(id);a.equal(p.output_quantity,1);a.equal(p.children.length,3);a.ok(p.children.every(c=>c.status==='version'));}
  a.equal(m.methods('Weapon_Mace_Iron').length,2);a.equal(m.path('Weapon_Mace_Iron',{Weapon_Mace_Iron:'forge'}).station,'Forge');a.equal(items.Weapon_Sword_Iron.recipe.output_quantity,null);
 });
+
+test('historical direct calculator subtracts owned stock without crossing recipe versions',()=>{
+ const model=prepare(raw.items),shield=model.directMaterials('Weapon_Shield_Iron',3,{Ingredient_Bar_Iron:5,Ingredient_Leather_Light:1});
+ a.equal(shield.kind,'historical-direct-only');a.equal(shield.batches,3);a.equal(shield.produced,3);
+ a.deepEqual(shield.materials.map(x=>[x.id,x.total,x.owned,x.missing]),[
+  ['Ingredient_Bar_Iron',12,5,7],['Ingredient_Leather_Light',9,1,8],['Ingredient_Fabric_Scrap_Linen',9,0,9]]);
+ a.equal(shield.materials.length,3); // No ore or nested leather recipe from older build.
+ const forge=model.directMaterials('Weapon_Mace_Iron',2,{},'forge');
+ a.equal(forge.station,'Forge');a.equal(forge.method,'forge');a.equal(forge.materials[0].total,20);
+ a.throws(()=>model.directMaterials('Weapon_Mace_Iron',2,{},'nonexistent'),/method/);
+ a.throws(()=>model.directMaterials('Weapon_Sword_Iron',3,{}),/unverified/); // Unknown yield: do not guess.
+ for(const bad of [0,-1,1.5,NaN,1000000])a.throws(()=>model.directMaterials('Weapon_Shield_Iron',bad,{}),/quantity/);
+ a.throws(()=>model.directMaterials('Weapon_Shield_Iron',1,{Ingredient_Bar_Iron:-1}),/overflow/);
+});
+test('direct quantity uses per-batch output rounding and overflows are refused',()=>{
+ const items={product:{build:'history',recipe:{status:'source-documented-complete',output_quantity:3,ingredients:{supply:4},station:'bench'}},supply:{build:'different-build'}};
+ const model=prepare(items),estimate=model.directMaterials('product',5,{supply:2});
+ a.equal(estimate.batches,2);a.equal(estimate.produced,6);a.equal(estimate.materials[0].missing,6);
+ items.product.recipe.ingredients.supply=Number.MAX_SAFE_INTEGER;
+ a.throws(()=>model.directMaterials('product',5,{}),/overflow/);
+});
