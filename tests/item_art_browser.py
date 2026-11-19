@@ -49,6 +49,11 @@ class Art(base.Guide):
      self.assertTrue(icon.locator('img').get_attribute('src').endswith(atlas))
      p.wait_for_function('(id)=>{const im=document.querySelector("#guide-home [data-item="+JSON.stringify(id)+"] .iv-art.iv-sprite>img");return im?.complete&&im.naturalWidth===1024}',arg=ident)
      check_crop(icon)
+     if ident in ('Tool_Hatchet_Iron','Weapon_Daggers_Bronze','Weapon_Mace_Mithril','Weapon_Spear_Bronze'):
+      self.assertEqual(icon.get_attribute('data-visual'),'category')
+      marker=icon.evaluate('el=>({content:getComputedStyle(el,"::before").content,color:getComputedStyle(el,"::before").backgroundColor})')
+      self.assertNotEqual(marker['content'],'none',marker)
+      self.assertNotEqual(marker['color'],'rgba(0, 0, 0, 0)',marker)
     p.fill('#guide-search','Weapon_Daggers_Iron')
     icon=p.locator('#guide-home [data-item="Weapon_Daggers_Iron"] .iv-art.iv-sprite')
     for width in (320,360,393,430):
