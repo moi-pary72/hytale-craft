@@ -221,6 +221,7 @@
   "galleryTry": "Try the learning planner",
   "gallerySearch": "Search visual categories",
   "guideTitle": "Find your next craft",
+  "guideBrowseSummary": "Browse {items} indexed items · {recipes} historical recipe entries · none verified against the current game. Select a card to see its sources and what is still unknown.",
   "guideSearch": "Search items",
   "guideTools": "Tools",
   "materials": "Materials",
