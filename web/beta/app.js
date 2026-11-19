@@ -108,14 +108,45 @@ function referenceBasket(host){
  }
  host.append(targets);
  let preview;try{preview=referenceModel.combinedMaterials(basket.targets,{},basket.methods)}catch{host.append(n('p',t('s32InvalidSaved'),'status error'));return}
- const stock=n('section',undefined,'dw-panel');stock.append(n('h3',t('s32Stock')),n('p',t('s31OwnedHint'),'muted'));
+ const stock=n('section',undefined,'dw-panel');
+ stock.append(n('h3',t('s32Stock')),n('p',t('s33ProgressHint'),'muted'));
  let saved;try{saved=lines(read(INV))}catch{saved=null;stock.append(n('p',t('s31InventoryInvalid'),'muted'))}
  const own=Object.create(null);
  for(const m of preview.materials){
-  const input=field(stock,'s31Owned'+' — '+referenceName(m.id),'basket-owned-'+m.id,String(saved?.[m.id]??0),'number');
+  const track=n('div',undefined,'basket-track-item');track.dataset.track=m.id;
+  const initial=Object.hasOwn(basket.stock,m.id)?basket.stock[m.id]:(saved?.[m.id]??0);
+  const input=field(track,'s31Owned'+' — '+referenceName(m.id),'basket-owned-'+m.id,String(initial),'number');
   input.min='0';input.max='999999';input.inputMode='numeric';own[m.id]=input;
+  const actions=n('div',undefined,'basket-track-actions');
+  for(const [label,step,suffix] of [['s33Less',-1,'minus'],['s33PlusOne',1,'plus1'],['s33PlusFive',5,'plus5']]){
+   const add=button(label,()=>{
+    const count=Number(input.value);
+    if(!input.value.trim()||!Number.isSafeInteger(count)||count<0||count>999999){notify('s33InvalidStock');return}
+    input.value=String(Math.max(0,Math.min(999999,count+step)));
+    if(commitStock())calculate();else notify('s33InvalidStock');
+   });
+   add.dataset.stockAction=suffix;add.dataset.material=m.id;actions.append(add);
+  }
+  track.append(actions);stock.append(track);
+  input.onchange=()=>{if(commitStock())calculate();else notify('s33InvalidStock')};
  }
+ const reset=button('s33SyncInventory',()=>{
+  const fresh=readReferenceBasket();if(!fresh)return;
+  fresh.stock={};if(saveReferenceBasket(fresh))render();
+ });
+ reset.id='basket-sync-inventory';stock.append(reset);
  const result=n('section',undefined,'dw-panel');result.id='basket-result';result.setAttribute('aria-live','polite');
+ function commitStock(){
+  const fresh=readReferenceBasket();if(!fresh)return false;
+  const updated=Object.create(null);
+  for(const [id,input] of Object.entries(own)){
+   const amount=Number(input.value);
+   if(!input.value.trim()||!Number.isSafeInteger(amount)||amount<0||amount>999999)return false;
+   updated[id]=amount;
+  }
+  fresh.stock=updated;
+  return saveReferenceBasket(fresh);
+ }
  function calculate(){
   result.replaceChildren();
   try{
@@ -124,7 +155,12 @@ function referenceBasket(host){
    const value=referenceModel.combinedMaterials(basket.targets,inv,basket.methods);
    for(const row of value.rows){result.append(n('p',referenceName(row.id)+' × '+row.quantity+' · '+t('s31Batches')+': '+row.batches+' · '+t('workstations')+': '+(row.station||t('s23Unknown')),'muted'))}
    result.append(n('h3',t('s32Combined')));
-   for(const m of value.materials){const line=n('p',referenceName(m.id)+' — '+t('s31Need')+': '+m.total+' · '+t('s31Owned')+': '+m.owned+' · '+t('s31Missing')+': '+m.missing);line.dataset.material=m.id;result.append(line)}
+   for(const m of value.materials){
+    const line=n('div',undefined,'basket-progress-line');
+    line.append(n('p',referenceName(m.id)+' — '+t('s31Need')+': '+m.total+' · '+t('s31Owned')+': '+m.owned+' · '+t('s31Missing')+': '+m.missing));
+    const bar=n('progress');bar.max=m.total;bar.value=Math.min(m.total,m.owned);bar.setAttribute('aria-label',t('s33Progress')+' — '+referenceName(m.id));
+    line.append(bar);line.dataset.material=m.id;result.append(line)
+   }
    return value;
   }catch{result.append(n('p',t('s31Invalid'),'status error'));return null}
  }
