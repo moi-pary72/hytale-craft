@@ -19,7 +19,7 @@ class Reference(base.Guide):
    self.assertIn('8',p.locator('#reference-calculation [data-material="Ingredient_Leather_Light"]').inner_text())
    self.assertIn('9',p.locator('#reference-calculation [data-material="Ingredient_Fabric_Scrap_Linen"]').inner_text())
    self.assertNotIn('Ore_Iron',p.locator('#reference-calculation').inner_text())
-   self.assertEqual(p.evaluate('localStorage.getItem("hytale-craft-inventory-v1")'),'Ingredient_Bar_Iron: 5\\nIngredient_Leather_Light: 1')
+   self.assertEqual(p.evaluate('localStorage.getItem("hytale-craft-inventory-v1")').splitlines(),['Ingredient_Bar_Iron: 5','Ingredient_Leather_Light: 1'])
    for width in [320,360,393,430]:
     p.set_viewport_size({'width':width,'height':800})
     self.assertFalse(p.evaluate('document.documentElement.scrollWidth>innerWidth'))
