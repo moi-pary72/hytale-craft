@@ -46,11 +46,19 @@ function readReferenceBasket(raw=read(REF_BASKET,'')){if(!raw)return emptyRefere
   const entries=Object.entries(value.targets);
   if(entries.length>8||typeof value.build!=='string'&&value.build!==null||Object.keys(value.methods).some(id=>!Object.hasOwn(value.targets,id)))throw Error();
   if(entries.length&&(!value.build||value.build.length>160)||!entries.length&&value.build!==null)throw Error();
+  const ingredients=new Set();
   for(const [id,quantity] of entries){
    const item=referenceItems[id],available=referenceModel?.methods(id)||[];
    if(!item||item.build!==value.build||item.recipe?.status!=='source-documented-complete'||!Number.isSafeInteger(quantity)||quantity<1||quantity>999999)throw Error();
    if(Object.hasOwn(value.methods,id)&&!available.some(m=>m.id===value.methods[id]))throw Error();
+   for(const method of available)for(const key of Object.keys(method.ingredients||{}))ingredients.add(key);
   }
+  // Optional for legacy Stage32 saved lists; explicit overrides remain local to this plan.
+  const stock=value.stock===undefined?{}:value.stock;
+  if(!stock||typeof stock!=='object'||Array.isArray(stock)||Object.keys(stock).length>50)throw Error();
+  for(const [id,count] of Object.entries(stock))
+   if(!ingredients.has(id)||!Number.isSafeInteger(count)||count<0||count>999999)throw Error();
+  value.stock=stock;
   return value;
  }catch{return null}
 }
@@ -93,6 +101,8 @@ function referenceBasket(host){
   }
   line.append(button('s32Inspect',()=>go({view:'catalog',item:id,all:true,reference:true})),button('s32Remove',()=>{
    const fresh=readReferenceBasket();if(!fresh)return;delete fresh.targets[id];delete fresh.methods[id];if(!Object.keys(fresh.targets).length)fresh.build=null;
+   const allowed=new Set(Object.keys(fresh.targets).flatMap(itemId=>referenceModel.methods(itemId).flatMap(method=>Object.keys(method.ingredients||{}))));
+   for(const key of Object.keys(fresh.stock||{}))if(!allowed.has(key))delete fresh.stock[key];
    if(saveReferenceBasket(fresh))render();
   }));targets.append(line);
  }
