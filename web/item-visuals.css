@@ -29,4 +29,13 @@ header:has(+main#lab-content){padding-bottom:0}#lab-content .dw-hero{padding:12p
 
 /* Project artwork is explained in provenance, not stamped over every item. */
 .iv-art[data-visual=category]::after,.iv-art[data-research=true]::after{content:none}
-.iv-art[data-material=Copper]{border-color:#d48a54}.iv-art[data-material=Bronze]{border-color:#b69552}.iv-art[data-material=Iron]{border-color:#a5b4c3}.iv-art[data-material=Thorium]{border-color:#70bb93}.iv-art[data-material=Cobalt]{border-color:#729fe9}.iv-art[data-material=Mithril]{border-color:#b1e3ef}.iv-art[data-material=Adamantite]{border-color:#d779a8}
+.iv-art[data-material=Copper]{--iv-material-accent:#d48a54;border-color:var(--iv-material-accent)}.iv-art[data-material=Bronze]{--iv-material-accent:#b69552;border-color:var(--iv-material-accent)}.iv-art[data-material=Iron]{--iv-material-accent:#a5b4c3;border-color:var(--iv-material-accent)}.iv-art[data-material=Thorium]{--iv-material-accent:#70bb93;border-color:var(--iv-material-accent)}.iv-art[data-material=Cobalt]{--iv-material-accent:#729fe9;border-color:var(--iv-material-accent)}.iv-art[data-material=Mithril]{--iv-material-accent:#b1e3ef;border-color:var(--iv-material-accent)}.iv-art[data-material=Adamantite]{--iv-material-accent:#d779a8;border-color:var(--iv-material-accent)}
+
+/* A discrete alloy marker distinguishes generic type art (e.g. six identical hatchets).
+   Do not tint the illustrated blade/handle or suggest game rarity/verified identity. */
+.iv-art[data-visual=category][data-material]::before{
+ content:"";position:absolute;z-index:2;top:5px;right:5px;width:11px;height:11px;
+ border:1px solid #fff9e4b0;border-radius:50%;pointer-events:none;
+ background:var(--iv-material-accent,#ad986f);
+ box-shadow:0 0 0 2px #071321dd,0 0 6px color-mix(in srgb,var(--iv-material-accent,#ad986f) 55%,transparent);
+}
