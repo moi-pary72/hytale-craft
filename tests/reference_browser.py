@@ -35,7 +35,7 @@ class Reference(base.Guide):
    ctx=self.browser.new_context(viewport={'width':360,'height':800},locale=lang,reduced_motion='reduce')
    p=ctx.new_page();errors=[];p.on('pageerror',lambda e:errors.append(str(e)))
    original='Ingredient_Bar_Iron: 5\\nIngredient_Leather_Light: 1'
-   p.add_init_script('(s)=>localStorage.setItem("hytale-craft-inventory-v1",s)',original)
+   p.add_init_script('localStorage.setItem("hytale-craft-inventory-v1",'+json.dumps(original)+')')
    p.goto(f'http://127.0.0.1:{self.server.server_port}/')
    p.wait_for_selector('#guide-search');p.fill('#guide-search','Weapon_Shield_Iron')
    p.locator('#guide-home [data-item="Weapon_Shield_Iron"]').click()
