@@ -119,7 +119,7 @@ function referenceBasket(host){
    return value;
   }catch{result.append(n('p',t('s31Invalid'),'status error'));return null}
  }
- stock.append(button('s32Recalculate',calculate));host.append(stock,result);
+ const recalc=button('s32Recalculate',calculate);recalc.id='basket-recalculate';stock.append(recalc);host.append(stock,result);
  host.append(button('s32Copy',async()=>{const value=calculate();if(!value)return;
   const text=value.materials.map(m=>referenceName(m.id)+' ['+m.id+'] · '+t('s31Need')+': '+m.total+' · '+t('s31Missing')+': '+m.missing).join('\n');
   try{await navigator.clipboard.writeText(text);notify('copied')}catch{const area=field(host,'copy','basket-copy',text,'textarea');area.select();notify('clipboard')}
@@ -208,7 +208,7 @@ function referenceDetail(host,id){
    }catch{result.append(n('p',t('s31Invalid'),'status error'))}
   });
   const add=button('s32Add',()=>{try{const value=qty(amount.value);if(addReferenceBasket(id,value,selected?selected.value:null)){message.textContent=t('s32Added');}else message.textContent=t('s32SaveFailed')}catch{message.textContent=t('s32BadNumber')}});
-  const open=button('s32OpenList',()=>go({view:'referenceBasket'}));
+  add.id='reference-add-to-basket';const open=button('s32OpenList',()=>go({view:'referenceBasket'}));open.id='reference-open-basket';
   const message=n('p',undefined,'muted');message.id='reference-add-status';message.setAttribute('role','status');
   panel.append(recalc,add,open,message,result);host.append(panel);recalc.click();
  }
