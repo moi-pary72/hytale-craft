@@ -3,7 +3,7 @@
 let referenceItems=Object.create(null),referenceModel=null;
 const guide=window.CRAFT_BUILD?.guideUX===true;
 const ADV='hytale-craft-advanced-v1';
-const $=id=>document.getElementById(id),KEY='hytale-craft-recipes-v1',INV='hytale-craft-inventory-v1',LANG='hytale-craft-language',MODE='hytale-craft-mode-v1',PROJECTS='hytale-craft-projects-v1',PLAN=s=>'hytale-craft-beta-plan-'+s+'-v1';
+const $=id=>document.getElementById(id),KEY='hytale-craft-recipes-v1',INV='hytale-craft-inventory-v1',LANG='hytale-craft-language',MODE='hytale-craft-mode-v1',PROJECTS='hytale-craft-projects-v1',REF_BASKET='hytale-craft-historical-basket-v1',PLAN=s=>'hytale-craft-beta-plan-'+s+'-v1';
 const goals=[['fight','⚔','weapons','lesson:blade'],['defend','⬡','armor','lesson:blade'],['gather','⚒','tools','lesson:pick'],['build','▦','building','lesson:panel'],['survive','♨','food','lesson:strip'],['farm','❧','farming','lesson:strip'],['explore','✧','all','lesson:pick'],['boss','♜','weapons','lesson:blade'],['skills','✦','all','lesson:strip'],['workshop','⚒','benches','lesson:panel']];
 let dict={},locale='en',route=null,scope='demo',mode=read(MODE)==='maker'?'maker':'seeker',rawUser=read(KEY,'{}'),userDb={},broken=false,expanded=false,scrollY=0,opener=null,languageTicket=0,query='',lastGoal='fight',draft={},results=new Map(),quantities=new Map(),examples={},motion=read('hytale-craft-beta-motion','on')!=='off',active=null,motionSerial=0,timers=[],seen=new Set(),atlas=new Map(),selectionTicket=0,queries=new Map(),closing=false;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)'),hover=matchMedia('(hover:hover)');
