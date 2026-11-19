@@ -13,12 +13,17 @@ class Art(base.Guide):
    p.set_viewport_size({'width':393,'height':852});p.screenshot(path=str(out/f'pickaxe-{lang}.png'),full_page=True);self.assertFalse(p.evaluate('[...document.images].some(i=>i.complete&&!i.naturalWidth)'));p.locator('.dw-grid button').first.click();p.go_back();p.wait_for_selector('#craft-path[open]');self.assertFalse(errors);c.close()
  def test_weapon_atlas_crop_cards_compact_and_detail(self):
   """Regression for the 100px guide img cap which exposed unrelated rows of every 4x4 atlas."""
-  out=base.ROOT/'.private/item-art33/screens';out.mkdir(parents=True,exist_ok=True)
+  out=base.ROOT/'.private/stage18/public-screens';out.mkdir(parents=True,exist_ok=True) # CI uploads this existing screenshot directory
   cases=(
    ('Weapon_Battleaxe_Iron','battleaxe','materials.webp'),
    ('Weapon_Daggers_Iron','dagger','weapon-variants.webp'),
    ('Weapon_Mace_Thorium','mace','weapon-variants-additions.webp'),
    ('Weapon_Shield_Iron','shield','weapon-variants.webp'),
+   # Category-level fallback must still show the right silhouette, not neighboring atlas cells.
+   ('Tool_Hatchet_Iron','axe','categories.webp'),
+   ('Weapon_Daggers_Bronze','dagger','extended.webp'),
+   ('Weapon_Mace_Mithril','mace','crafting.webp'),
+   ('Weapon_Spear_Bronze','spear','crafting.webp'),
   )
   for lang in ('en','ru'):
    c=self.browser.new_context(viewport={'width':393,'height':852},locale=lang,reduced_motion='reduce')
@@ -50,17 +55,18 @@ class Art(base.Guide):
      p.set_viewport_size({'width':width,'height':852})
      self.assertFalse(p.evaluate('document.documentElement.scrollWidth>innerWidth'))
      check_crop(icon)
-     p.screenshot(path=str(out/f'{lang}-cards-{width}.png'),full_page=True)
+     p.screenshot(path=str(out/f'art33-{lang}-cards-{width}.png'),full_page=True)
      p.locator('#guide-home .iv-modes button[data-mode=compact]').click()
      self.assertFalse(p.evaluate('document.documentElement.scrollWidth>innerWidth'))
      check_crop(icon)
-     p.screenshot(path=str(out/f'{lang}-compact-{width}.png'),full_page=True)
+     p.screenshot(path=str(out/f'art33-{lang}-compact-{width}.png'),full_page=True)
      p.locator('#guide-home .iv-modes button[data-mode=cards]').click()
     p.locator('#guide-home [data-item="Weapon_Daggers_Iron"]').click()
     detail=p.locator('#sheet-content .iv-art.iv-sprite').first
     detail.wait_for()
     check_crop(detail)
-    p.screenshot(path=str(out/f'{lang}-detail-393.png'),full_page=True)
+    p.set_viewport_size({'width':393,'height':852})
+    p.screenshot(path=str(out/f'art33-{lang}-detail-393.png'),full_page=True)
     self.assertFalse(errors)
    finally:c.close()
 
