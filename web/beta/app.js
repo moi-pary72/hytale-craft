@@ -87,6 +87,40 @@ function referencePath(host,id){
 function referenceDetail(host,id){
  const item=referenceItems[id],hero=n('section',undefined,'dw-panel');hero.append(n('h3',name(id)),referencePicture(id),n('p',item.build+' · '+t('refAvailability'),'muted'));hero.append(n('p',t(item.category||'materials')+' · '+t('catalogState'+referenceModel.status(id))));if(item.item_level!==undefined)hero.append(n('p',t('s23ItemLevel')+': '+item.item_level));if(item.durability!==undefined)hero.append(n('p',t('s23Durability')+': '+item.durability));host.append(hero);
  const r=item.recipe;if(r){const section=n('section',undefined,'dw-panel'),grid=n('div',undefined,'dw-grid');section.append(n('h3',t('ingredients')));for(const [key,q] of Object.entries(r.ingredients)){const b=button('dwInspect',()=>go({view:'catalog',all:true,item:key,reference:true}));b.className='dw-slot';b.replaceChildren(referencePicture(key),n('strong',name(key)),n('span','× '+q));grid.append(b)}section.append(grid,n('p',t('workstations')+': '+[r.station,...(r.alternative_stations||[])].join(' / ')),n('p',r.output_quantity===null?t('refOutput'):t('s23Output')+': ×'+r.output_quantity+' · '+t('refEarlyBuild')));host.append(section)}else host.append(n('p',t('refNoRecipe'),'dw-panel'));
+ if(r?.status==='source-documented-complete'&&Number.isSafeInteger(r.output_quantity)&&r.output_quantity>0){
+  const panel=n('section',undefined,'dw-panel');panel.id='reference-direct';
+  panel.append(n('h3',t('s31Title')),n('p',t('s31Warning'),'muted'));
+  const amount=field(panel,'s31Amount','reference-amount','1','number');amount.min='1';amount.max='999999';amount.inputMode='numeric';
+  const variants=referenceModel.methods(id),selected=variants.length>1?n('select'):null;
+  if(selected){const label=n('label',t('s31Method'));label.htmlFor='reference-method';selected.id='reference-method';for(const m of variants)selected.add(new Option(m.station||m.id,m.id));panel.append(label,selected)}
+  let saved;try{saved=lines(read(INV))}catch{saved=null;panel.append(n('p',t('s31InventoryInvalid'),'muted'))}
+  panel.append(n('p',t('s31OwnedHint'),'muted'));
+  const owned=Object.create(null);
+  for(const key of Object.keys(r.ingredients)){
+   const label=n('label',t('s31Owned')+' — '+referenceName(key)),input=n('input');input.type='number';input.min='0';input.max='999999';input.inputMode='numeric';input.id='reference-owned-'+key;input.dataset.material=key;input.value=String(saved?.[key]??0);label.htmlFor=input.id;owned[key]=input;panel.append(label,input);
+  }
+  const result=n('div');result.id='reference-calculation';result.setAttribute('aria-live','polite');
+  const recalc=button('s31Calculate',()=>{
+   result.replaceChildren();
+   try{
+    const inventory=Object.create(null);
+    for(const [key,input] of Object.entries(owned)){
+     const value=Number(input.value);
+     if(!input.value.trim()||!Number.isSafeInteger(value)||value<0||value>999999)throw Error('inventory');
+     inventory[key]=value;
+    }
+    const plan=referenceModel.directMaterials(id,qty(amount.value),inventory,selected?selected.value:null);
+    result.append(n('p',t('s31Batches')+': '+plan.batches+' · '+t('s31Output')+': '+plan.produced));
+    if(plan.station)result.append(n('p',t('workstations')+': '+plan.station,'muted'));
+    for(const m of plan.materials){
+     const line=n('p',referenceName(m.id)+' — '+t('s31Need')+': '+m.total+' · '+t('s31Owned')+': '+m.owned+' · '+t('s31Missing')+': '+m.missing);
+     line.dataset.material=m.id;result.append(line);
+    }
+    result.append(n('p',t('s31DirectOnly'),'muted'));
+   }catch{result.append(n('p',t('s31Invalid'),'status error'))}
+  });
+  panel.append(recalc,result);host.append(panel);recalc.click();
+ }
  referencePath(host,id);const note=n('details');note.append(n('summary',t('dwProvenance')),n('p',t('refArt'),'muted'),n('p',t(item.source_name==='Hytale Item Laboratory'?'refEarlyScope':item.label_origin==='derived-from-id'?'refIdentityScope':'refScope')));const link=n('a',(item.source_name||'Hytale Source')+' · '+item.build);link.href=item.source_url;link.target='_blank';link.rel='noreferrer';note.append(link,n('code',id,'dw-meta'));host.append(note,button('guideTools',()=>go({view:'more'})));
 }
 function detail(host,id){if(route.reference&&!referenceItems[id]){host.append(n('p',t('refUnavailable'),'dw-panel'),button('home',closeAll));return}if(route.reference&&referenceItems[id]){referenceDetail(host,id);return}CraftDeepUI.detail(host,id,deepContext());if(guide&&!route.calculate){host.append(button('guideTools',()=>go({view:'more'})));return;}const recipe=db()[id];if(!recipe)return;const key=scope+'|'+id,input=field(host,'quantity','quantity',quantities.get(key)||1,'number');input.min='1';input.max='999999';input.oninput=()=>{quantities.set(key,input.value);persistUi()};const actions=n('div',undefined,'actions'),result=n('div');result.id='calculation';
