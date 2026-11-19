@@ -13,7 +13,7 @@ class Reference(base.Guide):
    p.locator('#guide-home [data-item="Weapon_Shield_Iron"]').click()
    p.wait_for_selector('#reference-direct')
    self.assertEqual(p.locator('#reference-owned-Ingredient_Bar_Iron').input_value(),'5')
-   p.fill('#reference-amount','3');p.locator('#reference-direct button').click()
+   p.fill('#reference-amount','3');p.locator('#reference-recalculate').click()
    self.assertIn('12',p.locator('#reference-calculation [data-material="Ingredient_Bar_Iron"]').inner_text())
    self.assertIn('7',p.locator('#reference-calculation [data-material="Ingredient_Bar_Iron"]').inner_text())
    self.assertIn('8',p.locator('#reference-calculation [data-material="Ingredient_Leather_Light"]').inner_text())
