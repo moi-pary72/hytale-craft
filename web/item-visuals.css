@@ -39,3 +39,44 @@ header:has(+main#lab-content){padding-bottom:0}#lab-content .dw-hero{padding:12p
  background:var(--iv-material-accent,#ad986f);
  box-shadow:0 0 0 2px #071321dd,0 0 6px color-mix(in srgb,var(--iv-material-accent,#ad986f) 55%,transparent);
 }
+
+
+/* Material art-direction hierarchy. NOT game rarity, DPS, official tier or item stats.
+   Four visual grades + seven explicit ordinal labels make reused type silhouettes distinguishable.
+   Works on the same .iv-art wrapper in beautiful cards, compact grid, item detail and ingredients. */
+.iv-art[data-art-grade][data-material]{
+ border-color:var(--iv-material-accent,#b9a48b);
+ background:radial-gradient(ellipse at 50% 14%,color-mix(in srgb,var(--iv-material-accent,#9a8258) 18%,#2b3e50),#0a1625 78%);
+ box-shadow:inset 0 0 0 2px #0e2131,inset 0 0 12px #0009,0 0 0 1px color-mix(in srgb,var(--iv-material-accent,#9a8258) 44%,transparent),0 2px 7px #0007;
+}
+.iv-art[data-art-grade=basic]{border-width:1px}
+.iv-art[data-art-grade=forged]{border-width:2px;box-shadow:inset 0 0 0 2px #102438,inset 0 0 15px #0008,0 0 0 1px color-mix(in srgb,var(--iv-material-accent) 55%,transparent),0 2px 8px #0007}
+.iv-art[data-art-grade=enhanced]{border-width:2px;box-shadow:inset 0 0 0 2px #102438,inset 0 0 17px #0008,0 0 0 1px color-mix(in srgb,var(--iv-material-accent) 67%,transparent),0 0 10px color-mix(in srgb,var(--iv-material-accent) 29%,transparent),0 3px 9px #0008}
+.iv-art[data-art-grade=masterwork]{border-width:2px;box-shadow:inset 0 0 0 2px #102438,inset 0 0 22px #0008,0 0 0 1px color-mix(in srgb,var(--iv-material-accent) 85%,white 15%),0 0 15px color-mix(in srgb,var(--iv-material-accent) 42%,transparent),0 3px 10px #0008}
+.iv-art[data-art-grade][data-material]::after{
+ content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+ background:linear-gradient(160deg,color-mix(in srgb,var(--iv-material-accent) 13%,transparent) 0%,transparent 42%,transparent 70%,color-mix(in srgb,var(--iv-material-accent) 12%,transparent) 100%);
+}
+.iv-art[data-art-grade=enhanced][data-material]::after{background:linear-gradient(155deg,color-mix(in srgb,var(--iv-material-accent) 20%,transparent) 0%,transparent 38%,transparent 72%,color-mix(in srgb,var(--iv-material-accent) 20%,transparent) 100%)}
+.iv-art[data-art-grade=masterwork][data-material]::after{background:linear-gradient(155deg,color-mix(in srgb,var(--iv-material-accent) 27%,transparent) 0%,transparent 36%,transparent 68%,color-mix(in srgb,var(--iv-material-accent) 25%,transparent) 100%)}
+/* Replaces the old almost-invisible material dot with a readable numeral + material glyph. */
+.iv-art[data-art-grade][data-material]::before{
+ content:attr(data-art-roman) " " attr(data-art-symbol);
+ display:block;position:absolute;z-index:3;top:3px;right:3px;bottom:auto;left:auto;
+ min-width:24px;width:auto;height:auto;line-height:1.2;padding:3px 4px;
+ border:1px solid var(--iv-material-accent);border-radius:5px;
+ background-color:#0b1728;background-image:linear-gradient(155deg,#172b40eF,#081322F5);
+ color:#f8f4e8;font:800 9px/1.2 system-ui,sans-serif;letter-spacing:.02em;
+ text-align:center;text-shadow:0 1px 2px #000;box-shadow:0 1px 6px #000c;
+ pointer-events:none;
+}
+.iv-art[data-art-grade=basic][data-material]::before{border-radius:3px}
+.iv-art[data-art-grade=enhanced][data-material]::before{background-image:linear-gradient(145deg,color-mix(in srgb,var(--iv-material-accent) 30%,#132237),#081322)}
+.iv-art[data-art-grade=masterwork][data-material]::before{background-image:linear-gradient(145deg,color-mix(in srgb,var(--iv-material-accent) 48%,#172b44),#081322);box-shadow:0 0 7px color-mix(in srgb,var(--iv-material-accent) 34%,transparent),0 1px 6px #0009}
+/* Do not cover the picture in tiny quantity, path or compact inventory slots. */
+.dw-path-link .iv-art[data-art-grade]::before,.dw-result .row .iv-art[data-art-grade]::before,
+.lab-material .iv-art[data-art-grade]::before,.iv-compact .iv-art[data-art-grade]::before{
+ content:attr(data-art-roman);min-width:12px;padding:2px 3px;font-size:8px;
+}
+@media(prefers-contrast:more){.iv-art[data-art-grade][data-material]::before{background:#06101e;color:#fff;border-width:2px}}
+@media(prefers-reduced-motion:reduce){.iv-art[data-art-grade]{transition:none}}

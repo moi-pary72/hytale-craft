@@ -15,3 +15,31 @@ test('generic weapon artwork preserves a type silhouette with a material accent 
   a.equal(item.path,'assets/item-system/categories.webp',material);
  }
 });
+
+test('art-only hierarchy covers all materials without claiming in-game rarity or replacing identity',()=>{
+ const materials=['Copper','Bronze','Iron','Cobalt','Thorium','Mithril','Adamantite'];
+ const expected=['basic','basic','forged','enhanced','enhanced','masterwork','masterwork'];
+ const numerals=['I','II','III','IV','V','VI','VII'];
+ for(let n=0;n<materials.length;n++){
+  const aitem=v.artMaterial({id:'Armor_'+materials[n]+'_Chest'});
+  a.equal(aitem.material,materials[n]);a.equal(aitem.rank,n+1);
+  a.equal(aitem.grade,expected[n]);a.equal(aitem.roman,numerals[n]);
+  a.equal(v.resolve({id:'Armor_'+materials[n]+'_Chest'}).key,'breastplate');
+ }
+ a.equal(v.artMaterial({id:'Armor_Unknown_Chest'}),null);
+ a.equal(v.artMaterial({id:'lesson:blade'}),null);
+ a.equal(v.artMaterial({id:'Weapon_Coppery_Ironwood'}),null);
+ const src=fs.readFileSync('web/item-visuals.js','utf8');
+ a.match(src,/NOT verified Hytale rarity, power or crafting progression/);
+ a.match(src,/box.dataset.artGrade=art.grade/);
+ a.match(src,/delete box.dataset.artGrade/);
+});
+test('visual grades have readable symbolic rank, four distinct styles, compact safe layout',()=>{
+ const css=fs.readFileSync('web/item-visuals.css','utf8');
+ for(const grade of ['basic','forged','enhanced','masterwork'])
+  a.ok(css.includes('[data-art-grade='+grade+']'),grade);
+ a.match(css,/content:attr\(data-art-roman\) " " attr\(data-art-symbol\)/);
+ a.match(css,/\.iv-compact \.iv-art\[data-art-grade\]::before/);
+ a.match(css,/prefers-reduced-motion:reduce/);
+ a.match(css,/prefers-contrast:more/);
+});

@@ -75,4 +75,52 @@ class Art(base.Guide):
     self.assertFalse(errors)
    finally:c.close()
 
+ def test_material_grade_styles_mobile(self):
+  """Material appearance differs in Cards, Compact and detail without inventing rarity data."""
+  out=base.ROOT/'.private/stage18/public-screens';out.mkdir(parents=True,exist_ok=True)
+  grades={'Copper':('basic','I'),'Bronze':('basic','II'),'Iron':('forged','III'),'Cobalt':('enhanced','IV'),'Thorium':('enhanced','V'),'Mithril':('masterwork','VI'),'Adamantite':('masterwork','VII')}
+  for lang in ('ru','en'):
+   c=self.browser.new_context(viewport={'width':393,'height':852},locale=lang,reduced_motion='reduce')
+   p=c.new_page();errors=[];p.on('pageerror',lambda e:errors.append(str(e)))
+   try:
+    p.goto(f'http://127.0.0.1:{self.server.server_port}/')
+    p.wait_for_selector('#guide-search')
+    samples={}
+    for material,(grade,roman) in grades.items():
+     ident=f'Armor_{material}_Chest'
+     p.fill('#guide-search',ident)
+     icon=p.locator(f'#guide-home [data-item="{ident}"] .iv-art').first
+     icon.wait_for()
+     self.assertEqual(icon.get_attribute('data-material'),material)
+     self.assertEqual(icon.get_attribute('data-art-grade'),grade)
+     self.assertEqual(icon.get_attribute('data-art-roman'),roman)
+     style=icon.evaluate('el=>{const s=getComputedStyle(el),b=getComputedStyle(el,"::before");return {outline:s.boxShadow,border:s.borderWidth,content:b.content,bg:b.backgroundColor,display:b.display}}')
+     self.assertIn(roman,style['content'])
+     self.assertNotEqual(style['bg'],'rgba(0, 0, 0, 0)',style)
+     self.assertNotEqual(style['display'],'none',style)
+     samples[material]=style['outline']
+     label=icon.get_attribute('aria-label')
+     self.assertIn('not in-game rarity' if lang=='en' else 'не игровая редкость',label)
+    self.assertNotEqual(samples['Copper'],samples['Adamantite'])
+    self.assertNotEqual(samples['Iron'],samples['Mithril'])
+    p.fill('#guide-search','Armor_')
+    p.wait_for_selector('#guide-home .iv-art[data-art-grade=masterwork]')
+    for width in (320,360,393,430):
+     p.set_viewport_size({'width':width,'height':852})
+     self.assertFalse(p.evaluate('document.documentElement.scrollWidth>innerWidth'))
+     p.screenshot(path=str(out/f'art-grade-{lang}-cards-{width}.png'),full_page=True)
+     p.locator('#guide-home .iv-modes button[data-mode=compact]').click()
+     self.assertFalse(p.evaluate('document.documentElement.scrollWidth>innerWidth'))
+     self.assertGreater(p.locator('#guide-home .iv-art[data-art-grade=masterwork]').count(),0)
+     p.screenshot(path=str(out/f'art-grade-{lang}-compact-{width}.png'),full_page=True)
+     p.locator('#guide-home .iv-modes button[data-mode=cards]').click()
+    p.fill('#guide-search','Armor_Adamantite_Chest')
+    p.locator('#guide-home [data-item="Armor_Adamantite_Chest"]').first.click()
+    detail=p.locator('#sheet-content .iv-art[data-art-grade=masterwork]').first
+    detail.wait_for()
+    self.assertEqual(detail.get_attribute('data-art-roman'),'VII')
+    p.screenshot(path=str(out/f'art-grade-{lang}-detail.png'),full_page=True)
+    self.assertFalse(errors)
+   finally:c.close()
+
 if __name__=='__main__':unittest.main()
